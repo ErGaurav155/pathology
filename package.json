@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.6",
+    "@heroicons/react": "^2.1.1",
     "@hookform/resolvers": "^3.3.4",
+    "@material-tailwind/react": "^2.1.9",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
@@ -30,6 +32,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.50.1",
+    "react-just-parallax": "^3.1.16",
     "stripe": "^14.16.0",
     "svix": "^1.17.0",
     "tailwind-merge": "^2.2.1",
@@ -38,7 +41,7 @@
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "18.2.19",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",

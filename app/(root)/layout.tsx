@@ -1,22 +1,27 @@
-import MobileNav from '@/components/shared/MobileNav'
-import Sidebar from '@/components/shared/Sidebar'
-import { Toaster } from '@/components/ui/toaster'
+import { MobileNavCopy } from "@/components/shared/MobileNavCopy";
+import { SidebarWithLogo } from "@/components/shared/SidebarCopy";
+import { Toaster } from "@/components/ui/toaster";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
+  // const styling = {
+  //   backgroundImage: `url('${bg}')`,
+  //   width: "100%",
+  //   height: "100%",
+  // };
+
   return (
     <main className="root">
-      <Sidebar />
-      <MobileNav />
+      <SidebarWithLogo />
+      {/* <MobileNav /> */}
+      <MobileNavCopy />
 
       <div className="root-container">
-        <div className="wrapper">
-          {children}
-        </div>
+        <div className="wrapper">{children}</div>
       </div>
-      
+
       <Toaster />
     </main>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
