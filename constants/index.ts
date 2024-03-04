@@ -12,14 +12,7 @@ import recording01 from "@/public/assets/recording-01.svg" ;
 import disc02 from "@/public/assets/disc-02.svg" ;
 import chromecast from "@/public/assets/chrome-cast.svg"; 
 import sliders04 from "@/public/assets/sliders-04.svg" ;
-import figma from "@/public/assets/collaboration/figma.png" ;
-import framer from "@/public/assets/collaboration/framer.png" ;
-import notion from "@/public/assets/collaboration/notion.png" ;
-import photoshop from "@/public/assets/collaboration/photoshop.png" ;
-import protopie from "@/public/assets/collaboration/protopie.png" ;
-import raindrop from "@/public/assets/collaboration/raindrop.png" ;
-import slack from "@/public/assets/collaboration/slack.png" ;
-import discord from "@/public/assets/collaboration/discord.png" ;
+
 
 
 
@@ -327,80 +320,4 @@ export const brainwaveServicesIcons = [
   sliders04,
 ];
 
-export const collabText =
-  "With smart automation and top-notch security, it's the perfect solution for teams looking to work smarter.";
-
-export const collabContent = [
-  {
-    id: "0",
-    title: "Seamless Integration",
-    text: collabText,
-  },
-  {
-    id: "1",
-    title: "Smart Automation",
-  },
-  {
-    id: "2",
-    title: "Top-notch Security",
-  },
-];
-
-export const collabApps = [
-  {
-    id: "0",
-    title: "Figma",
-    icon: figma,
-    width: 26,
-    height: 36,
-  },
-  {
-    id: "1",
-    title: "Notion",
-    icon: notion,
-    width: 34,
-    height: 36,
-  },
-  {
-    id: "2",
-    title: "Discord",
-    icon: discord,
-    width: 36,
-    height: 28,
-  },
-  {
-    id: "3",
-    title: "Slack",
-    icon: slack,
-    width: 34,
-    height: 35,
-  },
-  {
-    id: "4",
-    title: "Photoshop",
-    icon: photoshop,
-    width: 34,
-    height: 34,
-  },
-  {
-    id: "5",
-    title: "Protopie",
-    icon: protopie,
-    width: 34,
-    height: 34,
-  },
-  {
-    id: "6",
-    title: "Framer",
-    icon: framer,
-    width: 26,
-    height: 34,
-  },
-  {
-    id: "7",
-    title: "Raindrop",
-    icon: raindrop,
-    width: 38,
-    height: 32,
-  },
-];
+ 

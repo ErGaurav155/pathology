@@ -8,7 +8,7 @@ import { LeftCurve, RightCurve } from "@/components/shared/Svgs/collaborations";
 
 const Collaboration = () => {
   return (
-    <div className="container lg:flex">
+    <div className="container bg-n-8 lg:flex">
       <div className="max-w-[25rem]">
         <h2 className="h2 mb-4 md:mb-8">
           AI Chat App for seamless collaboration

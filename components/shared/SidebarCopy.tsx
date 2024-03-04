@@ -165,6 +165,14 @@ export function SidebarWithLogo() {
                     Title Generator
                   </ListItem>
                 </Link>
+                <Link href="/ai">
+                  <ListItem className="focus:bg-sky-100 hover:bg-sky-100 font-medium text-sm ">
+                    <ListItemPrefix>
+                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                    </ListItemPrefix>
+                    prompt Generator
+                  </ListItem>
+                </Link>
               </List>
             </AccordionBody>
           </Accordion>

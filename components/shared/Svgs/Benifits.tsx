@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Benefits = () => {
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
       {benefits.map((item) => (
         <div
           className={`block   relative p-0.5   bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem]`}

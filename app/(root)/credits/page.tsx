@@ -2,7 +2,6 @@ import { SignedIn, auth } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-import Header from "@/components/shared/Header";
 import { Button } from "@/components/ui/button";
 import { plans } from "@/constants";
 import { getUserById } from "@/lib/actions/user.actions";
@@ -19,15 +18,11 @@ const Credits = async () => {
 
   return (
     <>
-      <Header
-        title="Buy Credits"
-        subtitle="Choose a credit package that suits your needs!"
-      />
       <div className="flex flex-col gap-20">
         <section>
           <ul className="credits-list">
             {plans.map((plan) => (
-              <li key={plan.name} className="credits-item">
+              <li key={plan.name} className="credits-item ">
                 <div className="flex-center flex-col gap-3">
                   <Image src={plan.icon} alt="check" width={50} height={50} />
                   <p className="p-20-semibold mt-2 text-purple-500">
