@@ -23,8 +23,8 @@ const Services = () => {
       />
 
       <div className="relative">
-        <div className="relative z-1  lg:h-[70vh] grid gap-5 lg:grid-cols-2">
-          <div className="relative min-h-[29rem] h-[30vh] lg:h-[80vh] border border-n-1/10 rounded-3xl overflow-hidden">
+        <div className="relative z-1   grid gap-5 lg:grid-cols-2">
+          <div className="relative max-h-[36rem]   min-h-[29rem] h-[30vh] lg:h-[80vh] border border-n-1/10 rounded-3xl overflow-hidden">
             <div className="absolute inset-0">
               <Image
                 src={service2}
@@ -48,7 +48,7 @@ const Services = () => {
             <PhotoChatMessage />
           </div>
 
-          <div className="p-4 bg-n-7 rounded-3xl  overflow-hidden min-h-[29rem] h-[30vh] lg:h-[80vh]">
+          <div className="p-4 bg-n-7 rounded-3xl max-h-[36rem] overflow-hidden min-h-[29rem] h-[30vh] lg:h-[80vh]">
             <div className=" px-4 xl:px-8">
               <h4 className="h4 text-[#95eb49] ">Video generation</h4>
               <p className="body-2 mb-[2rem] text-white">

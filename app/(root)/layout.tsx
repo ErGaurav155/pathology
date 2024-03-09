@@ -10,9 +10,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       <MobileNavCopy />
 
-      <div className="root-container">
-        <div className="wrapper">{children}</div>
-      </div>
+      <div className="root-container">{children}</div>
 
       <Toaster />
     </main>

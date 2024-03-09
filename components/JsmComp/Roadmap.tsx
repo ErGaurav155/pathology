@@ -10,13 +10,13 @@ const Roadmap = () => (
   <div className="container md:pb-10">
     <Heading tag="Ready to get started" title="What we’re working on" />
 
-    <div className="relative grid gap-6 md:grid-cols-2 md:gap-4 md:pb-[7rem]">
+    <div className="relative grid gap-3 lg:gap-6 sm:grid-cols-2 md:gap-4 sm:pb-[7rem]">
       {roadmap.map((item: any) => {
         const status = item.status === "done" ? "Done" : "In progress";
 
         return (
           <div
-            className={`md:flex even:md:translate-y-[7rem] lg:h-[70vh] shadow-lg p-0.25 rounded-[2.5rem] ${
+            className={`md:flex max-h-[34rem] overflow-hidden even:sm:translate-y-[7rem] lg:h-[70vh] shadow-lg p-0.25 rounded-[2.5rem] ${
               item.colorful ? "bg-conic-gradient" : "bg-n-6"
             }`}
             key={item.id}

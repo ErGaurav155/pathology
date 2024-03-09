@@ -47,7 +47,10 @@ export function Faq() {
               actualize our dreams.
             </AccordionBody>
           </div>
-          <div className="flex-auto w-20 flex mr-3 mt-3 justify-center ">
+          <div
+            onClick={() => handleOpen(1)}
+            className="flex-auto w-20 flex mr-3 mt-3 justify-center "
+          >
             {isDrawerOpen !== 1 ? (
               <PlusIcon className="h-8 w-8 stroke-2 text-left" />
             ) : (
@@ -77,7 +80,10 @@ export function Faq() {
               actualize our dreams.
             </AccordionBody>
           </div>
-          <div className="flex-auto w-20 flex mr-3 mt-3 justify-center ">
+          <div
+            onClick={() => handleOpen(2)}
+            className="flex-auto w-20 flex mr-3 mt-3 justify-center "
+          >
             {isDrawerOpen !== 2 ? (
               <PlusIcon className="h-8 w-8 stroke-2 text-left" />
             ) : (
@@ -106,7 +112,10 @@ export function Faq() {
               actualize our dreams.
             </AccordionBody>
           </div>
-          <div className="flex-auto w-20 flex mr-3 mt-3 justify-center ">
+          <div
+            onClick={() => handleOpen(3)}
+            className="flex-auto w-20 flex mr-3 mt-3 justify-center "
+          >
             {isDrawerOpen !== 3 ? (
               <PlusIcon className="h-8 w-8 stroke-2 " />
             ) : (

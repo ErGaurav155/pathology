@@ -2699,3 +2699,67 @@ const EventForm = () => {
 };
 
 export default EventForm;
+
+
+<div className="flex flex-col justify-center gap-10">
+      {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
+      <div className="flex flex-col gap-3">
+        <div className="flex items-center justify-between gap-3">
+          {/* <label
+            htmlFor="time"
+            className="text-sm text-gray-600 dark:text-gray-300 text-nowrap font-semibold"
+          >
+            How many hours will you work today?
+          </label>
+          <input
+            type="number"
+            id="time"
+            step={0.5}
+            min={1}
+            max={24}
+            className="min-w-[7rem] text-gray-800/90 text-center font-medium rounded-md border border-gray-200 bg-yellow-50 hover:bg-yellow-100 shadow-md focus:outline-none focus:border-transparent focus:shadow-none duration-200 ease-in-out hover:shadow-none"
+            value={input}
+            onChange={(e) => setInput(e.currentTarget.value)}
+          /> */}
+          <input
+            type="text"
+            id="description"
+            className="text-sm text-gray-600 w-full rounded-md border border-gray-200 bg-[#f5f0ff] shadow-md focus:outline-none focus:border-transparent focus:shadow-none duration-200 ease-in-out hover:shadow-none"
+            placeholder="Enter task description"
+            value={input}
+            onChange={(e) => setInput(e.currentTarget.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleGeneratePlan();
+              }
+            }}
+          />
+        </div>
+      </div>
+
+      <button
+        type="button"
+        disabled={isPlanGenerating || setInput?.length === 0}
+        onClick={() => handleGeneratePlan()}
+        className="flex items-center justify-center min-w-[7rem] font-medium text-gray-800/90 bg-yellow-50 shadow-md ring-1 ring-inset ring-slate-200 py-2 px-4 rounded-md hover:bg-yellow-100 duration-200 ease-in-out focus:outline-none focus:shadow-none hover:shadow-none disabled:opacity-70 disabled:cursor-not-allowed"
+      >
+        {isPlanGenerating ? (
+          <>
+            <Spinner className="inline-block mr-2 animate-spin" />
+            Generating...
+          </>
+        ) : (
+          "Generate Schedule"
+        )}
+      </button>
+
+      {!!response && (
+        <div className="flex flex-col">
+          <textarea className="text-lg font-semibold text-gray-900 dark:text-white">
+            {response}
+          </textarea>
+
+          {/* <TaskTable schedule={response} /> */}
+        </div>
+      )}
+    </div>

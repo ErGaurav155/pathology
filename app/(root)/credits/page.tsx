@@ -17,7 +17,7 @@ const Credits = async () => {
   const user = await getUserById(userId);
 
   return (
-    <>
+    <div className="wrapper">
       <div className="flex flex-col gap-20">
         <section>
           <ul className="credits-list">
@@ -73,7 +73,7 @@ const Credits = async () => {
         <Faq />
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

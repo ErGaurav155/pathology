@@ -14,15 +14,11 @@ import { getAllImages } from "@/lib/actions/image.actions";
 import bg from "@/public/assets/bg.jpg";
 import Image from "next/image";
 
-const Home = async ({ searchParams }: SearchParamProps) => {
-  const page = Number(searchParams?.page) || 1;
-  const searchQuery = (searchParams?.query as string) || "";
-
-  const images = await getAllImages({ page, searchQuery });
-
+const Home = async () => {
   return (
-    <div className="flex  flex-col gap-20 items-center justify-center">
-      {/* <Image
+    <div className="wrapper pb-8 lg:pb-10">
+      <div className="flex  flex-col gap-20 items-center justify-center">
+        {/* <Image
         alt="blue_background"
         loading="lazy"
         width="2220"
@@ -33,12 +29,13 @@ const Home = async ({ searchParams }: SearchParamProps) => {
         src={bg}
       ></Image> */}
 
-      <Benefits />
-      <Promo />
-      <Services />
-      <Roadmap />
-      <Faq />
-      <Footer />
+        <Benefits />
+        <Promo />
+        <Services />
+        <Roadmap />
+        <Faq />
+        <Footer />
+      </div>
     </div>
   );
 };

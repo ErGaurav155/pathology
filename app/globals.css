@@ -83,16 +83,19 @@
 }
 
 .root-container {
-  @apply mt-16 flex-1 overflow-auto pb-8 lg:mt-0 lg:max-h-screen lg:pb-10
+  @apply mt-16 flex-1  overflow-auto  md:static   lg:mt-0 lg:max-h-screen 
 }
 
 /* ========================================== TAILWIND STYLES */
 @layer utilities {
   /* ===== UTILITIES */
+  
   .wrapper {
-    @apply max-w-5xl mx-auto px-3 md:px-5 w-full text-dark-400 ;
+    @apply max-w-5xl mx-auto px-5 md:px-10 w-full text-dark-400 ;
   }
-
+  .wrapper2 {
+    @apply max-w-7xl mx-auto pr-1 sm:pr-3 md:pr-5  w-full text-dark-400 ;
+  }
   .gradient-text {
     @apply bg-purple-gradient bg-cover bg-clip-text text-transparent;
   }
@@ -178,7 +181,7 @@
   }
 
   .input-field {
-    @apply rounded-[16px] border-2 border-purple-200/20 shadow-sm shadow-purple-200/15 text-dark-600 disabled:opacity-100 p-16-semibold h-[50px] md:h-[54px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent !important;
+    @apply rounded-[16px] border-2 border-purple-200/20 shadow-sm shadow-purple-200/15 text-black text-sm disabled:opacity-100 p-16-semibold h-[50px] md:h-[54px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent !important;
   }
 
   .search-field {
@@ -190,7 +193,7 @@
   }
 
   .select-field {
-    @apply w-full border-2 border-purple-200/20 shadow-sm shadow-purple-200/15 rounded-[16px] h-[50px] md:h-[54px] text-dark-600 p-16-semibold disabled:opacity-100 placeholder:text-dark-400/50 px-4 py-3 focus:ring-offset-0 focus-visible:ring-transparent focus:ring-transparent focus-visible:ring-0 focus-visible:outline-none !important;
+    @apply w-full border-2 border-purple-200/20 shadow-sm shadow-purple-200/15 rounded-[16px] h-[50px] md:h-[54px] text-black text-sm p-16-semibold disabled:opacity-100 placeholder:text-dark-400/50 px-4 py-3 focus:ring-offset-0 focus-visible:ring-transparent focus:ring-transparent focus-visible:ring-0 focus-visible:outline-none !important;
   }
 
   .select-trigger {
@@ -198,7 +201,7 @@
   }
 
   .select-item {
-    @apply py-3 cursor-pointer hover:bg-purple-100;
+    @apply py-2 cursor-pointer hover:bg-purple-100;
   }
 
   .IconButton {
@@ -359,6 +362,15 @@
   .transformed-placeholder {
     @apply flex-center p-14-medium h-full min-h-72 flex-col gap-5 rounded-[16px] border border-dashed bg-purple-100/20 shadow-inner;
   }
+  /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
 }
 
 /* =====  CLERK OVERRIDES */

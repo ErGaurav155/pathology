@@ -88,12 +88,65 @@ declare type CreateTransactionParams = {
   createdAt: Date;
 };
 
-declare type TransformationTypeKey =
-  | "restore"
-  | "fill"
-  | "remove"
-  | "recolor"
-  | "removeBackground";
+// declare type TransformationTypeKey =
+//   | "restore"
+//   | "fill"
+//   | "remove"
+//   | "recolor"
+//   | "removeBackground";
+
+declare type LongVidTypeKey =
+  | "idea"
+  | "title"
+  | "description"
+  | "tags"
+  | "script"
+  | "thumbnail"
+  | "aiimages"
+  | "translate"
+  | "disclamer"
+  | "email";
+
+  declare type ShortVidTypeKey =
+  | "idea"
+  | "title"
+  | "description"
+  | "tags"
+  | "script"
+  | "thumbnail"
+  | "aiimages"
+  | "translate"
+  | "slogan"
+  | "facts"
+  | "quote"
+  | "riddle";
+  
+  declare type ContentWriterTypeKey =
+  | "idea"
+  | "outline"
+  | "article"
+  | "blog"
+  | "book"
+  | "title"
+  | "images"
+  | "summary"
+  | "expander"
+  | "translation"
+  | "coverimage"
+  | "email"
+  | "tag";
+
+  declare type SocialMediaTypeKey =
+  | "idea"
+  | "images"
+  | "bio"
+  | "caption"
+  | "tag"
+  | "description"
+  | "comment"
+  | "tweet"
+  | "avatar"
+  
 
 // ====== URL QUERY PARAMS
 declare type FormUrlQueryParams = {
@@ -113,9 +166,21 @@ declare type RemoveUrlQueryParams = {
   keysToRemove: string[];
 };
 
-declare type SearchParamProps = {
-  params: { id: string; type: TransformationTypeKey };
-  searchParams: { [key: string]: string | string[] | undefined };
+declare type LongSearchParamProps = {
+  params: { id: string; type: LongVidTypeKey };
+  searchParams: { [key: string]: string[] | undefined };
+};
+declare type ShortSearchParamProps = {
+  params: { id: string; type: ShortVidTypeKey };
+  searchParams: { [key: string]: string[] | undefined };
+};
+declare type SocialMediaSearchParamProps = {
+  params: { id: string; type: SocialMediaTypeKey };
+  searchParams: { [key: string]: string[] | undefined };
+};
+declare type ContentWriterSearchParamProps = {
+  params: { id: string; type: ContentWriterTypeKey };
+  searchParams: { [key: string]: string[] | undefined };
 };
 
 declare type TransformationFormProps = {
@@ -126,6 +191,35 @@ declare type TransformationFormProps = {
   data?: IImage | null;
   config?: Transformations | null;
 };
+declare type LongAiFormProps = {
+  
+  userId: string;
+  type: LongVidTypeKey
+  creditBalance: number;
+  
+};
+declare type ShortAiFormProps = {
+  
+  userId: string;
+  type: ShortVidTypeKey
+  creditBalance: number;
+  
+};
+declare type ContentWriterAiFormProps = {
+  
+  userId: string;
+  type: ContentWriterTypeKey
+  creditBalance: number;
+  
+};
+declare type SocialMediaFormProps = {
+  
+  userId: string;
+  type: SocialMediaTypeKey
+  creditBalance: number;
+  
+};
+
 
 declare type TransformedImageProps = {
   image: any;

@@ -7,7 +7,7 @@ import Header from "@/components/shared/Header";
 import { getUserImages } from "@/lib/actions/image.actions";
 import { getUserById } from "@/lib/actions/user.actions";
 
-const Profile = async ({ searchParams }: SearchParamProps) => {
+const Profile = async ({ searchParams }: LongSearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
   const { userId } = auth();
 
@@ -17,7 +17,7 @@ const Profile = async ({ searchParams }: SearchParamProps) => {
   const images = await getUserImages({ page, userId: user._id });
 
   return (
-    <>
+    <div className="wrapper">
       <Header title="Profile" />
 
       <section className="profile">
@@ -57,7 +57,7 @@ const Profile = async ({ searchParams }: SearchParamProps) => {
           page={page}
         />
       </section>
-    </>
+    </div>
   );
 };
 
