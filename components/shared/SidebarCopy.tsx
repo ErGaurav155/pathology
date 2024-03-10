@@ -27,6 +27,12 @@ import {
   TvIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import {
+  InstagramIcon,
+  SquarePenIcon,
+  Tablet,
+  YoutubeIcon,
+} from "lucide-react";
 
 export function SidebarWithLogo() {
   const [open, setOpen] = React.useState(0);
@@ -81,7 +87,7 @@ export function SidebarWithLogo() {
                 className="border-b-0 p-3 focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 "
               >
                 <ListItemPrefix>
-                  <TvIcon className="h-5 w-5" />
+                  <YoutubeIcon className="h-5 w-5" />
                 </ListItemPrefix>
                 <Typography
                   color="blue-gray"
@@ -321,7 +327,7 @@ export function SidebarWithLogo() {
                 className="border-b-0 p-3 focus:bg-sky-100  active:bg-sky-100 hover:bg-sky-100 "
               >
                 <ListItemPrefix>
-                  <DevicePhoneMobileIcon className="h-5 w-5" />
+                  <SquarePenIcon className="h-5 w-5" />
                 </ListItemPrefix>
                 <Typography
                   color="blue-gray"
@@ -465,7 +471,7 @@ export function SidebarWithLogo() {
                 className="border-b-0 p-3 focus:bg-sky-100 active:bg-sky-100 hover:bg-sky-100 "
               >
                 <ListItemPrefix>
-                  <DevicePhoneMobileIcon className="h-5 w-5" />
+                  <InstagramIcon className="h-5 w-5" />
                 </ListItemPrefix>
                 <Typography
                   color="blue-gray"

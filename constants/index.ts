@@ -1435,7 +1435,7 @@ export const socialmediaTypes = {
   },
   images: {
     type: "images",
-    title: "Images Generator",
+    title: "Post Generator",
     topic:"Describe your video or scipt",
     subtopic:"Also inlcude main points ",
     tone:"Choose images style",
@@ -1560,7 +1560,7 @@ export const socialmediaTypes = {
   comment: {
     type: "comment",
     title: "Comment Generator",
-    topic:"Describe the comment",
+    topic:"comment replier",
     subtopic:"Include more information ",
     tone:"Choose a tone ",
     aiprompt:`Given the context provided as input, Generate a witty and unique reply for a given context. Your response should be appropriate for a social media or online discussion setting. Consider the tone, content, and style that would be effective in responding to comments related to the provided context.
@@ -1581,8 +1581,8 @@ export const socialmediaTypes = {
   },
   tweet: {
     type: "tweet",
-    title: "Tweet translator",
-    topic:"Describe the tweet",
+    title: "Tweet Generator",
+    topic:"Tweet replier",
     subtopic:"Include more information ",
     tone:"Choose a tone",
     aiprompt:`Given the context provided as input, generate creative and unique replies to tweets while fact-checking the information presented. Ensure that the response is well-researched and provides factual information, especially if the tweet contains propaganda or misinformation.
@@ -1656,94 +1656,523 @@ export const creditFee = -1;
 
 export const benefits = [
   {
-    id: "0",
-    title: "Ask anything",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
-    // backgroundUrl: "@public/assets/benefits/card-1.svg",
-    iconUrl: benefitIcon1,
-    imageUrl: benefitImage2,
-    light: true,
+    id: 1,
+    longvidTypes: [
+      {
+        id: "0",
+        title: "Video Idea Generator",
+        text: "This idea generator creates the ideas for you - No matter the topic. Give it a try!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/longvid/idea"
+      },
+      {
+        id: "1",
+        title: "Title Generator",
+        text: "Without a catchy title, you won't catch the attention. Let this tool generate the titles for you. They are often better.",
+        // backgroundUrl: "@public/assets/benefits/card-2.svg",
+        iconUrl: benefitIcon2,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/longvid/title"
+      },
+      {
+        id: "2",
+        title: "Description Generator",
+        text: "Nowadays, AI generates better Description for your content than most people, so what are you waiting for?.",
+        // backgroundUrl: "@public/assets/benefits/card-3.svg",
+        iconUrl: benefitIcon3,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/longvid/description"
+      },
+      {
+        id: "3",
+        title: "Tags Generator",
+        text: "Find the best hashtags for your new post which can generate additional clicks and views.",
+        // backgroundUrl: "@/benefits/card-4.svg",
+        iconUrl: benefitIcon4,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/longvid/tags"
+      },
+      {
+        id: "4",
+        title: "Script Generator",
+        text: "Level up your (video) creations with generated scripts that guide you through the creation process.",
+        // backgroundUrl: "@public/assets/benefits/card-5.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/longvid/script"
+      },
+      {
+        id: "5",
+        title: "Thumbnail Generator",
+        text: "Craft Eye-Catching Thumbnails to Boost Clicks and Views Effortlessly!",
+        // backgroundUrl: "@public/assets/benefits/card-6.svg",
+        iconUrl: benefitIcon2,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/longvid/thumbnail"
+      },
+      {
+        id: "6",
+        title: "Ai Images Generator",
+        text: "Generate Stunning Images in Seconds! based on video script or description that can be added to your video to explain topics",
+        // backgroundUrl: "@public/assets/benefits/card-6.svg",
+        iconUrl: benefitIcon2,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/longvid/aiimages"
+      },
+      {
+        id: "7",
+        title: "Script Translator",
+        text: "Break Language Barriers: Translate Texts Seamlessly with Ease! and make your content for worldwide audience",
+        // backgroundUrl: "@public/assets/benefits/card-6.svg",
+        iconUrl: benefitIcon2,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/longvid/translate"
+      },
+      {
+        id: "8",
+        title: "Disclaimer Generator",
+        text: "Protect with Precision: Craft Clear Disclaimers for Legal Confidence!",
+        // backgroundUrl: "@public/assets/benefits/card-6.svg",
+        iconUrl: benefitIcon2,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/longvid/disclamer"
+      },
+      {
+        id: "9",
+        title: "Email Generator",
+        text: "Inspire Engagement with your team: Generate Persuasive Emails with Ease!",
+        // backgroundUrl: "@public/assets/benefits/card-6.svg",
+        iconUrl: benefitIcon2,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/longvid/email"
+      },
+    ],
   },
   {
-    id: "1",
-    title: "Improve everyday",
-    text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
-    // backgroundUrl: "@public/assets/benefits/card-2.svg",
-    iconUrl: benefitIcon2,
-    imageUrl: benefitImage2,
-    light: true,
+    id: 2,
+    shortvidTypes: [
+      {
+        id: "0",
+        title: "Short Video Idea Generator",
+        text: "Unleash Creativity Instantly: Generate Quick Video Ideas for Engaging Content!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link : "/autogen/shortvid/idea"
+      },
+      {
+        id: "1",
+        title: "Title Generator",
+        text: "Without a catchy title, you won't catch the attention. Let this tool generate the titles for you. They are often better.",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link : "/autogen/shortvid/title"
+      },
+      {
+        id: "2",
+        title: "Description Generator",
+        text: "Nowadays, AI generates better Description for your content than most people, so what are you waiting for?.",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link : "/autogen/shortvid/description"
+      },
+      {
+        id: "3",
+        title: "Tags Generator",
+        text: "Find the best hashtags for your new post which can generate additional clicks and views.",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link : "/autogen/shortvid/tags"
+      }
+      ,
+      {
+        id: "4",
+        title: "Script Generator",
+        text: "Level up your (video) creations with generated scripts that guide you through the creation process.",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+
+        link : "/autogen/shortvid/script"
+      },
+      {
+        id: "4",
+        title: "Thumbnail Generator",
+        text: "Craft Eye-Catching Thumbnails to Boost Clicks and Views Effortlessly!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link : "/autogen/shortvid/thumbnail"
+      },
+      {
+        id: "5",
+        title: "Ai Images Generator",
+        text: "Generate Stunning Images in Seconds! based on video script or description that can be added to your video to explain topics",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link : "/autogen/shortvid/aiimages"
+      },
+      {
+        id: "6",
+        title: "script translator",
+        text: "Break Language Barriers: Translate Texts Seamlessly with Ease! and make your content for worldwide audience",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link : "/autogen/shortvid/translate"
+      },
+      {
+        id: "7",
+        title: "Slogan Generator",
+        text: "Craft Unforgettable Brand of video Identities: Generate Catchy Slogans in Seconds to Leave a Lasting Impression!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link : "/autogen/shortvid/slogan"
+      },
+      {
+        id: "8",
+        title: "Facts Generator",
+        text: "Fuel Your Knowledge: Discover Fascinating Facts at Your Fingertips! for your videos",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link : "/autogen/shortvid/facts"
+      },
+      {
+        id: "9",
+        title: "Quote Generator",
+        text: "Inspiration at Your Fingertips: Generate Meaningful Quotes for Every Occasion!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link : "/autogen/shortvid/quote"
+      },
+      {
+        id: "10",
+        title: "Riddle Generator",
+        text: "Unlock the Mystery: Create Enigmatic Riddles to Puzzle and Entertain!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link : "/autogen/shortvid/riddle"
+      },
+      
+    ]
   },
   {
-    id: "2",
-    title: "Connect everywhere",
-    text: "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
-    // backgroundUrl: "@public/assets/benefits/card-3.svg",
-    iconUrl: benefitIcon3,
-    imageUrl: benefitImage2,
-    light: true,
+    id: 3,
+    contentwriterTypes: [
+      {
+        id: "0",
+        title: "content writing Idea Generator",
+        text: "Unleash Creativity Instantly: Generate Quick content writing Ideas for Engaging Content!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/idea"
+      },
+      
+      {
+        id: "1",
+        title: "Outline Generator",
+        text: "Level up your content writing creations with generated content that guide you through the creation process.",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/outline"
+      },
+      {
+        id: "2",
+        title: "Article Generator",
+        text: "Empower Your Content Strategy: Effortlessly Generate Engaging Articles for Every Audience!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/article"
+      },
+      {
+        id: "3",
+        title: "Blog Generator",
+        text: "Effortless Content Creation: Generate Dynamic Blog Posts for Every Niche and Audience!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/blog"
+      },
+      {
+        id: "4",
+        title: "Book Generator",
+        text: "Unleash Your Imagination: Create Entire Worlds with Our Book Generator!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/book"
+      },
+      {
+        id: "5",
+        title: "Title Generator",
+        text: "Without a catchy title, you won't catch the attention. Let this tool generate the titles for you. They are often better.",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+
+        link: "/autogen/contentwriter/title"
+      },
+      
+      {
+        id: "6",
+        title: "Tags Generator",
+        text: "Find the best hashtags for your new post which can generate additional clicks and views.",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/images"
+      }
+      ,
+      {
+        id: "7",
+        title: "Ai Images Generator",
+        text: "Generate Stunning Images in Seconds! based on video script or description that can be added to your video to explain topics",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/summary"
+      },
+      {
+        id: "8",
+        title: "translation",
+        text: "Break Language Barriers: Translate Texts Seamlessly with Ease! and make your content for worldwide audience",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/expander"
+      },
+      
+      {
+        id: "9",
+        title: "Book CoverImage Generator",
+        text: "Design Your Story: Craft Captivating Book Cover Images with Ease!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/translation"
+      },
+      {
+        id: "10",
+        title: "Expander Generator",
+        text: "Expand Your Ideas: Amplify Your Text with Our Expander Generator!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/coverimage"
+      },
+      {
+        id: "11",
+        title: "Summary Generator",
+        text: "Nowadays, AI generates better Summary for your content than most people, so what are you waiting for?.",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/email"
+      },
+      {
+        id: "12",
+        title: "Slogan Generator",
+        text: "Craft Unforgettable Brand of video Identities: Generate Catchy Slogans in Seconds to Leave a Lasting Impression!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/slogan"
+      },
+      {
+        id: "13",
+        title: "Email Generator",
+        text: "Inspire Engagement with your team: Generate Persuasive Emails with Ease!",
+        // backgroundUrl: "@public/assets/benefits/card-6.svg",
+        iconUrl: benefitIcon2,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/autogen/contentwriter/email"
+      },
+      
+    ]
   },
   {
-    id: "3",
-    title: "Fast responding",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
-    // backgroundUrl: "@/benefits/card-4.svg",
-    iconUrl: benefitIcon4,
-    imageUrl: benefitImage2,
-    light: true,
-  },
-  {
-    id: "4",
-    title: "Ask anything",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
-    // backgroundUrl: "@public/assets/benefits/card-5.svg",
-    iconUrl: benefitIcon1,
-    imageUrl: benefitImage2,
-    light: true,
-  },
-  {
-    id: "5",
-    title: "Improve everyday",
-    text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
-    // backgroundUrl: "@public/assets/benefits/card-6.svg",
-    iconUrl: benefitIcon2,
-    imageUrl: benefitImage2,
-    light: true,
-  },
+    id: 4,
+    socialmediaTypes: [
+      {
+        id: "0",
+        title: "Posts Idea Generator",
+        text: "Spark Your Creativity: Generate Endless Post Ideas for Engaging Content!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/socialmedia/idea"
+      },
+      {
+        id: "1",
+        title: "Post Generator",
+        text: "Revolutionize Your Content Creation: Generate Dynamic Posts with AI-Powered Precision!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/socialmedia/images"
+      },
+      {
+        id: "2",
+        title: "Bio Generator",
+        text: "Craft Your Digital Identity: Personalize Your Social Media Bio with Ease!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/socialmedia/bio"
+      },
+      {
+        id: "3",
+        title: "Tags Generator",
+        text: "Find the best hashtags for your new post which can generate additional clicks and views.",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/socialmedia/tag"
+      }
+      ,
+      {
+        id: "4",
+        title: "Caption Generator",
+        text: "Create a unique and customized social media bio for all major social media platforms in minutes for personal or professional needs.",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/socialmedia/caption"
+      },
+      {
+        id: "5",
+        title: "Description Generator",
+        text: "Capture Attention: Craft Compelling Post Descriptions with Ease!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/socialmedia/description"
+      },
+      {
+        id: "6",
+        title: "Comment replier",
+        text: "Engage with Ease: Craft Personalized Replies with Our Comment Replier!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/socialmedia/comment"
+      },
+      {
+        id: "7",
+        title: "Tweet replier",
+        text:"Swift Engagement: Personalize Your Responses with Our Tweet Replier!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/socialmedia/tweet"
+      },
+      {
+        id: "8",
+        title: "Avatar Generator",
+        text: "Avatar Personalization Made Easy: Create Unique Social Media Avatars Effortlessly!",
+        // backgroundUrl: "@public/assets/benefits/card-1.svg",
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+        light: true,
+        link:"/autogen/socialmedia/avatar"
+      },
+      
+      
+    ]
+  }
 ];
+
 
 export const roadmap = [
   {
     id: "0",
-    title: "Voice recognition",
-    text: "Enable the chatbot to understand and respond to voice commands, making it easier for users to interact with the app hands-free.",
-    date: "May 2023",
+    title: "Audio Generation",
+    text: "With this create content in any language by distroying language barrier",
+    date: "dec 2023",
     status: "done",
     imageUrl: roadmap1,
     colorful: true,
   },
   {
     id: "1",
-    title: "Gamification",
-    text: "Add game-like elements, such as badges or leaderboards, to incentivize users to engage with the chatbot more frequently.",
-    date: "May 2023",
-    status: "progress",
+    title: "Text Generation",
+    text: "AI models like GPT-3 can understand context, style, and audience preferences, enabling tailored content generation",
+    date: "dec 2023",
+    status: "done",
     imageUrl: roadmap2,
     colorful: true,
   },
   {
     id: "2",
-    title: "Chatbot customization",
-    text: "Allow users to customize the chatbot's appearance and behavior, making it more engaging and fun to interact with.",
-    date: "May 2023",
+    title: "Images Generation",
+    text: "Algorithms like DALL-E models can produce diverse and high-quality images across various styles and themes",
+    date: "dec 2023",
     status: "done",
     imageUrl: roadmap3,
     colorful: true,
   },
   {
     id: "3",
-    title: "Integration with APIs",
-    text: "Allow the chatbot to access external data sources, such as weather APIs or news APIs, to provide more relevant recommendations.",
-    date: "May 2023",
+    title: "Video Generation",
+    text: " AI can generate engaging video content to specific audiences,saving time and resources of content creators",
+    date: "May 2024",
     status: "progress",
     imageUrl: roadmap4,
     colorful: true,

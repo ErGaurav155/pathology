@@ -6,7 +6,7 @@ import { Footer } from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import Promo from "@/components/shared/Promotion";
 
-import Benefits from "@/components/shared/Svgs/Benifits";
+import { TabsDemo } from "@/components/shared/ToolsTab";
 
 import { navLinks } from "@/constants";
 import { getAllImages } from "@/lib/actions/image.actions";
@@ -17,7 +17,7 @@ import Image from "next/image";
 const Home = async () => {
   return (
     <div className="wrapper pb-8 lg:pb-10">
-      <div className="flex  flex-col gap-20 items-center justify-center">
+      <div className="flex  flex-col gap-20 items-center m-auto justify-center">
         {/* <Image
         alt="blue_background"
         loading="lazy"
@@ -28,8 +28,8 @@ const Home = async () => {
         className="absolute w-[140vw] max-w-[250vw] overflow-x-hidden top-[-450px] overflow-visible h-fit object-cover"
         src={bg}
       ></Image> */}
-
-        <Benefits />
+        <TabsDemo />
+        {/* <Benefits /> */}
         <Promo />
         <Services />
         <Roadmap />
