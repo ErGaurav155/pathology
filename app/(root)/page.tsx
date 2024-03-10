@@ -9,7 +9,6 @@ import Promo from "@/components/shared/Promotion";
 import { TabsDemo } from "@/components/shared/ToolsTab";
 
 import { navLinks } from "@/constants";
-import { getAllImages } from "@/lib/actions/image.actions";
 
 import bg from "@/public/assets/bg.jpg";
 import Image from "next/image";
