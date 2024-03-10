@@ -1,6 +1,5 @@
 import Roadmap from "@/components/JsmComp/Roadmap";
 import Services from "@/components/JsmComp/Services";
-import { Collection } from "@/components/shared/Collection";
 import { Faq } from "@/components/shared/Faq";
 import { Footer } from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
