@@ -607,9 +607,10 @@ export const longvidTypes = {
     4. Aim for originality and a description that sparks curiosity or emotion that easily understand by peoples.
     5.  Ensure by default generate output in hinglish language if no language is provided in context.
     
-    Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.
+    Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.`,
     
-    `,
+    
+    model:"gpt-3.5-turbo",
   },
   tags: {
     type: "tags",
