@@ -42,12 +42,12 @@ const Editor = () => {
   };
 
   return (
-    <div className="min-h-max h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
+    <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
       <Textarea
         value={textToCopy}
         onChange={handleTextChange}
         placeholder="Enter Text To Edit"
-        className="w-full min-h-[70vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
+        className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
       />
       <Button
         type="submit"

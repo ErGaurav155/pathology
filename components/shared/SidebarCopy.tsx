@@ -107,6 +107,14 @@ export function SidebarWithLogo() {
                     Idea Generator
                   </ListItem>
                 </Link>
+                <Link href="/autogen/longvid/all">
+                  <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                    <ListItemPrefix>
+                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                    </ListItemPrefix>
+                    All-in-One
+                  </ListItem>
+                </Link>
                 <Link href="/autogen/longvid/title">
                   <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                     <ListItemPrefix>
@@ -217,6 +225,14 @@ export function SidebarWithLogo() {
                       <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                     </ListItemPrefix>
                     Video Idea
+                  </ListItem>
+                </Link>
+                <Link href="/autogen/shortvid/all">
+                  <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
+                    <ListItemPrefix>
+                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                    </ListItemPrefix>
+                    All-in-One
                   </ListItem>
                 </Link>
                 <Link href="/autogen/shortvid/title">
@@ -345,6 +361,14 @@ export function SidebarWithLogo() {
                       <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                     </ListItemPrefix>
                     Idea
+                  </ListItem>
+                </Link>
+                <Link href="/autogen/contentwriter/all">
+                  <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
+                    <ListItemPrefix>
+                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                    </ListItemPrefix>
+                    All-in-One
                   </ListItem>
                 </Link>
                 <Link href="/autogen/contentwriter/outline">
@@ -489,6 +513,14 @@ export function SidebarWithLogo() {
                       <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                     </ListItemPrefix>
                     Idea
+                  </ListItem>
+                </Link>
+                <Link href="/autogen/socialmedia/all">
+                  <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
+                    <ListItemPrefix>
+                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                    </ListItemPrefix>
+                    All-in-one
                   </ListItem>
                 </Link>
                 <Link href="/autogen/socialmedia/images">

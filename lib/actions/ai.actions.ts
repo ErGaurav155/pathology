@@ -1,6 +1,8 @@
 "use server";
 
+import { aiprompt } from "@/constants";
 import OpenAI from "openai";
+import { string } from "zod";
 
 
 
@@ -54,3 +56,71 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
       return JSON.parse(gptArgs);
     } 
   
+
+    
+    // async function fetchData(apiKey: string, prompt: string): Promise<any> {
+    //     const response = await axios.post('https://api.openai.com/v1/completions', {
+    //         prompt: prompt,
+    //         max_tokens: 100,
+    //     }, {
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${apiKey}`,
+    //         }
+    //     });
+    //     return response.data;
+    // }
+    const longvidTypes =
+    aiprompt.find((item) => item.id === 1)?.longvidTypes || [];
+  const shortvidTypes =
+  aiprompt.find((item) => item.id === 2)?.shortvidTypes || [];
+  const contentwriterTypes =
+  aiprompt.find((item) => item.id === 3)?.contentwriterTypes || [];
+  const socialmediaTypes =
+  aiprompt.find((item) => item.id === 4)?.socialmediaTypes || [];
+    // Function to make multiple requests simultaneously
+  export  async function fetchLongVidData({ input,inputlag, outputlag,tone,description, model, } :{input:string,inputlag:string | undefined, outputlag:string | undefined,tone:string | undefined,description:string | undefined,model:string} ): Promise<any[]> {
+
+      if (openai instanceof Error) {
+        throw openai;
+      }
+
+        const promises = longvidTypes.map((aiprompt:string) => generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt, model } ));
+        return await Promise.all(promises);
+    }
+    
+    // Example usage
+    export  async function fetchShortVidData({ input,inputlag, outputlag,tone,description, model, } :{input:string,inputlag:string | undefined, outputlag:string | undefined,tone:string | undefined,description:string | undefined,model:string} ): Promise<any[]> {
+
+      if (openai instanceof Error) {
+        throw openai;
+      }
+
+        const promises = shortvidTypes.map((aiprompt:string) => generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt, model } ));
+        return await Promise.all(promises);
+    }
+    
+
+    export  async function fetchContentWriterData({ input,inputlag, outputlag,tone,description, model, } :{input:string,inputlag:string | undefined, outputlag:string | undefined,tone:string | undefined,description:string | undefined,model:string} ): Promise<any[]> {
+
+      if (openai instanceof Error) {
+        throw openai;
+      }
+
+        const promises = contentwriterTypes.map((aiprompt:string) => generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt, model } ));
+        return await Promise.all(promises);
+    }
+    
+
+    export  async function fetchSocialMediaData({ input,inputlag, outputlag,tone,description, model, } :{input:string,inputlag:string | undefined, outputlag:string | undefined,tone:string | undefined,description:string | undefined,model:string} ): Promise<any[]> {
+
+      if (openai instanceof Error) {
+        throw openai;
+      }
+
+        const promises = socialmediaTypes.map((aiprompt:string) => generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt, model } ));
+        return await Promise.all(promises);
+    }
+    
+    
+    

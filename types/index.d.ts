@@ -105,7 +105,10 @@ declare type LongVidTypeKey =
   | "aiimages"
   | "translate"
   | "disclamer"
-  | "email";
+  | "email"
+  | "all"
+  
+;
 
   declare type ShortVidTypeKey =
   | "idea"
@@ -119,7 +122,9 @@ declare type LongVidTypeKey =
   | "slogan"
   | "facts"
   | "quote"
-  | "riddle";
+  | "riddle"
+  | "all"
+;
   
   declare type ContentWriterTypeKey =
   | "idea"
@@ -134,7 +139,10 @@ declare type LongVidTypeKey =
   | "translation"
   | "coverimage"
   | "email"
-  | "tag";
+  | "tag"
+  | "all"
+  
+;
 
   declare type SocialMediaTypeKey =
   | "idea"
@@ -146,8 +154,9 @@ declare type LongVidTypeKey =
   | "comment"
   | "tweet"
   | "avatar"
+  |  "all"
   
-
+;
 // ====== URL QUERY PARAMS
 declare type FormUrlQueryParams = {
   searchParams: string;

@@ -10,28 +10,28 @@ const Promo = () => {
           Natural, Human voices
         </h2>
         <p className="text-[#353C4499]/60 text-center font-normal max-w-[384px] text-base leading-6 tracking-tight">
-          Listnr lets you create voiceovers with 1000+ different voices in over
-          142 languages.
+          Cricon lets you create voiceovers with different voices over multiple
+          languages.
         </p>
       </div>
       <div className="flex flex-col justify-start items-center gap-y-4">
         <ThermometerSunIcon color="#32517D" className="h-10 w-10" />
         <h2 className="text-center font-medium text-[#32517D] text-lg leading-7 tracking-tight">
-          Emotion Fine Tuning
+          Creative text generation
         </h2>
         <p className="text-[#353C4499]/60 text-center font-normal max-w-[384px] text-base leading-6 tracking-tighter">
-          Listnr lets you create voiceovers with 1000+ different voices in over
-          142 languages.
+          Cricon lets you create text content in multiple languages with
+          creativity.
         </p>
       </div>
       <div className="flex flex-col justify-start items-center gap-y-4">
         <SlidersIcon color="#32517D" className="h-10 w-10" />
         <h2 className="text-center font-medium text-[#32517D] text-base leading-7 tracking-tight">
-          Punctuations and Pauses
+          Thumbnail,Posters,Ai-images
         </h2>
         <p className="text-[#353C4499]/60 text-center font-normal max-w-[384px] text-base leading-6 tracking-tighter">
-          Listnr lets you create voiceovers with 1000+ different voices in over
-          142 languages.
+          Cricon lets you create Image generation making easy ai image
+          generation with best quality.
         </p>
       </div>
     </div>

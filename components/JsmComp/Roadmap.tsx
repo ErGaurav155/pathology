@@ -7,8 +7,13 @@ import loading1 from "@/public/assets/loading-01.svg";
 import Image from "next/image";
 
 const Roadmap = () => (
-  <div className="container md:pb-10">
-    <Heading tag="Ready to get started" title="What we’re working on" />
+  <div className="container md:pb-10 ">
+    <div className="flex mb-5 items-center justify-center">
+      <h2 className="h2 text-[#183052]">[Our main</h2>
+
+      <h2 className="h2 text-[rgb(249,91,194)]"> ...Features</h2>
+      <h2 className="h2 text-[#183052]">]</h2>
+    </div>
 
     <div className="relative grid gap-3 lg:gap-6 sm:grid-cols-2 md:gap-4 sm:pb-[7rem]">
       {roadmap.map((item: any) => {

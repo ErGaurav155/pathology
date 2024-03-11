@@ -22,10 +22,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { toast } from "@/components/ui/use-toast";
+import { toast, useToast } from "@/components/ui/use-toast";
 import Link from "next/link";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   aiImages,
   contentwriterTypes,
@@ -36,9 +36,13 @@ import {
   shortvidTypes,
 } from "@/constants";
 import { redirect } from "next/navigation";
-import { generateGptResponse } from "@/lib/actions/ai.actions";
+import {
+  fetchShortVidData,
+  generateGptResponse,
+} from "@/lib/actions/ai.actions";
 import { updateCredits } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
+import { Copy } from "lucide-react";
 
 const formSchema = z.object({
   input: z.string().min(2, {
@@ -79,6 +83,40 @@ export default function ShortVidAiForm({
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const shortVid = shortvidTypes[type];
+  const [isActive, setIsActive] = useState(false);
+  const [textToCopy, setTextToCopy] = useState("");
+
+  const { toast } = useToast();
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+
+    if (isActive) {
+      timer = setTimeout(() => {
+        setIsActive(false);
+      }, 3000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [isActive]);
+
+  const handleCopyButtonClick = () => {
+    if (textToCopy) {
+      navigator.clipboard.writeText(textToCopy);
+      setIsActive(true);
+    } else {
+      toast({
+        title: "Plz Enter Text",
+        description: "No text in textbox",
+        duration: 5000,
+        className: "error-toast",
+      });
+    }
+  };
+
+  const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setTextToCopy(event.target.value);
+  };
 
   let {
     type: string,
@@ -90,8 +128,8 @@ export default function ShortVidAiForm({
     model,
   } = shortVid;
 
-  const [response, setResponse] = useState<string>("");
-
+  const [response, setResponse] = useState<string | null>();
+  const [allResponse, setAllResponse] = useState<string[] | null>();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -105,18 +143,33 @@ export default function ShortVidAiForm({
     const { input, inputlag, outputlag, tone, description } = values;
 
     try {
-      const response = await generateGptResponse({
-        input,
-        tone,
-        inputlag,
-        outputlag,
-        description,
-        aiprompt,
-        model,
-      });
-      if (response) {
-        await updateCredits(userId, creditFee);
-        setResponse(response);
+      if (type !== "all") {
+        const res = await generateGptResponse({
+          input,
+          tone,
+          inputlag,
+          outputlag,
+          description,
+          aiprompt,
+          model,
+        });
+        if (res) {
+          await updateCredits(userId, creditFee);
+          setResponse(res);
+        }
+      } else {
+        const res = await fetchShortVidData({
+          input,
+          tone,
+          inputlag,
+          outputlag,
+          description,
+          model,
+        });
+        if (res) {
+          await updateCredits(userId, creditFee);
+          setAllResponse(res);
+        }
       }
     } catch (err: any) {
       toast({
@@ -130,34 +183,241 @@ export default function ShortVidAiForm({
     }
   }
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
-        <FormField
-          control={form.control}
-          name="input"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{topic}</FormLabel>
-              <FormControl>
-                <Input
-                  className="select-field "
-                  placeholder="shadcn"
-                  {...field}
-                />
-              </FormControl>
+    <div>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
+          <FormField
+            control={form.control}
+            name="input"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{topic}</FormLabel>
+                <FormControl>
+                  <Input
+                    className="select-field "
+                    placeholder="shadcn"
+                    {...field}
+                  />
+                </FormControl>
 
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div className="flex ">
-          {type === "translate" && (
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <div className="flex ">
+            {type === "translate" && (
+              <FormField
+                control={form.control}
+                name="tone"
+                render={({ field }) => (
+                  <FormItem className="flex-auto">
+                    <FormLabel>{tone}</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger className="select-field">
+                          <SelectValue placeholder="Select a verified tone to display" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {languages.map((language, index) => (
+                          <SelectItem
+                            key={index}
+                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center flex"
+                            value={language}
+                          >
+                            {language}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+            {type === "translate" && (
+              <FormField
+                control={form.control}
+                name="tone"
+                render={({ field }) => (
+                  <FormItem className="flex-auto">
+                    <FormLabel>{tone}</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger className="select-field">
+                          <SelectValue placeholder="Select a verified tone to display" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {languages.map((language, index) => (
+                          <SelectItem
+                            key={index}
+                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center flex"
+                            value={language}
+                          >
+                            {language}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+          </div>
+
+          {type === "slogan" && (
             <FormField
               control={form.control}
               name="tone"
               render={({ field }) => (
-                <FormItem className="flex-auto">
+                <FormItem>
+                  <FormLabel>{tone}</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="select-field ">
+                        <SelectValue placeholder="Select a verified tone to display" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {email.map((email, index) => (
+                        <SelectItem
+                          key={index}
+                          className="bg-white hover:bg-gray-100 text-black text-lg  py-2 px- mb-4 m-auto text-center flex min-w-max"
+                          value={email}
+                        >
+                          {email}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
+          {type === "facts" && (
+            <FormField
+              control={form.control}
+              name="tone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{tone}</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="select-field ">
+                        <SelectValue placeholder="Select a verified tone to display" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {email.map((email, index) => (
+                        <SelectItem
+                          key={index}
+                          className="bg-white hover:bg-gray-100 text-black text-lg  py-2 px- mb-4 m-auto text-center flex min-w-max"
+                          value={email}
+                        >
+                          {email}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
+          {type === "quote" && (
+            <FormField
+              control={form.control}
+              name="tone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{tone}</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="select-field ">
+                        <SelectValue placeholder="Select a verified tone to display" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {email.map((email, index) => (
+                        <SelectItem
+                          key={index}
+                          className="bg-white hover:bg-gray-100 text-black text-lg  py-2 px- mb-4 m-auto text-center flex min-w-max"
+                          value={email}
+                        >
+                          {email}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
+          {type === "riddle" && (
+            <FormField
+              control={form.control}
+              name="tone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{tone}</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="select-field ">
+                        <SelectValue placeholder="Select a verified tone to display" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {email.map((email, index) => (
+                        <SelectItem
+                          key={index}
+                          className="bg-white hover:bg-gray-100 text-black text-lg  py-2 px- mb-4 m-auto text-center flex min-w-max"
+                          value={email}
+                        >
+                          {email}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
+          {type === "aiimages" && (
+            <FormField
+              control={form.control}
+              name="tone"
+              render={({ field }) => (
+                <FormItem>
                   <FormLabel>{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
@@ -169,14 +429,25 @@ export default function ShortVidAiForm({
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {languages.map((language, index) => (
-                        <SelectItem
-                          key={index}
-                          className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center flex"
-                          value={language}
+                      {aiImages.map((categoryObj: AiImages) => (
+                        <div
+                          key={categoryObj.category}
+                          className="bg-white text-gray-700 text-lg font-bold py-2 px-4 my-8 text-center  "
                         >
-                          {language}
-                        </SelectItem>
+                          {categoryObj.category}
+
+                          {categoryObj.values.map(
+                            (value: string, index: number) => (
+                              <SelectItem
+                                key={`${categoryObj.category}-${index}`}
+                                className="select-item min-w-max "
+                                value={value}
+                              >
+                                {value}
+                              </SelectItem>
+                            )
+                          )}
+                        </div>
                       ))}
                     </SelectContent>
                   </Select>
@@ -186,12 +457,12 @@ export default function ShortVidAiForm({
               )}
             />
           )}
-          {type === "translate" && (
+          {type === "thumbnail" && (
             <FormField
               control={form.control}
               name="tone"
               render={({ field }) => (
-                <FormItem className="flex-auto">
+                <FormItem>
                   <FormLabel>{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
@@ -203,14 +474,25 @@ export default function ShortVidAiForm({
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {languages.map((language, index) => (
-                        <SelectItem
-                          key={index}
-                          className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center flex"
-                          value={language}
+                      {aiImages.map((categoryObj: AiImages) => (
+                        <div
+                          key={categoryObj.category}
+                          className="bg-white text-gray-700 text-lg font-bold py-2 px-4 my-8 text-center "
                         >
-                          {language}
-                        </SelectItem>
+                          {categoryObj.category}
+
+                          {categoryObj.values.map(
+                            (value: string, index: number) => (
+                              <SelectItem
+                                key={`${categoryObj.category}-${index}`}
+                                className="select-item min-w-max "
+                                value={value}
+                              >
+                                {value}
+                              </SelectItem>
+                            )
+                          )}
+                        </div>
                       ))}
                     </SelectContent>
                   </Select>
@@ -220,261 +502,146 @@ export default function ShortVidAiForm({
               )}
             />
           )}
-        </div>
-
-        {type === "slogan" && (
           <FormField
             control={form.control}
-            name="tone"
+            name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{tone}</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="select-field ">
-                      <SelectValue placeholder="Select a verified tone to display" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {email.map((email, index) => (
-                      <SelectItem
-                        key={index}
-                        className="bg-white hover:bg-gray-100 text-black text-lg  py-2 px- mb-4 m-auto text-center flex min-w-max"
-                        value={email}
-                      >
-                        {email}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-
+                <FormLabel>{subtopic}</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Eg. provide some ideas related to gaming niche"
+                    className="rounded-[16px] border-2 border-purple-200/20 shadow-sm shadow-purple-200/15  disabled:opacity-100 p-16-semibold h-[50px] md:h-[54px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent resize-none text-black text-xs"
+                    {...field}
+                  />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
+
+          <Button
+            type="submit"
+            key="submitButton"
+            className="submit-button capitalize"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </Button>
+        </form>
+      </Form>
+      <div>
+        {response && (
+          <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
+            <Textarea
+              value={textToCopy}
+              onChange={handleTextChange}
+              placeholder="Enter Text To Edit"
+              className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
+            />
+            <Button
+              type="submit"
+              onClick={handleCopyButtonClick}
+              className={`rounded-md self-end mt-3 max-h-min  ${
+                isActive
+                  ? "text-white bg-green-800 hover:bg-[#1c7429]"
+                  : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
+              }  text-md font-bold h-[3.2rem]  min-w-max `}
+            >
+              <Copy size={20} strokeWidth={2} />
+              {isActive ? "Copied" : "Copy"}
+            </Button>
+          </div>
         )}
-        {type === "facts" && (
-          <FormField
-            control={form.control}
-            name="tone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{tone}</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="select-field ">
-                      <SelectValue placeholder="Select a verified tone to display" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {email.map((email, index) => (
-                      <SelectItem
-                        key={index}
-                        className="bg-white hover:bg-gray-100 text-black text-lg  py-2 px- mb-4 m-auto text-center flex min-w-max"
-                        value={email}
-                      >
-                        {email}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        {allResponse && (
+          <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
+            <Textarea
+              value={textToCopy}
+              onChange={handleTextChange}
+              placeholder="Enter Text To Edit"
+              className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
+            />
+            <Button
+              type="submit"
+              onClick={handleCopyButtonClick}
+              className={`rounded-md self-end mt-3 max-h-min  ${
+                isActive
+                  ? "text-white bg-green-800 hover:bg-[#1c7429]"
+                  : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
+              }  text-md font-bold h-[3.2rem]  min-w-max `}
+            >
+              <Copy size={20} strokeWidth={2} />
+              {isActive ? "Copied" : "Copy"}
+            </Button>
+          </div>
         )}
-        {type === "quote" && (
-          <FormField
-            control={form.control}
-            name="tone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{tone}</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="select-field ">
-                      <SelectValue placeholder="Select a verified tone to display" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {email.map((email, index) => (
-                      <SelectItem
-                        key={index}
-                        className="bg-white hover:bg-gray-100 text-black text-lg  py-2 px- mb-4 m-auto text-center flex min-w-max"
-                        value={email}
-                      >
-                        {email}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        {allResponse && (
+          <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
+            <Textarea
+              value={textToCopy}
+              onChange={handleTextChange}
+              placeholder="Enter Text To Edit"
+              className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
+            />
+            <Button
+              type="submit"
+              onClick={handleCopyButtonClick}
+              className={`rounded-md self-end mt-3 max-h-min  ${
+                isActive
+                  ? "text-white bg-green-800 hover:bg-[#1c7429]"
+                  : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
+              }  text-md font-bold h-[3.2rem]  min-w-max `}
+            >
+              <Copy size={20} strokeWidth={2} />
+              {isActive ? "Copied" : "Copy"}
+            </Button>
+          </div>
         )}
-        {type === "riddle" && (
-          <FormField
-            control={form.control}
-            name="tone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{tone}</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="select-field ">
-                      <SelectValue placeholder="Select a verified tone to display" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {email.map((email, index) => (
-                      <SelectItem
-                        key={index}
-                        className="bg-white hover:bg-gray-100 text-black text-lg  py-2 px- mb-4 m-auto text-center flex min-w-max"
-                        value={email}
-                      >
-                        {email}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        {allResponse && (
+          <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
+            <Textarea
+              value={textToCopy}
+              onChange={handleTextChange}
+              placeholder="Enter Text To Edit"
+              className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
+            />
+            <Button
+              type="submit"
+              onClick={handleCopyButtonClick}
+              className={`rounded-md self-end mt-3 max-h-min  ${
+                isActive
+                  ? "text-white bg-green-800 hover:bg-[#1c7429]"
+                  : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
+              }  text-md font-bold h-[3.2rem]  min-w-max `}
+            >
+              <Copy size={20} strokeWidth={2} />
+              {isActive ? "Copied" : "Copy"}
+            </Button>
+          </div>
         )}
-        {type === "aiimages" && (
-          <FormField
-            control={form.control}
-            name="tone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{tone}</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="select-field">
-                      <SelectValue placeholder="Select a verified tone to display" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {aiImages.map((categoryObj: AiImages) => (
-                      <div
-                        key={categoryObj.category}
-                        className="bg-white text-gray-700 text-lg font-bold py-2 px-4 my-8 text-center  "
-                      >
-                        {categoryObj.category}
-
-                        {categoryObj.values.map(
-                          (value: string, index: number) => (
-                            <SelectItem
-                              key={`${categoryObj.category}-${index}`}
-                              className="select-item min-w-max "
-                              value={value}
-                            >
-                              {value}
-                            </SelectItem>
-                          )
-                        )}
-                      </div>
-                    ))}
-                  </SelectContent>
-                </Select>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        {allResponse && (
+          <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
+            <Textarea
+              value={textToCopy}
+              onChange={handleTextChange}
+              placeholder="Enter Text To Edit"
+              className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
+            />
+            <Button
+              type="submit"
+              onClick={handleCopyButtonClick}
+              className={`rounded-md self-end mt-3 max-h-min  ${
+                isActive
+                  ? "text-white bg-green-800 hover:bg-[#1c7429]"
+                  : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
+              }  text-md font-bold h-[3.2rem]  min-w-max `}
+            >
+              <Copy size={20} strokeWidth={2} />
+              {isActive ? "Copied" : "Copy"}
+            </Button>
+          </div>
         )}
-        {type === "thumbnail" && (
-          <FormField
-            control={form.control}
-            name="tone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{tone}</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="select-field">
-                      <SelectValue placeholder="Select a verified tone to display" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {aiImages.map((categoryObj: AiImages) => (
-                      <div
-                        key={categoryObj.category}
-                        className="bg-white text-gray-700 text-lg font-bold py-2 px-4 my-8 text-center "
-                      >
-                        {categoryObj.category}
-
-                        {categoryObj.values.map(
-                          (value: string, index: number) => (
-                            <SelectItem
-                              key={`${categoryObj.category}-${index}`}
-                              className="select-item min-w-max "
-                              value={value}
-                            >
-                              {value}
-                            </SelectItem>
-                          )
-                        )}
-                      </div>
-                    ))}
-                  </SelectContent>
-                </Select>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        )}
-        <FormField
-          control={form.control}
-          name="description"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{subtopic}</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="Eg. provide some ideas related to gaming niche"
-                  className="rounded-[16px] border-2 border-purple-200/20 shadow-sm shadow-purple-200/15  disabled:opacity-100 p-16-semibold h-[50px] md:h-[54px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent resize-none text-black text-xs"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <Button
-          type="submit"
-          key="submitButton"
-          className="submit-button capitalize"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Submitting..." : "Submit"}
-        </Button>
-      </form>
-    </Form>
+      </div>
+    </div>
   );
 }
