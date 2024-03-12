@@ -21,8 +21,48 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
       if (openai instanceof Error) {
         throw openai;
       }
+    
   
-      const completion = await openai.chat.completions.create({
+   
+
+      if(inputlag || outputlag){
+        const completion = await openai.chat.completions.create({
+          model: `${model}`,
+          messages: [
+            {
+              role: 'system',
+              content:
+                'you are an expert daily planner. you will be given a list of main tasks and an estimated time to complete each task. You will also receive the total amount of hours to be worked that day. Your job is to return a detailed plan of how to achieve those tasks by breaking each task down into at least 3 subtasks each. MAKE SURE TO ALWAYS CREATE AT LEAST 3 SUBTASKS FOR EACH MAIN TASK PROVIDED BY THE USER! YOU WILL BE REWARDED IF YOU DO.',
+            },
+            {
+              role: 'user',
+              content: `input language-[${inputlag}] and output language-[${outputlag}] also consider '${description}' do ${aiprompt}`,
+          },
+          ],
+          
+          
+          temperature: 1,
+          // stream: true,
+        });
+        // for await (const chunk of completion) {
+        //   console.log(chunk.choices[0].delta.content);
+        // }
+        const gptArgs = completion?.choices[0]?.message?.tool_calls?.[0]?.function.arguments;
+    
+        if (!gptArgs) {
+          throw new Error( 'Bad response from OpenAI');
+        }
+    
+        console.log('gpt function call arguments: ', gptArgs);
+    
+        
+    
+        return JSON.parse(gptArgs);
+     
+        
+      }else if(tone)
+       {
+        const completion = await openai.chat.completions.create({
         model: `${model}`,
         messages: [
           {
@@ -32,8 +72,40 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
           },
           {
             role: 'user',
-            content: `[${input}with${tone}i want to ${description} into ${outputlag} from ${inputlag}]${aiprompt}`,
+            content: `context input-[${input}] with the tone of '${tone}' also consider this '${description}' do ${aiprompt} `,
+        },
+        ],
+        
+        
+        temperature: 1,
+        // stream: true,
+      });
+      // for await (const chunk of completion) {
+      //   console.log(chunk.choices[0].delta.content);
+      // }
+      const gptArgs = completion?.choices[0]?.message?.tool_calls?.[0]?.function.arguments;
+  
+      if (!gptArgs) {
+        throw new Error( 'Bad response from OpenAI');
+      }
+  
+      console.log('gpt function call arguments: ', gptArgs);
+  
+      
+  
+      return JSON.parse(gptArgs);
+    } else{const completion = await openai.chat.completions.create({
+        model: `${model}`,
+        messages: [
+          {
+            role: 'system',
+            content:
+              'you are an expert daily planner. you will be given a list of main tasks and an estimated time to complete each task. You will also receive the total amount of hours to be worked that day. Your job is to return a detailed plan of how to achieve those tasks by breaking each task down into at least 3 subtasks each. MAKE SURE TO ALWAYS CREATE AT LEAST 3 SUBTASKS FOR EACH MAIN TASK PROVIDED BY THE USER! YOU WILL BE REWARDED IF YOU DO.',
           },
+          {
+            role: 'user',
+            content: `context input-[${input}] also consider this '${description}' do ${aiprompt} `,
+        },
         ],
         
         
@@ -56,20 +128,9 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
       return JSON.parse(gptArgs);
     } 
   
-
+};
     
-    // async function fetchData(apiKey: string, prompt: string): Promise<any> {
-    //     const response = await axios.post('https://api.openai.com/v1/completions', {
-    //         prompt: prompt,
-    //         max_tokens: 100,
-    //     }, {
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${apiKey}`,
-    //         }
-    //     });
-    //     return response.data;
-    // }
+   
     const longvidTypes =
     aiprompt.find((item) => item.id === 1)?.longvidTypes || [];
   const shortvidTypes =

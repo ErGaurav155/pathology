@@ -38,11 +38,13 @@ import { generateGptResponse } from "@/lib/actions/ai.actions";
 import { fetchContentWriterData } from "@/lib/actions/ai.actions";
 import { updateCredits } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
-import { Copy } from "lucide-react";
+import { Check, Copy, DownloadIcon } from "lucide-react";
+import Image from "next/image";
+import { download } from "@/lib/utils";
 
 const formSchema = z.object({
   input: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "input must be at least 2 characters.",
   }),
   tone: z
     .string()
@@ -80,6 +82,8 @@ export default function ContentWriterAiForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const contentWriter = contentwriterTypes[type];
   const [isActive, setIsActive] = useState(false);
+  const [isDownload, setIsDownload] = useState(false);
+
   const [textToCopy, setTextToCopy] = useState("");
 
   const { toast } = useToast();
@@ -109,7 +113,22 @@ export default function ContentWriterAiForm({
       });
     }
   };
+  const downloadHandler = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
 
+    //   download();
+    //   // getCldImageUrl({
+    //   //   width: image?.width,
+    //   //   height: image?.height,
+    //   //   src: image?.publicId,
+    //   //   ...transformationConfig,
+    //   // }),
+    //   // title
+    //   setIsDownload(true);
+    // };
+  };
   const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextToCopy(event.target.value);
   };
@@ -188,7 +207,7 @@ export default function ContentWriterAiForm({
               name="input"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{topic}</FormLabel>
+                  <FormLabel className="text-n-8">{topic}</FormLabel>
                   <FormControl>
                     <Input
                       className="select-field "
@@ -209,7 +228,7 @@ export default function ContentWriterAiForm({
                 name="inputlag"
                 render={({ field }) => (
                   <FormItem className="flex-auto">
-                    <FormLabel>{tone}</FormLabel>
+                    <FormLabel className="text-n-8">{tone}</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
@@ -243,7 +262,7 @@ export default function ContentWriterAiForm({
                 name="outputlag"
                 render={({ field }) => (
                   <FormItem className="flex-auto">
-                    <FormLabel>{subtopic}</FormLabel>
+                    <FormLabel className="text-n-8">{subtopic}</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
@@ -279,7 +298,7 @@ export default function ContentWriterAiForm({
               name="tone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tone}</FormLabel>
+                  <FormLabel className="text-n-8">{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -313,7 +332,7 @@ export default function ContentWriterAiForm({
               name="tone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tone}</FormLabel>
+                  <FormLabel className="text-n-8">{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -358,7 +377,7 @@ export default function ContentWriterAiForm({
               name="tone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tone}</FormLabel>
+                  <FormLabel className="text-n-8">{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -401,7 +420,7 @@ export default function ContentWriterAiForm({
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
+                <FormLabel className="text-n-8">
                   {type === "translation" ? "Include Text Here" : subtopic}
                 </FormLabel>
                 <FormControl>
@@ -523,6 +542,18 @@ export default function ContentWriterAiForm({
               placeholder="Enter Text To Edit"
               className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
             />
+
+            <Button
+              className={`rounded-md self-end mt-3 max-h-min  ${
+                isDownload
+                  ? "text-white bg-green-800 hover:bg-[#1c7429]"
+                  : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
+              }  text-md font-bold h-[3.2rem]  min-w-max `}
+              onClick={downloadHandler}
+            >
+              isDownload ? <Check /> : <DownloadIcon />
+            </Button>
+
             <Button
               type="submit"
               onClick={handleCopyButtonClick}

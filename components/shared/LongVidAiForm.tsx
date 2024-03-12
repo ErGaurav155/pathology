@@ -45,7 +45,7 @@ import { Copy } from "lucide-react";
 
 const formSchema = z.object({
   input: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "input must be at least 2 characters.",
   }),
   tone: z
     .string()
@@ -183,7 +183,7 @@ export default function LongVidAiForm({
               name="input"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{topic}</FormLabel>
+                  <FormLabel className="text-n-8">{topic}</FormLabel>
                   <FormControl>
                     <Input
                       className="select-field "
@@ -204,7 +204,7 @@ export default function LongVidAiForm({
                 name="tone"
                 render={({ field }) => (
                   <FormItem className="flex-auto">
-                    <FormLabel>{tone}</FormLabel>
+                    <FormLabel className="text-n-8">{tone}</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
@@ -238,7 +238,7 @@ export default function LongVidAiForm({
                 name="tone"
                 render={({ field }) => (
                   <FormItem className="flex-auto">
-                    <FormLabel>{subtopic}</FormLabel>
+                    <FormLabel className="text-n-8">{subtopic}</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
@@ -274,7 +274,7 @@ export default function LongVidAiForm({
               name="tone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tone}</FormLabel>
+                  <FormLabel className="text-n-8">{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -308,7 +308,7 @@ export default function LongVidAiForm({
               name="tone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tone}</FormLabel>
+                  <FormLabel className="text-n-8">{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -353,7 +353,7 @@ export default function LongVidAiForm({
               name="tone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tone}</FormLabel>
+                  <FormLabel className="text-n-8">{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -397,7 +397,7 @@ export default function LongVidAiForm({
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
+                <FormLabel className="text-n-8">
                   {type === "translate" ? "Include Text Here" : subtopic}
                 </FormLabel>
                 <FormControl>

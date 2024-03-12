@@ -75,7 +75,7 @@ export function MobileNavCopy() {
         <Card
           color="white"
           shadow={true}
-          className="h-[100vh] min-h-screen max-w-[18rem] shadow-xl overflow-y-auto no-scrollbar  shadow-blue-100  w-full p-4"
+          className="h-[100vh] min-h-screen max-w-[20rem] shadow-xl overflow-y-auto no-scrollbar  shadow-blue-100  w-full p-4"
         >
           <div className="mb-2 flex items-center gap-4 ">
             <IconButton variant="text" size="lg" onClick={closeDrawer}>
@@ -142,6 +142,17 @@ export function MobileNavCopy() {
                           />
                         </ListItemPrefix>
                         Idea Generator
+                      </ListItem>
+                    </Link>
+                    <Link onClick={closeDrawer} href="/autogen/longvid/all">
+                      <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        All-in-One
                       </ListItem>
                     </Link>
                     <Link onClick={closeDrawer} href="/autogen/longvid/title">
@@ -299,6 +310,17 @@ export function MobileNavCopy() {
                           />
                         </ListItemPrefix>
                         Video Idea
+                      </ListItem>
+                    </Link>
+                    <Link onClick={closeDrawer} href="/autogen/shortvid/all">
+                      <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        All-in-One
                       </ListItem>
                     </Link>
                     <Link onClick={closeDrawer} href="/autogen/shortvid/title">
@@ -478,6 +500,20 @@ export function MobileNavCopy() {
                           />
                         </ListItemPrefix>
                         Idea
+                      </ListItem>
+                    </Link>
+                    <Link
+                      onClick={closeDrawer}
+                      href="/autogen/contentwriter/all"
+                    >
+                      <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        All-in-One
                       </ListItem>
                     </Link>
                     <Link
@@ -706,6 +742,17 @@ export function MobileNavCopy() {
                           />
                         </ListItemPrefix>
                         Idea
+                      </ListItem>
+                    </Link>
+                    <Link onClick={closeDrawer} href="/autogen/socialmedia/all">
+                      <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        All-in-One
                       </ListItem>
                     </Link>
                     <Link

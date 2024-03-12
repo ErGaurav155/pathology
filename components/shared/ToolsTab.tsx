@@ -74,7 +74,7 @@ export function TabsDemo() {
             >
               <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none ">
                 <h5 className="h5 text-[#f476ad] mb-5">{item.title}</h5>
-                <p className="body-2 mb-6 text-white">{item.text}</p>
+                <p className="body-2 mb-6  text-white">{item.text}</p>
                 <Link
                   className="flex  items-center mt-auto absolute bottom-5 w-[80%] justify-center"
                   href={item.link}

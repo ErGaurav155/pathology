@@ -19,7 +19,7 @@ const Services = () => {
     <div className="container">
       <Heading
         title="Cricon AI made for creators."
-        text="Brainwave unlocks the potential of AI-powered applications"
+        text="Cricon unlocks the potential of AI-power for content creation"
       />
 
       <div className="relative">
@@ -37,11 +37,11 @@ const Services = () => {
 
             <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-b from-n-8/0 to-n-8/90 lg:p-15">
               <h4 className="h4 text-[#f7a936] drop-shadow-xl mb-4">
-                Photo editing
+                Content Creation
               </h4>
               <p className="body-2 mb-[3rem] text-white">
-                Automatically enhance your photos using our AI app&apos;s photo
-                editing feature. Try it now!
+                Automatically enhance your Youtube Content using our AI
+                app&apos;s feature. Try it now!
               </p>
             </div>
 

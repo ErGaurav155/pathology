@@ -4,8 +4,14 @@ import { Faq } from "@/components/shared/Faq";
 import { Footer } from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import Promo from "@/components/shared/Promotion";
+import Heading from "@/components/shared/Svgs/HEading";
 
 import { TabsDemo } from "@/components/shared/ToolsTab";
+import {
+  CarouselAiimages,
+  CarouselPoster,
+  CarouselThumbnail,
+} from "@/components/shared/carousel";
 
 import { ArrowBigRight } from "lucide-react";
 import Image from "next/image";
@@ -65,6 +71,19 @@ const Home = async () => {
         <Promo />
         <Services />
         <Roadmap />
+        <div className="w-full flex flex-col gap-2 items-center justify-center ">
+          <Heading title="Cricon Ai Generated Thumbnails" />
+          <CarouselThumbnail />
+        </div>
+        <div className="w-full flex flex-col gap-2 items-center justify-center ">
+          <Heading title="Cricon Ai Generated Aiimages" />
+          <CarouselAiimages />
+        </div>
+        <div className="w-full flex flex-col gap-2 items-center justify-center ">
+          <Heading title="Cricon Ai Generated Poster" />
+          <CarouselPoster />
+        </div>
+
         <Faq />
         <Footer />
       </div>

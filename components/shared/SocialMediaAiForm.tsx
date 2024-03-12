@@ -47,7 +47,7 @@ import { Copy } from "lucide-react";
 
 const formSchema = z.object({
   input: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "input must be at least 2 characters.",
   }),
   tone: z
     .string()
@@ -194,7 +194,7 @@ export default function SocialMediaAiForm({
             name="input"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{topic}</FormLabel>
+                <FormLabel className="text-n-8">{topic}</FormLabel>
                 <FormControl>
                   <Input
                     className="select-field "
@@ -214,7 +214,7 @@ export default function SocialMediaAiForm({
               name="tone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tone}</FormLabel>
+                  <FormLabel className="text-n-8">{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -248,7 +248,7 @@ export default function SocialMediaAiForm({
               name="tone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tone}</FormLabel>
+                  <FormLabel className="text-n-8">{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -282,7 +282,7 @@ export default function SocialMediaAiForm({
               name="tone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tone}</FormLabel>
+                  <FormLabel className="text-n-8">{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -316,7 +316,7 @@ export default function SocialMediaAiForm({
               name="tone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tone}</FormLabel>
+                  <FormLabel className="text-n-8">{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -361,7 +361,7 @@ export default function SocialMediaAiForm({
               name="tone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{tone}</FormLabel>
+                  <FormLabel className="text-n-8">{tone}</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -405,7 +405,7 @@ export default function SocialMediaAiForm({
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{subtopic}</FormLabel>
+                <FormLabel className="text-n-8">{subtopic}</FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Eg. provide some ideas related to gaming niche"

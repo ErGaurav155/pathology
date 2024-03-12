@@ -588,7 +588,7 @@ export const longvidTypes = {
     topic:"Describe the topic for title",
     subtopic:"Include more info",
     tone:"",
-    aiprompt:`Craft attention-grabbing, humorous, and unique titles for a YouTube adventure series only 5 titles on [specific topic of your choice]. Each title should promise a blend of laughter, excitement, and something truly uncommon to pique viewers' curiosity. Strive for click-worthy titles that stand out from the crowd and entice viewers to hit play. Ensure a touch of humor, a dash of the unexpected, and a sense of uniqueness in each title to create intrigue and engagement.
+    aiprompt:`Craft attention-grabbing, humorous, and unique titles for a YouTube adventure series only 5 titles on provided input. Each title should promise a blend of laughter, excitement, and something truly uncommon to pique viewers' curiosity. Strive for click-worthy titles that stand out from the crowd and entice viewers to hit play. Ensure a touch of humor, a dash of the unexpected, and a sense of uniqueness in each title to create intrigue and engagement.
     `,
     model:"gpt-3.5-turbo",
   },
@@ -698,16 +698,6 @@ export const longvidTypes = {
     tone:"Select Input Language",
     aiprompt:`Given the context provided as input, generate a translated version in the target language specified. Your translation should aim to capture the essence, tone, and meaning of the original context while ensuring linguistic accuracy and cultural relevance in the target language.
 
-    Context Input:
-    
-    [Insert your context or information here]
-    
-    
-  Target Language:
-    
-    [Specify the target language for the translation]
-    
-    
     Instructions:
     1. Maintain the overall meaning and tone of the original context.
     2. Ensure linguistic accuracy and fluency in the target language.
@@ -750,15 +740,6 @@ export const longvidTypes = {
     aiprompt:`
     Given the context provided as input, generate an email with a specified tone. Craft the email content to align with the themes, intentions, or emotions present in the context. After generating the email, use it as input for an audio generator to create a spoken version of the email.
     
-    Context Input:
-    [Insert your context or information here]
-    
-    
-    Tone for the Email:
-   
-    [Specify the tone you want for the email, e.g., formal, casual, persuasive, etc.]
-    
-    
     **Instructions:**
     1. Generate an email content that addresses the themes or information from the provided context.
     2. Tailor the tone of the email based on the specified tone input.
@@ -793,10 +774,6 @@ export const shortvidTypes = {
     tone:"",
     aiprompt:`Given the context provided as input, brainstorm creative and unique ideas for reels or short films. Develop concepts that are captivating, memorable, and tailored to the themes and atmosphere of the provided context.
 
-    Context Input:
-
-    [Insert your context or information here]
-    
     Instructions:
     1. Generate ideas for reels or short films that are creative and unique, offering a fresh perspective on the provided context.
     2. Consider incorporating innovative storytelling techniques, visual elements, or narrative structures.
@@ -816,11 +793,6 @@ export const shortvidTypes = {
     tone:"",
     aiprompt:`Given the context provided as input, create compelling and attention-grabbing titles for an reel or short video post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
 
-    Context Input:
-   
-    [Insert your context or information here]
-   
-    
     Instructions:
     1. Generate titles that encapsulate the key themes or insights present in the provided context.
     2. Aim for clarity and relevance, ensuring the titles accurately reflect the content.
@@ -839,11 +811,6 @@ export const shortvidTypes = {
     subtopic:"Include more information ",
     tone:"",
     aiprompt:`Given the context or reel provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
-
-Context or reel Input:
-
-[Insert your context or information here]
-
 
 Instructions:
 1. Generate a description that generate pride and respect about  the provided context or reel or short video.
@@ -864,11 +831,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     subtopic:"Include more information ",
     tone:"",
     aiprompt:`Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
-
-    Context or Post Input:
-    
-    [Insert your context or information here]
-   
     
     Instructions:
     1. Generate hashtags that are mostly used and trending keywords aligning with the themes or content of the provided context or post.
@@ -890,11 +852,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     tone:"",
     aiprompt:`Given the context or post provided as input, craft a creative and unique reel script that brings the content to life in hinglish language only . Develop a script that is engaging, captures attention, and aligns with the tone and purpose of the provided context or post.
 
-    Context or Post Input:
-   
-    [Insert your context or information here]
- 
-    
     Instructions:
     1. Generate a reel script/story that is comedic, creative and unique, adding a fresh perspective to the provided context or post.
     2. Consider incorporating interesting and nostalgic dialogues, visual cues, or storytelling elements.
@@ -915,11 +872,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     subtopic:"Add your opinion ",
     tone:"Choose a tone ",
     aiprompt:`**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
-
-    Context Input:
-  
-    [Insert your video content or information here]
-
     
     Instructions:
     1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
@@ -942,11 +894,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     tone:"Choose images style",
     aiprompt:`Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
 
-    Context Input:
-    
-    [Insert your context or information here]
-   
-    
     **Instructions:**
     1. Generate creative image ideas that offer a fresh and unique perspective on the provided context.
     2. Consider incorporating innovative visual elements, symbolism, or artistic techniques.
@@ -964,13 +911,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     tone:"Include text here",
     aiprompt:`
     Given the context provided as input, generate a translated version in the target language specified. Your translation should aim to capture the essence, tone, and meaning of the original context while ensuring linguistic accuracy and cultural relevance in the target language.
-    
-    Context Input:
-    [Insert your context or information here]
-    Target Language:
-
-    [Specify the target language for the translation]
-  
     
     **Instructions:**
     1. Maintain the overall meaning and tone of the original context.
@@ -991,11 +931,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     aiprompt:`
     Given the context provided as input, create catchy and memorable slogans that encapsulate the essence of the content. Develop concise and impactful phrases that resonate with the intended message, brand, or theme. Consider the tone, target audience, and key themes for effective slogan creation.
     
-    Context Input:
-  
-    [Insert your context or information here]
-    
-    
     Instructions:
     1. Generate slogans that succinctly convey the core message or theme of the provided context.
     2. Prioritize clarity, memorability, and relevance to the target audience.
@@ -1015,17 +950,12 @@ Generate distinctive and engaging description tailored to the provided content. 
     tone:"Chooose a tone",
     aiprompt:`Given the context provided as input, present factual information in an engaging and informative manner. Craft a series of interesting facts related to the context, ensuring accuracy and relevance to captivate the audience's interest. Consider incorporating unique or lesser-known details to enhance the informative value.
 
-    Context Input
-   
-    [Insert your context or information here]
-   
+    
     Instructions:
     1. Compile a set of factual statements that directly relate to the provided context.
     2. Ensure the facts are accurate, relevant, and intriguing to the intended audience.
     3. Organize the information in a logical and coherent sequence for easy consumption.
     4. Consider adding a brief introduction or conclusion to contextualize the facts.
-    
-    
     
      generate a set of factual statements that align with the provided context, delivering informative content in an engaging manner. Adjust the instructions as needed based on your specific fact-telling requirements.`,
     model:"gpt-3.5-turbo",
@@ -1037,12 +967,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     subtopic:"Include more information ",
     tone:"Chooose a tone",
     aiprompt:`Given the context provided as input, generate a creative and unique quote attributed to a specific individual or source. Craft a memorable and impactful statement that resonates with the themes and atmosphere of the provided context.
-
-    Context Input:
-   
-    [Insert your context or information here]
-   
-    
+        
     Instructions:
     1. Generate a quote that captures the essence of the provided context, conveying a meaningful message or insight.
     2. Ensure the quote is concise, clear, and memorable, reflecting the themes and sentiments associated with the context.
@@ -1066,11 +991,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     tone:"Chooose a tone",
     aiprompt:`
     Given the context provided as input, generate a creative and unique riddle along with its answer that challenges and entertains the audience. Craft a riddle that incorporates elements or themes from the provided context while maintaining a sense of mystery and intrigue.
-    
-    Context Input:
-  
-    [Insert your context or information here]
-  
     
     Instructions:
     1. Develop a riddle that utilizes elements, themes, or concepts from the provided context in a clever and imaginative way.
@@ -1111,10 +1031,6 @@ export const contentwriterTypes = {
     tone:"",
     aiprompt:`Given the context provided as input, brainstorm compelling and informative article or blog writing ideas that would engage and captivate the target audience. Develop topics that explore different aspects, perspectives, or insights related to the context, catering to the interests of your readers.
 
-    Context Input:
-    
-    [Insert your context or information here]
-    
     
     Instructions:
     1. Propose article or blog topics that delve deeper into the themes presented in the context.
@@ -1136,9 +1052,6 @@ export const contentwriterTypes = {
     tone:"",
     aiprompt:`Given the context provided as input, create a detailed outline for an article or blog post. Structure the outline to include key sections, headings, and subheadings, ensuring a logical flow of ideas. Consider incorporating relevant details, examples, and supporting information within each section.
 
-    Context Input:
-    [Insert your context or information here]
-    
     
     Instructions:
     1. Develop a comprehensive outline that organizes the content logically.
@@ -1158,9 +1071,6 @@ export const contentwriterTypes = {
     tone:"",
     aiprompt:`Given the context provided as input, create a comprehensive and engaging article or blog post. Develop a piece that explores the themes, insights, or information present in the context. Craft well-structured paragraphs, incorporate examples, and maintain a coherent flow throughout the article.
 
-    Context Input:
-    [Insert your context or information here]
-    
     
     Instructions:
     1. Generate an article or blog post that delves into the key themes or information presented in the context.
@@ -1183,11 +1093,7 @@ export const contentwriterTypes = {
     tone:"",
     aiprompt:`Given the context provided as input, create a comprehensive and engaging article or blog post. Develop a piece that explores the themes, insights, or information present in the context. Craft well-structured paragraphs, incorporate examples, and maintain a coherent flow throughout the article.
 
-   Context Input:
-    
-    [Insert your context or information here]
-    
-    
+       
    Instructions:
     1. Generate an article or blog post that delves into the key themes or information presented in the context.
     2. Craft an engaging introduction that captures the reader's attention and provides context.
@@ -1206,7 +1112,18 @@ export const contentwriterTypes = {
     topic:"Describe the topic of book",
     subtopic:"Include more information ",
     tone:"",
-    aiprompt:"",
+    aiprompt:`Generate a compelling book outline based on the provided context:
+
+    Instructions:
+    1. Develop an engaging storyline or plot that aligns with the given context, incorporating unique characters, settings, and conflicts.
+    2. Outline the major plot points, character arcs, and key events that drive the narrative forward.
+    3. Ensure coherence and continuity throughout the outline, maintaining a clear and logical progression of the story.
+    4. Explore themes, motifs, and underlying messages that add depth and complexity to the narrative.
+    5. Consider the target audience and genre of the book when crafting the outline, tailoring it to resonate with readers.
+    6. Aim for a balance between suspense, drama, and resolution to keep readers engaged from start to finish.
+    
+    ---
+    Craft a captivating book outline that captures the essence of the provided context. Develop a storyline rich in detail and emotion, with memorable characters and compelling plot twists. Adjust the instructions as needed to suit your specific book outline requirements.`,
     model:"gpt-3.5-turbo",
   },
   title: {
@@ -1217,11 +1134,6 @@ export const contentwriterTypes = {
     tone:"",
     aiprompt:`Given the context provided as input, create compelling and attention-grabbing titles for an article or blog post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
 
-   Context Input:
-    
-    [Insert your context or information here]
-    
-    
     Instructions:
     1. Generate titles that encapsulate the key themes or insights present in the provided context.
     2. Aim for clarity and relevance, ensuring the titles accurately reflect the content.
@@ -1239,11 +1151,6 @@ export const contentwriterTypes = {
     tone:"Choose images style",
     aiprompt:`Given the context provided as input, generate a descriptive text that vividly describes an image related to the context. Craft a detailed and engaging description that captures the visual elements, details, and emotions portrayed in the imagined image.
 
-    Context Input:
-   
-    [Insert your context or information here]
-   
-    
     Instructions:
     1. Imagine an image related to the provided context.
     2. Generate descriptive text that vividly describes the visual elements, details, and emotions portrayed in the imagined image.
@@ -1263,7 +1170,6 @@ export const contentwriterTypes = {
     tone:"",
     aiprompt:`Given the context provided as input, generate a concise and informative summary. Your summary should capture the key points, main ideas, and essential details of the given context. Aim for clarity and brevity in your response.
 
-    [Insert your context or information here]
     Instructions:
     1. Consider the most important elements of the context.
     2. Focus on conveying the central theme and critical details.
@@ -1281,11 +1187,7 @@ export const contentwriterTypes = {
     subtopic:"Include more information ",
     tone:"",
     aiprompt:`Given the context provided as input, expand on the details, themes, and nuances present in the narrative. Your response should delve deeper into the storyline, elaborate on character motivations, describe key events in more detail, and provide additional context where necessary. Aim to enhance the richness and complexity of the given context.
-
-    Context Input:    
-    [Insert your context or information here]
-    
-    
+ 
     Instructions:
     1. Explore the motivations and emotions of the characters involved.
     2. Provide more in-depth descriptions of key events and settings.
@@ -1304,11 +1206,7 @@ export const contentwriterTypes = {
     subtopic:"Select Output Language",
     tone:"Select Input Language",
     aiprompt:`Given the context provided as input, generate a translated version in the target language specified. Your translation should aim to capture the essence, tone, and meaning of the original context while ensuring linguistic accuracy and cultural relevance in the target language.
-
-    Context Input:
-    [Insert your context or information here]
-    Target Language:
-    [Specify the target language for the translation]
+    
     Instructions:
     1. Maintain the overall meaning and tone of the original context.
     2. Ensure linguistic accuracy and fluency in the target language.
@@ -1326,23 +1224,18 @@ export const contentwriterTypes = {
     topic:"Describe main points of book",
     subtopic:"Add your opinion ",
     tone:"Choose a tone ",
-    aiprompt:`**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity
-    
-    Context Input:
-    
-    [Insert your video content or information here]
-    
-    
+    aiprompt:`Generate a captivating book cover image prompt based on the provided context:
+     
     Instructions:
-    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
-    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
-    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
-    4. Aim for thumbnails that evoke curiosity and compel viewers to click and watch the video.
-    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-    6. must design an eye-catching thumbnail that represents the essence of the video content which provided in context,ensure vibrant clors,engaging visuals,and clear text elements.
+    1. Design a visually stunning book cover image that encapsulates the essence of the provided context, capturing its themes, characters, and atmosphere.
+    2. Incorporate eye-catching visuals, colors, and typography that resonate with the genre and tone of the book.
+    3. Consider the target audience and genre when selecting imagery and designing the layout of the book cover.
+    4. Ensure that the book title and author name are prominently displayed and legible against the background.
+    5. Aim for originality and creativity, creating a cover that stands out on bookstore shelves and online platforms.
+    6. Optionally, provide a unique quote related to the context that adds intrigue and allure to the book cover.
     
-    
-     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+    ---
+    Craft a compelling book cover image prompt that entices readers and reflects the essence of the provided context. Pay attention to details and aesthetics, aiming for a design that enhances the overall appeal of the book. Adjust the instructions as needed to suit your specific book cover image generation requirements.
     `,
     model:"gpt-3.5-turbo",
   },
@@ -1354,13 +1247,6 @@ export const contentwriterTypes = {
     tone:"Chooose a tone",
     aiprompt:`Given the context provided as input, generate an email with a specified tone. Craft the email content to align with the themes, intentions, or emotions present in the context. After generating the email, use it as input for an audio generator to create a spoken version of the email.
 
-    Context Input:
-    [Insert your context or information here]
-    
-    
-    Tone for the Email:
-    [Specify the tone you want for the email, e.g., formal, casual, persuasive, etc.]
-    
     
     Instructions:
     1. Generate an email content that addresses the themes or information from the provided context.
@@ -1382,10 +1268,6 @@ export const contentwriterTypes = {
     tone:"Chooose a tone",
     aiprompt:`Given the context provided as input, create catchy and memorable slogans that encapsulate the essence of the content. Develop concise and impactful phrases that resonate with the intended message, brand, or theme. Consider the tone, target audience, and key themes for effective slogan creation.
 
-    Context Input:
-    
-    [Insert your context or information here]
-  
     
     Instructions:
     1. Generate slogans that succinctly convey the core message or theme of the provided context.
@@ -1406,10 +1288,6 @@ export const contentwriterTypes = {
     tone:"",    
     aiprompt:`Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
-    Context or Post Input:
-    
-    [Insert your context or information here]
-  
     
     Instructions:
     1. Generate hashtags that are mostly used and trending keywords aligning with the themes or content of the provided context or post.
@@ -1446,8 +1324,6 @@ export const socialmediaTypes = {
     tone:"",
     aiprompt:`Given the context provided as input, brainstorm creative and unique ideas for social media posts. Develop concepts that stand out, capture attention, and offer a fresh perspective related to the context.
 
-    Context Input:
-    [Insert your context or information here]
     Instructions:
     1. Generate post ideas that go beyond conventional themes, offering a unique and creative angle.
     2. Consider incorporating innovative formats, storytelling techniques though different potography techniques, or visual elements.
@@ -1468,11 +1344,7 @@ export const socialmediaTypes = {
     subtopic:"Also inlcude main points ",
     tone:"Choose images style",
     aiprompt:`Generate captivating poster or banner ideas based on the provided context:
-
-    Context Input:
-    [Insert your context or information here]
-    
-    
+ 
     Instructions:
     1. Brainstorm visually appealing concepts that resonate with the essence of the provided context.
     2. Consider the target audience and tailor the poster or banner ideas to their preferences and interests.
@@ -1493,11 +1365,6 @@ export const socialmediaTypes = {
     tone:"",
     aiprompt:`Given the context provided as input, create a creative and unique social media bio that stands out and reflects the essence of the provided context. Craft a bio that is engaging, memorable, and aligns with the individual or brand's personality.
 
-    Context Input:
-   
-    [Insert your context or information here]
-   
-    
     Instructions:
     1. Generate a social media bio that is unique and captures the essence of the provided context.
     2. Incorporate creative language, unique identifiers, or memorable phrases and emogies .
@@ -1517,10 +1384,7 @@ export const socialmediaTypes = {
     tone:"Choose a tone",
     aiprompt:`Given the context or post provided as input, craft a creative and unique social media caption that complements the content and captivates the audience. Develop a caption that stands out, aligns with the tone of the content, and sparks engagement.
 
-    Context or Post Input:
-   
-    [Insert your context or information here]
-   
+    
    Instructions:
     1. Generate a social media caption that is creative and unique, enhancing the impact of the provided context or post.
     2. Consider incorporating inventive language, wordplay, or high iq and humorous lines.
@@ -1543,10 +1407,6 @@ export const socialmediaTypes = {
     tone:"",
     aiprompt:`Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
-    Context or Post Input:
-  
-    [Insert your context or information here]
-    
     
     Instructions:
     1. Generate hashtags that are mostly used and trending keywords aligning with the themes or content of the provided context or post.
@@ -1569,11 +1429,7 @@ export const socialmediaTypes = {
     tone:"",
     aiprompt:`Given the context or post provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
 
-    Context or Post Input:
-    
-    [Insert your context or information here]
-
-    
+   
     Instructions:
     1. Generate a description that generate pride and respect about  the provided context or post.
     2. Consider incorporating imaginative language, vivid imagery, biographical information .
@@ -1593,9 +1449,7 @@ export const socialmediaTypes = {
     tone:"Choose a tone ",
     aiprompt:`Given the context provided as input, Generate a witty and unique reply for a given context. Your response should be appropriate for a social media or online discussion setting. Consider the tone, content, and style that would be effective in responding to comments related to the provided context.
 
-    Context Input:
   
-    [Insert your context or information here]
     Instructions:
     1. Craft a reply that acknowledges and responds to the comments or opinions expressed in the given context.
     2. Maintain the tone which provide in input .
@@ -1615,10 +1469,6 @@ export const socialmediaTypes = {
     tone:"Choose a tone",
     aiprompt:`Given the context provided as input, generate creative and unique replies to tweets while fact-checking the information presented. Ensure that the response is well-researched and provides factual information, especially if the tweet contains propaganda or misinformation.
 
-    Context Input (Tweet):
-    
-    [Insert the tweet content here]
-   
     
     Instructions:
     1. Read the provided tweet carefully to understand its content and context.
@@ -1640,10 +1490,6 @@ export const socialmediaTypes = {
     tone:"Choose a tone ",
     aiprompt:`Given the context provided as input, generate creative and unique visual concepts for avatars . Develop ideas that bring a fresh and distinctive perspective, enhancing the overall visual representation associated with the provided context.
 
-   Context Input:
-    [Insert your context or information here]
-   
-    
     Instructions:
     1. Generate visual concepts for avatars that are creative and unique, reflecting the provided context.
     2. Consider incorporating innovative visual elements, colors, shapes, or styles.
@@ -1674,7 +1520,7 @@ export const aiprompt = [
   {
     id: 1,
     longvidTypes: [
-      `Craft attention-grabbing, humorous, and unique titles for a YouTube adventure series only 5 titles on [specific topic of your choice]. Each title should promise a blend of laughter, excitement, and something truly uncommon to pique viewers' curiosity. Strive for click-worthy titles that stand out from the crowd and entice viewers to hit play. Ensure a touch of humor, a dash of the unexpected, and a sense of uniqueness in each title to create intrigue and engagement.
+      `Craft attention-grabbing, humorous, and unique titles for a YouTube adventure series only 5 titles on provide input. Each title should promise a blend of laughter, excitement, and something truly uncommon to pique viewers' curiosity. Strive for click-worthy titles that stand out from the crowd and entice viewers to hit play. Ensure a touch of humor, a dash of the unexpected, and a sense of uniqueness in each title to create intrigue and engagement.
     `,
     `Given the context or post provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
 
@@ -1751,12 +1597,6 @@ export const aiprompt = [
     id: 2,
     shortvidTypes: [
       `Given the context provided as input, create compelling and attention-grabbing titles for an reel or short video post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
-
-    Context Input:
-   
-    [Insert your context or information here]
-   
-    
     Instructions:
     1. Generate titles that encapsulate the key themes or insights present in the provided context.
     2. Aim for clarity and relevance, ensuring the titles accurately reflect the content.
@@ -1767,11 +1607,6 @@ export const aiprompt = [
     
      generate short video and reels titles. each designed to capture attention and accurately represent the content within the provided context. Adjust the instructions as needed based on your specific title generation requirements.`,
      `Given the context or reel provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
-
-Context or reel Input:
-
-[Insert your context or information here]
-
 
 Instructions:
 1. Generate a description that generate pride and respect about  the provided context or reel or short video.
@@ -1785,11 +1620,7 @@ Generate distinctive and engaging description tailored to the provided content. 
 `,
 `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
-    Context or Post Input:
-    
-    [Insert your context or information here]
-   
-    
+  
     Instructions:
     1. Generate hashtags that are mostly used and trending keywords aligning with the themes or content of the provided context or post.
     2. Consider incorporating wordplay, trending you tube /Instagram trending keywords related to the content like famous slogans , quotes,words related to context in hinglish language,if no language provided in context.
@@ -1802,11 +1633,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     `,
     `Given the context or post provided as input, craft a creative and unique reel script that brings the content to life in hinglish language only . Develop a script that is engaging, captures attention, and aligns with the tone and purpose of the provided context or post.
 
-    Context or Post Input:
-   
-    [Insert your context or information here]
- 
-    
     Instructions:
     1. Generate a reel script/story that is comedic, creative and unique, adding a fresh perspective to the provided context or post.
     2. Consider incorporating interesting and nostalgic dialogues, visual cues, or storytelling elements.
@@ -1819,10 +1645,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     generate a creative and unique reel script. This prompt guides the model to produce a distinctive and attention-grabbing script tailored to the provided content. Adjust the instructions as needed based on your specific reel script generation requirements.
     `,
     `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
-
-    Context Input:
-  
-    [Insert your video content or information here]
 
     
     Instructions:
@@ -1838,10 +1660,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     `,
     `Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
 
-    Context Input:
     
-    [Insert your context or information here]
-   
     
     **Instructions:**
     1. Generate creative image ideas that offer a fresh and unique perspective on the provided context.
@@ -1860,9 +1679,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     contentwriterTypes: [
       `Given the context provided as input, create a detailed outline for an article or blog post. Structure the outline to include key sections, headings, and subheadings, ensuring a logical flow of ideas. Consider incorporating relevant details, examples, and supporting information within each section.
 
-    Context Input:
-    [Insert your context or information here]
-    
     
     Instructions:
     1. Develop a comprehensive outline that organizes the content logically.
@@ -1874,10 +1690,6 @@ Generate distinctive and engaging description tailored to the provided content. 
      generate an article or blog outline to produce a structured and well-organized outline that serves as a foundation for developing a detailed article or blog post. Adjust the instructions as needed based on your specific outline generation requirements.`,
      `Given the context provided as input, create compelling and attention-grabbing titles for an article or blog post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
 
-   Context Input:
-    
-    [Insert your context or information here]
-    
     
     Instructions:
     1. Generate titles that encapsulate the key themes or insights present in the provided context.
@@ -1888,10 +1700,6 @@ Generate distinctive and engaging description tailored to the provided content. 
      generate article or blog titles. each designed to capture attention and accurately represent the content within the provided context. Adjust the instructions as needed based on your specific title generation requirements.`,
      `Given the context provided as input, generate a descriptive text that vividly describes an image related to the context. Craft a detailed and engaging description that captures the visual elements, details, and emotions portrayed in the imagined image.
 
-    Context Input:
-   
-    [Insert your context or information here]
-   
     
     Instructions:
     1. Imagine an image related to the provided context.
@@ -1904,7 +1712,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     `,
     `Given the context provided as input, generate a concise and informative summary. Your summary should capture the key points, main ideas, and essential details of the given context. Aim for clarity and brevity in your response.
 
-    [Insert your context or information here]
+    
     Instructions:
     1. Consider the most important elements of the context.
     2. Focus on conveying the central theme and critical details.
@@ -1915,10 +1723,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     `,
     `Given the context provided as input, expand on the details, themes, and nuances present in the narrative. Your response should delve deeper into the storyline, elaborate on character motivations, describe key events in more detail, and provide additional context where necessary. Aim to enhance the richness and complexity of the given context.
 
-    Context Input:    
-    [Insert your context or information here]
-    
-    
     Instructions:
     1. Explore the motivations and emotions of the characters involved.
     2. Provide more in-depth descriptions of key events and settings.
@@ -1930,9 +1734,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     This prompt guides the model to provide a more detailed and nuanced exploration of the input context. Adjust the instructions as needed for your specific requirements.`,
     `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity
     
-    Context Input:
-    
-    [Insert your video content or information here]
     
     
     Instructions:
@@ -1948,12 +1749,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     `,
     `Given the context provided as input, generate an email with a specified tone. Craft the email content to align with the themes, intentions, or emotions present in the context. After generating the email, use it as input for an audio generator to create a spoken version of the email.
 
-    Context Input:
-    [Insert your context or information here]
-    
-    
-    Tone for the Email:
-    [Specify the tone you want for the email, e.g., formal, casual, persuasive, etc.]
     
     
     Instructions:
@@ -1968,10 +1763,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     `,
     `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
-    Context or Post Input:
-    
-    [Insert your context or information here]
-  
     
     Instructions:
     1. Generate hashtags that are mostly used and trending keywords aligning with the themes or content of the provided context or post.
@@ -1985,11 +1776,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.`,
     `Given the context provided as input, create catchy and memorable slogans that encapsulate the essence of the content. Develop concise and impactful phrases that resonate with the intended message, brand, or theme. Consider the tone, target audience, and key themes for effective slogan creation.
 
-    Context Input:
-    
-    [Insert your context or information here]
-  
-    
+        
     Instructions:
     1. Generate slogans that succinctly convey the core message or theme of the provided context.
     2. Prioritize clarity, memorability, and relevance to the target audience.
@@ -2011,8 +1798,6 @@ Generate distinctive and engaging description tailored to the provided content. 
       socialmediaTypes: [
         `Generate captivating poster or banner ideas based on the provided context:
 
-    Context Input:
-    [Insert your context or information here]
     
     
     Instructions:
@@ -2027,10 +1812,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     Generate engaging poster or banner ideas that effectively convey the essence of the provided context. Focus on creating visually stunning designs that captivate the audience and leave a lasting impression. Adjust the instructions as needed to suit your specific poster or banner creation requirements`,
     `Given the context or post provided as input, craft a creative and unique social media caption that complements the content and captivates the audience. Develop a caption that stands out, aligns with the tone of the content, and sparks engagement.
 
-    Context or Post Input:
-   
-    [Insert your context or information here]
-   
+    
    Instructions:
     1. Generate a social media caption that is creative and unique, enhancing the impact of the provided context or post.
     2. Consider incorporating inventive language, wordplay, or high iq and humorous lines.
@@ -2045,10 +1827,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     `,
     `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
-    Context or Post Input:
-  
-    [Insert your context or information here]
-    
     
     Instructions:
     1. Generate hashtags that are mostly used and trending keywords aligning with the themes or content of the provided context or post.
@@ -2062,10 +1840,6 @@ Generate distinctive and engaging description tailored to the provided content. 
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.
     `,
     `Given the context or post provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
-
-    Context or Post Input:
-    
-    [Insert your context or information here]
 
     
     Instructions:
