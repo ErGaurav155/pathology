@@ -20,11 +20,12 @@ import thumbimg5 from "@/public/assets/Aiimages/aiimages4.jpg";
 import thumbimg6 from "@/public/assets/Aiimages/aiimages5.png";
 import thumbimg7 from "@/public/assets/Aiimages/Aiimages7.jpg";
 
-import poster1 from "@/public/assets/Posters/Poster1.jpg";
+import poster1 from "@/public/assets/Posters/poster5.jpg";
 import poster2 from "@/public/assets/Posters/Poster2.jpg";
 import poster3 from "@/public/assets/Posters/poster3.jpg";
 import poster4 from "@/public/assets/Posters/poster4.jpg";
 import poster5 from "@/public/assets/Posters/poster4.png";
+import poster6 from "@/public/assets/Posters/poster7.jpg";
 
 import Image from "next/image";
 
@@ -39,7 +40,7 @@ const thumbnail1 = [
 export function CarouselAiimages() {
   return (
     <Carousel className="w-full  sm:max-w-sm md:max-w-lg ">
-      <CarouselContent className="-mt-1  lg:h-[350px]">
+      <CarouselContent className="-mt-1 ">
         {thumbnail1.map((img, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
@@ -48,8 +49,12 @@ export function CarouselAiimages() {
                   <Image
                     src={img}
                     alt={`Image ${index}`}
-                    objectFit="cover"
-                    layout="responsive"
+                    sizes="100vw"
+                    // Make the image display full width
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
                     priority
                   />
                 </CardContent>
@@ -69,7 +74,7 @@ const thumbnail = [img1, img2, img3, img4, img5];
 export function CarouselThumbnail() {
   return (
     <Carousel className="w-full  sm:max-w-sm md:max-w-lg ">
-      <CarouselContent className="-mt-1  lg:h-[350px]">
+      <CarouselContent className="-mt-1 ">
         {thumbnail.map((img, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
@@ -78,8 +83,12 @@ export function CarouselThumbnail() {
                   <Image
                     src={img}
                     alt={`Image ${index}`}
-                    objectFit="cover"
-                    layout="responsive"
+                    sizes="100vw"
+                    // Make the image display full width
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
                     priority
                   />
                 </CardContent>
@@ -94,12 +103,12 @@ export function CarouselThumbnail() {
   );
 }
 
-const Poster = [poster1, poster2, poster3, poster4, poster5];
+const Poster = [poster1, poster2, poster3, poster4, poster5, poster6];
 
 export function CarouselPoster() {
   return (
     <Carousel className="w-full  sm:max-w-sm md:max-w-lg ">
-      <CarouselContent className="-mt-1  lg:h-[350px]">
+      <CarouselContent className="-mt-1 ">
         {Poster.map((img, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
@@ -108,8 +117,12 @@ export function CarouselPoster() {
                   <Image
                     src={img}
                     alt={`Image ${index}`}
-                    objectFit="cover"
-                    layout="responsive"
+                    sizes="100vw"
+                    // Make the image display full width
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
                     priority
                   />
                 </CardContent>

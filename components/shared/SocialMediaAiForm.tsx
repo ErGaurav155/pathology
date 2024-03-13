@@ -43,7 +43,7 @@ import {
 } from "@/lib/actions/ai.actions";
 import { updateCredits } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
-import { Copy } from "lucide-react";
+import { Copy, GemIcon } from "lucide-react";
 
 const formSchema = z.object({
   input: z.string().min(2, {
@@ -127,6 +127,7 @@ export default function SocialMediaAiForm({
     title,
     aiprompt,
     model,
+    credits,
   } = socialMedia;
 
   const [response, setResponse] = useState<string | null>();
@@ -156,7 +157,7 @@ export default function SocialMediaAiForm({
           model,
         });
         if (res) {
-          await updateCredits(userId, creditFee);
+          await updateCredits(userId, -socialMedia.credits);
           setResponse(res);
         }
       } else {
@@ -169,7 +170,7 @@ export default function SocialMediaAiForm({
           model,
         });
         if (res) {
-          await updateCredits(userId, creditFee);
+          await updateCredits(userId, -socialMedia.credits);
           setAllResponse(res);
         }
       }
@@ -424,7 +425,13 @@ export default function SocialMediaAiForm({
             className="submit-button capitalize"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Submitting..." : "Submit"}
+            {isSubmitting ? (
+              "Submitting..."
+            ) : (
+              <div className="flex gap-2">
+                Generate <GemIcon /> {socialMedia.credits}
+              </div>
+            )}
           </Button>
         </form>
       </Form>

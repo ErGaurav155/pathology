@@ -12,6 +12,7 @@ import recording01 from "@/public/assets/recording-01.svg" ;
 import disc02 from "@/public/assets/disc-02.svg" ;
 import chromecast from "@/public/assets/chrome-cast.svg"; 
 import sliders04 from "@/public/assets/sliders-04.svg" ;
+import Credits from "@/app/(root)/credits/page";
 
 
 
@@ -581,6 +582,7 @@ export const longvidTypes = {
     6. only generate headline don’t explain it.
     generate content ideas that are not only relevant to the specified niche but are also suitable for longer video formats. Adjust the instructions as needed based on your niche and content requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   title: {
     type: "title",
@@ -591,6 +593,7 @@ export const longvidTypes = {
     aiprompt:`Craft attention-grabbing, humorous, and unique titles for a YouTube adventure series only 5 titles on provided input. Each title should promise a blend of laughter, excitement, and something truly uncommon to pique viewers' curiosity. Strive for click-worthy titles that stand out from the crowd and entice viewers to hit play. Ensure a touch of humor, a dash of the unexpected, and a sense of uniqueness in each title to create intrigue and engagement.
     `,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   description: {
     type: "description",
@@ -609,7 +612,7 @@ export const longvidTypes = {
     
     Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.`,
     
-    
+    credits:1,
     model:"gpt-3.5-turbo",
   },
   tags: {
@@ -630,6 +633,7 @@ export const longvidTypes = {
     
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   script: {
     type: "script",
@@ -648,6 +652,7 @@ export const longvidTypes = {
     Craft a compelling script for your YouTube video that captures the essence of the provided context. Use storytelling techniques, informative segments, and engaging dialogue to create an immersive viewing experience for your audience. Your script should effectively communicate the key points and themes while keeping viewers entertained and eager for more.
     `,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   thumbnail: {
     type: "thumbnail",
@@ -671,6 +676,7 @@ export const longvidTypes = {
     
     `,
     model:"gpt-3.5-turbo",
+    credits:4,
   },
   aiimages: {
     type: "aiimages",
@@ -688,6 +694,7 @@ export const longvidTypes = {
 
      generate creative and unique image ideas.Descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific image idea generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:4,
    
   },
   translate: {
@@ -708,6 +715,18 @@ export const longvidTypes = {
     generate a translation that respects the original context while adapting it to the linguistic and cultural nuances of the specified language. Adjust the instructions as needed for your specific translation requirements.
     `,
     model:"gpt-3.5-turbo",
+    credits:1,
+    
+  },
+  TexttoAudio: {
+    type: "TexttoAudio",
+    title: "Text to Audio Generator",
+    topic:"Enter text here ",
+    subtopic:"Explain more",
+    tone:"Chooose a Character",
+    aiprompt:``,
+    model:"gpt-3.5-turbo",
+    credits:8,
   },
   disclamer: {
     type: "disclamer",
@@ -730,6 +749,7 @@ export const longvidTypes = {
    
     Generate a creative and unique disclaimer tailored to the specific context provided, incorporating emojis and language that resonate with the audience. Adjust the instructions as needed based on your specific disclaimer generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   email: {
     type: "email",
@@ -750,6 +770,7 @@ export const longvidTypes = {
     
      generated email as input for an audio generator to create a spoken version. Adjust the instructions as needed based on your specific email and audio generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   all: {
     type: "all",
@@ -759,6 +780,7 @@ export const longvidTypes = {
     tone:"Choose a tone ",
     aiprompt:'',
     model:"gpt-3.5-turbo",
+    credits:40,
   },
   
 
@@ -784,6 +806,7 @@ export const shortvidTypes = {
     
      generate creative and unique reels or short film ideas. This prompt guides the model to produce imaginative and engaging concepts tailored to the provided context. Adjust the instructions as needed based on your specific reels or short film idea generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   title: {
     type: "title",
@@ -803,6 +826,7 @@ export const shortvidTypes = {
     
      generate short video and reels titles. each designed to capture attention and accurately represent the content within the provided context. Adjust the instructions as needed based on your specific title generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   description: {
     type: "description",
@@ -823,6 +847,7 @@ Instructions:
 Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.
 `,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   tags: {
     type: "tags",
@@ -843,6 +868,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.
     `,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   script: {
     type: "script",
@@ -864,6 +890,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     generate a creative and unique reel script. This prompt guides the model to produce a distinctive and attention-grabbing script tailored to the provided content. Adjust the instructions as needed based on your specific reel script generation requirements.
     `,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   thumbnail: {
     type: "thumbnail",
@@ -885,6 +912,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     
     `,
     model:"gpt-3.5-turbo",
+    credits:4,
   },
   aiimages: {
     type: "aiimages",
@@ -902,6 +930,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     
      generate creative and unique image ideas.Descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific image idea generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:4,
   },
   translate: {
     type: "translate",
@@ -921,6 +950,18 @@ Generate distinctive and engaging description tailored to the provided content. 
        
      generate a translation that respects the original context while adapting it to the linguistic and cultural nuances of the specified language. Adjust the instructions as needed for your specific translation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
+    
+  },
+  TexttoAudio: {
+    type: "TexttoAudio",
+    title: "Text to Audio Generator",
+    topic:"Enter text here ",
+    subtopic:"Explain more",
+    tone:"Chooose a Character",
+    aiprompt:``,
+    model:"gpt-3.5-turbo",
+    credits:8,
   },
   slogan: {
     type: "slogan",
@@ -941,6 +982,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     
      generate slogans using this prompt guides the model to create concise and impactful slogans that reflect the essence of the provided context. Adjust the instructions as needed based on your specific slogan generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   facts: {
     type: "facts",
@@ -959,6 +1001,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     
      generate a set of factual statements that align with the provided context, delivering informative content in an engaging manner. Adjust the instructions as needed based on your specific fact-telling requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   quote: {
     type: "quote",
@@ -982,6 +1025,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     ---
      Ensure that the generated quote is appropriately attributed to the author or source based on the context provided. Adjust the instructions as needed based on your specific quote generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   riddle: {
     type: "riddle",
@@ -1006,6 +1050,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     
     generate a riddle. This prompt guides the model to produce a creative and engaging riddle along with its answer, drawing inspiration from the provided context. Adjust the instructions as needed based on your specific riddle generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   all: {
     type: "all",
@@ -1015,6 +1060,7 @@ Generate distinctive and engaging description tailored to the provided content. 
     tone:"Choose a tone ",
     aiprompt:'',
     model:"gpt-3.5-turbo",
+    credits:40,
   },
   
   
@@ -1043,6 +1089,7 @@ export const contentwriterTypes = {
     suggest a variety of topics that explore different facets of the provided context, offering diverse possibilities for engaging content. Adjust the instructions as needed based on your specific article or blog writing requirements.
     `,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   outline: {
     type: "outline",
@@ -1062,6 +1109,7 @@ export const contentwriterTypes = {
     ---
      generate an article or blog outline to produce a structured and well-organized outline that serves as a foundation for developing a detailed article or blog post. Adjust the instructions as needed based on your specific outline generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   article: {
     type: "article",
@@ -1084,6 +1132,7 @@ export const contentwriterTypes = {
     
     generate an article or blog post with detailed and coherent piece of writing that reflects the themes and information present in the provided context. Adjust the instructions as needed based on your specific article or blog generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   blog: {
     type: "blog",
@@ -1105,6 +1154,7 @@ export const contentwriterTypes = {
     
      generate an article or blog post  to create a detailed and coherent piece of writing that reflects the themes and information present in the provided context. Adjust the instructions as needed based on your specific article or blog generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   book: {
     type: "book",
@@ -1125,6 +1175,7 @@ export const contentwriterTypes = {
     ---
     Craft a captivating book outline that captures the essence of the provided context. Develop a storyline rich in detail and emotion, with memorable characters and compelling plot twists. Adjust the instructions as needed to suit your specific book outline requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   title: {
     type: "title",
@@ -1142,6 +1193,7 @@ export const contentwriterTypes = {
     
      generate article or blog titles. each designed to capture attention and accurately represent the content within the provided context. Adjust the instructions as needed based on your specific title generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   images: {
     type: "images",
@@ -1161,6 +1213,7 @@ export const contentwriterTypes = {
    generate an image description. This prompt guides the model to create a detailed textual description of an imagined image related to the provided context. Adjust the instructions as needed based on your specific requirements for image description generation.
     `,
     model:"gpt-3.5-turbo",
+    credits:4,
   },
   summary: {
     type: "summary",
@@ -1179,6 +1232,7 @@ export const contentwriterTypes = {
    This prompt guides the model to produce a summary based on the input context you provide. Adjust the instructions as needed for your specific requirements.
     `,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   expander: {
     type: "expander",
@@ -1198,6 +1252,7 @@ export const contentwriterTypes = {
     
     This prompt guides the model to provide a more detailed and nuanced exploration of the input context. Adjust the instructions as needed for your specific requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   translation: {
     type: "translation",
@@ -1217,7 +1272,19 @@ export const contentwriterTypes = {
     
      This prompt guides the model to generate a translation that respects the original context while adapting it to the linguistic and cultural nuances of the specified language. Adjust the instructions as needed for your specific translation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
+  TexttoAudio: {
+    type: "TexttoAudio",
+    title: "Text to Audio Generator",
+    topic:"Enter text here ",
+    subtopic:"Explain more",
+    tone:"Chooose a Character",
+    aiprompt:``,
+    model:"gpt-3.5-turbo",
+    credits:8,
+  },
+  
   coverimage: {
     type: "coverimage",
     title: "Book CoverImage Generator",
@@ -1238,6 +1305,7 @@ export const contentwriterTypes = {
     Craft a compelling book cover image prompt that entices readers and reflects the essence of the provided context. Pay attention to details and aesthetics, aiming for a design that enhances the overall appeal of the book. Adjust the instructions as needed to suit your specific book cover image generation requirements.
     `,
     model:"gpt-3.5-turbo",
+    credits:4,
   },
   email: {
     type: "email",
@@ -1259,6 +1327,7 @@ export const contentwriterTypes = {
    This prompt guides the model to generate an email with a specified tone, and you can then use the generated email as input for an audio generator to create a spoken version. Adjust the instructions as needed based on your specific email and audio generation requirements.
     `,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   slogan: {
     type: "slogan",
@@ -1279,6 +1348,7 @@ export const contentwriterTypes = {
     
      generate slogans. This prompt guides the model to create concise and impactful slogans that reflect the essence of the provided context. Adjust the instructions as needed based on your specific slogan generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   tag: {
     type: "tag",
@@ -1300,6 +1370,7 @@ export const contentwriterTypes = {
     
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   }, 
   all: {
     type: "all",
@@ -1309,6 +1380,7 @@ export const contentwriterTypes = {
     tone:"Choose a tone ",
     aiprompt:'',
     model:"gpt-3.5-turbo",
+    credits:30,
   }, 
   
   
@@ -1336,6 +1408,7 @@ export const socialmediaTypes = {
     
     From above context generate creative and unique post ideas. Generate innovative and distinctive concepts tailored to the provided context. Adjust the instructions as needed based on your specific post idea generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   images: {
     type: "images",
@@ -1356,6 +1429,7 @@ export const socialmediaTypes = {
     
     Generate engaging poster or banner ideas that effectively convey the essence of the provided context. Focus on creating visually stunning designs that captivate the audience and leave a lasting impression. Adjust the instructions as needed to suit your specific poster or banner creation requirements`,
     model:"gpt-3.5-turbo",
+    credits:4
   },
   bio: {
     type: "bio",
@@ -1375,6 +1449,7 @@ export const socialmediaTypes = {
     
     generate a creative and unique social media bio. This prompt guides the model to create a distinctive and engaging bio tailored to the provided context. Adjust the instructions as needed based on your specific social media bio generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   caption: {
     type: "caption",
@@ -1398,6 +1473,7 @@ export const socialmediaTypes = {
     
     `,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   tag: {
     type: "tag",
@@ -1420,6 +1496,7 @@ export const socialmediaTypes = {
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.
     `,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   description: {
     type: "description",
@@ -1440,6 +1517,7 @@ export const socialmediaTypes = {
     
     Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   comment: {
     type: "comment",
@@ -1460,6 +1538,7 @@ export const socialmediaTypes = {
      generate responses that are considerate, engaging, and relevant to the comments made in the provided context. Adjust the instructions as needed for your specific comment reply requirements.
     `,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   tweet: {
     type: "tweet",
@@ -1481,6 +1560,7 @@ export const socialmediaTypes = {
     
     `,
     model:"gpt-3.5-turbo",
+    credits:1,
   },
   avatar: {
     type: "avatar",
@@ -1500,6 +1580,7 @@ export const socialmediaTypes = {
     
     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific avatar  generation requirements.`,
     model:"gpt-3.5-turbo",
+    credits:4,
   },
   
   all: {
@@ -1510,6 +1591,7 @@ export const socialmediaTypes = {
     tone:"Choose a tone ",
     aiprompt:'',
     model:"gpt-3.5-turbo",
+    credits:10,
   },
   
 };

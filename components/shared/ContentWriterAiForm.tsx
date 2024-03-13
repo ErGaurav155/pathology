@@ -38,7 +38,7 @@ import { generateGptResponse } from "@/lib/actions/ai.actions";
 import { fetchContentWriterData } from "@/lib/actions/ai.actions";
 import { updateCredits } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
-import { Check, Copy, DownloadIcon } from "lucide-react";
+import { Check, CoinsIcon, Copy, DownloadIcon, GemIcon } from "lucide-react";
 import Image from "next/image";
 import { download } from "@/lib/utils";
 
@@ -133,7 +133,7 @@ export default function ContentWriterAiForm({
     setTextToCopy(event.target.value);
   };
 
-  let {
+  const {
     type: string,
     topic,
     subtopic,
@@ -141,6 +141,7 @@ export default function ContentWriterAiForm({
     title,
     aiprompt,
     model,
+    credits: number,
   } = contentWriter;
   const [response, setResponse] = useState<string | null>();
   const [allResponse, setAllResponse] = useState<string[] | null>();
@@ -168,7 +169,7 @@ export default function ContentWriterAiForm({
           model,
         });
         if (res) {
-          await updateCredits(userId, creditFee);
+          await updateCredits(userId, -contentWriter.credits);
           setResponse(res);
         }
       } else {
@@ -181,7 +182,7 @@ export default function ContentWriterAiForm({
           model,
         });
         if (res) {
-          await updateCredits(userId, creditFee);
+          await updateCredits(userId, -contentWriter.credits);
           setAllResponse(res);
         }
       }
@@ -201,7 +202,7 @@ export default function ContentWriterAiForm({
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
-          {type !== "translation" && (
+          {type !== "translation" && type !== "TexttoAudio" && (
             <FormField
               control={form.control}
               name="input"
@@ -235,14 +236,14 @@ export default function ContentWriterAiForm({
                     >
                       <FormControl>
                         <SelectTrigger className="select-field">
-                          <SelectValue placeholder="Select a verified Language to display" />
+                          <SelectValue placeholder="" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
                         {languages.map((language, index) => (
                           <SelectItem
                             key={index}
-                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center flex"
+                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 m-auto w-[10vw] text-center flex justify-center "
                             value={language}
                           >
                             {language}
@@ -269,14 +270,14 @@ export default function ContentWriterAiForm({
                     >
                       <FormControl>
                         <SelectTrigger className="select-field">
-                          <SelectValue placeholder="Select a verified Language to display" />
+                          <SelectValue placeholder="" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
                         {languages.map((language, index) => (
                           <SelectItem
                             key={index}
-                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center flex"
+                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4  w-[10vw] m-auto text-center justify-center  flex"
                             value={language}
                           >
                             {language}
@@ -441,7 +442,13 @@ export default function ContentWriterAiForm({
             className="submit-button capitalize"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Submitting..." : "Submit"}
+            {isSubmitting ? (
+              "Submitting..."
+            ) : (
+              <div className="flex gap-2">
+                Generate <GemIcon /> {contentWriter.credits}
+              </div>
+            )}
           </Button>
         </form>
       </Form>

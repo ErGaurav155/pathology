@@ -171,6 +171,14 @@ export function SidebarWithLogo() {
                     script translator
                   </ListItem>
                 </Link>
+                <Link href="/autogen/longvid/TexttoAudio">
+                  <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                    <ListItemPrefix>
+                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                    </ListItemPrefix>
+                    Text-to-Audio
+                  </ListItem>
+                </Link>
                 <Link href="/autogen/longvid/disclamer">
                   <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                     <ListItemPrefix>
@@ -289,6 +297,14 @@ export function SidebarWithLogo() {
                       <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                     </ListItemPrefix>
                     script translator
+                  </ListItem>
+                </Link>
+                <Link href="/autogen/shortvid/TexttoAudio">
+                  <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                    <ListItemPrefix>
+                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                    </ListItemPrefix>
+                    Text-to-Audio
                   </ListItem>
                 </Link>
                 <Link href="/autogen/shortvid/slogan">
@@ -449,6 +465,14 @@ export function SidebarWithLogo() {
                       <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                     </ListItemPrefix>
                     Translation
+                  </ListItem>
+                </Link>
+                <Link href="/autogen/contentwriter/TexttoAudio">
+                  <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                    <ListItemPrefix>
+                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                    </ListItemPrefix>
+                    Text-to-Audio
                   </ListItem>
                 </Link>
                 <Link href="/autogen/contentwriter/coverimage">

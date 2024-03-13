@@ -107,6 +107,7 @@ declare type LongVidTypeKey =
   | "disclamer"
   | "email"
   | "all"
+  | "TexttoAudio"
   
 ;
 
@@ -124,6 +125,7 @@ declare type LongVidTypeKey =
   | "quote"
   | "riddle"
   | "all"
+  | "TexttoAudio"
 ;
   
   declare type ContentWriterTypeKey =
@@ -141,6 +143,7 @@ declare type LongVidTypeKey =
   | "email"
   | "tag"
   | "all"
+  | "TexttoAudio"
   
 ;
 

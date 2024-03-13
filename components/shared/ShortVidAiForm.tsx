@@ -42,7 +42,7 @@ import {
 } from "@/lib/actions/ai.actions";
 import { updateCredits } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
-import { Copy } from "lucide-react";
+import { Copy, GemIcon } from "lucide-react";
 
 const formSchema = z.object({
   input: z.string().min(2, {
@@ -126,6 +126,7 @@ export default function ShortVidAiForm({
     title,
     aiprompt,
     model,
+    credits,
   } = shortVid;
 
   const [response, setResponse] = useState<string | null>();
@@ -154,7 +155,7 @@ export default function ShortVidAiForm({
           model,
         });
         if (res) {
-          await updateCredits(userId, creditFee);
+          await updateCredits(userId, -shortVid.credits);
           setResponse(res);
         }
       } else {
@@ -167,7 +168,7 @@ export default function ShortVidAiForm({
           model,
         });
         if (res) {
-          await updateCredits(userId, creditFee);
+          await updateCredits(userId, -shortVid.credits);
           setAllResponse(res);
         }
       }
@@ -187,24 +188,26 @@ export default function ShortVidAiForm({
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
-          <FormField
-            control={form.control}
-            name="input"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-n-8">{topic}</FormLabel>
-                <FormControl>
-                  <Input
-                    className="select-field "
-                    placeholder="shadcn"
-                    {...field}
-                  />
-                </FormControl>
+          {type !== "translate" && type !== "TexttoAudio" && (
+            <FormField
+              control={form.control}
+              name="input"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-n-8">{topic}</FormLabel>
+                  <FormControl>
+                    <Input
+                      className="select-field "
+                      placeholder="shadcn"
+                      {...field}
+                    />
+                  </FormControl>
 
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
           <div className="flex ">
             {type === "translate" && (
               <FormField
@@ -226,7 +229,7 @@ export default function ShortVidAiForm({
                         {languages.map((language, index) => (
                           <SelectItem
                             key={index}
-                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center flex"
+                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center justify-center  flex"
                             value={language}
                           >
                             {language}
@@ -260,7 +263,7 @@ export default function ShortVidAiForm({
                         {languages.map((language, index) => (
                           <SelectItem
                             key={index}
-                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center flex"
+                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center justify-center  flex"
                             value={language}
                           >
                             {language}
@@ -526,7 +529,13 @@ export default function ShortVidAiForm({
             className="submit-button capitalize"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Submitting..." : "Submit"}
+            {isSubmitting ? (
+              "Submitting..."
+            ) : (
+              <div className="flex gap-2">
+                Generate <GemIcon /> {shortVid.credits}
+              </div>
+            )}
           </Button>
         </form>
       </Form>

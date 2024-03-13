@@ -43,41 +43,32 @@ export function Footer() {
           <li>
             <Typography
               as="a"
-              href="/About-us"
+              href="#"
               color="blue-gray"
               className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
             >
               About Us
             </Typography>
           </li>
+
           <li>
             <Typography
               as="a"
-              href="/License"
+              href="/privacy-policy"
               color="blue-gray"
               className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
             >
-              License
+              Privacy Policy
             </Typography>
           </li>
           <li>
             <Typography
               as="a"
-              href="#"
+              href="/TermsandCondition"
               color="blue-gray"
               className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
             >
-              Contribute
-            </Typography>
-          </li>
-          <li>
-            <Typography
-              as="a"
-              href="/Contact-us"
-              color="blue-gray"
-              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
-            >
-              Contact Us
+              Terms & Conditions
             </Typography>
           </li>
         </ul>
@@ -88,8 +79,7 @@ export function Footer() {
           variant="small"
           className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
         >
-          &copy; {currentYear}{" "}
-          <a href="https://material-tailwind.com/">Material Tailwind</a>. All
+          &copy; {currentYear} <a href="https://Cricon.com">Cricon Ai</a>. All
           Rights Reserved.
         </Typography>
         <div className="flex gap-4 text-blue-gray-900 sm:justify-center">

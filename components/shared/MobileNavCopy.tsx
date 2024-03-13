@@ -31,7 +31,12 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { MenuSquareIcon } from "lucide-react";
+import {
+  InstagramIcon,
+  MenuSquareIcon,
+  SquarePenIcon,
+  YoutubeIcon,
+} from "lucide-react";
 
 export function MobileNavCopy() {
   const [open, setOpen] = useState(0);
@@ -99,7 +104,7 @@ export function MobileNavCopy() {
               <Link onClick={closeDrawer} href="/">
                 <ListItem className="font-medium hover:bg-sky-100 focus:bg-sky-100 active:bg-sky-100 text-sm">
                   <ListItemPrefix>
-                    <HomeIcon className="h-5 w-5" />
+                    <YoutubeIcon className="h-5 w-5" />
                   </ListItemPrefix>
                   Home
                 </ListItem>
@@ -242,6 +247,20 @@ export function MobileNavCopy() {
                           />
                         </ListItemPrefix>
                         script translator
+                      </ListItem>
+                    </Link>
+                    <Link
+                      onClick={closeDrawer}
+                      href="/autogen/longvid/TexttoAudio"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Text-to-Audio
                       </ListItem>
                     </Link>
                     <Link
@@ -412,6 +431,20 @@ export function MobileNavCopy() {
                         script translator
                       </ListItem>
                     </Link>
+                    <Link
+                      onClick={closeDrawer}
+                      href="/autogen/shortvid/TexttoAudio"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Text-to-Audio
+                      </ListItem>
+                    </Link>
                     <Link onClick={closeDrawer} href="/autogen/shortvid/slogan">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -476,7 +509,7 @@ export function MobileNavCopy() {
                     className="border-b-0 p-3 focus:bg-sky-100 active:bg-sky-100 hover:bg-sky-100 "
                   >
                     <ListItemPrefix>
-                      <DevicePhoneMobileIcon className="h-5 w-5" />
+                      <SquarePenIcon className="h-5 w-5" />
                     </ListItemPrefix>
                     <Typography
                       color="blue-gray"
@@ -658,6 +691,20 @@ export function MobileNavCopy() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
+                      href="/autogen/contentwriter/TexttoAudio"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Text-to-Audio
+                      </ListItem>
+                    </Link>
+                    <Link
+                      onClick={closeDrawer}
                       href="/autogen/contentwriter/coverimage"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
@@ -718,7 +765,7 @@ export function MobileNavCopy() {
                     className="border-b-0 p-3 focus:bg-sky-100 active:bg-sky-100 hover:bg-sky-100 "
                   >
                     <ListItemPrefix>
-                      <DevicePhoneMobileIcon className="h-5 w-5" />
+                      <InstagramIcon className="h-5 w-5" />
                     </ListItemPrefix>
                     <Typography
                       color="blue-gray"
@@ -910,15 +957,6 @@ export function MobileNavCopy() {
               </Button>
             </SignedOut>
           </List>
-
-          <SignedOut>
-            <Button
-              asChild
-              className="mb-10 button bg-purple-gradient bg-cover"
-            >
-              <Link href="/sign-in">Login</Link>
-            </Button>
-          </SignedOut>
         </Card>
       </Drawer>
     </header>

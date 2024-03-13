@@ -41,7 +41,7 @@ import {
 } from "@/lib/actions/ai.actions";
 import { updateCredits } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
-import { Copy } from "lucide-react";
+import { Copy, GemIcon } from "lucide-react";
 
 const formSchema = z.object({
   input: z.string().min(2, {
@@ -116,7 +116,16 @@ export default function LongVidAiForm({
   const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextToCopy(event.target.value);
   };
-  let { type: string, topic, subtopic, tone, title, aiprompt, model } = longVid;
+  let {
+    type: string,
+    topic,
+    subtopic,
+    tone,
+    title,
+    aiprompt,
+    model,
+    credits,
+  } = longVid;
 
   const [response, setResponse] = useState<string | null>();
   const [allResponse, setAllResponse] = useState<string[] | null>();
@@ -144,7 +153,7 @@ export default function LongVidAiForm({
           model,
         });
         if (res) {
-          await updateCredits(userId, creditFee);
+          await updateCredits(userId, -longVid.credits);
           setResponse(res);
         }
       } else {
@@ -157,7 +166,7 @@ export default function LongVidAiForm({
           model,
         });
         if (res) {
-          await updateCredits(userId, creditFee);
+          await updateCredits(userId, -longVid.credits);
           setAllResponse(res);
         }
       }
@@ -177,7 +186,7 @@ export default function LongVidAiForm({
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
-          {type !== "translate" && (
+          {type !== "TexttoAudio" && type !== "translate" && (
             <FormField
               control={form.control}
               name="input"
@@ -218,7 +227,7 @@ export default function LongVidAiForm({
                         {languages.map((language, index) => (
                           <SelectItem
                             key={index}
-                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center flex"
+                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center justify-center  flex"
                             value={language}
                           >
                             {language}
@@ -252,7 +261,7 @@ export default function LongVidAiForm({
                         {languages.map((language, index) => (
                           <SelectItem
                             key={index}
-                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center flex"
+                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 w-[10vw] m-auto text-center justify-center  flex"
                             value={language}
                           >
                             {language}
@@ -418,7 +427,13 @@ export default function LongVidAiForm({
             className="submit-button capitalize"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Submitting..." : "Submit"}
+            {isSubmitting ? (
+              "Submitting..."
+            ) : (
+              <div className="flex gap-2">
+                Generate <GemIcon /> {longVid.credits}
+              </div>
+            )}
           </Button>
         </form>
       </Form>
