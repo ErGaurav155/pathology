@@ -17,6 +17,15 @@ const PrivacyPolicy = () => {
           described in this Privacy Policy.
         </p>
         <h2 className="font-black text-3xl text-black mb-5">
+          Data Retention and Deletion
+        </h2>
+        <p className="mb-5">
+          We retain your information for as long as your account is active or as
+          needed to provide you with our Services. If you wish to delete your
+          entire data, you may send a request to support@cricon.com, and we will
+          process your request in accordance with applicable laws.
+        </p>
+        <h2 className="font-black text-3xl text-black mb-5">
           Use of Your Information
         </h2>
         <p className="mb-5">
@@ -25,12 +34,17 @@ const PrivacyPolicy = () => {
           demographics of our users. We may also use the information to send you
           promotional and marketing materials.
         </p>
-        <h2 className="font-black text-3xl text-black mb-5">Unsubscribing</h2>
+        <h2 className="font-black text-3xl text-black mb-5">Accounts</h2>
         <p className="mb-5">
-          To unsubscribe, simply go to your billing portal inside the app
-          (app.cricon.com) and it will be handled in the payment processor used
-          ( Stripe).
+          To access certain features of the Service, you must create an account.
+          You agree to provide accurate and complete information when creating
+          your account, and you agree to keep your account information
+          up-to-date. You are responsible for all activities that occur under
+          your account, including any unauthorized activities. If you suspect
+          that someone has gained unauthorized access to your account, you
+          should notify Morise.ai immediately.
         </p>
+
         <h2 className="font-black text-3xl text-black mb-5">Contact Us</h2>
         <p className="mb-5">
           If you have any questions about this Privacy Policy or our practices

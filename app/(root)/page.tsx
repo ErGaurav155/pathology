@@ -5,7 +5,6 @@ import { Footer } from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import Promo from "@/components/shared/Promotion";
 import Heading from "@/components/shared/Svgs/HEading";
-
 import { TabsDemo } from "@/components/shared/ToolsTab";
 import {
   CarouselAiimages,
@@ -25,7 +24,7 @@ const Home = async () => {
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
               <div>
-                <h1 className="mt-4 text-3xl font-bold text-black lg:mt-8 sm:text-5xl xl:text-6xl">
+                <h1 className="mt-4 text-3xl font-bold text-black lg:mt-8 sm:text-3xl md:text-4xl xl:text-6xl">
                   10X Booost Your Youtube Growth
                 </h1>
                 <p className="mt-4 text-base text-black lg:mt-8 sm:text-xl">
@@ -45,10 +44,8 @@ const Home = async () => {
               <div className="w-full">
                 <Image
                   src="/assets/MyHero.png"
-                  layout="responsive"
                   height={869}
                   width={1139}
-                  objectFit="cover"
                   alt="carousel"
                   priority
                 />
@@ -56,16 +53,7 @@ const Home = async () => {
             </div>
           </div>
         </section>
-        {/* <Image
-        alt="blue_background"
-        loading="lazy"
-        width="2220"
-        height="2401"
-        decoding="async"
-        data-nimg="1"
-        className="absolute w-[140vw] max-w-[250vw] overflow-x-hidden top-[-450px] overflow-visible h-fit object-cover"
-        src={bg}
-      ></Image> */}
+
         <TabsDemo />
         {/* <Benefits /> */}
         <Promo />

@@ -4,9 +4,9 @@ import { redirect } from "next/navigation";
 
 import Header from "@/components/shared/Header";
 import { getUserById } from "@/lib/actions/user.actions";
+import { revalidateTag } from "next/cache";
 
 const Profile = async ({ searchParams }: LongSearchParamProps) => {
-  const page = Number(searchParams?.page) || 1;
   const { userId } = auth();
 
   if (!userId) redirect("/sign-in");

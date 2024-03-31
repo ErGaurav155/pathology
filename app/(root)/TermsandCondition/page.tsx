@@ -16,16 +16,7 @@ const terms = () => {
           Privacy Policy, which is incorporated into these Terms by reference.
           If you do not agree to these Terms, you may not use the Service.
         </p>
-        <h2 className="font-black text-3xl text-black mb-5">Accounts</h2>
-        <p className="mb-5">
-          To access certain features of the Service, you must create an account.
-          You agree to provide accurate and complete information when creating
-          your account, and you agree to keep your account information
-          up-to-date. You are responsible for all activities that occur under
-          your account, including any unauthorized activities. If you suspect
-          that someone has gained unauthorized access to your account, you
-          should notify Morise.ai immediately.
-        </p>
+
         <h2 className="font-black text-3xl text-black mb-5">Disclaimer</h2>
         <p className="mb-5">
           The Service is provided on an “as is” and “as available” basis. Cricon
@@ -33,6 +24,17 @@ const terms = () => {
           uninterrupted, or secure, and you use the Service at your own risk.
           Cricon.com is not responsible for any legal mis happenings generated
           by AI.
+        </p>
+        <h2 className="font-black text-3xl text-black mb-5">Refunds</h2>
+        <p className="mb-5">
+          No Refunds for the Service will be given of purchase.Till now we dont
+          have any refund services.
+        </p>
+        <h2 className="font-black text-3xl text-black mb-5">Unsubscribing</h2>
+        <p className="mb-5">
+          To unsubscribe, simply go to your billing portal inside the app
+          (app.cricon.com) and it will be handled in the payment processor used
+          ( Stripe).
         </p>
         <h2 className="font-black text-3xl text-black mb-5">Contact Us</h2>
         <p className="mb-5">

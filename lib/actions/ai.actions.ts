@@ -47,7 +47,7 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
         // for await (const chunk of completion) {
         //   console.log(chunk.choices[0].delta.content);
         // }
-        const gptArgs = completion?.choices[0]?.message?.tool_calls?.[0]?.function.arguments;
+        const gptArgs = completion?.choices[0]?.message?.content;
     
         if (!gptArgs) {
           throw new Error( 'Bad response from OpenAI');
@@ -57,7 +57,7 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
     
         
     
-        return JSON.parse(gptArgs);
+        return gptArgs;
      
         
       }else if(tone)
@@ -83,17 +83,18 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
       // for await (const chunk of completion) {
       //   console.log(chunk.choices[0].delta.content);
       // }
-      const gptArgs = completion?.choices[0]?.message?.tool_calls?.[0]?.function.arguments;
-  
+      const gptArgs = completion?.choices[0]?.message?.content;
+      
       if (!gptArgs) {
         throw new Error( 'Bad response from OpenAI');
+        
       }
   
       console.log('gpt function call arguments: ', gptArgs);
   
       
   
-      return JSON.parse(gptArgs);
+      return JSON.parse(JSON.stringify(gptArgs))
     } else{const completion = await openai.chat.completions.create({
         model: `${model}`,
         messages: [
@@ -115,8 +116,9 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
       // for await (const chunk of completion) {
       //   console.log(chunk.choices[0].delta.content);
       // }
-      const gptArgs = completion?.choices[0]?.message?.tool_calls?.[0]?.function.arguments;
-  
+      // const gptArgs = completion?.choices[0]?.message?.tool_calls?.[0]?.function.arguments;
+      const gptArgs = completion?.choices[0]?.message?.content;
+
       if (!gptArgs) {
         throw new Error( 'Bad response from OpenAI');
       }
@@ -125,7 +127,7 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
   
       
   
-      return JSON.parse(gptArgs);
+      return gptArgs;
     } 
   
 };
@@ -146,8 +148,16 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
         throw openai;
       }
 
-        const promises = longvidTypes.map((aiprompt:string) => generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt, model } ));
+        const promises = longvidTypes.map((aiprompt:string) => {
+        try {
+          const promise = generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt , model } );
+          return promise;
+        } catch (error) {
+          console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
+          return []; // or handle the error in any appropriate way
+        }})
         return await Promise.all(promises);
+        
     }
     
     // Example usage
@@ -155,9 +165,16 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
 
       if (openai instanceof Error) {
         throw openai;
-      }
+      }shortvidTypes
 
-        const promises = shortvidTypes.map((aiprompt:string) => generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt, model } ));
+      const promises = shortvidTypes.map((aiprompt:string) => {
+        try {
+          const promise = generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt , model } );
+          return promise;
+        } catch (error) {
+          console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
+          return []; // or handle the error in any appropriate way
+        }})
         return await Promise.all(promises);
     }
     
@@ -166,9 +183,16 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
 
       if (openai instanceof Error) {
         throw openai;
-      }
+      }contentwriterTypes
 
-        const promises = contentwriterTypes.map((aiprompt:string) => generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt, model } ));
+      const promises = contentwriterTypes.map((aiprompt:string) => {
+        try {
+          const promise = generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt , model } );
+          return promise;
+        } catch (error) {
+          console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
+          return []; // or handle the error in any appropriate way
+        }})
         return await Promise.all(promises);
     }
     
@@ -177,9 +201,16 @@ export const generateGptResponse = async ({ input,inputlag, outputlag,tone,descr
 
       if (openai instanceof Error) {
         throw openai;
-      }
+      }socialmediaTypes
 
-        const promises = socialmediaTypes.map((aiprompt:string) => generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt, model } ));
+      const promises = socialmediaTypes.map((aiprompt:string) => {
+        try {
+          const promise = generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt , model } );
+          return promise;
+        } catch (error) {
+          console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
+          return []; // or handle the error in any appropriate way
+        }})
         return await Promise.all(promises);
     }
     

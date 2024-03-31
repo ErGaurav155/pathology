@@ -52,7 +52,7 @@ export function Faq() {
           </div>
           <div
             onClick={() => handleOpen(1)}
-            className="flex-auto w-20 flex mr-3 mt-3 justify-center "
+            className="flex-auto w-20 flex  mt-3 justify-center "
           >
             {isDrawerOpen !== 1 ? (
               <PlusIcon className="h-8 w-8 stroke-2 text-left" />
@@ -87,7 +87,7 @@ export function Faq() {
           </div>
           <div
             onClick={() => handleOpen(2)}
-            className="flex-auto w-20 flex mr-3 mt-3 justify-center "
+            className="flex-auto w-20 flex  mt-3 justify-center "
           >
             {isDrawerOpen !== 2 ? (
               <PlusIcon className="h-8 w-8 stroke-2 text-left" />
@@ -119,7 +119,7 @@ export function Faq() {
           </div>
           <div
             onClick={() => handleOpen(3)}
-            className="flex-auto w-20 flex mr-1 mt-3 justify-center "
+            className="flex-auto w-20 flex pl-[1rem] mt-3 justify-center "
           >
             {isDrawerOpen !== 3 ? (
               <PlusIcon className="h-8 w-8 stroke-2 " />
@@ -157,7 +157,7 @@ export function Faq() {
           </div>
           <div
             onClick={() => handleOpen(4)}
-            className="flex-auto w-20 flex mr-3 mt-3 justify-center "
+            className="flex-auto w-20 flex  mt-3 justify-center "
           >
             {isDrawerOpen !== 4 ? (
               <PlusIcon className="h-8 w-8 stroke-2 " />
@@ -193,7 +193,7 @@ export function Faq() {
           </div>
           <div
             onClick={() => handleOpen(5)}
-            className="flex-auto w-20 flex mr-3 mt-3 justify-center "
+            className="flex-auto w-20 flex  mt-3 justify-center "
           >
             {isDrawerOpen !== 5 ? (
               <PlusIcon className="h-8 w-8 stroke-2 " />
@@ -225,7 +225,7 @@ export function Faq() {
           </div>
           <div
             onClick={() => handleOpen(6)}
-            className="flex-auto w-20 flex mr-2 mt-3 justify-center "
+            className="flex-auto w-20 flex pl-[1rem] mt-3 justify-center "
           >
             {isDrawerOpen !== 6 ? (
               <PlusIcon className="h-8 w-8 stroke-2 " />
@@ -260,7 +260,7 @@ export function Faq() {
           </div>
           <div
             onClick={() => handleOpen(7)}
-            className="flex-auto w-20 flex mr-3 mt-3 justify-center "
+            className="flex-auto w-20 flex  mt-3 justify-center "
           >
             {isDrawerOpen !== 7 ? (
               <PlusIcon className="h-8 w-8 stroke-2 " />
@@ -295,7 +295,7 @@ export function Faq() {
           </div>
           <div
             onClick={() => handleOpen(8)}
-            className="flex-auto w-20 flex mr-3 mt-3 justify-center "
+            className="flex-auto w-20 flex  mt-3 justify-center "
           >
             {isDrawerOpen !== 8 ? (
               <PlusIcon className="h-8 w-8 stroke-2 " />

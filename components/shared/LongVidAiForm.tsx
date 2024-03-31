@@ -26,14 +26,7 @@ import { toast, useToast } from "@/components/ui/use-toast";
 import Link from "next/link";
 import { Textarea } from "@/components/ui/textarea";
 import { useEffect, useState } from "react";
-import {
-  aiImages,
-  contentwriterTypes,
-  creditFee,
-  email,
-  languages,
-  longvidTypes,
-} from "@/constants";
+import { aiImages, email, languages, longvidTypes } from "@/constants";
 import { redirect } from "next/navigation";
 import {
   fetchLongVidData,
@@ -83,7 +76,6 @@ export default function LongVidAiForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const longVid = longvidTypes[type];
   const [isActive, setIsActive] = useState(false);
-  const [textToCopy, setTextToCopy] = useState("");
 
   const { toast } = useToast();
 
@@ -100,8 +92,8 @@ export default function LongVidAiForm({
   }, [isActive]);
 
   const handleCopyButtonClick = () => {
-    if (textToCopy) {
-      navigator.clipboard.writeText(textToCopy);
+    if (response) {
+      navigator.clipboard.writeText(response);
       setIsActive(true);
     } else {
       toast({
@@ -113,9 +105,6 @@ export default function LongVidAiForm({
     }
   };
 
-  const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setTextToCopy(event.target.value);
-  };
   let {
     type: string,
     topic,
@@ -137,10 +126,16 @@ export default function LongVidAiForm({
       description: " ",
     },
   });
+
+  const countWords = (response: string) => {
+    const words = response.trim().split(/\s+/);
+    return words.filter((word) => word !== "").length;
+  };
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     const { input, inputlag, outputlag, tone, description } = values;
-
+    console.log(values);
     try {
       if (type !== "all") {
         const res = await generateGptResponse({
@@ -185,7 +180,9 @@ export default function LongVidAiForm({
     <div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
+          {creditBalance < Math.abs(longVid.credits) && (
+            <InsufficientCreditsModal />
+          )}
           {type !== "TexttoAudio" && type !== "translate" && (
             <FormField
               control={form.control}
@@ -441,113 +438,57 @@ export default function LongVidAiForm({
         {response && (
           <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
             <Textarea
-              value={textToCopy}
-              onChange={handleTextChange}
+              value={response}
               placeholder="Enter Text To Edit"
-              className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
+              className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg border-[#8133b4] border font-sans  text-black   "
             />
-            <Button
-              type="submit"
-              onClick={handleCopyButtonClick}
-              className={`rounded-md self-end mt-3 max-h-min  ${
-                isActive
-                  ? "text-white bg-green-800 hover:bg-[#1c7429]"
-                  : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
-              }  text-md font-bold h-[3.2rem]  min-w-max `}
-            >
-              <Copy size={20} strokeWidth={2} />
-              {isActive ? "Copied" : "Copy"}
-            </Button>
+            <div className="flex flex-row justify-between items-center w-full gap-2">
+              <p>Word Count: {countWords(response)}</p>
+
+              <Button
+                type="submit"
+                onClick={handleCopyButtonClick}
+                className={`rounded-md  mt-1 max-h-min  ${
+                  isActive
+                    ? "text-white bg-green-800 hover:bg-[#1c7429]"
+                    : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
+                }  text-md font-bold h-[3.2rem]  min-w-max `}
+              >
+                <Copy size={20} strokeWidth={2} />
+                {isActive ? "Copied" : "Copy"}
+              </Button>
+            </div>
           </div>
         )}
-        {allResponse && (
-          <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
-            <Textarea
-              value={textToCopy}
-              onChange={handleTextChange}
-              placeholder="Enter Text To Edit"
-              className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
-            />
-            <Button
-              type="submit"
-              onClick={handleCopyButtonClick}
-              className={`rounded-md self-end mt-3 max-h-min  ${
-                isActive
-                  ? "text-white bg-green-800 hover:bg-[#1c7429]"
-                  : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
-              }  text-md font-bold h-[3.2rem]  min-w-max `}
+        {allResponse &&
+          allResponse.map((response, index) => (
+            <div
+              key={index}
+              className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2"
             >
-              <Copy size={20} strokeWidth={2} />
-              {isActive ? "Copied" : "Copy"}
-            </Button>
-          </div>
-        )}
-        {allResponse && (
-          <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
-            <Textarea
-              value={textToCopy}
-              onChange={handleTextChange}
-              placeholder="Enter Text To Edit"
-              className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
-            />
-            <Button
-              type="submit"
-              onClick={handleCopyButtonClick}
-              className={`rounded-md self-end mt-3 max-h-min  ${
-                isActive
-                  ? "text-white bg-green-800 hover:bg-[#1c7429]"
-                  : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
-              }  text-md font-bold h-[3.2rem]  min-w-max `}
-            >
-              <Copy size={20} strokeWidth={2} />
-              {isActive ? "Copied" : "Copy"}
-            </Button>
-          </div>
-        )}
-        {allResponse && (
-          <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
-            <Textarea
-              value={textToCopy}
-              onChange={handleTextChange}
-              placeholder="Enter Text To Edit"
-              className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
-            />
-            <Button
-              type="submit"
-              onClick={handleCopyButtonClick}
-              className={`rounded-md self-end mt-3 max-h-min  ${
-                isActive
-                  ? "text-white bg-green-800 hover:bg-[#1c7429]"
-                  : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
-              }  text-md font-bold h-[3.2rem]  min-w-max `}
-            >
-              <Copy size={20} strokeWidth={2} />
-              {isActive ? "Copied" : "Copy"}
-            </Button>
-          </div>
-        )}
-        {allResponse && (
-          <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
-            <Textarea
-              value={textToCopy}
-              onChange={handleTextChange}
-              placeholder="Enter Text To Edit"
-              className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
-            />
-            <Button
-              type="submit"
-              onClick={handleCopyButtonClick}
-              className={`rounded-md self-end mt-3 max-h-min  ${
-                isActive
-                  ? "text-white bg-green-800 hover:bg-[#1c7429]"
-                  : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
-              }  text-md font-bold h-[3.2rem]  min-w-max `}
-            >
-              <Copy size={20} strokeWidth={2} />
-              {isActive ? "Copied" : "Copy"}
-            </Button>
-          </div>
-        )}
+              <Textarea
+                value={response}
+                placeholder="Enter Text To Edit"
+                className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg border-[#8133b4] border font-sans  text-black   "
+              />
+              <div className="flex flex-row justify-between items-center w-full gap-2">
+                <p>Word Count: {countWords(response)}</p>
+
+                <Button
+                  type="submit"
+                  onClick={handleCopyButtonClick}
+                  className={`rounded-md  mt-1 max-h-min  ${
+                    isActive
+                      ? "text-white bg-green-800 hover:bg-[#1c7429]"
+                      : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
+                  }  text-md font-bold h-[3.2rem]  min-w-max `}
+                >
+                  <Copy size={20} strokeWidth={2} />
+                  {isActive ? "Copied" : "Copy"}
+                </Button>
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );

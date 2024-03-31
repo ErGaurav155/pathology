@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 import User from "../database/models/user.model";
 import { connectToDatabase } from "../database/mongoose";
@@ -32,6 +32,8 @@ export async function getUserById(userId: string) {
   } catch (error) {
     handleError(error);
   }
+  revalidateTag("users");
+
 }
 
 // UPDATE

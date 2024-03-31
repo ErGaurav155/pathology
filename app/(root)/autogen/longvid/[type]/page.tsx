@@ -7,6 +7,7 @@ import { redirect } from "next/navigation";
 import LongVidAiForm from "@/components/shared/LongVidAiForm";
 import Editor from "@/components/shared/Editor";
 import { Button } from "@/components/ui/button";
+import { revalidateTag } from "next/cache";
 
 const AddTransformationTypePage = async ({
   params: { type },
@@ -32,7 +33,7 @@ const AddTransformationTypePage = async ({
         </section>
       </div>
 
-      <div className="  md:flex-auto h-[100vh] w-full md:w-2/6  pt-4 ">
+      <div className="sticky top-0  md:flex-auto h-[100vh] w-full md:w-2/6  pt-4 ">
         <Button className="text-white bg-green-800 hover:bg-[#1c7429] rounded-md self-start w-[20vw] cursor-default max-h-min ml-4 mt-6">
           Editor
         </Button>
