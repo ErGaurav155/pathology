@@ -2,217 +2,394 @@
 
 import { aiprompt } from "@/constants";
 import OpenAI from "openai";
-import { string } from "zod";
-
-
+import path from "path";
+import fs from "fs";
 
 const openai = setupOpenAI();
 function setupOpenAI() {
   if (!process.env.OPENAI_API_KEY) {
-    return new Error( 'OpenAI API key is not set');
+    return new Error("OpenAI API key is not set");
   }
   return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 }
+interface GenerateGptResponseParams {
+  input: string;
+  inputlag?: string;
+  outputlag?: string;
+  selectTone?: string;
+  description?: string;
+  aiprompt: string;
+  model: string;
+}
+export const generateGptResponse = async ({
+  input,
+  inputlag,
+  outputlag,
+  selectTone,
+  description,
+  aiprompt,
+  model,
+}: GenerateGptResponseParams) => {
+  if (openai instanceof Error) {
+    throw openai;
+  }
 
-export const generateGptResponse = async ({ input,inputlag, outputlag,tone,description,aiprompt, model, } :{input:string,inputlag:string | undefined, outputlag:string | undefined,tone:string | undefined,description:string | undefined,aiprompt:string,model:string}) => {
-    
-  
-      // check if openai is initialized correctly with the API key
-      if (openai instanceof Error) {
-        throw openai;
-      }
-    
-  
-   
+  if (model === "gpt-3.5-turbo") {
+    console.log("hi iam running on gpt-3.5 ");
+    if (inputlag || outputlag) {
+      console.log("hi iam running on inputlag || outputlag ");
 
-      if(inputlag || outputlag){
-        const completion = await openai.chat.completions.create({
-          model: `${model}`,
-          messages: [
-            {
-              role: 'system',
-              content:
-                'you are an expert daily planner. you will be given a list of main tasks and an estimated time to complete each task. You will also receive the total amount of hours to be worked that day. Your job is to return a detailed plan of how to achieve those tasks by breaking each task down into at least 3 subtasks each. MAKE SURE TO ALWAYS CREATE AT LEAST 3 SUBTASKS FOR EACH MAIN TASK PROVIDED BY THE USER! YOU WILL BE REWARDED IF YOU DO.',
-            },
-            {
-              role: 'user',
-              content: `input language-[${inputlag}] and output language-[${outputlag}] also consider '${description}' do ${aiprompt}`,
-          },
-          ],
-          
-          
-          temperature: 1,
-          // stream: true,
-        });
-        // for await (const chunk of completion) {
-        //   console.log(chunk.choices[0].delta.content);
-        // }
-        const gptArgs = completion?.choices[0]?.message?.content;
-    
-        if (!gptArgs) {
-          throw new Error( 'Bad response from OpenAI');
-        }
-    
-        console.log('gpt function call arguments: ', gptArgs);
-    
-        
-    
-        return gptArgs;
-     
-        
-      }else if(tone)
-       {
-        const completion = await openai.chat.completions.create({
+      const completion = await openai.chat.completions.create({
         model: `${model}`,
         messages: [
           {
-            role: 'system',
+            role: "system",
             content:
-              'you are an expert daily planner. you will be given a list of main tasks and an estimated time to complete each task. You will also receive the total amount of hours to be worked that day. Your job is to return a detailed plan of how to achieve those tasks by breaking each task down into at least 3 subtasks each. MAKE SURE TO ALWAYS CREATE AT LEAST 3 SUBTASKS FOR EACH MAIN TASK PROVIDED BY THE USER! YOU WILL BE REWARDED IF YOU DO.',
+              "you are an expert content creator or influencer. you will be given a list of main tasks . Your job is to return a best results based on provided content .",
           },
           {
-            role: 'user',
-            content: `context input-[${input}] with the tone of '${tone}' also consider this '${description}' do ${aiprompt} `,
-        },
+            role: "user",
+            content: `input language-[${inputlag}] and output language-[${outputlag}] also consider '${input}' do ${aiprompt}`,
+          },
         ],
-        
-        
+
         temperature: 1,
-        // stream: true,
       });
-      // for await (const chunk of completion) {
-      //   console.log(chunk.choices[0].delta.content);
-      // }
+
       const gptArgs = completion?.choices[0]?.message?.content;
-      
+
       if (!gptArgs) {
-        throw new Error( 'Bad response from OpenAI');
-        
+        throw new Error("Bad response from OpenAI");
       }
-  
-      console.log('gpt function call arguments: ', gptArgs);
-  
-      
-  
-      return JSON.parse(JSON.stringify(gptArgs))
-    } else{const completion = await openai.chat.completions.create({
+
+      return JSON.parse(JSON.stringify(gptArgs));
+    } else if (selectTone) {
+      console.log("hi iam running on selectTone ");
+
+      const completion = await openai.chat.completions.create({
         model: `${model}`,
         messages: [
           {
-            role: 'system',
+            role: "system",
             content:
-              'you are an expert daily planner. you will be given a list of main tasks and an estimated time to complete each task. You will also receive the total amount of hours to be worked that day. Your job is to return a detailed plan of how to achieve those tasks by breaking each task down into at least 3 subtasks each. MAKE SURE TO ALWAYS CREATE AT LEAST 3 SUBTASKS FOR EACH MAIN TASK PROVIDED BY THE USER! YOU WILL BE REWARDED IF YOU DO.',
+              "you are an expert content creator or influencer. you will be given a list of main tasks . Your job is to return a best results based on provided content .",
           },
           {
-            role: 'user',
+            role: "user",
+            content: `context input-[${input}] with the tone of '${selectTone}' also consider this '${description}' do ${aiprompt} `,
+          },
+        ],
+
+        temperature: 1,
+      });
+
+      const gptArgs = completion?.choices[0]?.message?.content;
+
+      if (!gptArgs) {
+        throw new Error("Bad response from OpenAI");
+      }
+
+      return JSON.parse(JSON.stringify(gptArgs));
+    } else {
+      console.log("hi iam running on input ");
+
+      const completion = await openai.chat.completions.create({
+        model: `${model}`,
+        messages: [
+          {
+            role: "system",
+            content:
+              "you are an expert content creator or influencer. you will be given a list of main tasks . Your job is to return a best results based on provided content .",
+          },
+          {
+            role: "user",
             content: `context input-[${input}] also consider this '${description}' do ${aiprompt} `,
-        },
+          },
         ],
-        
-        
+
         temperature: 1,
-        // stream: true,
       });
-      // for await (const chunk of completion) {
-      //   console.log(chunk.choices[0].delta.content);
-      // }
-      // const gptArgs = completion?.choices[0]?.message?.tool_calls?.[0]?.function.arguments;
+
       const gptArgs = completion?.choices[0]?.message?.content;
 
       if (!gptArgs) {
-        throw new Error( 'Bad response from OpenAI');
+        throw new Error("Bad response from OpenAI");
       }
-  
-      console.log('gpt function call arguments: ', gptArgs);
-  
-      
-  
-      return gptArgs;
-    } 
-  
+
+      return JSON.parse(JSON.stringify(gptArgs));
+    }
+  } else if (model === "dall-e-3") {
+    console.log("hi iam running on dall-e-3 ");
+
+    try {
+      const completion = await openai.chat.completions.create({
+        model: `gpt-3.5-turbo`,
+        messages: [
+          {
+            role: "system",
+            content: `you are an expert content creator or influencer. you will be given a list of main tasks . must provide output like this only -- desc1,desc2,desc3,etc `,
+          },
+          {
+            role: "user",
+            content: `context input-[${input}] with the tone of '${selectTone}' also consider this '${description}' do ${aiprompt} `,
+          },
+        ],
+
+        temperature: 0.3,
+        max_tokens: 1500,
+      });
+      const pregptArgs = completion?.choices[0]?.message?.content;
+      console.log(pregptArgs);
+
+      if (!pregptArgs) {
+        throw new Error("Bad response from OpenAI");
+      }
+
+      const concepts = pregptArgs
+        .split("\n")
+        .filter((item) => item.trim() !== "");
+      console.log(concepts);
+      let noOfImageG: number;
+
+      if (!outputlag) {
+        noOfImageG = 1;
+      } else {
+        noOfImageG = parseInt(outputlag);
+      }
+      const imageUrls = [];
+
+      for (let i = 0; i < noOfImageG; i++) {
+        const image = await openai.images.generate({
+          model: model,
+          prompt: concepts[i],
+          size: inputlag as imageType,
+          quality: "standard",
+          response_format: "url",
+          n: 1,
+        });
+        const imagedata = image;
+        console.log(imagedata);
+        const imageUrl = image?.data[0]?.url;
+        if (!imageUrl) {
+          throw new Error("Bad response from OpenAI");
+        }
+
+        imageUrls.push(imageUrl);
+      }
+
+      return imageUrls;
+    } catch (error) {
+      console.error(error);
+      throw new Error("Bad response from OpenAI");
+    }
+  } else if (model === "tts-1") {
+    console.log("hi iam running on tts-1 ");
+
+    try {
+      const mp3 = await openai.audio.speech.create({
+        model: `${model}`,
+        voice: `${selectTone}` as voiceType,
+        input: `${input}`,
+      });
+
+      const speechBuffer = Buffer.from(await mp3.arrayBuffer());
+      const outputFile = path.resolve("public/assets/audio/output.mp3");
+      await fs.writeFileSync(outputFile, speechBuffer);
+
+      const gptArgs = outputFile;
+
+      if (!gptArgs) {
+        throw new Error("Bad response from OpenAI");
+      }
+
+      return JSON.parse(JSON.stringify(gptArgs));
+    } catch (error) {
+      console.log("Speech synthesis failed.");
+      console.error(error);
+    }
+  } else {
+    throw new Error("Bad response from OpenAI");
+  }
 };
-    
-   
-    const longvidTypes =
-    aiprompt.find((item) => item.id === 1)?.longvidTypes || [];
-  const shortvidTypes =
+
+const longvidTypes = aiprompt.find((item) => item.id === 1)?.longvidTypes || [];
+const shortvidTypes =
   aiprompt.find((item) => item.id === 2)?.shortvidTypes || [];
-  const contentwriterTypes =
+const contentwriterTypes =
   aiprompt.find((item) => item.id === 3)?.contentwriterTypes || [];
-  const socialmediaTypes =
+const socialmediaTypes =
   aiprompt.find((item) => item.id === 4)?.socialmediaTypes || [];
-    // Function to make multiple requests simultaneously
-  export  async function fetchLongVidData({ input,inputlag, outputlag,tone,description, model, } :{input:string,inputlag:string | undefined, outputlag:string | undefined,tone:string | undefined,description:string | undefined,model:string} ): Promise<any[]> {
+const marketingTypes =
+  aiprompt.find((item) => item.id === 5)?.marketingTypes || [];
 
-      if (openai instanceof Error) {
-        throw openai;
-      }
-
-        const promises = longvidTypes.map((aiprompt:string) => {
-        try {
-          const promise = generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt , model } );
-          return promise;
-        } catch (error) {
-          console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
-          return []; // or handle the error in any appropriate way
-        }})
-        return await Promise.all(promises);
-        
+// Function to make multiple requests simultaneously
+export async function fetchLongVidData({
+  input,
+  inputlag,
+  outputlag,
+  selectTone,
+  description,
+}: {
+  input: string;
+  inputlag: string | undefined;
+  outputlag: string | undefined;
+  selectTone: string | undefined;
+  description: string | undefined;
+}): Promise<any[]> {
+  const promises = longvidTypes.map((item, index) => {
+    try {
+      const promise = generateGptResponse({
+        input,
+        inputlag: index < 5 ? undefined : inputlag,
+        outputlag: index < 5 ? undefined : outputlag,
+        selectTone: index < 5 ? undefined : selectTone,
+        description,
+        aiprompt: item.prompt,
+        model: item.model,
+      });
+      return promise;
+    } catch (error) {
+      console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
+      return ["Sorry request failed"]; // or handle the error in any appropriate way
     }
-    
-    // Example usage
-    export  async function fetchShortVidData({ input,inputlag, outputlag,tone,description, model, } :{input:string,inputlag:string | undefined, outputlag:string | undefined,tone:string | undefined,description:string | undefined,model:string} ): Promise<any[]> {
+  });
+  const allResponses = await Promise.all(promises);
+  return allResponses.reduce((acc, cur) => acc.concat(cur), []);
+}
 
-      if (openai instanceof Error) {
-        throw openai;
-      }shortvidTypes
-
-      const promises = shortvidTypes.map((aiprompt:string) => {
-        try {
-          const promise = generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt , model } );
-          return promise;
-        } catch (error) {
-          console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
-          return []; // or handle the error in any appropriate way
-        }})
-        return await Promise.all(promises);
+// Example usage
+export async function fetchShortVidData({
+  input,
+  inputlag,
+  outputlag,
+  selectTone,
+  description,
+}: {
+  input: string;
+  inputlag: string | undefined;
+  outputlag: string | undefined;
+  selectTone: string | undefined;
+  description: string | undefined;
+}): Promise<any[]> {
+  const promises = shortvidTypes.map((item, index) => {
+    try {
+      const promise = generateGptResponse({
+        input,
+        inputlag: index < 4 ? undefined : inputlag,
+        outputlag: index < 4 ? undefined : outputlag,
+        selectTone: index < 4 ? undefined : selectTone,
+        description,
+        aiprompt: item.prompt,
+        model: item.model,
+      });
+      return promise;
+    } catch (error) {
+      console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
+      return ["Sorry request failed"]; // or handle the error in any appropriate way
     }
-    
+  });
+  const allResponses = await Promise.all(promises);
+  return allResponses.reduce((acc, cur) => acc.concat(cur), []);
+}
 
-    export  async function fetchContentWriterData({ input,inputlag, outputlag,tone,description, model, } :{input:string,inputlag:string | undefined, outputlag:string | undefined,tone:string | undefined,description:string | undefined,model:string} ): Promise<any[]> {
-
-      if (openai instanceof Error) {
-        throw openai;
-      }contentwriterTypes
-
-      const promises = contentwriterTypes.map((aiprompt:string) => {
-        try {
-          const promise = generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt , model } );
-          return promise;
-        } catch (error) {
-          console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
-          return []; // or handle the error in any appropriate way
-        }})
-        return await Promise.all(promises);
+export async function fetchContentWriterData({
+  input,
+  inputlag,
+  outputlag,
+  selectTone,
+  description,
+}: {
+  input: string;
+  inputlag: string | undefined;
+  outputlag: string | undefined;
+  selectTone: string | undefined;
+  description: string | undefined;
+}): Promise<any[]> {
+  const promises = contentwriterTypes.map((item, index) => {
+    try {
+      const promise = generateGptResponse({
+        input,
+        inputlag: index < 7 ? undefined : inputlag,
+        outputlag: index < 7 ? undefined : outputlag,
+        selectTone: index < 7 ? undefined : selectTone,
+        description,
+        aiprompt: item.prompt,
+        model: item.model,
+      });
+      return promise;
+    } catch (error) {
+      console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
+      return ["Sorry request failed"]; // or handle the error in any appropriate way
     }
-    
+  });
+  const allResponses = await Promise.all(promises);
+  return allResponses.reduce((acc, cur) => acc.concat(cur), []);
+}
 
-    export  async function fetchSocialMediaData({ input,inputlag, outputlag,tone,description, model, } :{input:string,inputlag:string | undefined, outputlag:string | undefined,tone:string | undefined,description:string | undefined,model:string} ): Promise<any[]> {
-
-      if (openai instanceof Error) {
-        throw openai;
-      }socialmediaTypes
-
-      const promises = socialmediaTypes.map((aiprompt:string) => {
-        try {
-          const promise = generateGptResponse({ input,inputlag, outputlag,tone,description,aiprompt , model } );
-          return promise;
-        } catch (error) {
-          console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
-          return []; // or handle the error in any appropriate way
-        }})
-        return await Promise.all(promises);
+export async function fetchSocialMediaData({
+  input,
+  inputlag,
+  outputlag,
+  selectTone,
+  description,
+}: {
+  input: string;
+  inputlag: string | undefined;
+  outputlag: string | undefined;
+  selectTone: string | undefined;
+  description: string | undefined;
+}): Promise<any[]> {
+  const promises = socialmediaTypes.map((item, index) => {
+    try {
+      const promise = generateGptResponse({
+        input,
+        inputlag: index < 5 ? undefined : inputlag,
+        outputlag: index < 5 ? undefined : outputlag,
+        selectTone: index < 5 ? undefined : selectTone,
+        description,
+        aiprompt: item.prompt,
+        model: item.model,
+      });
+      return promise;
+    } catch (error) {
+      console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
+      return ["Sorry request failed"]; // or handle the error in any appropriate way
     }
-    
-    
-    
+  });
+  const allResponses = await Promise.all(promises);
+  return allResponses.reduce((acc, cur) => acc.concat(cur), []);
+}
+
+export async function fetchMarketingData({
+  input,
+  inputlag,
+  outputlag,
+  selectTone,
+  description,
+}: {
+  input: string;
+  inputlag: string | undefined;
+  outputlag: string | undefined;
+  selectTone: string | undefined;
+  description: string | undefined;
+}): Promise<any[]> {
+  const promises = marketingTypes.map((item, index) => {
+    try {
+      const promise = generateGptResponse({
+        input,
+        inputlag: index < 3 ? undefined : inputlag,
+        outputlag: index < 3 ? undefined : outputlag,
+        selectTone: index < 3 ? undefined : selectTone,
+        description,
+        aiprompt: item.prompt,
+        model: item.model,
+      });
+      return promise;
+    } catch (error) {
+      console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
+      return ["Sorry request failed"]; // or handle the error in any appropriate way
+    }
+  });
+  const allResponses = await Promise.all(promises);
+  return allResponses.reduce((acc, cur) => acc.concat(cur), []);
+}

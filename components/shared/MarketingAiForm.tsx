@@ -27,21 +27,21 @@ import Link from "next/link";
 import { Textarea } from "@/components/ui/textarea";
 import { useEffect, useState } from "react";
 import {
+  MarketingFormProps,
   aiImages,
   aspectRatio,
   aspectRatioDisplayNames,
-  contentwriterTypes,
   email,
-  languages,
   noOfImage,
-  voice,
 } from "@/constants";
 import { redirect } from "next/navigation";
-import { generateGptResponse } from "@/lib/actions/ai.actions";
-import { fetchContentWriterData } from "@/lib/actions/ai.actions";
+import {
+  fetchMarketingData,
+  generateGptResponse,
+} from "@/lib/actions/ai.actions";
 import { updateCredits } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
-import { Check, CoinsIcon, Copy, DownloadIcon, GemIcon } from "lucide-react";
+import { Copy, DownloadIcon, GemIcon } from "lucide-react";
 import Image from "next/image";
 import { download } from "@/lib/utils";
 
@@ -59,26 +59,22 @@ interface AiImages {
   category: string;
   values: string[];
 }
-export default function ContentWriterAiForm({
+
+export default function MarketingAiForm({
   userId,
   type,
   creditBalance,
-}: ContentWriterAiFormProps) {
+}: MarketingFormProps) {
   if (!userId) redirect("/sign-in");
 
   const [activeStates, setActiveStates] = useState(Array(5).fill(false));
-  const [audioUrl, setAudioUrl] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const Marketing = MarketingFormProps[type];
   const [imageUrl, setImageUrl] = useState<string[]>([]);
-  const [selectedAspectRatio, setSelectedAspectRatio] = useState<string>("1:1");
 
   const [response, setResponse] = useState<string | null>();
   const [allResponse, setAllResponse] = useState<string[] | null>();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const contentWriter = contentwriterTypes[type];
-  const [isActive, setIsActive] = useState(false);
-  const [isDownload, setIsDownload] = useState(false);
-
-  const [textToCopy, setTextToCopy] = useState("");
+  const [selectedAspectRatio, setSelectedAspectRatio] = useState<string>("1:1");
 
   const { toast } = useToast();
 
@@ -93,6 +89,7 @@ export default function ContentWriterAiForm({
 
     return () => clearTimeout(timer);
   }, [activeStates]);
+
   const handleCopyButtonClick = (
     e: React.MouseEvent<HTMLButtonElement>,
     text: string,
@@ -114,7 +111,7 @@ export default function ContentWriterAiForm({
     }
   };
 
-  const {
+  let {
     type: string,
     topic,
     subtopic,
@@ -122,8 +119,8 @@ export default function ContentWriterAiForm({
     title,
     aiprompt,
     model,
-    credits: number,
-  } = contentWriter;
+    credits,
+  } = Marketing;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -171,28 +168,27 @@ export default function ContentWriterAiForm({
           model,
         });
         if (res) {
-          await updateCredits(userId, -contentWriter.credits);
+          await updateCredits(userId, -Marketing.credits);
           if (model === "gpt-3.5-turbo") {
             setResponse(res);
-          } else if (model === "dall-e-2") {
-            setImageUrl(res);
           } else {
-            setAudioUrl(res);
+            setImageUrl(res);
           }
-        } else {
-          const res = await fetchContentWriterData({
-            input,
-            selectTone,
-            inputlag,
-            outputlag,
-            description,
-          });
-          if (res) {
-            await updateCredits(userId, -contentWriter.credits);
-            setAllResponse(res.slice(0, 7));
-            setImageUrl(res.slice(7));
-            console.log(res);
-          }
+        }
+      } else {
+        console.log("hi dalle 3 runnig");
+        const res = await fetchMarketingData({
+          input,
+          selectTone,
+          inputlag,
+          outputlag,
+          description,
+        });
+        if (res) {
+          await updateCredits(userId, -Marketing.credits);
+          setAllResponse(res.slice(0, 3));
+          setImageUrl(res.slice(3));
+          console.log(res);
         }
       }
     } catch (err: any) {
@@ -209,103 +205,24 @@ export default function ContentWriterAiForm({
   return (
     <div>
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8 mb-10"
-        >
-          {creditBalance < Math.abs(contentWriter.credits) && (
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          {creditBalance < Math.abs(Marketing.credits) && (
             <InsufficientCreditsModal />
           )}
-          {type !== "translation" && type !== "TexttoAudio" && (
-            <FormField
-              control={form.control}
-              name="input"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-n-8">{topic}</FormLabel>
-                  <FormControl>
-                    <Input
-                      className="select-field "
-                      placeholder=""
-                      {...field}
-                    />
-                  </FormControl>
+          <FormField
+            control={form.control}
+            name="input"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-n-8">{topic}</FormLabel>
+                <FormControl>
+                  <Input className="select-field " placeholder="" {...field} />
+                </FormControl>
 
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          )}
-          <div className="flex ">
-            {type === "translation" && (
-              <FormField
-                control={form.control}
-                name="inputlag"
-                render={({ field }) => (
-                  <FormItem className="flex-auto">
-                    <FormLabel className="text-n-8">{tone}</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger className="select-field">
-                          <SelectValue placeholder="" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {languages.map((language, index) => (
-                          <SelectItem
-                            key={index}
-                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4 m-auto w-[10vw] text-center flex justify-center "
-                            value={language}
-                          >
-                            {language}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                <FormMessage />
+              </FormItem>
             )}
-            {type === "translation" && (
-              <FormField
-                control={form.control}
-                name="outputlag"
-                render={({ field }) => (
-                  <FormItem className="flex-auto">
-                    <FormLabel className="text-n-8">{subtopic}</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger className="select-field">
-                          <SelectValue placeholder="" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {languages.map((language, index) => (
-                          <SelectItem
-                            key={index}
-                            className="bg-white text-gray-700 text-lg font-xs py-2 px-4 mb-4  w-[10vw] m-auto text-center justify-center  flex"
-                            value={language}
-                          >
-                            {language}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            )}
-          </div>
+          />
 
           {type === "email" && (
             <FormField
@@ -320,7 +237,7 @@ export default function ContentWriterAiForm({
                   >
                     <FormControl>
                       <SelectTrigger className="select-field ">
-                        <SelectValue placeholder="Select a verified email to display" />
+                        <SelectValue />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -328,7 +245,7 @@ export default function ContentWriterAiForm({
                         <SelectItem
                           key={index}
                           className="bg-white hover:bg-gray-100 text-black text-lg  py-2 px- mb-4 m-auto text-center flex min-w-max"
-                          value={`${email}-${index}`}
+                          value={email}
                         >
                           {email}
                         </SelectItem>
@@ -342,7 +259,7 @@ export default function ContentWriterAiForm({
             />
           )}
 
-          {(type === "coverimage" || type === "images" || type === "all") && (
+          {type === "all" && (
             <FormField
               control={form.control}
               name="selectTone"
@@ -362,9 +279,10 @@ export default function ContentWriterAiForm({
                       {aiImages.map((categoryObj: AiImages) => (
                         <div
                           key={categoryObj.category}
-                          className="bg-white text-gray-700 text-lg font-bold py-2 px-4 my-8  text-center "
+                          className="bg-white text-gray-700 text-lg font-bold py-2 px-4 my-8 text-center "
                         >
                           {categoryObj.category}
+
                           {categoryObj.values.map(
                             (value: string, index: number) => (
                               <SelectItem
@@ -387,7 +305,7 @@ export default function ContentWriterAiForm({
             />
           )}
           <div className="flex ">
-            {(type === "coverimage" || type === "images" || type === "all") && (
+            {type === "all" && (
               <FormField
                 control={form.control}
                 name="inputlag"
@@ -424,7 +342,7 @@ export default function ContentWriterAiForm({
                 )}
               />
             )}
-            {(type === "coverimage" || type === "images" || type === "all") && (
+            {type === "all" && (
               <FormField
                 control={form.control}
                 name="outputlag"
@@ -461,62 +379,15 @@ export default function ContentWriterAiForm({
               />
             )}
           </div>
-          {type === "TexttoAudio" && (
-            <FormField
-              control={form.control}
-              name="selectTone"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-n-8">{tone}</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger className="select-field ">
-                        <SelectValue placeholder="Select a verified email to display" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {voice.map((voice, index) => (
-                        <SelectItem
-                          key={index}
-                          className="bg-white hover:bg-gray-100 text-black text-lg  py-2 px- mb-4 m-auto text-center flex min-w-max"
-                          value={`${voice}-${index}`}
-                        >
-                          {voice}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          )}
           <FormField
             control={form.control}
-            name={
-              type === "translation" || type === "TexttoAudio"
-                ? "input"
-                : "description"
-            }
+            name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-n-8">
-                  {type == "translation" || type == "TexttoAudio"
-                    ? "Include Text Here (max : 500 word)"
-                    : subtopic}
-                </FormLabel>
+                <FormLabel className="text-n-8">{subtopic}</FormLabel>
                 <FormControl>
                   <Textarea
-                    maxLength={
-                      type === "translation" || type === "TexttoAudio"
-                        ? 3000
-                        : 500
-                    }
-                    placeholder=""
+                    maxLength={500}
                     className="rounded-[16px] border-2 border-purple-200/20 shadow-sm shadow-purple-200/15  disabled:opacity-100 p-16-semibold h-[50px] md:h-[54px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent resize-none text-black text-xs"
                     {...field}
                   />
@@ -536,13 +407,13 @@ export default function ContentWriterAiForm({
               "Submitting..."
             ) : (
               <div className="flex gap-2">
-                Generate <GemIcon /> {contentWriter.credits}
+                Generate <GemIcon /> {Marketing.credits}
               </div>
             )}
           </Button>
         </form>
       </Form>
-      <div>
+      <div className="mt-6">
         {response && (
           <div className="bg-white rounded-md overflow-auto text-lg border-[#8133b4] border font-sans  text-black flex flex-col gap-3  p-5 mb-10">
             <Textarea
@@ -576,27 +447,17 @@ export default function ContentWriterAiForm({
             >
               {index === 0 && (
                 <label className="flex-2 font-sans font-bold text-n-8">
-                  Title :
+                  Promotion Title :
                 </label>
               )}
               {index === 1 && (
                 <label className="flex-2 font-sans font-bold text-n-8">
-                  Describtion :
+                  Hashtags :
                 </label>
               )}
               {index === 2 && (
                 <label className="flex-2 font-sans font-bold text-n-8">
-                  Hashtags :
-                </label>
-              )}
-              {index === 3 && (
-                <label className="flex-2 font-sans font-bold text-n-8">
-                  Script :
-                </label>
-              )}
-              {index === 3 && (
-                <label className="flex-2 font-sans font-bold text-n-8">
-                  DIsclaimer :
+                  Promotion Email :
                 </label>
               )}
 
@@ -623,13 +484,6 @@ export default function ContentWriterAiForm({
               </div>
             </div>
           ))}
-        {audioUrl && (
-          <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
-            <audio controls>
-              <source src="/assets/audio/output.mp3" type="audio/mpeg" />
-            </audio>
-          </div>
-        )}
 
         {imageUrl && (
           <div className="min-h-max p-5 m-auto grid grid-cols-2  gap-2 ">

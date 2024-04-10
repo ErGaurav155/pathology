@@ -5,6 +5,7 @@ import qs from "qs";
 import { twMerge } from "tailwind-merge";
 
 import { aspectRatioOptions } from "@/constants";
+import { any } from "zod";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -76,7 +77,7 @@ export const dataUrl = `data:image/svg+xml;base64,${toBase64(
 //     delete currentUrl[key];
 //   });
 
-  // Remove null or undefined values
+// Remove null or undefined values
 //   Object.keys(currentUrl).forEach(
 //     (key) => currentUrl[key] == null && delete currentUrl[key]
 //   );
@@ -110,29 +111,44 @@ export const getImageSize = (
 };
 
 // DOWNLOAD IMAGE
-export const download = (url: string, filename: string) => {
+export const download = async (url: string, filename: string) => {
   if (!url) {
     throw new Error("Resource URL not provided! You need to provide one");
   }
+  const formData = new FormData();
+  formData.append("item", url);
 
-  fetch(url)
-    .then((response) => response.blob())
-    .then((blob) => {
-      const blobURL = URL.createObjectURL(blob);
+  try {
+    const response = await fetch("/api/images", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response) {
+      // Handle successful response
+      console.log("Download request successful", response);
+      // Optionally, you can download the response
+      const blob = await response.blob();
+      const url1 = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
-      a.href = blobURL;
-
-      if (filename && filename.length)
-        a.download = `${filename.replace(" ", "_")}.png`;
+      a.href = url1;
+      a.download = filename;
       document.body.appendChild(a);
       a.click();
-    })
-    .catch((error) => console.log({ error }));
+      window.URL.revokeObjectURL(url1);
+    } else {
+      // Handle failed response
+      console.error("Download request failed");
+    }
+  } catch (error) {
+    // Handle errors
+    console.error("An error occurred while downloading", error);
+  }
 };
 
 // DEEP MERGE OBJECTS
 export const deepMergeObjects = (obj1: any, obj2: any) => {
-  if(obj2 === null || obj2 === undefined) {
+  if (obj2 === null || obj2 === undefined) {
     return obj1;
   }
 

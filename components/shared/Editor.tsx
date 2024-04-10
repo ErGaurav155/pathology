@@ -23,6 +23,11 @@ const Editor = () => {
     return () => clearTimeout(timer);
   }, [isActive]);
 
+  const countWords = (response: string) => {
+    const words = response.trim().split(/\s+/);
+    return words.filter((word) => word !== "").length;
+  };
+
   const handleCopyButtonClick = () => {
     if (textToCopy) {
       navigator.clipboard.writeText(textToCopy);
@@ -47,20 +52,23 @@ const Editor = () => {
         value={textToCopy}
         onChange={handleTextChange}
         placeholder="Enter Text To Edit"
-        className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar  "
+        className="w-full min-h-[30vh] md:min-h-[60vh] p-2 bg-white rounded-md overflow-auto text-lg outline-none border-none text-black no-scrollbar resize-none "
       />
-      <Button
-        type="submit"
-        onClick={handleCopyButtonClick}
-        className={`rounded-md self-end mt-3 max-h-min  ${
-          isActive
-            ? "text-white bg-green-800 hover:bg-[#1c7429]"
-            : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
-        }  text-md font-bold h-[3.2rem]  min-w-max `}
-      >
-        <Copy size={20} strokeWidth={2} />
-        {isActive ? "Copied" : "Copy"}
-      </Button>
+      <div className="flex flex-row justify-between items-center w-full gap-2">
+        <p>Word Count: {countWords(textToCopy)}</p>
+        <Button
+          type="submit"
+          onClick={handleCopyButtonClick}
+          className={`rounded-md self-end mt-3 max-h-min  ${
+            isActive
+              ? "text-white bg-green-800 hover:bg-[#1c7429]"
+              : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
+          }  text-md font-bold h-[3.2rem]  min-w-max `}
+        >
+          <Copy size={20} strokeWidth={2} />
+          {isActive ? "Copied" : "Copy"}
+        </Button>
+      </div>
     </div>
   );
 };

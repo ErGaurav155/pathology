@@ -23,6 +23,7 @@ import {
   CurrencyRupeeIcon,
   DevicePhoneMobileIcon,
   TvIcon,
+  CurrencyDollarIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChevronRightIcon,
@@ -235,6 +236,17 @@ export function MobileNavCopy() {
                         AiImages
                       </ListItem>
                     </Link>
+                    <Link onClick={closeDrawer} href="/autogen/longvid/prompt">
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Prompt Generation
+                      </ListItem>
+                    </Link>
                     <Link
                       onClick={closeDrawer}
                       href="/autogen/longvid/translate"
@@ -265,6 +277,20 @@ export function MobileNavCopy() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
+                      href="/autogen/longvid/audiotoAudio"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Audio-to-Audio
+                      </ListItem>
+                    </Link>
+                    <Link
+                      onClick={closeDrawer}
                       href="/autogen/longvid/disclamer"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
@@ -275,6 +301,20 @@ export function MobileNavCopy() {
                           />
                         </ListItemPrefix>
                         Disclamer
+                      </ListItem>
+                    </Link>
+                    <Link
+                      onClick={closeDrawer}
+                      href="/autogen/longvid/backgroundMusicGen"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        backgroundMusicGen
                       </ListItem>
                     </Link>
                     <Link onClick={closeDrawer} href="/autogen/longvid/email">
@@ -417,6 +457,17 @@ export function MobileNavCopy() {
                         AiImages
                       </ListItem>
                     </Link>
+                    <Link onClick={closeDrawer} href="/autogen/shortvid/prompt">
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Prompt Generation
+                      </ListItem>
+                    </Link>
                     <Link
                       onClick={closeDrawer}
                       href="/autogen/shortvid/translate"
@@ -443,6 +494,34 @@ export function MobileNavCopy() {
                           />
                         </ListItemPrefix>
                         Text-to-Audio
+                      </ListItem>
+                    </Link>
+                    <Link
+                      onClick={closeDrawer}
+                      href="/autogen/shortvid/audiotoAudio"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Audio-to-Audio
+                      </ListItem>
+                    </Link>
+                    <Link
+                      onClick={closeDrawer}
+                      href="/autogen/shortvid/backgroundMusicGen"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        backgroundMusicGen
                       </ListItem>
                     </Link>
                     <Link onClick={closeDrawer} href="/autogen/shortvid/slogan">
@@ -635,6 +714,20 @@ export function MobileNavCopy() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
+                      href="/autogen/contentwriter/prompt"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Prompt Generation
+                      </ListItem>
+                    </Link>
+                    <Link
+                      onClick={closeDrawer}
                       href="/autogen/contentwriter/summary"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
@@ -816,6 +909,20 @@ export function MobileNavCopy() {
                         Images
                       </ListItem>
                     </Link>
+                    <Link
+                      onClick={closeDrawer}
+                      href="/autogen/socialmedia/prompt"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Prompt Generation
+                      </ListItem>
+                    </Link>
                     <Link onClick={closeDrawer} href="/autogen/socialmedia/bio">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                         <ListItemPrefix>
@@ -908,6 +1015,116 @@ export function MobileNavCopy() {
                         Avatar
                       </ListItem>
                     </Link>
+                    <Link
+                      onClick={closeDrawer}
+                      href="/autogen/socialmedia/backgroundMusicGen"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        backgroundMusicGen
+                      </ListItem>
+                    </Link>
+                  </List>
+                </AccordionBody>
+              </Accordion>
+              <Accordion
+                open={open === 5}
+                icon={
+                  <ChevronDownIcon
+                    strokeWidth={2.5}
+                    className={`mx-auto h-4 w-4 transition-transform ${
+                      open === 5 ? "rotate-180" : ""
+                    }`}
+                  />
+                }
+              >
+                <ListItem className="p-0" selected={open === 5}>
+                  <AccordionHeader
+                    onClick={() => handleOpen(5)}
+                    className="border-b-0 p-3 focus:bg-sky-100 active:bg-sky-100 hover:bg-sky-100 "
+                  >
+                    <ListItemPrefix>
+                      <CurrencyDollarIcon className="h-5 w-5" />
+                    </ListItemPrefix>
+                    <Typography
+                      color="blue-gray"
+                      className="mr-auto font-medium text-sm"
+                    >
+                      Marketing
+                    </Typography>
+                  </AccordionHeader>
+                </ListItem>
+                <AccordionBody className="py-1">
+                  <List className="p-0">
+                    <Link onClick={closeDrawer} href="/autogen/marketing/all">
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        All
+                      </ListItem>
+                    </Link>
+                    <Link
+                      onClick={closeDrawer}
+                      href="/autogen/marketing/calculator"
+                    >
+                      <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Paid Promotion Cal
+                      </ListItem>
+                    </Link>
+                    <Link
+                      onClick={closeDrawer}
+                      href="/autogen/marketing/finder"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Sponcership Finder
+                      </ListItem>
+                    </Link>
+                    <Link onClick={closeDrawer} href="/autogen/marketing/email">
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Promotion Email
+                      </ListItem>
+                    </Link>
+                    <Link
+                      onClick={closeDrawer}
+                      href="/autogen/marketing/promotion"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        Promotion Helper
+                      </ListItem>
+                    </Link>
                   </List>
                 </AccordionBody>
               </Accordion>
@@ -942,9 +1159,7 @@ export function MobileNavCopy() {
                   </ListItem>
                 </Link>
                 <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium ">
-                  <ListItemPrefix>
-                    <UserButton afterSignOutUrl="/" showName />
-                  </ListItemPrefix>
+                  <UserButton afterSignOutUrl="/" showName />
                 </ListItem>
               </div>
             </SignedIn>

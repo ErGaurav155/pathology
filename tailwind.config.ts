@@ -1,9 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 const withMT = require("@material-tailwind/react/utils/withMT");
-import { fontFamily } from "tailwindcss/defaultTheme";
 import plugin from "tailwindcss/plugin";
 
-module.exports = withMT( {
+module.exports = withMT({
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -109,11 +108,20 @@ module.exports = withMT( {
       },
       fontFamily: {
         IBMPlex: ["var(--font-ibm-plex)"],
-        sans : ['ui-sans-serif',' system-ui', 'sans-serif', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji","var(--font-sora)"],
+        sans: [
+          "ui-sans-serif",
+          " system-ui",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji",
+          "var(--font-sora)",
+        ],
         code: "var(--font-code)",
         grotesk: "var(--font-grotesk)",
       },
-      
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -151,7 +159,7 @@ module.exports = withMT( {
         "conic-gradient":
           "conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876)",
         "purple-gradient": "url('/assets/images/gradient-bg.svg')",
-          banner: "url('/assets/images/banner-bg.png')",
+        banner: "url('/assets/images/banner-bg.png')",
       },
       keyframes: {
         "accordion-down": {
@@ -169,11 +177,11 @@ module.exports = withMT( {
       },
     },
   },
-  
+
   plugins: [
     plugin(function ({ addBase, addComponents, addUtilities }) {
       addBase({});
-      require("tailwindcss-animate")
+      require("tailwindcss-animate");
       addComponents({
         ".container": {
           "@apply max-w-[77.5rem] mx-auto px-5 md:px-10 lg:px-15 xl:max-w-[87.5rem]":
@@ -228,7 +236,3 @@ module.exports = withMT( {
     }),
   ],
 });
-
-
-
-

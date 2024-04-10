@@ -1,21 +1,18 @@
 import benefitIcon1 from "@/public/assets/benefits/icon-1.svg";
 import benefitIcon2 from "@/public/assets/benefits/icon-2.svg";
-import  benefitIcon3 from "@/public/assets/benefits/icon-3.svg";
+import benefitIcon3 from "@/public/assets/benefits/icon-3.svg";
 import benefitIcon4 from "@/public/assets/benefits/icon-4.svg";
-import  benefitImage2 from "@/public/assets/benefits/image-2.png";
-import roadmap4 from "@/public/assets/roadmap/image-4.png" ; 
-import roadmap1 from "@/public/assets/roadmap/image-1.png" ;  
-import roadmap2 from "@/public/assets/roadmap/image-2.png"  ;
-import roadmap3 from "@/public/assets/roadmap/image-3.png"  ;
-import recording03 from "@/public/assets/recording-03.svg" ;
-import recording01 from "@/public/assets/recording-01.svg" ;
-import disc02 from "@/public/assets/disc-02.svg" ;
-import chromecast from "@/public/assets/chrome-cast.svg"; 
-import sliders04 from "@/public/assets/sliders-04.svg" ;
+import benefitImage2 from "@/public/assets/benefits/image-2.png";
+import roadmap4 from "@/public/assets/roadmap/image-4.png";
+import roadmap1 from "@/public/assets/roadmap/image-1.png";
+import roadmap2 from "@/public/assets/roadmap/image-2.png";
+import roadmap3 from "@/public/assets/roadmap/image-3.png";
+import recording03 from "@/public/assets/recording-03.svg";
+import recording01 from "@/public/assets/recording-01.svg";
+import disc02 from "@/public/assets/disc-02.svg";
+import chromecast from "@/public/assets/chrome-cast.svg";
+import sliders04 from "@/public/assets/sliders-04.svg";
 import Credits from "@/app/(root)/credits/page";
-
-
-
 
 // export const navLinks = [
 //   {
@@ -59,7 +56,6 @@ import Credits from "@/app/(root)/credits/page";
 //     icon: "/assets/icons/bag.svg",
 //   },
 // ];
-
 
 export const navLinks = [
   {
@@ -117,7 +113,7 @@ export const navLinks = [
     route: "/AutoGen/Longvid/email",
     icon: "/assets/icons/image.svg",
   },
-  
+
   {
     label: "Video Idea",
     route: "/AutoGen/Shortvid/idea",
@@ -426,7 +422,7 @@ interface AiImages {
 
 export const aiImages: AiImages[] = [
   {
-    category: 'PhotoStyle',
+    category: "PhotoStyle",
     values: [
       "Indoor",
       "Outdoor",
@@ -454,11 +450,11 @@ export const aiImages: AiImages[] = [
       "WomenInKorea",
       "BodyShape",
       "UsedTissues",
-      "AncientEgyptianWorkout"
-    ]
+      "AncientEgyptianWorkout",
+    ],
   },
   {
-    category: 'artstyles',
+    category: "artstyles",
     values: [
       "Watercolor",
       "PastelDrawing",
@@ -488,11 +484,11 @@ export const aiImages: AiImages[] = [
       "Expressionist",
       "Creepy",
       "FantasyCartoon",
-      "Mosaic"
-    ]
+      "Mosaic",
+    ],
   },
   {
-    category: 'digitalstyle',
+    category: "digitalstyle",
     values: [
       "PixelArt",
       "BlogIllustration",
@@ -511,14 +507,15 @@ export const aiImages: AiImages[] = [
       "Tropical",
       "Punk",
       "NeonAvatar",
-      "SportsLogo"
-    ]
+      "SportsLogo",
+    ],
   },
   {
-    category: 'style3d',
+    category: "style3d",
     values: [
       "CuteIsometric",
       "Neon",
+      "ultra Realistic",
       "LowPoly",
       "Metallic",
       "CuteCharacter",
@@ -533,11 +530,11 @@ export const aiImages: AiImages[] = [
       "PlasticBricks",
       "Fluffy",
       "MulticolorMecha",
-      "Mythical"
-    ]
+      "Mythical",
+    ],
   },
   {
-    category: 'location',
+    category: "location",
     values: [
       "MiniatureDiorama",
       "FutureTokyo",
@@ -549,31 +546,67 @@ export const aiImages: AiImages[] = [
       "Supermarket",
       "BeachsideLuxuryHouse",
       "ColorfulLiving",
-      "WheatField"
-    ]
-  }
+      "WheatField",
+    ],
+  },
 ];
 
 export const languages = [
-  "English","Arabic","Chinese","Dutch","french","German","Indonesian","Japanese","malaysian","Persian","Russian","spanish","turkish"
+  "English",
+  "Arabic",
+  "Chinese",
+  "Dutch",
+  "french",
+  "German",
+  "Indonesian",
+  "Japanese",
+  "malaysian",
+  "Persian",
+  "Russian",
+  "spanish",
+  "turkish",
+  "hindi",
+  "marathi",
 ];
 export const email = [
-  "Friendly","Luxury","Relaxed","Professional","Bold","Adventurous","Witty","Persuasive","Empathetic",
+  "Friendly",
+  "Luxury",
+  "Relaxed",
+  "Professional",
+  "Bold",
+  "Adventurous",
+  "Witty",
+  "Persuasive",
+  "Empathetic",
 ];
 
+export const voice = ["alloy", "echo", "fable", "onyx", "nova", "shimmer"];
 
+export const aspectRatio: string[] = [
+  "256x256",
+  "512x512",
+  "1024x1024",
+  "1792x1024",
+  "1024x1792",
+];
 
-
-
+export const noOfImage = ["1", "2", "3", "4"];
+export const aspectRatioDisplayNames: Record<string, string> = {
+  "256x256": "1:1 - 256x256",
+  "512x512": "1:1 - 512x512",
+  "1024x1024": "1:1 - 1024x1024",
+  "1792x1024": "16:9 - 1792x1024",
+  "1024x1792": "9:16 - 1024x1792",
+};
 
 export const longvidTypes = {
   idea: {
     type: "idea",
     title: "Video Idea Generator",
-    topic:"Describe the kind of idea you want",
-    subtopic:"Include more info",
-    tone:"",
-    aiprompt:`Given the specific niche provided as input in square bracket, generate content ideas for long videos (e.g., on YouTube) within that niche. These ideas should be engaging, informative, and suitable for a longer format. Consider the interests and preferences of the target audience and trends within the given niche. 
+    topic: "Describe the kind of idea you want",
+    subtopic: "Include more info",
+    tone: "",
+    aiprompt: `Given the specific niche provided as input in square bracket, generate content ideas for long videos (e.g., on YouTube) within that niche. These ideas should be engaging, informative, and suitable for a longer format. Consider the interests and preferences of the target audience and trends within the given niche. 
     1. Propose video topics that align with the interests and trends within the specified niche.
     2. Consider the potential duration of the videos, aiming for a longer format.
     3. Include elements that enhance engagement, such as storytelling, demonstrations, or in-depth analysis.
@@ -581,27 +614,27 @@ export const longvidTypes = {
     5. generate only 10 ideas 
     6. only generate headline don’t explain it.
     generate content ideas that are not only relevant to the specified niche but are also suitable for longer video formats. Adjust the instructions as needed based on your niche and content requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   title: {
     type: "title",
     title: "Title Generator",
-    topic:"Describe the topic for title",
-    subtopic:"Include more info",
-    tone:"",
-    aiprompt:`Craft attention-grabbing, humorous, and unique titles for a YouTube adventure series only 5 titles on provided input. Each title should promise a blend of laughter, excitement, and something truly uncommon to pique viewers' curiosity. Strive for click-worthy titles that stand out from the crowd and entice viewers to hit play. Ensure a touch of humor, a dash of the unexpected, and a sense of uniqueness in each title to create intrigue and engagement.
+    topic: "Describe the topic for title",
+    subtopic: "Include more info",
+    tone: "",
+    aiprompt: `Craft attention-grabbing, humorous, and unique titles for a YouTube adventure series only 5 titles on provided input. Each title should promise a blend of laughter, excitement, and something truly uncommon to pique viewers' curiosity. Strive for click-worthy titles that stand out from the crowd and entice viewers to hit play. Ensure a touch of humor, a dash of the unexpected, and a sense of uniqueness in each title to create intrigue and engagement.
     `,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   description: {
     type: "description",
     title: "Description Generator",
-    topic:"Describe the topic of your content",
-    subtopic:"Include more information ",
-    tone:"",
-    aiprompt:`Given the context or post provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
+    topic: "Describe the topic of your content",
+    subtopic: "Include more information ",
+    tone: "",
+    aiprompt: `Given the context or post provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
 
     Instructions:
     1. Generate a description that generate pride and respect about  the provided context or post.
@@ -611,17 +644,17 @@ export const longvidTypes = {
     5.  Ensure by default generate output in hinglish language if no language is provided in context.
     
     Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.`,
-    
-    credits:1,
-    model:"gpt-3.5-turbo",
+
+    credits: 1,
+    model: "gpt-3.5-turbo",
   },
   tags: {
     type: "tags",
     title: "Tags Generator",
-    topic:"Describe the topic for tags generation",
-    subtopic:"Add more information ",
-    tone:"",
-    aiprompt:`Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
+    topic: "Describe the topic for tags generation",
+    subtopic: "Add more information ",
+    tone: "",
+    aiprompt: `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
     Instructions:
     1. Generate hashtags that are mostly used and trending keywords aligning with the themes or content of the provided context or post.
@@ -632,16 +665,16 @@ export const longvidTypes = {
     6. if post are related to religion or particular country then generate tags in that language 
     
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   script: {
     type: "script",
     title: "Script Generator",
-    topic:"Describe your idea or video ",
-    subtopic:"Include video style",
-    tone:"",
-    aiprompt:`Generate a captivating YouTube video script based on the provided context. Craft engaging dialogue, compelling scenes, and informative segments to keep the audience entertained and informed throughout the video.
+    topic: "Describe your idea or video ",
+    subtopic: "Include video style",
+    tone: "",
+    aiprompt: `Generate a captivating YouTube video script based on the provided context. Craft engaging dialogue, compelling scenes, and informative segments to keep the audience entertained and informed throughout the video.
     Instructions:
     1. Develop a script that aligns with the provided context, delivering valuable content to the audience.
     2. Create a clear structure for the video, including introductions, main segments, demonstrations, or conclusions and also add highlight topics ,add intro, outro and scenes no.
@@ -651,59 +684,79 @@ export const longvidTypes = {
     
     Craft a compelling script for your YouTube video that captures the essence of the provided context. Use storytelling techniques, informative segments, and engaging dialogue to create an immersive viewing experience for your audience. Your script should effectively communicate the key points and themes while keeping viewers entertained and eager for more.
     `,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   thumbnail: {
     type: "thumbnail",
     title: "Thumbnail Generator",
-    topic:"Describe main points of video",
-    subtopic:"Add your opinion ",
-    tone:"Choose a tone ",
-    
-    aiprompt:`Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.
+    topic: "Describe main points of video",
+    subtopic: "Add your opinion ",
+    tone: "Choose a tone ",
 
-    Instructions:
-    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
-    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
-    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
-    4. Aim for thumbnails that evoke curiosity and compel viewers to click and watch the video.
-    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-    6. must design an eye-catching thumbnail that represents the essence of the video content which provided in context,ensure vibrant clors,engaging visuals,and clear text elements.
-  
-     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+    aiprompt: `**Generate compelling thumbnail prompts featuring multiple scenes and realistic human emotions based on the provided context as input**
+
+    **Instructions:**
     
+    1.Design captivating thumbnail image that depict various scenes relevant to the provided context,merge all different scence one image like various scene in various position in that image college image .
+    2.Also if context needed human involvement incorporate upper chest bodies with extremely ultra realistic human face displaying extreme emotions that align with the context and intended tone.
+    3.overall thumbnail looks ultra real with ultra real human body and face 
+    4.Provide at least four thumbnail options with well explations based on above information options must contains all information as given in input  
+    
+     Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
     `,
-    model:"gpt-3.5-turbo",
-    credits:4,
+    model: "dall-e-3",
+    credits: 4,
   },
   aiimages: {
     type: "aiimages",
     title: "Ai Images Generator",
-    topic:"Describe your video or scipt",
-    subtopic:"Also inlcude main points ",
-    tone:"Choose images style",
-    aiprompt:`Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
+    topic: "Describe your video or scipt",
+    subtopic: "Also inlcude main points ",
+    tone: "Choose images style",
+    aiprompt: `Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
+    output format must follow output formate:[srno - description]
 
    Instructions:
     1. Generate creative image ideas that offer a fresh and unique perspective on the provided context.
     2. Consider incorporating innovative visual elements, symbolism, or artistic techniques.
     3. Ensure the visual concepts align with the overall tone and objectives of the context.
     4. Aim for freshness and originality to captivate the audience visually.
-
+    5. only provide 5 outputs 
      generate creative and unique image ideas.Descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific image idea generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:4,
+    model: "dall-e-3",
+    credits: 4,
+  },
+  prompt: {
+    type: "prompt",
+    title: "Image Prompt Generator",
+    topic: "Describe the topic for title",
+    subtopic: "Include more info",
+    tone: "",
+    aiprompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
+    
+    Instructions:
+    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
+    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
+    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
+    4. Also provide an suitable title for the video and add it in to images as headline
+
+    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
    
+     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+    
+    `,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   translate: {
     type: "translate",
     title: "script translator",
-    topic:"Include Text Here ",
-    subtopic:"Select Output Language",
-    tone:"Select Input Language",
-    aiprompt:`Given the context provided as input, generate a translated version in the target language specified. Your translation should aim to capture the essence, tone, and meaning of the original context while ensuring linguistic accuracy and cultural relevance in the target language.
+    topic: "Include Text Here ",
+    subtopic: "Select Output Language",
+    tone: "Select Input Language",
+    aiprompt: `Given the context provided as input, generate a translated version in the target language specified. Your translation should aim to capture the essence, tone, and meaning of the original context while ensuring linguistic accuracy and cultural relevance in the target language.
 
     Instructions:
     1. Maintain the overall meaning and tone of the original context.
@@ -714,27 +767,36 @@ export const longvidTypes = {
     
     generate a translation that respects the original context while adapting it to the linguistic and cultural nuances of the specified language. Adjust the instructions as needed for your specific translation requirements.
     `,
-    model:"gpt-3.5-turbo",
-    credits:1,
-    
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   TexttoAudio: {
     type: "TexttoAudio",
     title: "Text to Audio Generator",
-    topic:"Enter text here ",
-    subtopic:"Explain more",
-    tone:"Chooose a Character",
-    aiprompt:``,
-    model:"gpt-3.5-turbo",
-    credits:8,
+    topic: "Enter text here ",
+    subtopic: "Explain more",
+    tone: "Chooose a Character",
+    aiprompt: `generate audio for provided text`,
+    model: "tts-1",
+    credits: 8,
+  },
+  audiotoAudio: {
+    type: "audiotoAudio",
+    title: "Audio to Audio Generator",
+    topic: "Enter Audio here ",
+    subtopic: "Explain more",
+    tone: "Chooose a Character",
+    aiprompt: `generate audio for provided Audio`,
+    model: "whisper-1",
+    credits: 8,
   },
   disclamer: {
     type: "disclamer",
     title: "Disclamer Generator",
-    topic:"Describe about video",
-    subtopic:"Add more info",
-    tone:"",
-    aiprompt:`Based on the provided context of the YouTube channel or Instagram account, generate a creative and unique disclaimer for the videos. Incorporate emojis and language that aligns with the content of the channel or account to ensure clarity and transparency for viewers.
+    topic: "Describe about video",
+    subtopic: "Add more info",
+    tone: "",
+    aiprompt: `Based on the provided context of the YouTube channel or Instagram account, generate a creative and unique disclaimer for the videos. Incorporate emojis and language that aligns with the content of the channel or account to ensure clarity and transparency for viewers.
 
     Instructions:
     1. Analyze the content and themes of the YouTube channel or Instagram account to understand the nature of the videos and potential disclaimers required.
@@ -748,16 +810,36 @@ export const longvidTypes = {
     📢 Disclaimer: [Insert channel or account name] content is intended for [mention audience] and is provided for [mention purpose]. The views and opinions expressed in our videos are [mention stance on opinions]. Any information provided is [mention level of accuracy]. We encourage viewers to [mention action, such as consult a professional] before making decisions based on our content. For more information, please refer to our [insert relevant policies or contact details]. Thank you for watching! 🎥✨
    
     Generate a creative and unique disclaimer tailored to the specific context provided, incorporating emojis and language that resonate with the audience. Adjust the instructions as needed based on your specific disclaimer generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
+  backgroundMusicGen: {
+    type: "backgroundMusicGen",
+    title: "Background Music Generator",
+    topic: "What is subject or purpose of video",
+    subtopic: "video is about",
+    tone: "Choose a tone ",
+    aiprompt: `
+    Given the context provided as input,Generate background instrumental music, tunes, or themes available on the internet that best define the given prompt:
+    **Instructions:**
+
+   1.Search for instrumental background music, tunes, or themes available on the internet that align with the provided context and selected tone (funny or serious).
+   2.Consider the mood, atmosphere, and narrative of the context when selecting music options.
+   3.Ensure that the chosen instrumental music complements the tone and enhances the overall impact of the video or content.
+   4.Provide at least five options with the names of the instrumental tracks and their respective artists or composers.
+   5.Output only the available instrumental music, tune, or theme names along with their artists or composers, tailored to the provided context and selected tone.
+
+   Generate background instrumental music options that resonate with the given context and selected tone, enhancing the overall viewer experience. Adjust the instructions as needed to suit your specific music selection requirements..`,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   email: {
     type: "email",
     title: "Email Generator",
-    topic:"What is subject or purpose of Email",
-    subtopic:"Email is about",
-    tone:"Choose a tone ",
-    aiprompt:`
+    topic: "What is subject or purpose of Email",
+    subtopic: "Email is about",
+    tone: "Choose a tone ",
+    aiprompt: `
     Given the context provided as input, generate an email with a specified tone. Craft the email content to align with the themes, intentions, or emotions present in the context. After generating the email, use it as input for an audio generator to create a spoken version of the email.
     
     **Instructions:**
@@ -769,32 +851,29 @@ export const longvidTypes = {
     
     
      generated email as input for an audio generator to create a spoken version. Adjust the instructions as needed based on your specific email and audio generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   all: {
     type: "all",
     title: "All-in-One Generator",
-    topic:"tell the main idea ",
-    subtopic:" Describe the in few line  ",
-    tone:"Choose a tone ",
-    aiprompt:'',
-    model:"gpt-3.5-turbo",
-    credits:40,
+    topic: "tell the main idea ",
+    subtopic: " Describe the in few line  ",
+    tone: "Choose a tone ",
+    aiprompt: "",
+    model: "gpt-3.5-turbo",
+    credits: 40,
   },
-  
-
-  
 };
 
 export const shortvidTypes = {
   idea: {
     type: "idea",
     title: "Short Video Idea Generator",
-    topic:"Describe the kind of idea you want",
-    subtopic:"Include more info",
-    tone:"",
-    aiprompt:`Given the context provided as input, brainstorm creative and unique ideas for reels or short films. Develop concepts that are captivating, memorable, and tailored to the themes and atmosphere of the provided context.
+    topic: "Describe the kind of idea you want",
+    subtopic: "Include more info",
+    tone: "",
+    aiprompt: `Given the context provided as input, brainstorm creative and unique ideas for reels or short films. Develop concepts that are captivating, memorable, and tailored to the themes and atmosphere of the provided context.
 
     Instructions:
     1. Generate ideas for reels or short films that are creative and unique, offering a fresh perspective on the provided context.
@@ -805,16 +884,16 @@ export const shortvidTypes = {
     
     
      generate creative and unique reels or short film ideas. This prompt guides the model to produce imaginative and engaging concepts tailored to the provided context. Adjust the instructions as needed based on your specific reels or short film idea generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   title: {
     type: "title",
     title: "Title Generator",
-    topic:"Describe the topic for title",
-    subtopic:"Include more info",
-    tone:"",
-    aiprompt:`Given the context provided as input, create compelling and attention-grabbing titles for an reel or short video post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
+    topic: "Describe the topic for title",
+    subtopic: "Include more info",
+    tone: "",
+    aiprompt: `Given the context provided as input, create compelling and attention-grabbing titles for an reel or short video post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
 
     Instructions:
     1. Generate titles that encapsulate the key themes or insights present in the provided context.
@@ -825,37 +904,37 @@ export const shortvidTypes = {
     ---
     
      generate short video and reels titles. each designed to capture attention and accurately represent the content within the provided context. Adjust the instructions as needed based on your specific title generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   description: {
     type: "description",
     title: "Description Generator",
-    topic:"Describe the topic of your content",
-    subtopic:"Include more information ",
-    tone:"",
-    aiprompt:`Given the context or reel provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
+    topic: "Describe the topic of your content",
+    subtopic: "Include more information ",
+    tone: "",
+    aiprompt: `Given the context or reel provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
 
-Instructions:
-1. Generate a description that generate pride and respect about  the provided context or reel or short video.
-2. Consider incorporating imaginative language, vivid imagery, biographical information .
-3. Ensure the description complements the tone and theme of the content it accompanies.
-4. Aim for originality and a description that sparks curiosity or emotion that easily understand by peoples.
-5.  Ensure by default generate output in hinglish language if no language is provided in context.
----
+    Instructions:
+    1. Generate a description that generate pride and respect about  the provided context or reel or short video.
+    2. Consider incorporating imaginative language, vivid imagery, biographical information .
+   3. Ensure the description complements the tone and theme of the content it accompanies.
+   4. Aim for originality and a description that sparks curiosity or emotion that easily understand by peoples.
+   5.  Ensure by default generate output in hinglish language if no language is provided in context.
 
-Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.
-`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+
+    Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.
+    `,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   tags: {
     type: "tags",
     title: "Tags Generator",
-    topic:"Describe the topic of tags generation",
-    subtopic:"Include more information ",
-    tone:"",
-    aiprompt:`Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
+    topic: "Describe the topic of tags generation",
+    subtopic: "Include more information ",
+    tone: "",
+    aiprompt: `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
     
     Instructions:
     1. Generate hashtags that are mostly used and trending keywords aligning with the themes or content of the provided context or post.
@@ -867,16 +946,16 @@ Generate distinctive and engaging description tailored to the provided content. 
     
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.
     `,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   script: {
     type: "script",
     title: "Script Generator",
-    topic:"Describe your idea or video ",
-    subtopic:"Include video style",
-    tone:"",
-    aiprompt:`Given the context or post provided as input, craft a creative and unique reel script that brings the content to life in hinglish language only . Develop a script that is engaging, captures attention, and aligns with the tone and purpose of the provided context or post.
+    topic: "Describe your idea or video ",
+    subtopic: "Include video style",
+    tone: "",
+    aiprompt: `Given the context or post provided as input, craft a creative and unique reel script that brings the content to life in hinglish language only . Develop a script that is engaging, captures attention, and aligns with the tone and purpose of the provided context or post.
 
     Instructions:
     1. Generate a reel script/story that is comedic, creative and unique, adding a fresh perspective to the provided context or post.
@@ -889,38 +968,38 @@ Generate distinctive and engaging description tailored to the provided content. 
     
     generate a creative and unique reel script. This prompt guides the model to produce a distinctive and attention-grabbing script tailored to the provided content. Adjust the instructions as needed based on your specific reel script generation requirements.
     `,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   thumbnail: {
     type: "thumbnail",
     title: "Thumbnail Generator",
-    topic:"Describe main points of video",
-    subtopic:"Add your opinion ",
-    tone:"Choose a tone ",
-    aiprompt:`**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
+    topic: "Describe main points of video",
+    subtopic: "Add your opinion ",
+    tone: "Choose a tone ",
+    aiprompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
     
     Instructions:
     1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
     2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
     3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
-    4. Aim for thumbnails that evoke curiosity and compel viewers to click and watch the video.
+    4. Also provide an suitable title for the video and add it in to images as headline
+
     5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-    6. must design an eye-catching thumbnail that represents the essence of the video content which provided in context,ensure vibrant clors,engaging visuals,and clear text elements.
-    
+   
      Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
     
     `,
-    model:"gpt-3.5-turbo",
-    credits:4,
+    model: "dall-e-3",
+    credits: 4,
   },
   aiimages: {
     type: "aiimages",
     title: "Ai Images Generator",
-    topic:"Describe your video or scipt",
-    subtopic:"Also inlcude main points ",
-    tone:"Choose images style",
-    aiprompt:`Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
+    topic: "Describe your video or scipt",
+    subtopic: "Also inlcude main points ",
+    tone: "Choose images style",
+    aiprompt: `Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
 
     **Instructions:**
     1. Generate creative image ideas that offer a fresh and unique perspective on the provided context.
@@ -929,16 +1008,59 @@ Generate distinctive and engaging description tailored to the provided content. 
     4. Aim for freshness and originality to captivate the audience visually.
     
      generate creative and unique image ideas.Descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific image idea generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:4,
+    model: "dall-e-3",
+    credits: 4,
   },
+  prompt: {
+    type: "prompt",
+    title: "Image Prompt Generator",
+    topic: "Describe the topic for title",
+    subtopic: "Include more info",
+    tone: "",
+    aiprompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
+    
+    Instructions:
+    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
+    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
+    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
+    4. Also provide an suitable title for the video and add it in to images as headline
+
+    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
+    
+     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+    
+    `,
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
+  backgroundMusicGen: {
+    type: "backgroundMusicGen",
+    title: "Background Music Generator",
+    topic: "What is subject or purpose of video",
+    subtopic: "video is about",
+    tone: "Choose a tone ",
+    aiprompt: `
+    Given the context provided as input,Generate background instrumental music, tunes, or themes available on the internet that best define the given prompt:
+    **Instructions:**
+
+   1.Search for instrumental background music, tunes, or themes available on the internet that align with the provided context and selected tone (funny or serious).
+   2.Consider the mood, atmosphere, and narrative of the context when selecting music options.
+   3.Ensure that the chosen instrumental music complements the tone and enhances the overall impact of the video or content.
+   4.Provide at least five options with the names of the instrumental tracks and their respective artists or composers.
+   5.Output only the available instrumental music, tune, or theme names along with their artists or composers, tailored to the provided context and selected tone.
+
+   Generate background instrumental music options that resonate with the given context and selected tone, enhancing the overall viewer experience. Adjust the instructions as needed to suit your specific music selection requirements..`,
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
+
   translate: {
     type: "translate",
     title: "script translator",
-    topic:"Select Input Language ",
-    subtopic:"Select Output Language",
-    tone:"Include text here",
-    aiprompt:`
+    topic: "Select Input Language ",
+    subtopic: "Select Output Language",
+    tone: "Include text here",
+    aiprompt: `
     Given the context provided as input, generate a translated version in the target language specified. Your translation should aim to capture the essence, tone, and meaning of the original context while ensuring linguistic accuracy and cultural relevance in the target language.
     
     **Instructions:**
@@ -949,27 +1071,36 @@ Generate distinctive and engaging description tailored to the provided content. 
     5. ensure that content must looks like human written not look like ai generated .
        
      generate a translation that respects the original context while adapting it to the linguistic and cultural nuances of the specified language. Adjust the instructions as needed for your specific translation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
-    
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   TexttoAudio: {
     type: "TexttoAudio",
     title: "Text to Audio Generator",
-    topic:"Enter text here ",
-    subtopic:"Explain more",
-    tone:"Chooose a Character",
-    aiprompt:``,
-    model:"gpt-3.5-turbo",
-    credits:8,
+    topic: "Enter text here ",
+    subtopic: "Explain more",
+    tone: "Chooose a Character",
+    aiprompt: ``,
+    model: "whisper-1",
+    credits: 8,
+  },
+  audiotoAudio: {
+    type: "audiotoAudio",
+    title: "Audio to Audio Generator",
+    topic: "Enter Audio here ",
+    subtopic: "Explain more",
+    tone: "Chooose a Character",
+    aiprompt: `generate audio for provided Audio`,
+    model: "tts-1",
+    credits: 8,
   },
   slogan: {
     type: "slogan",
     title: "Slogan Generator",
-    topic:"Describe the topic ",
-    subtopic:"Include more information ",
-    tone:"Chooose a tone",
-    aiprompt:`
+    topic: "Describe the topic ",
+    subtopic: "Include more information ",
+    tone: "Chooose a tone",
+    aiprompt: `
     Given the context provided as input, create catchy and memorable slogans that encapsulate the essence of the content. Develop concise and impactful phrases that resonate with the intended message, brand, or theme. Consider the tone, target audience, and key themes for effective slogan creation.
     
     Instructions:
@@ -981,16 +1112,16 @@ Generate distinctive and engaging description tailored to the provided content. 
    
     
      generate slogans using this prompt guides the model to create concise and impactful slogans that reflect the essence of the provided context. Adjust the instructions as needed based on your specific slogan generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   facts: {
     type: "facts",
     title: "Facts Generator",
-    topic:"Describe the topic ",
-    subtopic:"Include more information ",
-    tone:"Chooose a tone",
-    aiprompt:`Given the context provided as input, present factual information in an engaging and informative manner. Craft a series of interesting facts related to the context, ensuring accuracy and relevance to captivate the audience's interest. Consider incorporating unique or lesser-known details to enhance the informative value.
+    topic: "Describe the topic ",
+    subtopic: "Include more information ",
+    tone: "Chooose a tone",
+    aiprompt: `Given the context provided as input, present factual information in an engaging and informative manner. Craft a series of interesting facts related to the context, ensuring accuracy and relevance to captivate the audience's interest. Consider incorporating unique or lesser-known details to enhance the informative value.
 
     
     Instructions:
@@ -1000,16 +1131,16 @@ Generate distinctive and engaging description tailored to the provided content. 
     4. Consider adding a brief introduction or conclusion to contextualize the facts.
     
      generate a set of factual statements that align with the provided context, delivering informative content in an engaging manner. Adjust the instructions as needed based on your specific fact-telling requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   quote: {
     type: "quote",
     title: "Quote Generator",
-    topic:"Describe the topic ",
-    subtopic:"Include more information ",
-    tone:"Chooose a tone",
-    aiprompt:`Given the context provided as input, generate a creative and unique quote attributed to a specific individual or source. Craft a memorable and impactful statement that resonates with the themes and atmosphere of the provided context.
+    topic: "Describe the topic ",
+    subtopic: "Include more information ",
+    tone: "Chooose a tone",
+    aiprompt: `Given the context provided as input, generate a creative and unique quote attributed to a specific individual or source. Craft a memorable and impactful statement that resonates with the themes and atmosphere of the provided context.
         
     Instructions:
     1. Generate a quote that captures the essence of the provided context, conveying a meaningful message or insight.
@@ -1024,16 +1155,16 @@ Generate distinctive and engaging description tailored to the provided content. 
     
     ---
      Ensure that the generated quote is appropriately attributed to the author or source based on the context provided. Adjust the instructions as needed based on your specific quote generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   riddle: {
     type: "riddle",
     title: "Riddle Generator",
-    topic:"Describe the topic ",
-    subtopic:"Include more information ",
-    tone:"Chooose a tone",
-    aiprompt:`
+    topic: "Describe the topic ",
+    subtopic: "Include more information ",
+    tone: "Chooose a tone",
+    aiprompt: `
     Given the context provided as input, generate a creative and unique riddle along with its answer that challenges and entertains the audience. Craft a riddle that incorporates elements or themes from the provided context while maintaining a sense of mystery and intrigue.
     
     Instructions:
@@ -1049,33 +1180,29 @@ Generate distinctive and engaging description tailored to the provided content. 
     Answer: [Insert the answer to the riddle here.]
     
     generate a riddle. This prompt guides the model to produce a creative and engaging riddle along with its answer, drawing inspiration from the provided context. Adjust the instructions as needed based on your specific riddle generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   all: {
     type: "all",
     title: "All-in-One Generator",
-    topic:"tell the main idea ",
-    subtopic:" Describe the in few line  ",
-    tone:"Choose a tone ",
-    aiprompt:'',
-    model:"gpt-3.5-turbo",
-    credits:40,
+    topic: "tell the main idea ",
+    subtopic: " Describe the in few line  ",
+    tone: "Choose a tone ",
+    aiprompt: "",
+    model: "gpt-3.5-turbo",
+    credits: 40,
   },
-  
-  
-
-  
 };
 
 export const contentwriterTypes = {
   idea: {
     type: "idea",
     title: "Idea Generator",
-    topic:"Describe the kind of idea you want",
-    subtopic:"Include more info",
-    tone:"",
-    aiprompt:`Given the context provided as input, brainstorm compelling and informative article or blog writing ideas that would engage and captivate the target audience. Develop topics that explore different aspects, perspectives, or insights related to the context, catering to the interests of your readers.
+    topic: "Describe the kind of idea you want",
+    subtopic: "Include more info",
+    tone: "",
+    aiprompt: `Given the context provided as input, brainstorm compelling and informative article or blog writing ideas that would engage and captivate the target audience. Develop topics that explore different aspects, perspectives, or insights related to the context, catering to the interests of your readers.
 
     
     Instructions:
@@ -1088,16 +1215,16 @@ export const contentwriterTypes = {
     
     suggest a variety of topics that explore different facets of the provided context, offering diverse possibilities for engaging content. Adjust the instructions as needed based on your specific article or blog writing requirements.
     `,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   outline: {
     type: "outline",
     title: "Outline Generator",
-    topic:"Describe your outline topics",
-    subtopic:"Include more information ",
-    tone:"",
-    aiprompt:`Given the context provided as input, create a detailed outline for an article or blog post. Structure the outline to include key sections, headings, and subheadings, ensuring a logical flow of ideas. Consider incorporating relevant details, examples, and supporting information within each section.
+    topic: "Describe your outline topics",
+    subtopic: "Include more information ",
+    tone: "",
+    aiprompt: `Given the context provided as input, create a detailed outline for an article or blog post. Structure the outline to include key sections, headings, and subheadings, ensuring a logical flow of ideas. Consider incorporating relevant details, examples, and supporting information within each section.
 
     
     Instructions:
@@ -1108,16 +1235,16 @@ export const contentwriterTypes = {
     5.generate a outline such that it looks like an professional human written.
     ---
      generate an article or blog outline to produce a structured and well-organized outline that serves as a foundation for developing a detailed article or blog post. Adjust the instructions as needed based on your specific outline generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   article: {
     type: "article",
     title: "Article Generator",
-    topic:"Describe the topic of your content",
-    subtopic:"Include more information ",
-    tone:"",
-    aiprompt:`Given the context provided as input, create a comprehensive and engaging article or blog post. Develop a piece that explores the themes, insights, or information present in the context. Craft well-structured paragraphs, incorporate examples, and maintain a coherent flow throughout the article.
+    topic: "Describe the topic of your content",
+    subtopic: "Include more information ",
+    tone: "",
+    aiprompt: `Given the context provided as input, create a comprehensive and engaging article or blog post. Develop a piece that explores the themes, insights, or information present in the context. Craft well-structured paragraphs, incorporate examples, and maintain a coherent flow throughout the article.
 
     
     Instructions:
@@ -1131,16 +1258,16 @@ export const contentwriterTypes = {
    
     
     generate an article or blog post with detailed and coherent piece of writing that reflects the themes and information present in the provided context. Adjust the instructions as needed based on your specific article or blog generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   blog: {
     type: "blog",
     title: "Blog Generator",
-    topic:"Describe the topic of article",
-    subtopic:"Include more information ",
-    tone:"",
-    aiprompt:`Given the context provided as input, create a comprehensive and engaging article or blog post. Develop a piece that explores the themes, insights, or information present in the context. Craft well-structured paragraphs, incorporate examples, and maintain a coherent flow throughout the article.
+    topic: "Describe the topic of article",
+    subtopic: "Include more information ",
+    tone: "",
+    aiprompt: `Given the context provided as input, create a comprehensive and engaging article or blog post. Develop a piece that explores the themes, insights, or information present in the context. Craft well-structured paragraphs, incorporate examples, and maintain a coherent flow throughout the article.
 
        
    Instructions:
@@ -1153,16 +1280,16 @@ export const contentwriterTypes = {
     
     
      generate an article or blog post  to create a detailed and coherent piece of writing that reflects the themes and information present in the provided context. Adjust the instructions as needed based on your specific article or blog generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   book: {
     type: "book",
     title: "Book Generator",
-    topic:"Describe the topic of book",
-    subtopic:"Include more information ",
-    tone:"",
-    aiprompt:`Generate a compelling book outline based on the provided context:
+    topic: "Describe the topic of book",
+    subtopic: "Include more information ",
+    tone: "",
+    aiprompt: `Generate a compelling book outline based on the provided context:
 
     Instructions:
     1. Develop an engaging storyline or plot that aligns with the given context, incorporating unique characters, settings, and conflicts.
@@ -1174,16 +1301,16 @@ export const contentwriterTypes = {
     
     ---
     Craft a captivating book outline that captures the essence of the provided context. Develop a storyline rich in detail and emotion, with memorable characters and compelling plot twists. Adjust the instructions as needed to suit your specific book outline requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   title: {
     type: "title",
     title: "Title Generator",
-    topic:"Describe the topic for title",
-    subtopic:"Include more info",
-    tone:"",
-    aiprompt:`Given the context provided as input, create compelling and attention-grabbing titles for an article or blog post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
+    topic: "Describe the topic for title",
+    subtopic: "Include more info",
+    tone: "",
+    aiprompt: `Given the context provided as input, create compelling and attention-grabbing titles for an article or blog post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
 
     Instructions:
     1. Generate titles that encapsulate the key themes or insights present in the provided context.
@@ -1192,36 +1319,60 @@ export const contentwriterTypes = {
     4. Provide a variety of title options to choose from.
     
      generate article or blog titles. each designed to capture attention and accurately represent the content within the provided context. Adjust the instructions as needed based on your specific title generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   images: {
     type: "images",
     title: "Ai Images Generator",
-    topic:"Describe your video or scipt",
-    subtopic:"Also inlcude main points ",
-    tone:"Choose images style",
-    aiprompt:`Given the context provided as input, generate a descriptive text that vividly describes an image related to the context. Craft a detailed and engaging description that captures the visual elements, details, and emotions portrayed in the imagined image.
+    topic: "Describe your video or scipt",
+    subtopic: "Also inlcude main points ",
+    tone: "Choose images style",
+    aiprompt: `*Generate captivating poster or banner ideas based on the provided context provided as input*
 
-    Instructions:
-    1. Imagine an image related to the provided context.
-    2. Generate descriptive text that vividly describes the visual elements, details, and emotions portrayed in the imagined image.
-    3. Include specific details, colors, shapes, and any noteworthy features in your description.
-    4. Craft a narrative that conveys the overall mood or message of the imagined image.
-    
-    
-   generate an image description. This prompt guides the model to create a detailed textual description of an imagined image related to the provided context. Adjust the instructions as needed based on your specific requirements for image description generation.
+    **Instructions:**
+    1. Brainstorm visually appealing concepts that resonate with the essence of the provided context.
+    2. Consider the target audience and tailor the poster or banner ideas to their preferences and interests.
+    3. Explore creative design elements, colors, and imagery that evoke emotions and grab attention.
+    4. Ensure that the poster or banner effectively communicates the key message or theme of the context.
+    5. Aim for clarity, simplicity, and aesthetic appeal to make the poster or banner visually impactful.
+    6. Experiment with different layouts, fonts, and visual elements to create a memorable design.
+    7. provide 4 poster ideas with typography and output must be in 30-50 words .
+    ---
+    Generate engaging poster or banner ideas that effectively convey the essence of the provided context. Focus on creating visually stunning designs that captivate the audience and leave a lasting impression. Adjust the instructions as needed to suit your specific poster or banner creation requirements.
     `,
-    model:"gpt-3.5-turbo",
-    credits:4,
+    model: "dall-e-3",
+    credits: 4,
+  },
+  prompt: {
+    type: "prompt",
+    title: "Image Prompt Generator",
+    topic: "Describe the topic for title",
+    subtopic: "Include more info",
+    tone: "",
+    aiprompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
+    
+    Instructions:
+    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
+    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
+    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
+    4. Also provide an suitable title for the video and add it in to images as headline
+
+    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
+    
+     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+    
+    `,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   summary: {
     type: "summary",
     title: "Summary translator",
-    topic:"Describe the topic of your content",
-    subtopic:"Include more information ",
-    tone:"",
-    aiprompt:`Given the context provided as input, generate a concise and informative summary. Your summary should capture the key points, main ideas, and essential details of the given context. Aim for clarity and brevity in your response.
+    topic: "Describe the topic of your content",
+    subtopic: "Include more information ",
+    tone: "",
+    aiprompt: `Given the context provided as input, generate a concise and informative summary. Your summary should capture the key points, main ideas, and essential details of the given context. Aim for clarity and brevity in your response.
 
     Instructions:
     1. Consider the most important elements of the context.
@@ -1231,16 +1382,16 @@ export const contentwriterTypes = {
     
    This prompt guides the model to produce a summary based on the input context you provide. Adjust the instructions as needed for your specific requirements.
     `,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   expander: {
     type: "expander",
     title: "Expander Generator",
-    topic:"Describe the topic of your content",
-    subtopic:"Include more information ",
-    tone:"",
-    aiprompt:`Given the context provided as input, expand on the details, themes, and nuances present in the narrative. Your response should delve deeper into the storyline, elaborate on character motivations, describe key events in more detail, and provide additional context where necessary. Aim to enhance the richness and complexity of the given context.
+    topic: "Describe the topic of your content",
+    subtopic: "Include more information ",
+    tone: "",
+    aiprompt: `Given the context provided as input, expand on the details, themes, and nuances present in the narrative. Your response should delve deeper into the storyline, elaborate on character motivations, describe key events in more detail, and provide additional context where necessary. Aim to enhance the richness and complexity of the given context.
  
     Instructions:
     1. Explore the motivations and emotions of the characters involved.
@@ -1251,16 +1402,16 @@ export const contentwriterTypes = {
     
     
     This prompt guides the model to provide a more detailed and nuanced exploration of the input context. Adjust the instructions as needed for your specific requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   translation: {
     type: "translation",
     title: "Translation Generator",
-    topic:"Select Input Language ",
-    subtopic:"Select Output Language",
-    tone:"Select Input Language",
-    aiprompt:`Given the context provided as input, generate a translated version in the target language specified. Your translation should aim to capture the essence, tone, and meaning of the original context while ensuring linguistic accuracy and cultural relevance in the target language.
+    topic: "Select Input Language ",
+    subtopic: "Select Output Language",
+    tone: "Select Input Language",
+    aiprompt: `Given the context provided as input, generate a translated version in the target language specified. Your translation should aim to capture the essence, tone, and meaning of the original context while ensuring linguistic accuracy and cultural relevance in the target language.
     
     Instructions:
     1. Maintain the overall meaning and tone of the original context.
@@ -1271,27 +1422,27 @@ export const contentwriterTypes = {
     
     
      This prompt guides the model to generate a translation that respects the original context while adapting it to the linguistic and cultural nuances of the specified language. Adjust the instructions as needed for your specific translation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   TexttoAudio: {
     type: "TexttoAudio",
     title: "Text to Audio Generator",
-    topic:"Enter text here ",
-    subtopic:"Explain more",
-    tone:"Chooose a Character",
-    aiprompt:``,
-    model:"gpt-3.5-turbo",
-    credits:8,
+    topic: "Enter text here ",
+    subtopic: "Explain more",
+    tone: "Chooose a Character",
+    aiprompt: ``,
+    model: "tts-1",
+    credits: 8,
   },
-  
+
   coverimage: {
     type: "coverimage",
     title: "Book CoverImage Generator",
-    topic:"Describe main points of book",
-    subtopic:"Add your opinion ",
-    tone:"Choose a tone ",
-    aiprompt:`Generate a captivating book cover image prompt based on the provided context:
+    topic: "Describe main points of book",
+    subtopic: "Add your opinion ",
+    tone: "Choose a tone ",
+    aiprompt: `Generate a captivating book cover image prompt based on the provided context:
      
     Instructions:
     1. Design a visually stunning book cover image that encapsulates the essence of the provided context, capturing its themes, characters, and atmosphere.
@@ -1304,16 +1455,16 @@ export const contentwriterTypes = {
     ---
     Craft a compelling book cover image prompt that entices readers and reflects the essence of the provided context. Pay attention to details and aesthetics, aiming for a design that enhances the overall appeal of the book. Adjust the instructions as needed to suit your specific book cover image generation requirements.
     `,
-    model:"gpt-3.5-turbo",
-    credits:4,
+    model: "dall-e-3",
+    credits: 4,
   },
   email: {
     type: "email",
     title: "Email Generator",
-    topic:"What is the purpose of email",
-    subtopic:"Explain more",
-    tone:"Chooose a tone",
-    aiprompt:`Given the context provided as input, generate an email with a specified tone. Craft the email content to align with the themes, intentions, or emotions present in the context. After generating the email, use it as input for an audio generator to create a spoken version of the email.
+    topic: "What is the purpose of email",
+    subtopic: "Explain more",
+    tone: "Chooose a tone",
+    aiprompt: `Given the context provided as input, generate an email with a specified tone. Craft the email content to align with the themes, intentions, or emotions present in the context. After generating the email, use it as input for an audio generator to create a spoken version of the email.
 
     
     Instructions:
@@ -1326,16 +1477,16 @@ export const contentwriterTypes = {
     
    This prompt guides the model to generate an email with a specified tone, and you can then use the generated email as input for an audio generator to create a spoken version. Adjust the instructions as needed based on your specific email and audio generation requirements.
     `,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   slogan: {
     type: "slogan",
     title: "Slogan Generator",
-    topic:"Describe the topic of your content",
-    subtopic:"Include more information ",
-    tone:"Chooose a tone",
-    aiprompt:`Given the context provided as input, create catchy and memorable slogans that encapsulate the essence of the content. Develop concise and impactful phrases that resonate with the intended message, brand, or theme. Consider the tone, target audience, and key themes for effective slogan creation.
+    topic: "Describe the topic of your content",
+    subtopic: "Include more information ",
+    tone: "Chooose a tone",
+    aiprompt: `Given the context provided as input, create catchy and memorable slogans that encapsulate the essence of the content. Develop concise and impactful phrases that resonate with the intended message, brand, or theme. Consider the tone, target audience, and key themes for effective slogan creation.
 
     
     Instructions:
@@ -1347,16 +1498,16 @@ export const contentwriterTypes = {
     
     
      generate slogans. This prompt guides the model to create concise and impactful slogans that reflect the essence of the provided context. Adjust the instructions as needed based on your specific slogan generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   tag: {
     type: "tag",
     title: "Tag Generator",
-    topic:"Describe the topic of video",
-    subtopic:"Include more information ",
-    tone:"",    
-    aiprompt:`Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
+    topic: "Describe the topic of video",
+    subtopic: "Include more information ",
+    tone: "",
+    aiprompt: `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
     
     Instructions:
@@ -1369,32 +1520,29 @@ export const contentwriterTypes = {
     
     
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
-  }, 
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
   all: {
     type: "all",
     title: "All-in-One Generator",
-    topic:"tell the main idea ",
-    subtopic:" Describe the in few line  ",
-    tone:"Choose a tone ",
-    aiprompt:'',
-    model:"gpt-3.5-turbo",
-    credits:30,
-  }, 
-  
-  
+    topic: "tell the main idea ",
+    subtopic: " Describe the in few line  ",
+    tone: "Choose a tone ",
+    aiprompt: "",
+    model: "gpt-3.5-turbo",
+    credits: 30,
+  },
 };
-
 
 export const socialmediaTypes = {
   idea: {
     type: "idea",
     title: "Idea Generator",
-    topic:"Describe the kind of idea you want",
-    subtopic:"Include more info",
-    tone:"",
-    aiprompt:`Given the context provided as input, brainstorm creative and unique ideas for social media posts. Develop concepts that stand out, capture attention, and offer a fresh perspective related to the context.
+    topic: "Describe the kind of idea you want",
+    subtopic: "Include more info",
+    tone: "",
+    aiprompt: `Given the context provided as input, brainstorm creative and unique ideas for social media posts. Develop concepts that stand out, capture attention, and offer a fresh perspective related to the context.
 
     Instructions:
     1. Generate post ideas that go beyond conventional themes, offering a unique and creative angle.
@@ -1407,16 +1555,16 @@ export const socialmediaTypes = {
    
     
     From above context generate creative and unique post ideas. Generate innovative and distinctive concepts tailored to the provided context. Adjust the instructions as needed based on your specific post idea generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   images: {
     type: "images",
     title: "Post Generator",
-    topic:"Describe your video or scipt",
-    subtopic:"Also inlcude main points ",
-    tone:"Choose images style",
-    aiprompt:`Generate captivating poster or banner ideas based on the provided context:
+    topic: "Describe your video or scipt",
+    subtopic: "Also inlcude main points ",
+    tone: "Choose images style",
+    aiprompt: `Generate captivating poster or banner ideas based on the provided context:
  
     Instructions:
     1. Brainstorm visually appealing concepts that resonate with the essence of the provided context.
@@ -1428,16 +1576,38 @@ export const socialmediaTypes = {
     7. provide 2 poster ideas with typography and output must be in 30-50 words .
     
     Generate engaging poster or banner ideas that effectively convey the essence of the provided context. Focus on creating visually stunning designs that captivate the audience and leave a lasting impression. Adjust the instructions as needed to suit your specific poster or banner creation requirements`,
-    model:"gpt-3.5-turbo",
-    credits:4
+    model: "dall-e-3",
+    credits: 4,
+  },
+  prompt: {
+    type: "prompt",
+    title: "Image Prompt Generator",
+    topic: "Describe the topic for title",
+    subtopic: "Include more info",
+    tone: "",
+    aiprompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
+    
+    Instructions:
+    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
+    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
+    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
+    4. Also provide an suitable title for the video and add it in to images as headline
+
+    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
+   
+     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+    
+    `,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   bio: {
     type: "bio",
     title: "Bio Generator",
-    topic:"Describe the your informaton",
-    subtopic:"Include more details",
-    tone:"",
-    aiprompt:`Given the context provided as input, create a creative and unique social media bio that stands out and reflects the essence of the provided context. Craft a bio that is engaging, memorable, and aligns with the individual or brand's personality.
+    topic: "Describe the your informaton",
+    subtopic: "Include more details",
+    tone: "",
+    aiprompt: `Given the context provided as input, create a creative and unique social media bio that stands out and reflects the essence of the provided context. Craft a bio that is engaging, memorable, and aligns with the individual or brand's personality.
 
     Instructions:
     1. Generate a social media bio that is unique and captures the essence of the provided context.
@@ -1448,16 +1618,16 @@ export const socialmediaTypes = {
   
     
     generate a creative and unique social media bio. This prompt guides the model to create a distinctive and engaging bio tailored to the provided context. Adjust the instructions as needed based on your specific social media bio generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   caption: {
     type: "caption",
     title: "Caption Generator",
-    topic:"Describe the topic for caption",
-    subtopic:"Include more details",
-    tone:"Choose a tone",
-    aiprompt:`Given the context or post provided as input, craft a creative and unique social media caption that complements the content and captivates the audience. Develop a caption that stands out, aligns with the tone of the content, and sparks engagement.
+    topic: "Describe the topic for caption",
+    subtopic: "Include more details",
+    tone: "Choose a tone",
+    aiprompt: `Given the context or post provided as input, craft a creative and unique social media caption that complements the content and captivates the audience. Develop a caption that stands out, aligns with the tone of the content, and sparks engagement.
 
     
    Instructions:
@@ -1472,16 +1642,16 @@ export const socialmediaTypes = {
      generate a creative and unique social media caption. This prompt guides the model to produce a captivating and distinctive caption tailored to the provided content. Adjust the instructions as needed based on your specific social media caption generation requirements.
     
     `,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   tag: {
     type: "tag",
     title: "Tags Generator",
-    topic:"Describe the topic of your content",
-    subtopic:"Include more information ",
-    tone:"",
-    aiprompt:`Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
+    topic: "Describe the topic of your content",
+    subtopic: "Include more information ",
+    tone: "",
+    aiprompt: `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
     
     Instructions:
@@ -1495,16 +1665,16 @@ export const socialmediaTypes = {
     
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.
     `,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   description: {
     type: "description",
     title: "Description Generator",
-    topic:"Describe the topic of your content",
-    subtopic:"Include more information ",
-    tone:"",
-    aiprompt:`Given the context or post provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
+    topic: "Describe the topic of your content",
+    subtopic: "Include more information ",
+    tone: "",
+    aiprompt: `Given the context or post provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
 
    
     Instructions:
@@ -1516,16 +1686,16 @@ export const socialmediaTypes = {
    
     
     Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   comment: {
     type: "comment",
     title: "Comment Generator",
-    topic:"comment replier",
-    subtopic:"Include more information ",
-    tone:"Choose a tone ",
-    aiprompt:`Given the context provided as input, Generate a witty and unique reply for a given context. Your response should be appropriate for a social media or online discussion setting. Consider the tone, content, and style that would be effective in responding to comments related to the provided context.
+    topic: "comment replier",
+    subtopic: "Include more information ",
+    tone: "Choose a tone ",
+    aiprompt: `Given the context provided as input, Generate a witty and unique reply for a given context. Your response should be appropriate for a social media or online discussion setting. Consider the tone, content, and style that would be effective in responding to comments related to the provided context.
 
   
     Instructions:
@@ -1537,16 +1707,16 @@ export const socialmediaTypes = {
     
      generate responses that are considerate, engaging, and relevant to the comments made in the provided context. Adjust the instructions as needed for your specific comment reply requirements.
     `,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   tweet: {
     type: "tweet",
     title: "Tweet Generator",
-    topic:"Tweet replier",
-    subtopic:"Include more information ",
-    tone:"Choose a tone",
-    aiprompt:`Given the context provided as input, generate creative and unique replies to tweets while fact-checking the information presented. Ensure that the response is well-researched and provides factual information, especially if the tweet contains propaganda or misinformation.
+    topic: "Tweet replier",
+    subtopic: "Include more information ",
+    tone: "Choose a tone",
+    aiprompt: `Given the context provided as input, generate creative and unique replies to tweets while fact-checking the information presented. Ensure that the response is well-researched and provides factual information, especially if the tweet contains propaganda or misinformation.
 
     
     Instructions:
@@ -1559,16 +1729,16 @@ export const socialmediaTypes = {
      Generate replies that are both creative and factually accurate, contributing to meaningful dialogue and addressing misinformation when necessary. Adjust the instructions as needed based on your specific tweet reply generation requirements.
     
     `,
-    model:"gpt-3.5-turbo",
-    credits:1,
+    model: "gpt-3.5-turbo",
+    credits: 1,
   },
   avatar: {
     type: "avatar",
     title: "Avatar Generator",
-    topic:"Describe the looks of avatar",
-    subtopic:"Add your opinion ",
-    tone:"Choose a tone ",
-    aiprompt:`Given the context provided as input, generate creative and unique visual concepts for avatars . Develop ideas that bring a fresh and distinctive perspective, enhancing the overall visual representation associated with the provided context.
+    topic: "Describe the looks of avatar",
+    subtopic: "Add your opinion ",
+    tone: "Choose a tone ",
+    aiprompt: `Given the context provided as input, generate creative and unique visual concepts for avatars . Develop ideas that bring a fresh and distinctive perspective, enhancing the overall visual representation associated with the provided context.
 
     Instructions:
     1. Generate visual concepts for avatars that are creative and unique, reflecting the provided context.
@@ -1579,42 +1749,186 @@ export const socialmediaTypes = {
     6. add this info at last of every image prompt high quality,photorealistic,high resolution ,high details cartoons
     
     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific avatar  generation requirements.`,
-    model:"gpt-3.5-turbo",
-    credits:4,
+    model: "dall-e-3",
+    credits: 4,
   },
-  
+  backgroundMusicGen: {
+    type: "backgroundMusicGen",
+    title: "Background Music Generator",
+    topic: "What is subject or purpose of video",
+    subtopic: "video is about",
+    tone: "Choose a tone ",
+    aiprompt: `
+    Given the context provided as input,Generate background instrumental music, tunes, or themes available on the internet that best define the given prompt:
+    **Instructions:**
+
+   1.Search for instrumental background music, tunes, or themes available on the internet that align with the provided context and selected tone (funny or serious).
+   2.Consider the mood, atmosphere, and narrative of the context when selecting music options.
+   3.Ensure that the chosen instrumental music complements the tone and enhances the overall impact of the video or content.
+   4.Provide at least five options with the names of the instrumental tracks and their respective artists or composers.
+   5.Output only the available instrumental music, tune, or theme names along with their artists or composers, tailored to the provided context and selected tone.
+
+   Generate background instrumental music options that resonate with the given context and selected tone, enhancing the overall viewer experience. Adjust the instructions as needed to suit your specific music selection requirements..`,
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
+
   all: {
     type: "all",
     title: "All-in-One Generator",
-    topic:"tell the main idea ",
-    subtopic:" Describe the in few line  ",
-    tone:"Choose a tone ",
-    aiprompt:'',
-    model:"gpt-3.5-turbo",
-    credits:10,
+    topic: "tell the main idea ",
+    subtopic: " Describe the in few line  ",
+    tone: "Choose a tone ",
+    aiprompt: "",
+    model: "gpt-3.5-turbo",
+    credits: 10,
   },
-  
 };
+export const MarketingFormProps = {
+  all: {
+    type: "all",
+    title: "Promotion Package Generator",
+    topic: "Describe the your video idea with niche",
+    subtopic: "Include more info",
+    tone: "choose a tone",
+    aiprompt: `Imagine you are a promotion agent who create package which provides best result for promoting our videos on social media through paid promotion on other content creators profile. Here's how to structure the promotion package:
 
+    **Instructions:**
+    1. **Thumbnail Prompt Generation:**
+       - Must Design an eye-catching thumbnail that represents the  video content related image prompts which provided in context. Ensure vibrant colors, engaging visuals, and clear text elements.
+      
+    2. **Quote for Video Promotion:**
+       - Craft a persuasive quote that entices viewers to watch the video. The quote should be concise, impactful, and directly related to the video content. Encourage viewers to click the link to access the video,quote length must be 10-12 words .
+    
+    3. **Hashtags for Social Media Visibility:**
+       - Generate relevant hashtags from which we can easily find profile on particular niche on social media also add paid promotion  and provided niche on context lover like hashtags.
+    4. **Promotional Paragraph for Stories or Posts:**
+       - Draft a paragraph that tells influencer to add my videos link and thumbnail on stories or posts to promote the video for which I pay money. The paragraph should highlight key features of certain amount will pay you if you add this to your profile and at last plz note that if you ready fot this then dm me like this.
+    
+    
+    By following these guidelines, you can create a comprehensive video promotion package that amplifies the reach and impact of the content across social media platforms ensure that thumnail must generated. `,
+    model: "gpt-3.5-turbo",
+    credits: 4,
+  },
+  calculator: {
+    type: "calculator",
+    title: "Paid Promotion Calculator",
+    topic:
+      "Describe the social media account followers and views on each post ",
+    tone: "",
+    subtopic: "Also inlcude main points ",
 
+    aiprompt: `As an experienced evaluator in the field of social media promotions of youtube videos , you understand the importance of determining fair rates for paid promotions based on specific metrics . To streamline the process and ensure accurate calculations, consider the following parameters:
+
+    **Instructions:**
+    1. provide price range for story promotion and post promotion separately if no country name provided consider india must  .
+    2. Based on the provided metrics, calculate the range within which the user can charge for paid promotions for adding story  and post with given time , region and with respect to purchasing power parity of country.
+    3. Ensure price range also in numbers don’t give it in alphabets ans must be provided.
+    4. output always in these steps engagement rate,audience demographics,industry standards,lower range and upper range at last conclusion.
+    5. must provided range in indian rupees if no currency given 
+    
+    By leveraging these insights and incorporating relevant metrics, you can generate fair and competitive rates for paid promotions for story and post both separately for  that align with the user's social media presence and audience engagement. Please input the required metrics to calculate the appropriate promotion rates.`,
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
+  email: {
+    type: "email",
+    title: "Promotion Email Generator",
+    topic: "Describe the reason of email",
+    subtopic: "Include more info",
+    tone: " choose a tone",
+    aiprompt: `**Generate sponsorship email based on the provided input context**
+
+        **Instructions:**
+    1. Include your channel name and a brief description of the video for which you are seeking sponsorship.
+    2. Clearly articulate the benefits of sponsoring your video, such as exposure to your audience and alignment with your content theme.
+    3. Express enthusiasm and interest in collaborating with potential sponsors.
+    4. Provide relevant statistics or metrics about your channel's viewership, engagement, and demographics to demonstrate the value of sponsorship.
+    5. Customize the email to each potential sponsor, highlighting how their product or service fits seamlessly with your content.
+    6. End the email with a call to action, inviting the sponsor to discuss partnership opportunities further.
+    
+    Craft a compelling sponsorship email tailored to your channel name and video description. Highlight the value proposition for potential sponsors and express genuine interest in forming partnerships that benefit both parties. Adjust the instructions as needed to suit your specific sponsorship goals and requirements.
+    `,
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
+  finder: {
+    type: "finder",
+    title: "Sponcership Finder",
+    topic: "Describe the your video ",
+    subtopic: "Include more details",
+    tone: "",
+    aiprompt: `**Generate sponsorship services or products ideas based on the given context or video content provided in input**
+
+    **Instructions:**
+    1. Identify the main theme or content of your video.
+    2. Generate sponsorship services or products ideas that align with the video content or context provided.
+    3. Ensure that the sponsorship ideas are relevant, complementary, and add value to the video.
+    4. Consider the audience's interests and preferences when suggesting sponsorship opportunities.
+    5. Aim to propose services or products that enhance the overall viewer experience and engagement.
+    6. Provide a variety of sponsorship ideas or lists tailored to different aspects of the video content.
+    7. provide only headline don’t explain it .
+    ---
+    Use the provided video content or context to generate relevant sponsorship services or products ideas that align with your content. Ensure that the proposed sponsorships add value to your video and resonate with your audience's interests and preferences. Adjust the instructions as needed to suit the specific requirements of your sponsorship needs.
+      `,
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
+  promotion: {
+    type: "promotion",
+    title: "Promotion Helper ",
+    topic: "Describe the here ",
+    subtopic: "Include more details",
+    tone: "",
+    aiprompt: `**Generate a dependency array with arrows indicating which sub-niches or sub-genres and niche  related to the provided context as input can be promoted together to grow audience **
+
+    **Instructions:**
+    1. Analyze the provided context or niche to identify potential sub-niches or sub-genres and main niches also related to it and also take instagram/ facebook content categories.
+    2. Generate a dependency array that illustrates the relationships between the main context or niche and its associated sub-niches or sub-genres and main niches also.
+    3. Use arrows to indicate which sub-niches or sub-genres and main niche can be promoted together to engage the audience effectively.
+    4. Aim to provide a comprehensive overview of the various aspects within the niche or genre, facilitating collaboration and promotion among influencers or YouTubers.
+    5.imagine this niche are given to each you-tuber abd they want to promote there videos on each others channel so tell me workflow how which niche can be promoted on video which one is dependent on which and how they can grow unitly.don’t explain just give dependency array with arrow
+    6.generate only 10-15 outputs of niches or sub niches
+    ---
+    
+    Below is an example of a dependency array with arrows indicating which sub-niches or sub-genres related to the provided context can be promoted together to understand the audience mindset:
+     plaintext:
+    [Insert your context or niche here]
+        ↓
+    - related niche/sub-niche or sub-genre
+           
+    This dependency array facilitates collaboration and promotion among influencers or YouTubers within the provided niche, allowing them to engage their audience more effectively and grow their viewership.
+    
+    `,
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
+};
 
 export const aiprompt = [
   {
     id: 1,
     longvidTypes: [
-      `Craft attention-grabbing, humorous, and unique titles for a YouTube adventure series only 5 titles on provide input. Each title should promise a blend of laughter, excitement, and something truly uncommon to pique viewers' curiosity. Strive for click-worthy titles that stand out from the crowd and entice viewers to hit play. Ensure a touch of humor, a dash of the unexpected, and a sense of uniqueness in each title to create intrigue and engagement.
-    `,
-    `Given the context or post provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
+      {
+        prompt: `Craft attention-grabbing, humorous, and unique titles for a YouTube adventure series only 5 titles on provide input. Each title should promise a blend of laughter, excitement, and something truly uncommon to pique viewers' curiosity. Strive for click-worthy titles that stand out from the crowd and entice viewers to hit play. Ensure a touch of humor, a dash of the unexpected, and a sense of uniqueness in each title to create intrigue and engagement.
+        `,
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context or post provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
 
-    Instructions:
-    1. Generate a description that generate pride and respect about  the provided context or post.
-    2. Consider incorporating imaginative language, vivid imagery, biographical information .
-    3. Ensure the description complements the tone and theme of the content it accompanies.
-    4. Aim for originality and a description that sparks curiosity or emotion that easily understand by peoples.
-    5.  Ensure by default generate output in hinglish language if no language is provided in context.
-    
-    Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.`,
-    `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
+      Instructions:
+      1. Generate a description that generate pride and respect about  the provided context or post.
+      2. Consider incorporating imaginative language, vivid imagery, biographical information .
+      3. Ensure the description complements the tone and theme of the content it accompanies.
+      4. Aim for originality and a description that sparks curiosity or emotion that easily understand by peoples.
+      5.  Ensure by default generate output in hinglish language if no language is provided in context.
+      
+      Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.`,
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
     Instructions:
     1. Generate hashtags that are mostly used and trending keywords aligning with the themes or content of the provided context or post.
@@ -1625,7 +1939,10 @@ export const aiprompt = [
     6. if post are related to religion or particular country then generate tags in that language 
     
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.`,
-    `Generate a captivating YouTube video script based on the provided context. Craft engaging dialogue, compelling scenes, and informative segments to keep the audience entertained and informed throughout the video.
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Generate a captivating YouTube video script based on the provided context. Craft engaging dialogue, compelling scenes, and informative segments to keep the audience entertained and informed throughout the video.
     Instructions:
     1. Develop a script that aligns with the provided context, delivering valuable content to the audience.
     2. Create a clear structure for the video, including introductions, main segments, demonstrations, or conclusions and also add highlight topics ,add intro, outro and scenes no.
@@ -1635,30 +1952,10 @@ export const aiprompt = [
     
     Craft a compelling script for your YouTube video that captures the essence of the provided context. Use storytelling techniques, informative segments, and engaging dialogue to create an immersive viewing experience for your audience. Your script should effectively communicate the key points and themes while keeping viewers entertained and eager for more.
     `,
-    `Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.
-
-    Instructions:
-    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
-    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
-    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
-    4. Aim for thumbnails that evoke curiosity and compel viewers to click and watch the video.
-    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-    6. must design an eye-catching thumbnail that represents the essence of the video content which provided in context,ensure vibrant clors,engaging visuals,and clear text elements.
-  
-     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
-    
-    
-    `,
-    `Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
-
-   Instructions:
-    1. Generate creative image ideas that offer a fresh and unique perspective on the provided context.
-    2. Consider incorporating innovative visual elements, symbolism, or artistic techniques.
-    3. Ensure the visual concepts align with the overall tone and objectives of the context.
-    4. Aim for freshness and originality to captivate the audience visually.
-
-     generate creative and unique image ideas.Descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific image idea generation requirements.`,
-     `Based on the provided context of the YouTube channel or Instagram account, generate a creative and unique disclaimer for the videos. Incorporate emojis and language that aligns with the content of the channel or account to ensure clarity and transparency for viewers.
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Based on the provided context of the YouTube channel or Instagram account, generate a creative and unique disclaimer for the videos. Incorporate emojis and language that aligns with the content of the channel or account to ensure clarity and transparency for viewers.
 
      Instructions:
      1. Analyze the content and themes of the YouTube channel or Instagram account to understand the nature of the videos and potential disclaimers required.
@@ -1672,35 +1969,69 @@ export const aiprompt = [
      📢 Disclaimer: [Insert channel or account name] content is intended for [mention audience] and is provided for [mention purpose]. The views and opinions expressed in our videos are [mention stance on opinions]. Any information provided is [mention level of accuracy]. We encourage viewers to [mention action, such as consult a professional] before making decisions based on our content. For more information, please refer to our [insert relevant policies or contact details]. Thank you for watching! 🎥✨
     
      Generate a creative and unique disclaimer tailored to the specific context provided, incorporating emojis and language that resonate with the audience. Adjust the instructions as needed based on your specific disclaimer generation requirements.`,
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.
+
+      Instructions:
+      1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
+      2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
+      3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
+      4. Also provide an suitable title for the video and add it in to images as headline
+
+      5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed and also add texrt that best tell video is about.
       
+       Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+
+      `,
+        model: "dall-e-3",
+      },
+      {
+        prompt: `Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
+
+       Instructions:
+        1. Generate creative image ideas that offer a fresh and unique perspective on the provided context.
+        2. Consider incorporating innovative visual elements, symbolism, or artistic techniques.
+        3. Ensure the visual concepts align with the overall tone and objectives of the context.
+        4. Aim for freshness and originality to captivate the audience visually.
+
+         generate creative and unique image ideas.Descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific image idea generation requirements.`,
+        model: "dall-e-3",
+      },
     ],
   },
   {
     id: 2,
     shortvidTypes: [
-      `Given the context provided as input, create compelling and attention-grabbing titles for an reel or short video post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
+      {
+        prompt: `Given the context provided as input, create compelling and attention-grabbing titles for an reel or short video post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
     Instructions:
     1. Generate titles that encapsulate the key themes or insights present in the provided context.
     2. Aim for clarity and relevance, ensuring the titles accurately reflect the content.
     3. Consider incorporating engaging language, keywords, or intriguing phrases.
     4. Provide a variety of title options to choose from.
     
-    ---
-    
      generate short video and reels titles. each designed to capture attention and accurately represent the content within the provided context. Adjust the instructions as needed based on your specific title generation requirements.`,
-     `Given the context or reel provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context or reel provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
 
-Instructions:
-1. Generate a description that generate pride and respect about  the provided context or reel or short video.
-2. Consider incorporating imaginative language, vivid imagery, biographical information .
-3. Ensure the description complements the tone and theme of the content it accompanies.
-4. Aim for originality and a description that sparks curiosity or emotion that easily understand by peoples.
-5.  Ensure by default generate output in hinglish language if no language is provided in context.
----
+    Instructions:
+    1. Generate a description that generate pride and respect about  the provided context or reel or short video.
+    2. Consider incorporating imaginative language, vivid imagery, biographical information .
+    3. Ensure the description complements the tone and theme of the content it accompanies.
+    4. Aim for originality and a description that sparks curiosity or emotion that easily understand by peoples.
+    5.  Ensure by default generate output in hinglish language if no language is provided in context.
 
-Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.
-`,
-`Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
+
+     Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.
+    `,
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
   
     Instructions:
@@ -1713,7 +2044,10 @@ Generate distinctive and engaging description tailored to the provided content. 
     
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.
     `,
-    `Given the context or post provided as input, craft a creative and unique reel script that brings the content to life in hinglish language only . Develop a script that is engaging, captures attention, and aligns with the tone and purpose of the provided context or post.
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context or post provided as input, craft a creative and unique reel script that brings the content to life in hinglish language only . Develop a script that is engaging, captures attention, and aligns with the tone and purpose of the provided context or post.
 
     Instructions:
     1. Generate a reel script/story that is comedic, creative and unique, adding a fresh perspective to the provided context or post.
@@ -1724,9 +2058,12 @@ Generate distinctive and engaging description tailored to the provided content. 
     6 generate only 500-600 words of script.
     ---
     
-    generate a creative and unique reel script. This prompt guides the model to produce a distinctive and attention-grabbing script tailored to the provided content. Adjust the instructions as needed based on your specific reel script generation requirements.
-    `,
-    `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
+    generate a creative and unique reel script. This prompt guides the model to produce a distinctive and attention-grabbing script tailored to the provided content. Adjust the instructions as needed based on your specific reel script generation requirements.`,
+        model: "gpt-3.5-turbo",
+      },
+
+      {
+        prompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
 
     
     Instructions:
@@ -1740,7 +2077,10 @@ Generate distinctive and engaging description tailored to the provided content. 
      Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
     
     `,
-    `Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
+        model: "dall-e-3",
+      },
+      {
+        prompt: `Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
 
     
     
@@ -1751,15 +2091,15 @@ Generate distinctive and engaging description tailored to the provided content. 
     4. Aim for freshness and originality to captivate the audience visually.
     
      generate creative and unique image ideas.Descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific image idea generation requirements.`,
-
-      
-      
-    ]
+        model: "dall-e-3",
+      },
+    ],
   },
   {
     id: 3,
     contentwriterTypes: [
-      `Given the context provided as input, create a detailed outline for an article or blog post. Structure the outline to include key sections, headings, and subheadings, ensuring a logical flow of ideas. Consider incorporating relevant details, examples, and supporting information within each section.
+      {
+        prompt: `Given the context provided as input, create a detailed outline for an article or blog post. Structure the outline to include key sections, headings, and subheadings, ensuring a logical flow of ideas. Consider incorporating relevant details, examples, and supporting information within each section.
 
     
     Instructions:
@@ -1770,7 +2110,10 @@ Generate distinctive and engaging description tailored to the provided content. 
     5.generate a outline such that it looks like an professional human written.
     ---
      generate an article or blog outline to produce a structured and well-organized outline that serves as a foundation for developing a detailed article or blog post. Adjust the instructions as needed based on your specific outline generation requirements.`,
-     `Given the context provided as input, create compelling and attention-grabbing titles for an article or blog post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context provided as input, create compelling and attention-grabbing titles for an article or blog post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
 
     
     Instructions:
@@ -1780,19 +2123,11 @@ Generate distinctive and engaging description tailored to the provided content. 
     4. Provide a variety of title options to choose from.
     
      generate article or blog titles. each designed to capture attention and accurately represent the content within the provided context. Adjust the instructions as needed based on your specific title generation requirements.`,
-     `Given the context provided as input, generate a descriptive text that vividly describes an image related to the context. Craft a detailed and engaging description that captures the visual elements, details, and emotions portrayed in the imagined image.
+        model: "gpt-3.5-turbo",
+      },
 
-    
-    Instructions:
-    1. Imagine an image related to the provided context.
-    2. Generate descriptive text that vividly describes the visual elements, details, and emotions portrayed in the imagined image.
-    3. Include specific details, colors, shapes, and any noteworthy features in your description.
-    4. Craft a narrative that conveys the overall mood or message of the imagined image.
-    
-    
-   generate an image description. This prompt guides the model to create a detailed textual description of an imagined image related to the provided context. Adjust the instructions as needed based on your specific requirements for image description generation.
-    `,
-    `Given the context provided as input, generate a concise and informative summary. Your summary should capture the key points, main ideas, and essential details of the given context. Aim for clarity and brevity in your response.
+      {
+        prompt: `Given the context provided as input, generate a concise and informative summary. Your summary should capture the key points, main ideas, and essential details of the given context. Aim for clarity and brevity in your response.
 
     
     Instructions:
@@ -1803,7 +2138,10 @@ Generate distinctive and engaging description tailored to the provided content. 
     
    This prompt guides the model to produce a summary based on the input context you provide. Adjust the instructions as needed for your specific requirements.
     `,
-    `Given the context provided as input, expand on the details, themes, and nuances present in the narrative. Your response should delve deeper into the storyline, elaborate on character motivations, describe key events in more detail, and provide additional context where necessary. Aim to enhance the richness and complexity of the given context.
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context provided as input, expand on the details, themes, and nuances present in the narrative. Your response should delve deeper into the storyline, elaborate on character motivations, describe key events in more detail, and provide additional context where necessary. Aim to enhance the richness and complexity of the given context.
 
     Instructions:
     1. Explore the motivations and emotions of the characters involved.
@@ -1814,22 +2152,10 @@ Generate distinctive and engaging description tailored to the provided content. 
     
     
     This prompt guides the model to provide a more detailed and nuanced exploration of the input context. Adjust the instructions as needed for your specific requirements.`,
-    `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity
-    
-    
-    
-    Instructions:
-    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
-    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
-    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
-    4. Aim for thumbnails that evoke curiosity and compel viewers to click and watch the video.
-    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-    6. must design an eye-catching thumbnail that represents the essence of the video content which provided in context,ensure vibrant clors,engaging visuals,and clear text elements.
-    
-    
-     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
-    `,
-    `Given the context provided as input, generate an email with a specified tone. Craft the email content to align with the themes, intentions, or emotions present in the context. After generating the email, use it as input for an audio generator to create a spoken version of the email.
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context provided as input, generate an email with a specified tone. Craft the email content to align with the themes, intentions, or emotions present in the context. After generating the email, use it as input for an audio generator to create a spoken version of the email.
 
     
     
@@ -1843,7 +2169,10 @@ Generate distinctive and engaging description tailored to the provided content. 
     
    This prompt guides the model to generate an email with a specified tone, and you can then use the generated email as input for an audio generator to create a spoken version. Adjust the instructions as needed based on your specific email and audio generation requirements.
     `,
-    `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
     
     Instructions:
@@ -1856,7 +2185,10 @@ Generate distinctive and engaging description tailored to the provided content. 
     
     
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.`,
-    `Given the context provided as input, create catchy and memorable slogans that encapsulate the essence of the content. Develop concise and impactful phrases that resonate with the intended message, brand, or theme. Consider the tone, target audience, and key themes for effective slogan creation.
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context provided as input, create catchy and memorable slogans that encapsulate the essence of the content. Develop concise and impactful phrases that resonate with the intended message, brand, or theme. Consider the tone, target audience, and key themes for effective slogan creation.
 
         
     Instructions:
@@ -1868,17 +2200,49 @@ Generate distinctive and engaging description tailored to the provided content. 
     
     
      generate slogans. This prompt guides the model to create concise and impactful slogans that reflect the essence of the provided context. Adjust the instructions as needed based on your specific slogan generation requirements.`,
-     
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity
+    
+    
+    
+    Instructions:
+    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
+    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
+    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
+    4. Aim for thumbnails that evoke curiosity and compel viewers to click and watch the video.
+    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
+    6. must design an eye-catching thumbnail that represents the essence of the video content which provided in context,ensure vibrant clors,engaging visuals,and clear text elements.
+    
+    
+     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+    `,
+        model: "dall-e-3",
+      },
+      {
+        prompt: `Given the context provided as input, generate a descriptive text that vividly describes an image related to the context. Craft a detailed and engaging description that captures the visual elements, details, and emotions portrayed in the imagined image.
 
-    ]
+    
+    Instructions:
+    1. Imagine an image related to the provided context.
+    2. Generate descriptive text that vividly describes the visual elements, details, and emotions portrayed in the imagined image.
+    3. Include specific details, colors, shapes, and any noteworthy features in your description.
+    4. Craft a narrative that conveys the overall mood or message of the imagined image.
+    
+    
+   generate an image description. This prompt guides the model to create a detailed textual description of an imagined image related to the provided context. Adjust the instructions as needed based on your specific requirements for image description generation.
+    `,
+        model: "dall-e-3",
+      },
+    ],
+  },
 
-
-    },
-
-    {
-      id: 4,
-      socialmediaTypes: [
-        `Generate captivating poster or banner ideas based on the provided context:
+  {
+    id: 4,
+    socialmediaTypes: [
+      {
+        prompt: `Generate captivating poster or banner ideas based on the provided context:
 
     
     
@@ -1892,7 +2256,10 @@ Generate distinctive and engaging description tailored to the provided content. 
     7. provide 2 poster ideas with typography and output must be in 30-50 words .
     
     Generate engaging poster or banner ideas that effectively convey the essence of the provided context. Focus on creating visually stunning designs that captivate the audience and leave a lasting impression. Adjust the instructions as needed to suit your specific poster or banner creation requirements`,
-    `Given the context or post provided as input, craft a creative and unique social media caption that complements the content and captivates the audience. Develop a caption that stands out, aligns with the tone of the content, and sparks engagement.
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context or post provided as input, craft a creative and unique social media caption that complements the content and captivates the audience. Develop a caption that stands out, aligns with the tone of the content, and sparks engagement.
 
     
    Instructions:
@@ -1907,7 +2274,10 @@ Generate distinctive and engaging description tailored to the provided content. 
      generate a creative and unique social media caption. This prompt guides the model to produce a captivating and distinctive caption tailored to the provided content. Adjust the instructions as needed based on your specific social media caption generation requirements.
     
     `,
-    `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
     
     Instructions:
@@ -1921,7 +2291,10 @@ Generate distinctive and engaging description tailored to the provided content. 
     
     Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.
     `,
-    `Given the context or post provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context or post provided as input, craft a creative and unique description that adds depth and interest. Develop a description that captivates the audience, providing additional insights and enhancing the overall impact of the content.
 
     
     Instructions:
@@ -1933,12 +2306,56 @@ Generate distinctive and engaging description tailored to the provided content. 
    
     
     Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.`,
-  
-      ]
-  
-  
-      }
-]
+        model: "gpt-3.5-turbo",
+      },
+    ],
+  },
+  {
+    id: 5,
+    marketingTypes: [
+      {
+        prompt: ` Craft a persuasive quote that entices viewers to watch the video. The quote should be concise, impactful, and directly related to the video content. Encourage viewers to click the link to access the video,quote length must be 10-12 words .`,
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
+
+    
+        Instructions:
+        1. Generate hashtags that are mostly used and trending keywords aligning with the themes or content of the provided context or post.
+        2. Consider incorporating wordplay, trending you tube /Instagram trending keywords related to the content like famous slogans , quotes,words related to context in hinglish language,if no language provided in context.
+        3. Ensure the hashtags complement the tone and purpose of the context or post.
+        4. also add famous similar names and quotes of related context which are famous or always trends.
+        5. Aim for originality and hashtags that resonate with the audience.
+        6. if post are related to religion or particular country then generate tags in that language 
+        
+        
+        Generate distinctive and engaging hashtags tailored to the provided content. Adjust the instructions as needed based on your specific hashtag generation requirements.
+    `,
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `- Draft a paragraph that tells influencer to add my videos link and thumbnail on stories or posts to promote the video for which I pay money. The paragraph should highlight key features of certain amount will pay you if you add this to your profile and at last plz note that if you ready fot this then dm me like this. `,
+        model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
+
+    
+        Instructions:
+        1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
+        2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
+        3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
+        4. Aim for thumbnails that evoke curiosity and compel viewers to click and watch the video.
+        5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
+        6. must design an eye-catching thumbnail that represents the essence of the video content which provided in context,ensure vibrant clors,engaging visuals,and clear text elements.
+        
+         Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.`,
+        model: "dall-e-3",
+      },
+    ],
+  },
+];
 export const aspectRatioOptions = {
   "1:1": {
     aspectRatio: "1:1",
@@ -1960,10 +2377,6 @@ export const aspectRatioOptions = {
   },
 };
 
-
-export const creditFee = -1;
-
-
 export const benefits = [
   {
     id: 1,
@@ -1976,7 +2389,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/longvid/idea"
+        link: "/autogen/longvid/idea",
       },
       {
         id: "1",
@@ -1986,7 +2399,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/longvid/title"
+        link: "/autogen/longvid/title",
       },
       {
         id: "2",
@@ -1996,7 +2409,7 @@ export const benefits = [
         iconUrl: benefitIcon3,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/longvid/description"
+        link: "/autogen/longvid/description",
       },
       {
         id: "3",
@@ -2006,7 +2419,7 @@ export const benefits = [
         iconUrl: benefitIcon4,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/longvid/tags"
+        link: "/autogen/longvid/tags",
       },
       {
         id: "4",
@@ -2016,7 +2429,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/longvid/script"
+        link: "/autogen/longvid/script",
       },
       {
         id: "5",
@@ -2026,7 +2439,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/longvid/thumbnail"
+        link: "/autogen/longvid/thumbnail",
       },
       {
         id: "6",
@@ -2036,7 +2449,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/longvid/aiimages"
+        link: "/autogen/longvid/aiimages",
       },
       {
         id: "7",
@@ -2046,7 +2459,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/longvid/translate"
+        link: "/autogen/longvid/translate",
       },
       {
         id: "8",
@@ -2056,7 +2469,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/longvid/disclamer"
+        link: "/autogen/longvid/disclamer",
       },
       {
         id: "9",
@@ -2066,7 +2479,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/longvid/email"
+        link: "/autogen/longvid/email",
       },
     ],
   },
@@ -2081,7 +2494,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link : "/autogen/shortvid/idea"
+        link: "/autogen/shortvid/idea",
       },
       {
         id: "1",
@@ -2091,7 +2504,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link : "/autogen/shortvid/title"
+        link: "/autogen/shortvid/title",
       },
       {
         id: "2",
@@ -2101,7 +2514,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link : "/autogen/shortvid/description"
+        link: "/autogen/shortvid/description",
       },
       {
         id: "3",
@@ -2111,9 +2524,8 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link : "/autogen/shortvid/tags"
-      }
-      ,
+        link: "/autogen/shortvid/tags",
+      },
       {
         id: "4",
         title: "Script Generator",
@@ -2123,7 +2535,7 @@ export const benefits = [
         imageUrl: benefitImage2,
         light: true,
 
-        link : "/autogen/shortvid/script"
+        link: "/autogen/shortvid/script",
       },
       {
         id: "5",
@@ -2133,7 +2545,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link : "/autogen/shortvid/thumbnail"
+        link: "/autogen/shortvid/thumbnail",
       },
       {
         id: "6",
@@ -2143,7 +2555,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link : "/autogen/shortvid/aiimages"
+        link: "/autogen/shortvid/aiimages",
       },
       {
         id: "7",
@@ -2153,7 +2565,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link : "/autogen/shortvid/translate"
+        link: "/autogen/shortvid/translate",
       },
       {
         id: "8",
@@ -2163,7 +2575,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link : "/autogen/shortvid/slogan"
+        link: "/autogen/shortvid/slogan",
       },
       {
         id: "9",
@@ -2173,7 +2585,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link : "/autogen/shortvid/facts"
+        link: "/autogen/shortvid/facts",
       },
       {
         id: "10",
@@ -2183,7 +2595,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link : "/autogen/shortvid/quote"
+        link: "/autogen/shortvid/quote",
       },
       {
         id: "11",
@@ -2193,10 +2605,9 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link : "/autogen/shortvid/riddle"
+        link: "/autogen/shortvid/riddle",
       },
-      
-    ]
+    ],
   },
   {
     id: 3,
@@ -2209,9 +2620,9 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/idea"
+        link: "/autogen/contentwriter/idea",
       },
-      
+
       {
         id: "1",
         title: "Outline Generator",
@@ -2220,7 +2631,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/outline"
+        link: "/autogen/contentwriter/outline",
       },
       {
         id: "2",
@@ -2230,7 +2641,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/article"
+        link: "/autogen/contentwriter/article",
       },
       {
         id: "3",
@@ -2240,7 +2651,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/blog"
+        link: "/autogen/contentwriter/blog",
       },
       {
         id: "4",
@@ -2250,7 +2661,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/book"
+        link: "/autogen/contentwriter/book",
       },
       {
         id: "5",
@@ -2261,9 +2672,9 @@ export const benefits = [
         imageUrl: benefitImage2,
         light: true,
 
-        link: "/autogen/contentwriter/title"
+        link: "/autogen/contentwriter/title",
       },
-      
+
       {
         id: "6",
         title: "Tags Generator",
@@ -2272,9 +2683,8 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/images"
-      }
-      ,
+        link: "/autogen/contentwriter/images",
+      },
       {
         id: "7",
         title: "Ai Images Generator",
@@ -2283,7 +2693,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/summary"
+        link: "/autogen/contentwriter/summary",
       },
       {
         id: "8",
@@ -2293,9 +2703,9 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/expander"
+        link: "/autogen/contentwriter/expander",
       },
-      
+
       {
         id: "9",
         title: "Book CoverImage Generator",
@@ -2304,7 +2714,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/translation"
+        link: "/autogen/contentwriter/translation",
       },
       {
         id: "10",
@@ -2314,7 +2724,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/coverimage"
+        link: "/autogen/contentwriter/coverimage",
       },
       {
         id: "11",
@@ -2324,7 +2734,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/email"
+        link: "/autogen/contentwriter/email",
       },
       {
         id: "12",
@@ -2334,7 +2744,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/slogan"
+        link: "/autogen/contentwriter/slogan",
       },
       {
         id: "13",
@@ -2344,10 +2754,9 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/email"
+        link: "/autogen/contentwriter/email",
       },
-      
-    ]
+    ],
   },
   {
     id: 4,
@@ -2360,7 +2769,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/socialmedia/idea"
+        link: "/autogen/socialmedia/idea",
       },
       {
         id: "1",
@@ -2370,7 +2779,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/socialmedia/images"
+        link: "/autogen/socialmedia/images",
       },
       {
         id: "2",
@@ -2380,7 +2789,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/socialmedia/bio"
+        link: "/autogen/socialmedia/bio",
       },
       {
         id: "3",
@@ -2390,9 +2799,8 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/socialmedia/tag"
-      }
-      ,
+        link: "/autogen/socialmedia/tag",
+      },
       {
         id: "4",
         title: "Caption Generator",
@@ -2401,7 +2809,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/socialmedia/caption"
+        link: "/autogen/socialmedia/caption",
       },
       {
         id: "5",
@@ -2411,7 +2819,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/socialmedia/description"
+        link: "/autogen/socialmedia/description",
       },
       {
         id: "6",
@@ -2421,17 +2829,17 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/socialmedia/comment"
+        link: "/autogen/socialmedia/comment",
       },
       {
         id: "7",
         title: "Tweet replier",
-        text:"Swift Engagement: Personalize Your Responses with Our Tweet Replier!",
+        text: "Swift Engagement: Personalize Your Responses with Our Tweet Replier!",
         // backgroundUrl: "@public/assets/benefits/card-1.svg",
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/socialmedia/tweet"
+        link: "/autogen/socialmedia/tweet",
       },
       {
         id: "8",
@@ -2441,14 +2849,11 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link:"/autogen/socialmedia/avatar"
+        link: "/autogen/socialmedia/avatar",
       },
-      
-      
-    ]
-  }
+    ],
+  },
 ];
-
 
 export const roadmap = [
   {
@@ -2501,5 +2906,3 @@ export const brainwaveServicesIcons = [
   chromecast,
   sliders04,
 ];
-
- 

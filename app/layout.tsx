@@ -28,7 +28,7 @@ export default function RootLayout({
       }}
     >
       <html suppressHydrationWarning lang="en">
-        <body className={cn("font-IBMPlex antialiased", IBMPlex.variable)}>
+        <body className={cn("font-IBMPlex antialiased ", IBMPlex.variable)}>
           {children}
         </body>
       </html>

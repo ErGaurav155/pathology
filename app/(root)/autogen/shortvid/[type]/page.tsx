@@ -8,6 +8,8 @@ import ShortVidAiForm from "@/components/shared/ShortVidAiForm";
 import Editor from "@/components/shared/Editor";
 import { Button } from "@/components/ui/button";
 import { revalidateTag } from "next/cache";
+import ShortVidAudio from "@/components/shared/ShortvidAudio";
+import Aiaudio from "@/components/shared/Aiaudio";
 
 const AddTransformationTypePage = async ({
   params: { type },
@@ -25,20 +27,33 @@ const AddTransformationTypePage = async ({
         <Header title={shortVid.title} />
 
         <section className="mt-10">
-          <ShortVidAiForm
-            userId={user._id}
-            type={shortVid.type as ShortVidTypeKey}
-            creditBalance={user.creditBalance}
-          />
+          {type === "audiotoAudio" && (
+            <ShortVidAudio
+              userId={user._id}
+              type={shortVid.type as ShortVidTypeKey}
+              creditBalance={user.creditBalance}
+            />
+          )}
+          {type !== "audiotoAudio" && (
+            <ShortVidAiForm
+              userId={user._id}
+              type={shortVid.type as ShortVidTypeKey}
+              creditBalance={user.creditBalance}
+            />
+          )}
         </section>
       </div>
 
-      <div className="sticky top-0 md:flex-auto h-[100vh] w-full md:w-2/6   pt-4 ">
-        <Button className="text-white bg-green-800 hover:bg-[#1c7429] rounded-md self-start w-[20vw] cursor-default max-h-min ml-4 mt-6">
-          Editor
-        </Button>
-        <Editor />
-      </div>
+      {(type === "audiotoAudio" || type === "TexttoAudio") && <Aiaudio />}
+
+      {type !== "audiotoAudio" && type !== "TexttoAudio" && (
+        <div className="sticky top-0  md:flex-auto h-[100vh] w-full md:w-2/6  pt-4 ">
+          <Button className="text-white bg-green-800 hover:bg-[#1c7429] rounded-md self-start w-[20vw] cursor-default max-h-min ml-4 mt-6">
+            Editor
+          </Button>
+          <Editor />
+        </div>
+      )}
     </div>
   );
 };

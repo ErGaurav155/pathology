@@ -13,7 +13,7 @@ declare type CreateUserParams = {
 declare type UpdateUserParams = {
   firstName: string;
   lastName: string;
-  username:string | null;
+  username: string | null;
   photo: string;
 };
 
@@ -108,10 +108,11 @@ declare type LongVidTypeKey =
   | "email"
   | "all"
   | "TexttoAudio"
-  
-;
+  | "prompt"
+  | "backgroundMusicGen"
+  | "audiotoAudio";
 
-  declare type ShortVidTypeKey =
+declare type ShortVidTypeKey =
   | "idea"
   | "title"
   | "description"
@@ -126,9 +127,11 @@ declare type LongVidTypeKey =
   | "riddle"
   | "all"
   | "TexttoAudio"
-;
-  
-  declare type ContentWriterTypeKey =
+  | "backgroundMusicGen"
+  | "prompt"
+  | "audiotoAudio";
+
+declare type ContentWriterTypeKey =
   | "idea"
   | "outline"
   | "article"
@@ -143,11 +146,10 @@ declare type LongVidTypeKey =
   | "email"
   | "tag"
   | "all"
-  | "TexttoAudio"
-  
-;
+  | "prompt"
+  | "TexttoAudio";
 
-  declare type SocialMediaTypeKey =
+declare type SocialMediaTypeKey =
   | "idea"
   | "images"
   | "bio"
@@ -157,9 +159,35 @@ declare type LongVidTypeKey =
   | "comment"
   | "tweet"
   | "avatar"
-  |  "all"
-  
-;
+  | "all"
+  | "prompt"
+  | "backgroundMusicGen";
+
+declare type MarketingTypeKey =
+  | "all"
+  | "calculator"
+  | "finder"
+  | "email"
+  | "promotion";
+
+declare type voiceType =
+  | "alloy"
+  | "echo"
+  | "fable"
+  | "onyx"
+  | "nova"
+  | "shimmer";
+
+declare type imageType =
+  | "256x256"
+  | "512x512"
+  | "1024x1024"
+  | "1792x1024"
+  | "1024x1792"
+  | null
+  | undefined;
+
+declare type imagenumber = number | null | undefined;
 // ====== URL QUERY PARAMS
 declare type FormUrlQueryParams = {
   searchParams: string;
@@ -190,6 +218,10 @@ declare type SocialMediaSearchParamProps = {
   params: { id: string; type: SocialMediaTypeKey };
   searchParams: { [key: string]: string[] | undefined };
 };
+declare type MarketingSearchParamProps = {
+  params: { id: string; type: MarketingTypeKey };
+  searchParams: { [key: string]: string[] | undefined };
+};
 declare type ContentWriterSearchParamProps = {
   params: { id: string; type: ContentWriterTypeKey };
   searchParams: { [key: string]: string[] | undefined };
@@ -204,34 +236,30 @@ declare type TransformationFormProps = {
   config?: Transformations | null;
 };
 declare type LongAiFormProps = {
-  
   userId: string;
-  type: LongVidTypeKey
+  type: LongVidTypeKey;
   creditBalance: number;
-  
 };
 declare type ShortAiFormProps = {
-  
   userId: string;
-  type: ShortVidTypeKey
+  type: ShortVidTypeKey;
   creditBalance: number;
-  
 };
 declare type ContentWriterAiFormProps = {
-  
   userId: string;
-  type: ContentWriterTypeKey
+  type: ContentWriterTypeKey;
   creditBalance: number;
-  
 };
 declare type SocialMediaFormProps = {
-  
   userId: string;
-  type: SocialMediaTypeKey
+  type: SocialMediaTypeKey;
   creditBalance: number;
-  
 };
-
+declare type MarketingFormProps = {
+  userId: string;
+  type: MarketingTypeKey;
+  creditBalance: number;
+};
 
 declare type TransformedImageProps = {
   image: any;
