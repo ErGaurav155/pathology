@@ -55,7 +55,6 @@ const Home = async () => {
         </section>
 
         <TabsDemo />
-        {/* <Benefits /> */}
         <Promo />
         <Services />
         <Roadmap />

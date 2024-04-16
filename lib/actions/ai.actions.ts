@@ -20,6 +20,7 @@ interface GenerateGptResponseParams {
   description?: string;
   aiprompt: string;
   model: string;
+  genType?: boolean;
 }
 export const generateGptResponse = async ({
   input,
@@ -29,6 +30,7 @@ export const generateGptResponse = async ({
   description,
   aiprompt,
   model,
+  genType,
 }: GenerateGptResponseParams) => {
   if (openai instanceof Error) {
     throw openai;
@@ -120,67 +122,103 @@ export const generateGptResponse = async ({
     }
   } else if (model === "dall-e-3") {
     console.log("hi iam running on dall-e-3 ");
+    if (!genType) {
+      try {
+        const completion = await openai.chat.completions.create({
+          model: `gpt-3.5-turbo`,
+          messages: [
+            {
+              role: "system",
+              content: `you are an expert content creator or influencer. you will be given a list of main tasks . must provide output like this only -- desc1,desc2,desc3,etc `,
+            },
+            {
+              role: "user",
+              content: `context input-[${input}] with the tone of '${selectTone}' also consider this '${description}' do ${aiprompt} `,
+            },
+          ],
 
-    try {
-      const completion = await openai.chat.completions.create({
-        model: `gpt-3.5-turbo`,
-        messages: [
-          {
-            role: "system",
-            content: `you are an expert content creator or influencer. you will be given a list of main tasks . must provide output like this only -- desc1,desc2,desc3,etc `,
-          },
-          {
-            role: "user",
-            content: `context input-[${input}] with the tone of '${selectTone}' also consider this '${description}' do ${aiprompt} `,
-          },
-        ],
-
-        temperature: 0.3,
-        max_tokens: 1500,
-      });
-      const pregptArgs = completion?.choices[0]?.message?.content;
-      console.log(pregptArgs);
-
-      if (!pregptArgs) {
-        throw new Error("Bad response from OpenAI");
-      }
-
-      const concepts = pregptArgs
-        .split("\n")
-        .filter((item) => item.trim() !== "");
-      console.log(concepts);
-      let noOfImageG: number;
-
-      if (!outputlag) {
-        noOfImageG = 1;
-      } else {
-        noOfImageG = parseInt(outputlag);
-      }
-      const imageUrls = [];
-
-      for (let i = 0; i < noOfImageG; i++) {
-        const image = await openai.images.generate({
-          model: model,
-          prompt: concepts[i],
-          size: inputlag as imageType,
-          quality: "standard",
-          response_format: "url",
-          n: 1,
+          temperature: 0.3,
+          max_tokens: 1500,
         });
-        const imagedata = image;
-        console.log(imagedata);
-        const imageUrl = image?.data[0]?.url;
-        if (!imageUrl) {
+        const pregptArgs = completion?.choices[0]?.message?.content;
+        console.log(pregptArgs);
+
+        if (!pregptArgs) {
           throw new Error("Bad response from OpenAI");
         }
 
-        imageUrls.push(imageUrl);
-      }
+        const concepts = pregptArgs
+          .split("\n")
+          .filter((item) => item.trim() !== "");
+        console.log(concepts);
+        let noOfImageG: number;
 
-      return imageUrls;
-    } catch (error) {
-      console.error(error);
-      throw new Error("Bad response from OpenAI");
+        if (!outputlag) {
+          noOfImageG = 1;
+        } else {
+          noOfImageG = parseInt(outputlag);
+        }
+        const imageUrls = [];
+
+        for (let i = 0; i < noOfImageG; i++) {
+          const image = await openai.images.generate({
+            model: model,
+            prompt: concepts[i],
+            size: inputlag as imageType,
+            quality: "standard",
+            response_format: "url",
+            n: 1,
+          });
+          const imagedata = image;
+          console.log(imagedata);
+          const imageUrl = image?.data[0]?.url;
+          if (!imageUrl) {
+            throw new Error("Bad response from OpenAI");
+          }
+
+          imageUrls.push(imageUrl);
+        }
+
+        return imageUrls;
+      } catch (error) {
+        console.error(error);
+        throw new Error("Bad response from OpenAI");
+      }
+    } else {
+      try {
+        let noOfImageG: number;
+        console.log("prompt based only");
+        if (!outputlag) {
+          noOfImageG = 1;
+        } else {
+          noOfImageG = parseInt(outputlag);
+        }
+        const imageUrls = [];
+
+        for (let i = 0; i < noOfImageG; i++) {
+          const image = await openai.images.generate({
+            model: model,
+            prompt: input,
+            size: inputlag as imageType,
+            quality: "standard",
+            response_format: "url",
+            n: 1,
+          });
+          const imagedata = image;
+          console.log(imagedata);
+          const imageUrl = image?.data[0]?.url;
+          if (!imageUrl) {
+            throw new Error("Bad response from OpenAI");
+          }
+
+          imageUrls.push(imageUrl);
+        }
+
+        return imageUrls;
+      } catch (error) {
+        console.error(error);
+        throw new Error("Bad response from OpenAI");
+      }
     }
   } else if (model === "tts-1") {
     console.log("hi iam running on tts-1 ");
@@ -246,6 +284,7 @@ export async function fetchLongVidData({
         description,
         aiprompt: item.prompt,
         model: item.model,
+        genType: false,
       });
       return promise;
     } catch (error) {
@@ -281,6 +320,7 @@ export async function fetchShortVidData({
         description,
         aiprompt: item.prompt,
         model: item.model,
+        genType: false,
       });
       return promise;
     } catch (error) {
@@ -315,6 +355,7 @@ export async function fetchContentWriterData({
         description,
         aiprompt: item.prompt,
         model: item.model,
+        genType: false,
       });
       return promise;
     } catch (error) {
@@ -349,6 +390,7 @@ export async function fetchSocialMediaData({
         description,
         aiprompt: item.prompt,
         model: item.model,
+        genType: false,
       });
       return promise;
     } catch (error) {
@@ -383,6 +425,7 @@ export async function fetchMarketingData({
         description,
         aiprompt: item.prompt,
         model: item.model,
+        genType: false,
       });
       return promise;
     } catch (error) {

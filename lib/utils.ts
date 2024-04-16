@@ -51,39 +51,6 @@ const toBase64 = (str: string) =>
 export const dataUrl = `data:image/svg+xml;base64,${toBase64(
   shimmer(1000, 1000)
 )}`;
-// ==== End
-
-// FORM URL QUERY
-// export const formUrlQuery = ({
-//   searchParams,
-//   key,
-//   value,
-// }: FormUrlQueryParams) => {
-//   const params = { ...qs.parse(searchParams.toString()), [key]: value };
-
-//   return `${window.location.pathname}?${qs.stringify(params, {
-//     skipNulls: true,
-//   })}`;
-// };
-
-// REMOVE KEY FROM QUERY
-// export function removeKeysFromQuery({
-//   searchParams,
-//   keysToRemove,
-// }: RemoveUrlQueryParams) {
-//   const currentUrl = qs.parse(searchParams);
-
-//   keysToRemove.forEach((key) => {
-//     delete currentUrl[key];
-//   });
-
-// Remove null or undefined values
-//   Object.keys(currentUrl).forEach(
-//     (key) => currentUrl[key] == null && delete currentUrl[key]
-//   );
-
-//   return `${window.location.pathname}?${qs.stringify(currentUrl)}`;
-// }
 
 // DEBOUNCE
 export const debounce = (func: (...args: any[]) => void, delay: number) => {
@@ -146,28 +113,34 @@ export const download = async (url: string, filename: string) => {
   }
 };
 
-// DEEP MERGE OBJECTS
-export const deepMergeObjects = (obj1: any, obj2: any) => {
-  if (obj2 === null || obj2 === undefined) {
-    return obj1;
+export const totalCredits = (selectedAspectRatio: string, arImage: string) => {
+  switch (selectedAspectRatio) {
+    case "1024x1024":
+      return 4 * Number(arImage);
+    case "1792x1024":
+      return 6 * Number(arImage);
+    case "1024x1792":
+      return 6 * Number(arImage);
+    default:
+      return 1;
   }
+};
 
-  let output = { ...obj2 };
-
-  for (let key in obj1) {
-    if (obj1.hasOwnProperty(key)) {
-      if (
-        obj1[key] &&
-        typeof obj1[key] === "object" &&
-        obj2[key] &&
-        typeof obj2[key] === "object"
-      ) {
-        output[key] = deepMergeObjects(obj1[key], obj2[key]);
-      } else {
-        output[key] = obj1[key];
-      }
-    }
+export const calculateCredits = (fileSize?: number) => {
+  if (!fileSize) {
+    return 1;
   }
-
-  return output;
+  if (fileSize <= 1 * 1024 * 1024) {
+    return 4;
+  } else if (fileSize <= 2 * 1024 * 1024) {
+    return 6;
+  } else if (fileSize <= 3 * 1024 * 1024) {
+    return 8;
+  } else if (fileSize <= 4 * 1024 * 1024) {
+    return 10;
+  } else if (fileSize <= 5 * 1024 * 1024) {
+    return 12;
+  } else {
+    return 15;
+  }
 };

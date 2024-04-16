@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -22,33 +21,29 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { toast, useToast } from "@/components/ui/use-toast";
-import Link from "next/link";
+import { useToast } from "@/components/ui/use-toast";
 import { Textarea } from "@/components/ui/textarea";
 import { useEffect, useState } from "react";
 import {
   aiImages,
   aspectRatio,
   aspectRatioDisplayNames,
-  contentwriterTypes,
   email,
-  languages,
-  longvidTypes,
   noOfImage,
-  shortvidTypes,
   socialmediaTypes,
-  voice,
 } from "@/constants";
 import { redirect } from "next/navigation";
 import {
   fetchSocialMediaData,
   generateGptResponse,
 } from "@/lib/actions/ai.actions";
-import { updateCredits } from "@/lib/actions/user.actions";
+import { getUserByDbId, updateCredits } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
-import { Copy, DownloadIcon, GemIcon } from "lucide-react";
+import { Copy, DownloadIcon } from "lucide-react";
 import Image from "next/image";
-import { download } from "@/lib/utils";
+import { download, totalCredits } from "@/lib/utils";
+import { Switch } from "../ui/switch";
+import { Skeleton } from "../ui/skeleton";
 
 const formSchema = z.object({
   input: z.string().min(5, {
@@ -75,13 +70,19 @@ export default function SocialMediaAiForm({
   const [activeStates, setActiveStates] = useState(Array(5).fill(false));
   const [isSubmitting, setIsSubmitting] = useState(false);
   const socialMedia = socialmediaTypes[type];
+  const [genType, setGenType] = useState(false);
+  const [isResponse, setIsResponse] = useState(false);
+
   const [isActive, setIsActive] = useState(false);
   const [textToCopy, setTextToCopy] = useState("");
   const [imageUrl, setImageUrl] = useState<string[]>([]);
-
+  const [availableCredits, setAvailableCredits] =
+    useState<number>(creditBalance);
   const [response, setResponse] = useState<string | null>();
   const [allResponse, setAllResponse] = useState<string[] | null>();
   const [selectedAspectRatio, setSelectedAspectRatio] = useState<string>("1:1");
+  const [credits, setCredits] = useState(socialMedia.credits);
+  const [arImage, setArImage] = useState("1");
 
   const { toast } = useToast();
 
@@ -126,7 +127,6 @@ export default function SocialMediaAiForm({
     title,
     aiprompt,
     model,
-    credits,
   } = socialMedia;
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -139,9 +139,11 @@ export default function SocialMediaAiForm({
       outputlag: "",
     },
   });
-  const handleAspectRatioChange = (value: string) => {
-    setSelectedAspectRatio(value); // Update the selected aspect ratio in state
-  };
+  useEffect(() => {
+    const fullCredit = totalCredits(selectedAspectRatio, arImage);
+    setCredits(socialMedia.credits + fullCredit);
+  }, [selectedAspectRatio, arImage, socialMedia.credits]);
+
   const [width, height] = selectedAspectRatio.split("x");
 
   const arwidth = parseInt(width);
@@ -161,6 +163,14 @@ export default function SocialMediaAiForm({
   };
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
+    setIsResponse(true);
+    const user = await getUserByDbId(userId);
+    console.log(user);
+    setAvailableCredits(user.creditBalance);
+    if (user.creditBalance < Math.abs(credits)) {
+      setIsSubmitting(false);
+      return <InsufficientCreditsModal />;
+    }
     const { input, inputlag, outputlag, selectTone, description } = values;
     console.log(values);
     try {
@@ -173,28 +183,45 @@ export default function SocialMediaAiForm({
           description,
           aiprompt,
           model,
+          genType,
         });
         if (res) {
-          await updateCredits(userId, -socialMedia.credits);
+          await updateCredits(userId, -credits);
           if (model === "gpt-3.5-turbo") {
             setResponse(res);
           } else {
             setImageUrl(res);
           }
         } else {
-          const res = await fetchSocialMediaData({
-            input,
-            selectTone,
-            inputlag,
-            outputlag,
-            description,
+          toast({
+            title: "Content Warning",
+            description:
+              "This prompt has been blocked. Our system automatically flagged this prompt because it may conflict with our content policy. More policy violations may lead to automatic suspension of your access.",
+            duration: 2000,
+            className: "error-toast",
           });
-          if (res) {
-            await updateCredits(userId, -socialMedia.credits);
-            setAllResponse(res.slice(0, 5));
-            setImageUrl(res.slice(5));
-            console.log(res);
-          }
+        }
+      } else {
+        const res = await fetchSocialMediaData({
+          input,
+          selectTone,
+          inputlag,
+          outputlag,
+          description,
+        });
+        if (res) {
+          await updateCredits(userId, -credits);
+          setAllResponse(res.slice(0, 5));
+          setImageUrl(res.slice(5));
+          console.log(res);
+        } else {
+          toast({
+            title: "Content Warning",
+            description:
+              "This prompt has been blocked. Our system automatically flagged this prompt because it may conflict with our content policy. More policy violations may lead to automatic suspension of your access.",
+            duration: 2000,
+            className: "error-toast",
+          });
         }
       }
     } catch (err: any) {
@@ -206,15 +233,29 @@ export default function SocialMediaAiForm({
       });
     } finally {
       setIsSubmitting(false);
+      setIsResponse(false);
     }
   }
   return (
     <div>
+      {(type === "images" || type === "avatar") && (
+        <div className="flex items-center justify-center space-x-2 w-full mb-10">
+          <label className="text-n-8 font-semibold font-sans">
+            Only Video Idea Based
+          </label>
+
+          <Switch
+            onClick={() => setGenType((prev) => !prev)}
+            id="airplane-mode"
+          />
+          <label className="text-n-8 font-semibold font-sans">
+            Detailed Prompt Based
+          </label>
+        </div>
+      )}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {creditBalance < Math.abs(socialMedia.credits) && (
-            <InsufficientCreditsModal />
-          )}
+          {availableCredits < Math.abs(credits) && <InsufficientCreditsModal />}
           <FormField
             control={form.control}
             name="input"
@@ -324,7 +365,7 @@ export default function SocialMediaAiForm({
                     <Select
                       onValueChange={(value) => {
                         field.onChange(value); // Update form field value
-                        handleAspectRatioChange(value); // Update aspect ratio in state
+                        setSelectedAspectRatio(value); // Update aspect ratio in state
                       }}
                       defaultValue={field.value}
                     >
@@ -361,7 +402,11 @@ export default function SocialMediaAiForm({
                       Number of Images:
                     </FormLabel>
                     <Select
-                      onValueChange={field.onChange}
+                      onValueChange={(value) => {
+                        field.onChange(value); // Update form field value
+                        setArImage(value);
+                        // Update aspect ratio in state
+                      }}
                       defaultValue={field.value}
                     >
                       <FormControl>
@@ -415,129 +460,146 @@ export default function SocialMediaAiForm({
             {isSubmitting ? (
               "Submitting..."
             ) : (
-              <div className="flex gap-2">
-                Generate <GemIcon /> {socialMedia.credits}
+              <div className="flex text-lg font-semibold gap-2 items-center justify-center">
+                Generate{" "}
+                <span>
+                  <Image
+                    src="/assets/icons/coins.svg"
+                    alt="coins"
+                    width={1}
+                    height={1}
+                    className="size-6 md:size-8"
+                  />
+                </span>{" "}
+                {credits}
               </div>
             )}
           </Button>
         </form>
       </Form>
-      <div>
-        {response && (
-          <div className="bg-white rounded-md overflow-auto text-lg border-[#8133b4] border font-sans  text-black flex flex-col gap-3  p-5 mb-10">
-            <Textarea
-              value={response}
-              placeholder="Enter Text To Edit"
-              className="w-full h-[35vh] md:h-[45vh]  p-2 bg-white rounded-md  text-lg border-[#8133b4] border font-sans  text-black   border-none outline-none overflow-auto resize-none flex-4"
-            />
-            <div className="flex flex-row justify-between items-center w-full gap-2">
-              <p>Word Count: {countWords(response)}</p>
-
-              <Button
-                type="submit"
-                onClick={(e) => handleCopyButtonClick(e, response, 0)}
-                className={`rounded-md  mt-1 max-h-min  ${
-                  activeStates[0]
-                    ? "text-white bg-green-800 hover:bg-[#1c7429]"
-                    : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
-                }  text-md font-bold h-[3.2rem]  min-w-max `}
-              >
-                <Copy size={20} strokeWidth={2} />
-                {activeStates[0] ? "Copied" : "Copy"}
-              </Button>
-            </div>
-          </div>
-        )}
-        {allResponse &&
-          allResponse.map((text, index) => (
-            <div
-              key={index}
-              className=" bg-white rounded-md overflow-auto text-lg border-[#8133b4] border font-sans  text-black flex flex-col gap-3  p-5 mb-10"
-            >
-              {index === 0 && (
-                <label className="flex-2 font-sans font-bold text-n-8">
-                  Title :
-                </label>
-              )}
-              {index === 1 && (
-                <label className="flex-2 font-sans font-bold text-n-8">
-                  Describtion :
-                </label>
-              )}
-              {index === 2 && (
-                <label className="flex-2 font-sans font-bold text-n-8">
-                  Hashtags :
-                </label>
-              )}
-              {index === 3 && (
-                <label className="flex-2 font-sans font-bold text-n-8">
-                  Script :
-                </label>
-              )}
-              {index === 3 && (
-                <label className="flex-2 font-sans font-bold text-n-8">
-                  DIsclaimer :
-                </label>
-              )}
-
+      {!isResponse ? (
+        <div>
+          {response && (
+            <div className="bg-white rounded-md overflow-auto text-lg border-[#8133b4] border font-sans  text-black flex flex-col gap-3  p-5 mb-10 mt-10">
               <Textarea
-                value={text}
+                value={response}
                 placeholder="Enter Text To Edit"
                 className="w-full h-[35vh] md:h-[45vh]  p-2 bg-white rounded-md  text-lg border-[#8133b4] border font-sans  text-black   border-none outline-none overflow-auto resize-none flex-4"
               />
               <div className="flex flex-row justify-between items-center w-full gap-2">
-                <p>Word Count: {countWords(text)}</p>
+                <p>Word Count: {countWords(response)}</p>
 
                 <Button
                   type="submit"
-                  onClick={(e) => handleCopyButtonClick(e, text, index)}
+                  onClick={(e) => handleCopyButtonClick(e, response, 0)}
                   className={`rounded-md  mt-1 max-h-min  ${
-                    activeStates[index]
+                    activeStates[0]
                       ? "text-white bg-green-800 hover:bg-[#1c7429]"
                       : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
-                  }  text-md font-bold h-[3.2rem]  min-w-max flex-2 `}
+                  }  text-md font-bold h-[3.2rem]  min-w-max `}
                 >
                   <Copy size={20} strokeWidth={2} />
-                  {activeStates[index] ? "Copied" : "Copy"}
+                  {activeStates[0] ? "Copied" : "Copy"}
                 </Button>
               </div>
             </div>
-          ))}
-
-        {imageUrl && (
-          <div className="min-h-max p-5 m-auto grid grid-cols-2  gap-2 ">
-            {imageUrl.map((item, index) => (
+          )}
+          {allResponse &&
+            allResponse.map((text, index) => (
               <div
-                className={`rounded-md overflow-hidden relative w-[${arwidth}]
-              h-[${arheight}]`}
                 key={index}
+                className=" bg-white rounded-md overflow-auto text-lg border-[#8133b4] border font-sans  text-black flex flex-col gap-3  p-5 mb-10 mt-10"
               >
-                <button
-                  className="absolute top-1 right-1 rounded-md bg-white p-2"
-                  onClick={(e) =>
-                    downloadHandler(
-                      e,
-                      item,
-                      "image" + (Math.floor(Math.random() * 100) + 1).toString()
-                    )
-                  }
-                >
-                  <DownloadIcon />
-                </button>
+                {index === 0 && (
+                  <label className="flex-2 font-sans font-bold text-n-8">
+                    Title :
+                  </label>
+                )}
+                {index === 1 && (
+                  <label className="flex-2 font-sans font-bold text-n-8">
+                    Describtion :
+                  </label>
+                )}
+                {index === 2 && (
+                  <label className="flex-2 font-sans font-bold text-n-8">
+                    Hashtags :
+                  </label>
+                )}
+                {index === 3 && (
+                  <label className="flex-2 font-sans font-bold text-n-8">
+                    Script :
+                  </label>
+                )}
+                {index === 3 && (
+                  <label className="flex-2 font-sans font-bold text-n-8">
+                    DIsclaimer :
+                  </label>
+                )}
 
-                <Image
-                  alt="image"
-                  className="flex-1 "
-                  src={item}
-                  width={arwidth}
-                  height={arheight}
-                  priority
+                <Textarea
+                  value={text}
+                  placeholder="Enter Text To Edit"
+                  className="w-full h-[35vh] md:h-[45vh]  p-2 bg-white rounded-md  text-lg border-[#8133b4] border font-sans  text-black   border-none outline-none overflow-auto resize-none flex-4"
                 />
+                <div className="flex flex-row justify-between items-center w-full gap-2">
+                  <p>Word Count: {countWords(text)}</p>
+
+                  <Button
+                    type="submit"
+                    onClick={(e) => handleCopyButtonClick(e, text, index)}
+                    className={`rounded-md  mt-1 max-h-min  ${
+                      activeStates[index]
+                        ? "text-white bg-green-800 hover:bg-[#1c7429]"
+                        : "text-[#8133b4] bg-[#e4dee7] hover:bg-[#d7b5ed]"
+                    }  text-md font-bold h-[3.2rem]  min-w-max flex-2 `}
+                  >
+                    <Copy size={20} strokeWidth={2} />
+                    {activeStates[index] ? "Copied" : "Copy"}
+                  </Button>
+                </div>
               </div>
             ))}
-          </div>
-        )}
-      </div>
+
+          {imageUrl && (
+            <div className="min-h-max p-5 m-auto grid grid-cols-2  gap-2 ">
+              {imageUrl.map((item, index) => (
+                <div
+                  className={`rounded-md overflow-hidden relative w-[${arwidth}]
+              h-[${arheight}]`}
+                  key={index}
+                >
+                  <button
+                    className="absolute top-1 right-1 rounded-md bg-white p-2"
+                    onClick={(e) =>
+                      downloadHandler(
+                        e,
+                        item,
+                        "image" +
+                          (Math.floor(Math.random() * 100) + 1).toString()
+                      )
+                    }
+                  >
+                    <DownloadIcon />
+                  </button>
+
+                  <Image
+                    alt="image"
+                    className="flex-1 "
+                    src={item}
+                    width={arwidth}
+                    height={arheight}
+                    priority
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="bg-white rounded-md overflow-auto text-lg  font-sans  text-black flex  gap-3 items-center justify-center mb-10 mt-10">
+          <Skeleton className="h-[30vh] w-full rounded-xl bg-gray-300" />
+        </div>
+      )}
     </div>
   );
 }

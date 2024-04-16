@@ -14,293 +14,12 @@ import chromecast from "@/public/assets/chrome-cast.svg";
 import sliders04 from "@/public/assets/sliders-04.svg";
 import Credits from "@/app/(root)/credits/page";
 
-// export const navLinks = [
-//   {
-//     label: "Home",
-//     route: "/",
-//     icon: "/assets/icons/home.svg",
-//   },
-//   {
-//     label: "Image Restore",
-//     route: "/transformations/add/restore",
-//     icon: "/assets/icons/image.svg",
-//   },
-//   {
-//     label: "Generative Fill",
-//     route: "/transformations/add/fill",
-//     icon: "/assets/icons/stars.svg",
-//   },
-//   {
-//     label: "Object Remove",
-//     route: "/transformations/add/remove",
-//     icon: "/assets/icons/scan.svg",
-//   },
-//   {
-//     label: "Object Recolor",
-//     route: "/transformations/add/recolor",
-//     icon: "/assets/icons/filter.svg",
-//   },
-//   {
-//     label: "Background Remove",
-//     route: "/transformations/add/removeBackground",
-//     icon: "/assets/icons/camera.svg",
-//   },
-//   {
-//     label: "Profile",
-//     route: "/profile",
-//     icon: "/assets/icons/profile.svg",
-//   },
-//   {
-//     label: "Buy Credits",
-//     route: "/credits",
-//     icon: "/assets/icons/bag.svg",
-//   },
-// ];
-
-export const navLinks = [
-  {
-    label: "Home",
-    route: "/",
-    icon: "/assets/icons/home.svg",
-  },
-  {
-    label: "Video Idea",
-    route: "/AutoGen/Longvid/idea",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video Title",
-    route: "/AutoGen/Longvid/title",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video Description",
-    route: "/AutoGen/Longvid/description",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video Tags",
-    route: "/AutoGen/Longvid/tags",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video Script",
-    route: "/AutoGen/Longvid/script",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video Thumbnail",
-    route: "/AutoGen/Longvid/thumbnail",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video AiImages",
-    route: "/AutoGen/Longvid/aiimages",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video script translator",
-    route: "/AutoGen/Longvid/translate",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video Disclamer",
-    route: "/AutoGen/Longvid/disclamer",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Email Generator",
-    route: "/AutoGen/Longvid/email",
-    icon: "/assets/icons/image.svg",
-  },
-
-  {
-    label: "Video Idea",
-    route: "/AutoGen/Shortvid/idea",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video Title",
-    route: "/AutoGen/Shortvid/title",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video Description",
-    route: "/AutoGen/Shortvid/description",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video Tags",
-    route: "/AutoGen/Shortvid/tags",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video Script",
-    route: "/AutoGen/Longvid/script",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video Thumbnail",
-    route: "/AutoGen/Shortvid/thumbnail",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video AiImages",
-    route: "/AutoGen/Shortvid/aiimages",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Video script translator",
-    route: "/AutoGen/Shortvid/translate",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Slogan Generator",
-    route: "/AutoGen/Shortvid/slogan",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Facts Generator",
-    route: "/AutoGen/Shortvid/facts",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Quote Generator",
-    route: "/AutoGen/Shortvid/quote",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Riddle Generator",
-    route: "/AutoGen/Shortvid/riddle",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Idea Generator",
-    route: "/AutoGen/ContentWriter/idea",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Outline Generator",
-    route: "/AutoGen/ContentWriter/outline",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Article Generator",
-    route: "/AutoGen/ContentWriter/article",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Blog Generator",
-    route: "/AutoGen/ContentWriter/blog",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Book Generator",
-    route: "/AutoGen/ContentWriter/book",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Title Generator",
-    route: "/AutoGen/ContentWriter/title",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Images Generator",
-    route: "/AutoGen/ContentWriter/images",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Summary Generator",
-    route: "/AutoGen/ContentWriter/summary",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Expander Generator",
-    route: "/AutoGen/ContentWriter/expander",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Translation Generator",
-    route: "/AutoGen/ContentWriter/translation",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Book CoverImage Generator",
-    route: "/AutoGen/ContentWriter/coverimage",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Email Generator",
-    route: "/AutoGen/ContentWriter/email",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Tag Generator",
-    route: "/AutoGen/ContentWriter/tag",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Idea Generator",
-    route: "/AutoGen/SocialMedia/idea",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Images Generator",
-    route: "/AutoGen/SocialMedia/images",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Bio Generator",
-    route: "/AutoGen/SocialMedia/bio",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Caption Generator",
-    route: "/AutoGen/SocialMedia/caption",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Tags Generator",
-    route: "/AutoGen/SocialMedia/tag",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Description Generator",
-    route: "/AutoGen/SocialMedia/description",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Comment Replier",
-    route: "/AutoGen/SocialMedia/comment",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Tweet Replier",
-    route: "/AutoGen/SocialMedia/tweet",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Avatar Generator",
-    route: "/AutoGen/SocialMedia/avatar",
-    icon: "/assets/icons/image.svg",
-  },
-  {
-    label: "Profile",
-    route: "/profile",
-    icon: "/assets/icons/profile.svg",
-  },
-  {
-    label: "Buy Credits",
-    route: "/credits",
-    icon: "/assets/icons/bag.svg",
-  },
-];
 export const plans = [
   {
     _id: 1,
     name: "Noob",
     icon: "/assets/icons/free-plan.svg",
-    price: 5,
+    price: 1,
     credits: 350,
     inclusions: [
       {
@@ -325,7 +44,7 @@ export const plans = [
     _id: 2,
     name: "Pro Package",
     icon: "/assets/icons/free-plan.svg",
-    price: 29,
+    price: 2,
     credits: 2400,
     inclusions: [
       {
@@ -373,48 +92,6 @@ export const plans = [
   },
 ];
 
-// export const transformationTypes = {
-//   restore: {
-//     type: "restore",
-//     title: "Restore Image",
-//     subTitle: "Refine images by removing noise and imperfections",
-//     config: { restore: true },
-//     icon: "image.svg",
-//   },
-//   removeBackground: {
-//     type: "removeBackground",
-//     title: "Background Remove",
-//     subTitle: "Removes the background of the image using AI",
-//     config: { removeBackground: true },
-//     icon: "camera.svg",
-//   },
-//   fill: {
-//     type: "fill",
-//     title: "Generative Fill",
-//     subTitle: "Enhance an image's dimensions using AI outpainting",
-//     config: { fillBackground: true },
-//     icon: "stars.svg",
-//   },
-//   remove: {
-//     type: "remove",
-//     title: "Object Remove",
-//     subTitle: "Identify and eliminate objects from images",
-//     config: {
-//       remove: { prompt: "", removeShadow: true, multiple: true },
-//     },
-//     icon: "scan.svg",
-//   },
-//   recolor: {
-//     type: "recolor",
-//     title: "Object Recolor",
-//     subTitle: "Identify and recolor objects from the image",
-//     config: {
-//       recolor: { prompt: "", to: "", multiple: true },
-//     },
-//     icon: "filter.svg",
-//   },
-// };
-
 interface AiImages {
   category: string;
   values: string[];
@@ -451,6 +128,29 @@ export const aiImages: AiImages[] = [
       "BodyShape",
       "UsedTissues",
       "AncientEgyptianWorkout",
+    ],
+  },
+  {
+    category: "style3d",
+    values: [
+      "CuteIsometric",
+      "Neon",
+      "ultra Realistic",
+      "LowPoly",
+      "Metallic",
+      "CuteCharacter",
+      "CuteAvatar",
+      "Origami",
+      "Mecha",
+      "AnimatedCharacter",
+      "ClayModel",
+      "WoodCarving",
+      "MinimalBalloon",
+      "StoneCarving",
+      "PlasticBricks",
+      "Fluffy",
+      "MulticolorMecha",
+      "Mythical",
     ],
   },
   {
@@ -511,29 +211,6 @@ export const aiImages: AiImages[] = [
     ],
   },
   {
-    category: "style3d",
-    values: [
-      "CuteIsometric",
-      "Neon",
-      "ultra Realistic",
-      "LowPoly",
-      "Metallic",
-      "CuteCharacter",
-      "CuteAvatar",
-      "Origami",
-      "Mecha",
-      "AnimatedCharacter",
-      "ClayModel",
-      "WoodCarving",
-      "MinimalBalloon",
-      "StoneCarving",
-      "PlasticBricks",
-      "Fluffy",
-      "MulticolorMecha",
-      "Mythical",
-    ],
-  },
-  {
     category: "location",
     values: [
       "MiniatureDiorama",
@@ -553,24 +230,24 @@ export const aiImages: AiImages[] = [
 
 export const languages = [
   "English",
+  "Hindi",
+  "Marathi",
+  "urdu",
   "Arabic",
   "Chinese",
   "Dutch",
-  "french",
+  "French",
   "German",
   "Indonesian",
   "Japanese",
-  "malaysian",
+  "Malaysian",
   "Persian",
   "Russian",
-  "spanish",
-  "turkish",
-  "hindi",
-  "marathi",
+  "Spanish",
+  "Turkish",
 ];
 export const email = [
   "Friendly",
-  "Luxury",
   "Relaxed",
   "Professional",
   "Bold",
@@ -582,18 +259,10 @@ export const email = [
 
 export const voice = ["alloy", "echo", "fable", "onyx", "nova", "shimmer"];
 
-export const aspectRatio: string[] = [
-  "256x256",
-  "512x512",
-  "1024x1024",
-  "1792x1024",
-  "1024x1792",
-];
+export const aspectRatio: string[] = ["1024x1024", "1792x1024", "1024x1792"];
 
 export const noOfImage = ["1", "2", "3", "4"];
 export const aspectRatioDisplayNames: Record<string, string> = {
-  "256x256": "1:1 - 256x256",
-  "512x512": "1:1 - 512x512",
   "1024x1024": "1:1 - 1024x1024",
   "1792x1024": "16:9 - 1792x1024",
   "1024x1792": "9:16 - 1024x1792",
@@ -658,7 +327,7 @@ export const longvidTypes = {
 
     Instructions:
     1. Generate hashtags that are mostly used and trending keywords aligning with the themes or content of the provided context or post.
-    2. Consider incorporating wordplay, trending you tube /Instagram trending keywords related to the content like famous slogans , quotes,words related to context in hinglish language,if no language provided in context.
+    2. Consider incorporating wordplay, trending you tube trending keywords related to the content like famous slogans , quotes,words related to context in hinglish language,if no language provided in context.
     3. Ensure the hashtags complement the tone and purpose of the context or post.
     4. also add famous similar names and quotes of related context which are famous or always trends.
     5. Aim for originality and hashtags that resonate with the audience.
@@ -674,15 +343,15 @@ export const longvidTypes = {
     topic: "Describe your idea or video ",
     subtopic: "Include video style",
     tone: "",
-    aiprompt: `Generate a captivating YouTube video script based on the provided context. Craft engaging dialogue, compelling scenes, and informative segments to keep the audience entertained and informed throughout the video.
+    aiprompt: `Generate a captivating YouTube 10+ min long video script based on the provided context. Craft engaging dialogue, compelling scenes, and informative segments to keep the audience entertained and informed throughout the video.
     Instructions:
     1. Develop a script that aligns with the provided context, delivering valuable content to the audience.
-    2. Create a clear structure for the video, including introductions, main segments, demonstrations, or conclusions and also add highlight topics ,add intro, outro and scenes no.
+    2. Create a clear structure for the long video, including introductions, main segments, demonstrations, or conclusions and also add highlight topics ,add intro, outro and scenes no.
     3. Incorporate engaging dialogue and narration to maintain viewer interest and understanding.
     4. Ensure that the script flows smoothly and logically, guiding viewers through the content effectively.
     5. Aim for a balance between entertainment and information, catering to the interests and preferences of the target audience.
     
-    Craft a compelling script for your YouTube video that captures the essence of the provided context. Use storytelling techniques, informative segments, and engaging dialogue to create an immersive viewing experience for your audience. Your script should effectively communicate the key points and themes while keeping viewers entertained and eager for more.
+    Craft a compelling script for your YouTube long 10+ min video that captures the essence of the provided context. Use storytelling techniques, informative segments, and engaging dialogue to create an immersive viewing experience for your audience. Your script should effectively communicate the key points and themes while keeping viewers entertained and eager for more.
     `,
     model: "gpt-3.5-turbo",
     credits: 1,
@@ -700,14 +369,15 @@ export const longvidTypes = {
     
     1.Design captivating thumbnail image that depict various scenes relevant to the provided context,merge all different scence one image like various scene in various position in that image college image .
     2.Also if context needed human involvement incorporate upper chest bodies with extremely ultra realistic human face displaying extreme emotions that align with the context and intended tone.
-    3.overall thumbnail looks ultra real with ultra real human body and face 
-    4.Provide at least four thumbnail options with well explations based on above information options must contains all information as given in input  
+    3.overall thumbnail looks ultra real with ultra real human body and face.
+    4.Must add "typogaphy" text that best describe the video purpose .
+    5.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
     
      Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
     `,
     model: "dall-e-3",
-    credits: 4,
+    credits: 2,
   },
   aiimages: {
     type: "aiimages",
@@ -716,8 +386,7 @@ export const longvidTypes = {
     subtopic: "Also inlcude main points ",
     tone: "Choose images style",
     aiprompt: `Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
-    output format must follow output formate:[srno - description]
-
+    
    Instructions:
     1. Generate creative image ideas that offer a fresh and unique perspective on the provided context.
     2. Consider incorporating innovative visual elements, symbolism, or artistic techniques.
@@ -726,7 +395,7 @@ export const longvidTypes = {
     5. only provide 5 outputs 
      generate creative and unique image ideas.Descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific image idea generation requirements.`,
     model: "dall-e-3",
-    credits: 4,
+    credits: 2,
   },
   prompt: {
     type: "prompt",
@@ -741,7 +410,6 @@ export const longvidTypes = {
     2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
     3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
     4. Also provide an suitable title for the video and add it in to images as headline
-
     5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
    
      Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
@@ -778,7 +446,7 @@ export const longvidTypes = {
     tone: "Chooose a Character",
     aiprompt: `generate audio for provided text`,
     model: "tts-1",
-    credits: 8,
+    credits: 10,
   },
   audiotoAudio: {
     type: "audiotoAudio",
@@ -788,7 +456,7 @@ export const longvidTypes = {
     tone: "Chooose a Character",
     aiprompt: `generate audio for provided Audio`,
     model: "whisper-1",
-    credits: 8,
+    credits: 2,
   },
   disclamer: {
     type: "disclamer",
@@ -854,6 +522,28 @@ export const longvidTypes = {
     model: "gpt-3.5-turbo",
     credits: 1,
   },
+  poll: {
+    type: "poll",
+    title: "Poll Generator",
+    topic: "What is subject or purpose of poll",
+    subtopic: "Niche of Poll",
+    tone: "Choose a tone ",
+    aiprompt: `
+    **Generate engaging poll questions tailored to the trending niche provided in input:**
+
+**Instructions:**
+
+  1.Craft thought-provoking poll questions that resonate with the trending niche and encourage audience participation.
+  2. Ensure that the questions are relevant, timely, and aligned with current trends or topics in the niche.
+  3.Consider incorporating multiple-choice options or open-ended questions to cater to different preferences and engagement levels.
+  4.Use language that is clear, concise, and inviting to encourage maximum participation from the audience.
+  5.rovide at least five poll questions that cover various aspects or subtopics within the trending niche.
+  6.Output the poll questions along with any additional instructions or context necessary for their implementation.
+
+   Generate compelling poll questions that spark conversation and interaction within the community, driving engagement and interest in the trending niche. Adjust the instructions as needed to suit your specific poll question generation requirements.`,
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
   all: {
     type: "all",
     title: "All-in-One Generator",
@@ -862,7 +552,7 @@ export const longvidTypes = {
     tone: "Choose a tone ",
     aiprompt: "",
     model: "gpt-3.5-turbo",
-    credits: 40,
+    credits: 35,
   },
 };
 
@@ -955,19 +645,16 @@ export const shortvidTypes = {
     topic: "Describe your idea or video ",
     subtopic: "Include video style",
     tone: "",
-    aiprompt: `Given the context or post provided as input, craft a creative and unique reel script that brings the content to life in hinglish language only . Develop a script that is engaging, captures attention, and aligns with the tone and purpose of the provided context or post.
-
+    aiprompt: `
+    Generate a captivating instagram/youtube shorts 1 min long video script based on the provided context. Craft engaging dialogue, compelling scenes, and informative segments to keep the audience entertained and informed throughout the video.
     Instructions:
-    1. Generate a reel script/story that is comedic, creative and unique, adding a fresh perspective to the provided context or post.
-    2. Consider incorporating interesting and nostalgic dialogues, visual cues, or storytelling elements.
-    3. Ensure the script complements the themes and goals of the context or post.
-    4. Aim for originality and a script/story that enhances the overall impact of the content.
-    5. generate a story like one persons explaining script to other and script must be in hinglish language,if no language is provided in context.
-    6 generate only 500-600 words of script.
-    ---
+    1. Develop a script that aligns with the provided context, delivering valuable content to the audience.
+    2. Create a clear structure for the short/reel video, including introductions, main segments, demonstrations, or conclusions and also add highlight topics ,add intro, outro and scenes no.
+    3. Incorporate engaging dialogue and narration to maintain viewer interest and understanding.
+    4. Ensure that the script flows smoothly and logically, guiding viewers through the content effectively.
+    5. Aim for a balance between entertainment and information, catering to the interests and preferences of the target audience.
     
-    generate a creative and unique reel script. This prompt guides the model to produce a distinctive and attention-grabbing script tailored to the provided content. Adjust the instructions as needed based on your specific reel script generation requirements.
-    `,
+    Craft a compelling script for your YouTube shorts/instgram reel 1 min video that captures the essence of the provided context. Use storytelling techniques, informative segments, and engaging dialogue to create an immersive viewing experience for your audience. Your script should effectively communicate the key points and themes while keeping viewers entertained and eager for more.`,
     model: "gpt-3.5-turbo",
     credits: 1,
   },
@@ -984,14 +671,14 @@ export const shortvidTypes = {
     2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
     3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
     4. Also provide an suitable title for the video and add it in to images as headline
-
-    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
+    5.Must add "typogaphy" text that best describe the video purpose .
+    6. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
    
      Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
     
     `,
     model: "dall-e-3",
-    credits: 4,
+    credits: 2,
   },
   aiimages: {
     type: "aiimages",
@@ -1009,7 +696,7 @@ export const shortvidTypes = {
     
      generate creative and unique image ideas.Descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific image idea generation requirements.`,
     model: "dall-e-3",
-    credits: 4,
+    credits: 2,
   },
   prompt: {
     type: "prompt",
@@ -1024,7 +711,6 @@ export const shortvidTypes = {
     2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
     3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
     4. Also provide an suitable title for the video and add it in to images as headline
-
     5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
     
      Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
@@ -1081,7 +767,7 @@ export const shortvidTypes = {
     subtopic: "Explain more",
     tone: "Chooose a Character",
     aiprompt: ``,
-    model: "whisper-1",
+    model: "tts-1",
     credits: 8,
   },
   audiotoAudio: {
@@ -1091,8 +777,8 @@ export const shortvidTypes = {
     subtopic: "Explain more",
     tone: "Chooose a Character",
     aiprompt: `generate audio for provided Audio`,
-    model: "tts-1",
-    credits: 8,
+    model: "whisper-1",
+    credits: 2,
   },
   slogan: {
     type: "slogan",
@@ -1183,6 +869,28 @@ export const shortvidTypes = {
     model: "gpt-3.5-turbo",
     credits: 1,
   },
+  poll: {
+    type: "poll",
+    title: "Poll Generator",
+    topic: "What is subject or purpose of poll",
+    subtopic: "Niche of Poll",
+    tone: "Choose a tone ",
+    aiprompt: `
+    **Generate engaging poll questions tailored to the trending niche provided in input:**
+
+**Instructions:**
+
+  1.Craft thought-provoking poll questions that resonate with the trending niche and encourage audience participation.
+  2. Ensure that the questions are relevant, timely, and aligned with current trends or topics in the niche.
+  3.Consider incorporating multiple-choice options or open-ended questions to cater to different preferences and engagement levels.
+  4.Use language that is clear, concise, and inviting to encourage maximum participation from the audience.
+  5.rovide at least five poll questions that cover various aspects or subtopics within the trending niche.
+  6.Output the poll questions along with any additional instructions or context necessary for their implementation.
+
+   Generate compelling poll questions that spark conversation and interaction within the community, driving engagement and interest in the trending niche. Adjust the instructions as needed to suit your specific poll question generation requirements.`,
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
   all: {
     type: "all",
     title: "All-in-One Generator",
@@ -1191,7 +899,7 @@ export const shortvidTypes = {
     tone: "Choose a tone ",
     aiprompt: "",
     model: "gpt-3.5-turbo",
-    credits: 40,
+    credits: 35,
   },
 };
 
@@ -1334,15 +1042,16 @@ export const contentwriterTypes = {
     1. Brainstorm visually appealing concepts that resonate with the essence of the provided context.
     2. Consider the target audience and tailor the poster or banner ideas to their preferences and interests.
     3. Explore creative design elements, colors, and imagery that evoke emotions and grab attention.
-    4. Ensure that the poster or banner effectively communicates the key message or theme of the context.
+    4.Must add "typogaphy" text that best describe the video purpose .
     5. Aim for clarity, simplicity, and aesthetic appeal to make the poster or banner visually impactful.
     6. Experiment with different layouts, fonts, and visual elements to create a memorable design.
     7. provide 4 poster ideas with typography and output must be in 30-50 words .
+    8. Ensure that the poster or banner effectively communicates the key message or theme of the context.
     ---
     Generate engaging poster or banner ideas that effectively convey the essence of the provided context. Focus on creating visually stunning designs that captivate the audience and leave a lasting impression. Adjust the instructions as needed to suit your specific poster or banner creation requirements.
     `,
     model: "dall-e-3",
-    credits: 4,
+    credits: 2,
   },
   prompt: {
     type: "prompt",
@@ -1357,7 +1066,6 @@ export const contentwriterTypes = {
     2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
     3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
     4. Also provide an suitable title for the video and add it in to images as headline
-
     5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
     
      Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
@@ -1449,14 +1157,15 @@ export const contentwriterTypes = {
     2. Incorporate eye-catching visuals, colors, and typography that resonate with the genre and tone of the book.
     3. Consider the target audience and genre when selecting imagery and designing the layout of the book cover.
     4. Ensure that the book title and author name are prominently displayed and legible against the background.
-    5. Aim for originality and creativity, creating a cover that stands out on bookstore shelves and online platforms.
-    6. Optionally, provide a unique quote related to the context that adds intrigue and allure to the book cover.
+    5.Must add "typogaphy" text that best describe the video purpose .
+    6. Aim for originality and creativity, creating a cover that stands out on bookstore shelves and online platforms.
+    7. Optionally, provide a unique quote related to the context that adds intrigue and allure to the book cover.
     
     ---
     Craft a compelling book cover image prompt that entices readers and reflects the essence of the provided context. Pay attention to details and aesthetics, aiming for a design that enhances the overall appeal of the book. Adjust the instructions as needed to suit your specific book cover image generation requirements.
     `,
     model: "dall-e-3",
-    credits: 4,
+    credits: 2,
   },
   email: {
     type: "email",
@@ -1531,7 +1240,7 @@ export const contentwriterTypes = {
     tone: "Choose a tone ",
     aiprompt: "",
     model: "gpt-3.5-turbo",
-    credits: 30,
+    credits: 25,
   },
 };
 
@@ -1560,7 +1269,7 @@ export const socialmediaTypes = {
   },
   images: {
     type: "images",
-    title: "Post Generator",
+    title: "Poster Generator",
     topic: "Describe your video or scipt",
     subtopic: "Also inlcude main points ",
     tone: "Choose images style",
@@ -1577,7 +1286,7 @@ export const socialmediaTypes = {
     
     Generate engaging poster or banner ideas that effectively convey the essence of the provided context. Focus on creating visually stunning designs that captivate the audience and leave a lasting impression. Adjust the instructions as needed to suit your specific poster or banner creation requirements`,
     model: "dall-e-3",
-    credits: 4,
+    credits: 2,
   },
   prompt: {
     type: "prompt",
@@ -1585,19 +1294,18 @@ export const socialmediaTypes = {
     topic: "Describe the topic for title",
     subtopic: "Include more info",
     tone: "",
-    aiprompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
-    
+    aiprompt: `Generate captivating poster or banner ideas based on the provided context:
+ 
     Instructions:
-    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
-    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
-    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
-    4. Also provide an suitable title for the video and add it in to images as headline
-
-    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-   
-     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+    1. Brainstorm visually appealing concepts that resonate with the essence of the provided context.
+    2. Consider the target audience and tailor the poster or banner ideas to their preferences and interests.
+    3. Explore creative design elements, colors, and imagery that evoke emotions and grab attention.
+    4. Ensure that the poster or banner effectively communicates the key message or theme of the context.
+    5. Aim for clarity, simplicity, and aesthetic appeal to make the poster or banner visually impactful.
+    6. Experiment with different layouts, fonts, and visual elements to create a memorable design.
+    7. provide 2 poster ideas with typography and output must be in 30-50 words .
     
-    `,
+    Generate engaging poster or banner ideas that effectively convey the essence of the provided context. Focus on creating visually stunning designs that captivate the audience and leave a lasting impression. Adjust the instructions as needed to suit your specific poster or banner creation requirements`,
     model: "gpt-3.5-turbo",
     credits: 1,
   },
@@ -1642,6 +1350,28 @@ export const socialmediaTypes = {
      generate a creative and unique social media caption. This prompt guides the model to produce a captivating and distinctive caption tailored to the provided content. Adjust the instructions as needed based on your specific social media caption generation requirements.
     
     `,
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
+  poll: {
+    type: "poll",
+    title: "Poll Generator",
+    topic: "What is subject or purpose of poll",
+    subtopic: "Niche of Poll",
+    tone: "Choose a tone ",
+    aiprompt: `
+    **Generate engaging poll questions tailored to the trending niche provided in input:**
+
+**Instructions:**
+
+  1.Craft thought-provoking poll questions that resonate with the trending niche and encourage audience participation.
+  2. Ensure that the questions are relevant, timely, and aligned with current trends or topics in the niche.
+  3.Consider incorporating multiple-choice options or open-ended questions to cater to different preferences and engagement levels.
+  4.Use language that is clear, concise, and inviting to encourage maximum participation from the audience.
+  5.rovide at least five poll questions that cover various aspects or subtopics within the trending niche.
+  6.Output the poll questions along with any additional instructions or context necessary for their implementation.
+
+   Generate compelling poll questions that spark conversation and interaction within the community, driving engagement and interest in the trending niche. Adjust the instructions as needed to suit your specific poll question generation requirements.`,
     model: "gpt-3.5-turbo",
     credits: 1,
   },
@@ -1750,7 +1480,7 @@ export const socialmediaTypes = {
     
     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific avatar  generation requirements.`,
     model: "dall-e-3",
-    credits: 4,
+    credits: 2,
   },
   backgroundMusicGen: {
     type: "backgroundMusicGen",
@@ -1791,24 +1521,9 @@ export const MarketingFormProps = {
     topic: "Describe the your video idea with niche",
     subtopic: "Include more info",
     tone: "choose a tone",
-    aiprompt: `Imagine you are a promotion agent who create package which provides best result for promoting our videos on social media through paid promotion on other content creators profile. Here's how to structure the promotion package:
-
-    **Instructions:**
-    1. **Thumbnail Prompt Generation:**
-       - Must Design an eye-catching thumbnail that represents the  video content related image prompts which provided in context. Ensure vibrant colors, engaging visuals, and clear text elements.
-      
-    2. **Quote for Video Promotion:**
-       - Craft a persuasive quote that entices viewers to watch the video. The quote should be concise, impactful, and directly related to the video content. Encourage viewers to click the link to access the video,quote length must be 10-12 words .
-    
-    3. **Hashtags for Social Media Visibility:**
-       - Generate relevant hashtags from which we can easily find profile on particular niche on social media also add paid promotion  and provided niche on context lover like hashtags.
-    4. **Promotional Paragraph for Stories or Posts:**
-       - Draft a paragraph that tells influencer to add my videos link and thumbnail on stories or posts to promote the video for which I pay money. The paragraph should highlight key features of certain amount will pay you if you add this to your profile and at last plz note that if you ready fot this then dm me like this.
-    
-    
-    By following these guidelines, you can create a comprehensive video promotion package that amplifies the reach and impact of the content across social media platforms ensure that thumnail must generated. `,
+    aiprompt: ` `,
     model: "gpt-3.5-turbo",
-    credits: 4,
+    credits: 8,
   },
   calculator: {
     type: "calculator",
@@ -2335,7 +2050,17 @@ export const aiprompt = [
         model: "gpt-3.5-turbo",
       },
       {
-        prompt: `- Draft a paragraph that tells influencer to add my videos link and thumbnail on stories or posts to promote the video for which I pay money. The paragraph should highlight key features of certain amount will pay you if you add this to your profile and at last plz note that if you ready fot this then dm me like this. `,
+        prompt: `**Draft a paragraph encouraging collaboration between influencers or YouTubers:**
+
+               **Instructions:**
+        1. Craft a concise paragraph that emphasizes the benefits of mutual promotion between influencers or YouTubers.
+        2. Highlight the importance of sharing audiences and growing together on platforms like Instagram or YouTube.
+        3. Mention the relatable niches of both parties and how collaboration can enhance visibility and engagement.
+        4. Include a call-to-action inviting influencers or YouTubers to DM for collaboration and propose the idea of creating a group for mutual promotion.
+        5. Ensure the paragraph is persuasive and engaging, with a maximum of 80-90 words.
+        6. provide both niche as my niche means senders niche and other one is recievers niche in context.
+        
+          By following these guidelines, generate an paragraph.`,
         model: "gpt-3.5-turbo",
       },
       {

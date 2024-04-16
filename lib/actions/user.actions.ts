@@ -35,6 +35,21 @@ export async function getUserById(userId: string) {
   revalidateTag("users");
 }
 
+export async function getUserByDbId(userId: string) {
+  try {
+    await connectToDatabase();
+
+    const user = await User.findOne({ _id: userId });
+
+    if (!user) throw new Error("User not found");
+
+    return JSON.parse(JSON.stringify(user));
+  } catch (error) {
+    handleError(error);
+  }
+  revalidateTag("users");
+}
+
 // UPDATE
 export async function updateUser(clerkId: string, user: UpdateUserParams) {
   try {

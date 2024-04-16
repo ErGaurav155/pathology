@@ -1,12 +1,3 @@
-import { Button } from "@/components/ui/button";
-// import {
-//   Card,
-//   CardContent,
-//   CardDescription,
-//   CardFooter,
-//   CardHeader,
-//   CardTitle,
-// } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -72,7 +63,23 @@ export function TabsDemo() {
               className="relative p-0.5 m-auto md:m-0 w-11/12 md:w-full bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem]"
               key={item.id}
             >
-              <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none ">
+              <div
+                className="absolute inset-0.5 bg-n-8"
+                style={{ clipPath: "url(#benefits)" }}
+              >
+                <div className="absolute inset-0 opacity-0 transition-opacity hover:opacity-10">
+                  {item.imageUrl && (
+                    <Image
+                      src={item.imageUrl}
+                      width={380}
+                      height={362}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                </div>
+              </div>
+              <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem]  ">
                 <h5 className="h5 text-[#f476ad] mb-5">{item.title}</h5>
                 <p className="body-2 mb-6  text-white">{item.text}</p>
                 <Link
@@ -92,23 +99,6 @@ export function TabsDemo() {
                 </Link>
               </div>
 
-              <div
-                className="absolute inset-0.5 bg-n-8"
-                style={{ clipPath: "url(#benefits)" }}
-              >
-                <div className="absolute inset-0 opacity-0 transition-opacity hover:opacity-10">
-                  {item.imageUrl && (
-                    <Image
-                      src={item.imageUrl}
-                      width={380}
-                      height={362}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-                </div>
-              </div>
-
               <ClipPath />
             </div>
           ))}
@@ -121,7 +111,7 @@ export function TabsDemo() {
               className="relative p-0.5 m-auto md:m-0 w-11/12 md:w-full bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem]"
               key={item.id}
             >
-              <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none ">
+              <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem]  ">
                 <h5 className="h5 text-[#f476ad] mb-5">{item.title}</h5>
                 <p className="body-2 mb-6 text-white">{item.text}</p>
                 <Link
@@ -170,7 +160,7 @@ export function TabsDemo() {
               className="relative p-0.5 m-auto md:m-0 w-11/12 md:w-full bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem]"
               key={item.id}
             >
-              <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none ">
+              <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem]  ">
                 <h5 className="h5 text-[#f476ad] mb-5">{item.title}</h5>
                 <p className="body-2 mb-6 text-white">{item.text}</p>
                 <Link
@@ -219,7 +209,7 @@ export function TabsDemo() {
               className="relative p-0.5 m-auto md:m-0 w-11/12 md:w-full bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem]"
               key={item.id}
             >
-              <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none ">
+              <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem]  ">
                 <h5 className="h5 text-[#f476ad] mb-5">{item.title}</h5>
                 <p className="body-2 mb-6 text-white">{item.text}</p>
 

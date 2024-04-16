@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import {
   Select,
@@ -11,15 +11,22 @@ import {
 } from "../ui/select";
 import { languages, longvidTypes, voice } from "@/constants";
 import { Button } from "../ui/button";
-import { Copy, GemIcon } from "lucide-react";
-import { generateGptResponse } from "@/lib/actions/ai.actions";
-import { updateCredits } from "@/lib/actions/user.actions";
-import { Textarea } from "@material-tailwind/react";
+import { getUserByDbId, updateCredits } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import { z } from "zod";
+import { calculateCredits } from "@/lib/utils";
+import { toast } from "../ui/use-toast";
+import { Skeleton } from "../ui/skeleton";
+import Image from "next/image";
 
 const formSchema = z.object({
-  file: z.instanceof(File),
+  file: z
+    .instanceof(File)
+    .refine(
+      (file) => file.size < 5 * 1024 * 1024,
+      "File size must be less than 3MB"
+    ),
+
   selectTone: z.string(),
   outputlag: z.string(),
 });
@@ -30,22 +37,43 @@ export default function LongVidAudio({
   creditBalance,
 }: LongAiFormProps) {
   const longVid = longvidTypes[type];
-
+  const [availableCredits, setAvailableCredits] =
+    useState<number>(creditBalance);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [theFile, setTheFile] = useState<File | null>(null);
   const [value1, setValue1] = useState("");
   const [language1, setLanguage1] = useState("");
+  const [credits, setCredits] = useState(longVid.credits);
+  const [size, setSize] = useState<number>();
+
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.currentTarget.files?.[0];
+
     if (!file) return;
+    const fileSize = file.size;
+    if (!fileSize) return;
+    setSize(fileSize);
 
     setTheFile(file);
   };
+
+  useEffect(() => {
+    const fileCredits = calculateCredits(size); // Calculate credits based on file size
+    setCredits(longVid.credits + fileCredits); // Update credits state
+  }, [longVid.credits, size]);
   let { type: string, topic, subtopic, tone, aiprompt, model } = longVid;
+
   const callGetTranscription = async () => {
     if (!theFile) {
       return;
+    }
+    const user = await getUserByDbId(userId);
+    console.log(user);
+    setAvailableCredits(user.creditBalance);
+    if (user.creditBalance < Math.abs(credits)) {
+      setIsSubmitting(false);
+      return <InsufficientCreditsModal />;
     }
 
     const formData = new FormData();
@@ -55,24 +83,16 @@ export default function LongVidAudio({
 
     console.log(formData, language1, aiprompt, model);
     try {
-      //   const res = await generateGptResponse({
-      //     input: formData as FormData,
-      //     selectTone: value1,
-      //     inputlag: "",
-      //     outputlag: language1,
-      //     description: "",
-      //     aiprompt,
-      //     model,
-      //   });
-      // if (res) {
-      //   await updateCredits(userId, -longVid.credits);
-      //   setAudioUrl(res);
-      // }
-      formSchema.parse({
-        file: theFile,
-        selectTone: value1,
-        outputlag: language1,
-      });
+      try {
+        formSchema.parse({
+          file: theFile,
+          selectTone: value1,
+          outputlag: language1,
+        });
+      } catch (error) {
+        setIsSubmitting(false);
+        throw new Error("File size must be less than 3MB");
+      }
       setIsSubmitting(true);
 
       const response = await fetch("/api/audio", {
@@ -80,18 +100,26 @@ export default function LongVidAudio({
         body: formData,
       });
       if (response.ok) {
-        // Handle the success response
-        console.log("File uploaded successfully");
+        const data = await response.json();
+        await updateCredits(userId, -credits);
+        console.log(data);
+        setAudioUrl(data.output);
       } else {
-        // Handle the error response
-        console.error("Failed to upload file");
+        toast({
+          title: "Content Warning",
+          description:
+            "This prompt has been blocked. Our system automatically flagged this prompt because it may conflict with our content policy. More policy violations may lead to automatic suspension of your access.",
+          duration: 2000,
+          className: "error-toast",
+        });
       }
-      const data = await response.json();
-      await updateCredits(userId, -longVid.credits);
-      console.log(data);
-      setAudioUrl(data.output);
     } catch (error) {
-      // Handle any errors
+      toast({
+        title: "Something went wrong",
+        description: "",
+        duration: 2000,
+        className: "error-toast",
+      });
       console.error("An error occurred while uploading the file", error);
     }
 
@@ -109,9 +137,7 @@ export default function LongVidAudio({
 
   return (
     <main className="space-y-20 mb-10 mt-10 ">
-      {creditBalance < Math.abs(longVid.credits) && (
-        <InsufficientCreditsModal />
-      )}
+      {availableCredits < Math.abs(credits) && <InsufficientCreditsModal />}
       <div>
         <label className="text-n-8 ">Upload File:</label>
         <Input
@@ -179,17 +205,31 @@ export default function LongVidAudio({
           {isSubmitting ? (
             "Submitting..."
           ) : (
-            <div className="flex gap-2">
-              Generate <GemIcon /> {longVid.credits}
+            <div className="flex text-lg font-semibold gap-2 items-center justify-center">
+              Generate{" "}
+              <span>
+                <Image
+                  src="/assets/icons/coins.svg"
+                  alt="coins"
+                  width={1}
+                  height={1}
+                  className="size-6 md:size-8"
+                />
+              </span>{" "}
+              {credits}
             </div>
           )}
         </Button>
       </div>
-      {audioUrl && (
+      {audioUrl ? (
         <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
           <audio controls>
             <source src="/assets/audio/output.mp3" type="audio/mpeg" />
           </audio>
+        </div>
+      ) : (
+        <div className="bg-white rounded-md overflow-auto text-lg  font-sans  text-black flex  gap-3 items-center justify-center mb-10 mt-10">
+          <Skeleton className="h-[30vh] w-full rounded-xl bg-gray-300" />
         </div>
       )}
     </main>

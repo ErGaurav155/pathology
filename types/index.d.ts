@@ -17,60 +17,6 @@ declare type UpdateUserParams = {
   photo: string;
 };
 
-// ====== IMAGE PARAMS
-declare type AddImageParams = {
-  image: {
-    title: string;
-    publicId: string;
-    transformationType: string;
-    width: number;
-    height: number;
-    config: any;
-    secureURL: string;
-    transformationURL: string;
-    aspectRatio: string | undefined;
-    prompt: string | undefined;
-    color: string | undefined;
-  };
-  userId: string;
-  path: string;
-};
-
-declare type UpdateImageParams = {
-  image: {
-    _id: string;
-    title: string;
-    publicId: string;
-    transformationType: string;
-    width: number;
-    height: number;
-    config: any;
-    secureURL: string;
-    transformationURL: string;
-    aspectRatio: string | undefined;
-    prompt: string | undefined;
-    color: string | undefined;
-  };
-  userId: string;
-  path: string;
-};
-
-declare type Transformations = {
-  restore?: boolean;
-  fillBackground?: boolean;
-  remove?: {
-    prompt: string;
-    removeShadow?: boolean;
-    multiple?: boolean;
-  };
-  recolor?: {
-    prompt?: string;
-    to: string;
-    multiple?: boolean;
-  };
-  removeBackground?: boolean;
-};
-
 // ====== TRANSACTION PARAMS
 declare type CheckoutTransactionParams = {
   plan: string;
@@ -80,20 +26,13 @@ declare type CheckoutTransactionParams = {
 };
 
 declare type CreateTransactionParams = {
-  stripeId: string;
+  customerId: string;
   amount: number;
   credits: number;
   plan: string;
   buyerId: string;
   createdAt: Date;
 };
-
-// declare type TransformationTypeKey =
-//   | "restore"
-//   | "fill"
-//   | "remove"
-//   | "recolor"
-//   | "removeBackground";
 
 declare type LongVidTypeKey =
   | "idea"
@@ -110,7 +49,8 @@ declare type LongVidTypeKey =
   | "TexttoAudio"
   | "prompt"
   | "backgroundMusicGen"
-  | "audiotoAudio";
+  | "audiotoAudio"
+  | "poll";
 
 declare type ShortVidTypeKey =
   | "idea"
@@ -129,7 +69,8 @@ declare type ShortVidTypeKey =
   | "TexttoAudio"
   | "backgroundMusicGen"
   | "prompt"
-  | "audiotoAudio";
+  | "audiotoAudio"
+  | "poll";
 
 declare type ContentWriterTypeKey =
   | "idea"
@@ -161,7 +102,8 @@ declare type SocialMediaTypeKey =
   | "avatar"
   | "all"
   | "prompt"
-  | "backgroundMusicGen";
+  | "backgroundMusicGen"
+  | "poll";
 
 declare type MarketingTypeKey =
   | "all"
@@ -189,22 +131,6 @@ declare type imageType =
 
 declare type imagenumber = number | null | undefined;
 // ====== URL QUERY PARAMS
-declare type FormUrlQueryParams = {
-  searchParams: string;
-  key: string;
-  value: string | number | null;
-};
-
-declare type UrlQueryParams = {
-  params: string;
-  key: string;
-  value: string | null;
-};
-
-declare type RemoveUrlQueryParams = {
-  searchParams: string;
-  keysToRemove: string[];
-};
 
 declare type LongSearchParamProps = {
   params: { id: string; type: LongVidTypeKey };
@@ -227,14 +153,6 @@ declare type ContentWriterSearchParamProps = {
   searchParams: { [key: string]: string[] | undefined };
 };
 
-declare type TransformationFormProps = {
-  action: "Add" | "Update";
-  userId: string;
-  type: TransformationTypeKey;
-  creditBalance: number;
-  data?: IImage | null;
-  config?: Transformations | null;
-};
 declare type LongAiFormProps = {
   userId: string;
   type: LongVidTypeKey;
@@ -259,14 +177,4 @@ declare type MarketingFormProps = {
   userId: string;
   type: MarketingTypeKey;
   creditBalance: number;
-};
-
-declare type TransformedImageProps = {
-  image: any;
-  type: string;
-  title: string;
-  transformationConfig: Transformations | null;
-  isTransforming: boolean;
-  hasDownload?: boolean;
-  setIsTransforming?: React.Dispatch<React.SetStateAction<boolean>>;
 };

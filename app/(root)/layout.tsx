@@ -1,14 +1,14 @@
 import Header from "@/components/shared/Header";
-import { MobileNavCopy } from "@/components/shared/MobileNavCopy";
-import { SidebarWithLogo } from "@/components/shared/SidebarCopy";
+import { MobileNav } from "@/components/shared/MobileNav";
+import { Sidebar } from "@/components/shared/Sidebar";
 import { Toaster } from "@/components/ui/toaster";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="root ">
-      <SidebarWithLogo />
+      <Sidebar />
 
-      <MobileNavCopy />
+      <MobileNav />
 
       <div className="root-container no-scrollbar">{children}</div>
 
