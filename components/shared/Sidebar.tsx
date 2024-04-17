@@ -114,7 +114,7 @@ export function Sidebar() {
   return (
     <div>
       <Card className="hidden min-h-screen h-screen bg-gray-50  text-gray-600 lg:flex  w-full max-w-[18rem] p-4 shadow-xl font-sans overflow-y-auto no-scrollbar  shadow-blue-100 ">
-        <div className="mb-2 flex items-center gap-4 p-4">
+        <div className="mb-2 flex items-center gap-1 p-4 ">
           <Image
             src="/assets/images/logo-icon.svg"
             alt="brand"
@@ -123,11 +123,11 @@ export function Sidebar() {
             height={32}
           />
           <Typography
-            className="font-normal hover:font-medium"
+            className=" flex items-center gap-2 md:py-2 font-sans text-3xl font-extrabold text-[#623282]"
             variant="h5"
             color="blue-gray"
           >
-            CriCo/CriCon
+            CriconAi
           </Typography>
         </div>
 

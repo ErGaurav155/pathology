@@ -32,13 +32,16 @@ export function Footer() {
   return (
     <footer className=" w-full">
       <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-gray-50 text-center md:justify-between">
-        <Image
-          src="/assets/images/logo-icon.svg"
-          alt="brand"
-          className="h-8 w-8"
-          width={32}
-          height={32}
-        />
+        <div className="flex flex-row flex-wrap items-center justify-center  gap-2 md:py-2 text-3xl font-extrabold text-[#7e3caa]">
+          <Image
+            src="/assets/images/logo-icon.svg"
+            alt="brand"
+            className="h-8 w-8"
+            width={32}
+            height={32}
+          />
+          CriconAi
+        </div>
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
           <li>
             <Typography

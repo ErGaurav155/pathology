@@ -60,13 +60,17 @@ export function MobileNav() {
           <MenuSquareIcon color="#32517D" className="h-7 w-7 stroke-2" />
         )}
       </IconButton>
-      <Link href="/" className="flex items-center gap-2 md:py-2">
+      <Link
+        href="/"
+        className="flex items-center gap-2 md:py-2 font-sans text-3xl font-extrabold text-[#7e3caa]"
+      >
         <Image
-          src="/assets/images/logo-text.svg"
+          src="/assets/images/logo-icon.svg"
           alt="logo"
-          width={180}
-          height={28}
+          width={40}
+          height={24}
         />
+        CriconAi
       </Link>
       <SignedIn>
         <UserButton afterSignOutUrl="/" />
