@@ -1,15 +1,19 @@
-// import AiForm from "@/components/shared/LongVidAiForm";
 import Header from "@/components/shared/Header";
-import { contentwriterTypes, longvidTypes } from "@/constants";
+import { contentwriterTypes } from "@/constants";
 import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import ContentWriterAiForm from "@/components/shared/ContentWriterAiForm";
 import Editor from "@/components/shared/Editor";
 import { Button } from "@/components/ui/button";
-import { revalidateTag } from "next/cache";
 import Aiaudio from "@/components/shared/Aiaudio";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "CriconAi",
+  description:
+    "AI-powered Article/Blog writting technology for content writers",
+};
 const AddTransformationTypePage = async ({
   params: { type },
 }: ContentWriterSearchParamProps) => {

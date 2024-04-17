@@ -12,8 +12,9 @@ const IBMPlex = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AutoZen",
-  description: "AI-powered image generator",
+  title: "CriconAi",
+  description:
+    "AI-powered text,images and audio generators for content creators",
 };
 
 export default function RootLayout({

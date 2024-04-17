@@ -1,16 +1,20 @@
-import AiForm from "@/components/shared/LongVidAiForm";
 import Header from "@/components/shared/Header";
-import { longvidTypes, shortvidTypes } from "@/constants";
+import { shortvidTypes } from "@/constants";
 import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import ShortVidAiForm from "@/components/shared/ShortVidAiForm";
 import Editor from "@/components/shared/Editor";
 import { Button } from "@/components/ui/button";
-import { revalidateTag } from "next/cache";
 import ShortVidAudio from "@/components/shared/ShortvidAudio";
 import Aiaudio from "@/components/shared/Aiaudio";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "CriconAi",
+  description:
+    "FREE AI-powered best content creation technology for SOCIAL MEDIA INFLUENCERS",
+};
 const AddTransformationTypePage = async ({
   params: { type },
 }: ShortSearchParamProps) => {

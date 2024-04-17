@@ -1,15 +1,18 @@
-import AiForm from "@/components/shared/LongVidAiForm";
 import Header from "@/components/shared/Header";
-import { longvidTypes, socialmediaTypes } from "@/constants";
+import { socialmediaTypes } from "@/constants";
 import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import ShortVidAiForm from "@/components/shared/ShortVidAiForm";
 import SocialMediaAiForm from "@/components/shared/SocialMediaAiForm";
 import Editor from "@/components/shared/Editor";
 import { Button } from "@/components/ui/button";
-import { revalidateTag } from "next/cache";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "CriconAi",
+  description:
+    "FREE AI-powered best content creation technology for SOCIAL MEDIA INFLUENCERS",
+};
 const AddTransformationTypePage = async ({
   params: { type },
 }: SocialMediaSearchParamProps) => {

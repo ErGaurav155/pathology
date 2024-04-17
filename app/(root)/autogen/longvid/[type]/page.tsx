@@ -1,4 +1,3 @@
-import AiForm from "@/components/shared/LongVidAiForm";
 import Header from "@/components/shared/Header";
 import { longvidTypes } from "@/constants";
 import { getUserById } from "@/lib/actions/user.actions";
@@ -7,10 +6,14 @@ import { redirect } from "next/navigation";
 import LongVidAiForm from "@/components/shared/LongVidAiForm";
 import Editor from "@/components/shared/Editor";
 import { Button } from "@/components/ui/button";
-import { revalidateTag } from "next/cache";
 import LongVidAudio from "@/components/shared/LongvidAudio";
 import Aiaudio from "@/components/shared/Aiaudio";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "CriconAi",
+  description: "FREE AI-powered best quality technology for YOUTUBERS",
+};
 const AddTransformationTypePage = async ({
   params: { type },
 }: LongSearchParamProps) => {
