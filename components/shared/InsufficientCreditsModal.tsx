@@ -28,7 +28,7 @@ export const InsufficientCreditsModal = () => {
               onClick={() => router.push("/profile")}
             >
               <Image
-                src="/assets/icons/close.svg"
+                src="/assets/icons/cross.svg"
                 alt="credit coins"
                 width={24}
                 height={24}

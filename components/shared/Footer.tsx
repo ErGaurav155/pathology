@@ -3,28 +3,11 @@
 import { Typography } from "@material-tailwind/react";
 import {
   FacebookIcon,
-  GithubIcon,
-  Instagram,
   InstagramIcon,
   TwitterIcon,
   YoutubeIcon,
 } from "lucide-react";
 import Image from "next/image";
-
-const LINKS = [
-  {
-    title: "Product",
-    items: ["Overview", "Features", "Solutions", "Tutorials"],
-  },
-  {
-    title: "Company",
-    items: ["About us", "Careers", "Press", "News"],
-  },
-  {
-    title: "Resource",
-    items: ["Blog", "Newsletter", "Events", "Help center"],
-  },
-];
 
 const currentYear = new Date().getFullYear();
 
@@ -82,23 +65,23 @@ export function Footer() {
           variant="small"
           className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
         >
-          &copy; {currentYear} <a href="https://Cricon.com">Cricon Ai</a>. All
+          &copy; {currentYear} <a href="https://criconai.com">Cricon Ai</a>. All
           Rights Reserved.
         </Typography>
         <div className="flex gap-4 text-blue-gray-900 sm:justify-center">
-          <Typography as="a" href="#">
+          <Typography as="a" href="https://www.facebook.com/CriconAi/">
             <FacebookIcon className="h-5 w-5" />
           </Typography>
           <Typography as="a" href="#">
             <InstagramIcon className="h-5 w-5" />
           </Typography>
-          <Typography as="a" href="#">
+          <Typography as="a" href="https://twitter.com/CriconAi">
             <TwitterIcon className="h-5 w-5" />
           </Typography>
-          <Typography as="a" href="#">
-            <GithubIcon className="h-5 w-5" />
-          </Typography>
-          <Typography as="a" href="#">
+          <Typography
+            as="a"
+            href="https://www.youtube.com/channel/UC6UCOXsY_Y4Rm7IW34_v9Lg"
+          >
             <YoutubeIcon className="h-5 w-5" />
           </Typography>
         </div>
