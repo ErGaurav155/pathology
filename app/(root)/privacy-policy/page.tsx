@@ -7,11 +7,11 @@ const PrivacyPolicy = () => {
       <div className="max-w-3xl mx-auto px-5 md:px-10  mt-5 md:mt-10 w-full text-dark-400">
         <h2 className="font-black text-3xl text-black mb-5">Privacy Policy</h2>
         <p className="mb-5">
-          Cricon AI LLC (&quot;Company,&quot; &quot;we,&quot; or &quot;us&quot;)
-          is committed to protecting the privacy of our users (&quot;you&quot;
-          or &quot;your&quot;). This Privacy Policy explains how we collect,
-          use, and share information about you through our website,
-          https://cricon.com (the &quot;Website&quot;), and the services we
+          Cricon AI (&quot;Company,&quot; &quot;we,&quot; or &quot;us&quot;) is
+          committed to protecting the privacy of our users (&quot;you&quot; or
+          &quot;your&quot;). This Privacy Policy explains how we collect, use,
+          and share information about you through our website,
+          https://criconai.com (the &quot;Website&quot;), and the services we
           offer (the &quot;Services&quot;). By using the Website or Services,
           you consent to the collection, use, and sharing of your information as
           described in this Privacy Policy.
@@ -22,8 +22,8 @@ const PrivacyPolicy = () => {
         <p className="mb-5">
           We retain your information for as long as your account is active or as
           needed to provide you with our Services. If you wish to delete your
-          entire data, you may send a request to support@cricon.com, and we will
-          process your request in accordance with applicable laws.
+          entire data, you may send a request to support@criconai.com, and we
+          will process your request in accordance with applicable laws.
         </p>
         <h2 className="font-black text-3xl text-black mb-5">
           Use of Your Information
@@ -43,12 +43,6 @@ const PrivacyPolicy = () => {
           your account, including any unauthorized activities. If you suspect
           that someone has gained unauthorized access to your account, you
           should notify Morise.ai immediately.
-        </p>
-
-        <h2 className="font-black text-3xl text-black mb-5">Contact Us</h2>
-        <p className="mb-5">
-          If you have any questions about this Privacy Policy or our practices
-          related to your information, please contact us at support@cricon.com
         </p>
       </div>
       <Footer />

@@ -29,11 +29,31 @@ export function Footer() {
           <li>
             <Typography
               as="a"
-              href="#"
+              href="/credits"
               color="blue-gray"
               className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
             >
-              About Us
+              Pricing
+            </Typography>
+          </li>
+          <li>
+            <Typography
+              as="a"
+              href="/"
+              color="blue-gray"
+              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+            >
+              Services
+            </Typography>
+          </li>
+          <li>
+            <Typography
+              as="a"
+              href="/contactUs"
+              color="blue-gray"
+              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+            >
+              Contact Us
             </Typography>
           </li>
 
@@ -69,17 +89,30 @@ export function Footer() {
           Rights Reserved.
         </Typography>
         <div className="flex gap-4 text-blue-gray-900 sm:justify-center">
-          <Typography as="a" href="https://www.facebook.com/CriconAi/">
+          <Typography
+            as="a"
+            target="_blank"
+            href="https://www.facebook.com/CriconAi/"
+          >
             <FacebookIcon className="h-5 w-5" />
           </Typography>
-          <Typography as="a" href="#">
+          <Typography
+            as="a"
+            target="_blank"
+            href="https://www.instagram.com/criconai/"
+          >
             <InstagramIcon className="h-5 w-5" />
           </Typography>
-          <Typography as="a" href="https://twitter.com/CriconAi">
+          <Typography
+            as="a"
+            target="_blank"
+            href="https://twitter.com/CriconAi"
+          >
             <TwitterIcon className="h-5 w-5" />
           </Typography>
           <Typography
             as="a"
+            target="_blank"
             href="https://www.youtube.com/channel/UC6UCOXsY_Y4Rm7IW34_v9Lg"
           >
             <YoutubeIcon className="h-5 w-5" />

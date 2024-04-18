@@ -17,25 +17,26 @@ import Credits from "@/app/(root)/credits/page";
 export const plans = [
   {
     _id: 1,
-    name: "Noob",
+    name: "Basic Package",
     icon: "/assets/icons/free-plan.svg",
-    price: 1,
+    price: 5,
     credits: 350,
     inclusions: [
       {
         label: "350 Credits",
         isIncluded: true,
       },
-      {
-        label: "Basic Access to Services",
-        isIncluded: true,
-      },
+
       {
         label: "Priority Customer Support",
         isIncluded: false,
       },
       {
         label: "Priority Updates",
+        isIncluded: false,
+      },
+      {
+        label: "Priority To Future Services",
         isIncluded: false,
       },
     ],
@@ -44,23 +45,24 @@ export const plans = [
     _id: 2,
     name: "Pro Package",
     icon: "/assets/icons/free-plan.svg",
-    price: 2,
+    price: 29,
     credits: 2400,
     inclusions: [
       {
-        label: "2400 Credits",
+        label: " 2400 Credits",
         isIncluded: true,
       },
-      {
-        label: "Full Access to Services",
-        isIncluded: true,
-      },
+
       {
         label: "Priority Customer Support",
         isIncluded: true,
       },
       {
         label: "Priority Updates",
+        isIncluded: false,
+      },
+      {
+        label: "Priority To Future Services",
         isIncluded: false,
       },
     ],
@@ -76,16 +78,17 @@ export const plans = [
         label: "9000 Credits",
         isIncluded: true,
       },
-      {
-        label: "Full Access to Services",
-        isIncluded: true,
-      },
+
       {
         label: "Priority Customer Support",
         isIncluded: true,
       },
       {
         label: "Priority Updates",
+        isIncluded: true,
+      },
+      {
+        label: "Priority To Future Services",
         isIncluded: true,
       },
     ],
