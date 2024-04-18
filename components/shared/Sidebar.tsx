@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { Button } from "../ui/button";
 import Link from "next/link";
@@ -31,85 +31,10 @@ import { InstagramIcon, SquarePenIcon, YoutubeIcon } from "lucide-react";
 
 export function Sidebar() {
   const [open, setOpen] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
 
   const handleOpen = (value: number) => {
     setOpen(open === value ? 0 : value);
   };
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className=" min-h-screen h-screen bg-gray-50  text-gray-600   w-full max-w-[18rem] p-4 shadow-xl font-sans overflow-y-auto no-scrollbar flex flex-col  justify-between shadow-blue-100 ">
-        <div className="">
-          <Typography
-            as="div"
-            variant="paragraph"
-            className="mb-2 mt-10 h-10 w-[10rem] rounded-full bg-gray-100"
-          >
-            &nbsp;
-          </Typography>
-          <Typography
-            as="div"
-            variant="paragraph"
-            className="mb-2 h-7 w-[15rem]  rounded-full bg-gray-100"
-          >
-            &nbsp;
-          </Typography>
-          <Typography
-            as="div"
-            variant="paragraph"
-            className="mb-2 h-7 w-[15rem] rounded-full bg-gray-100"
-          >
-            &nbsp;
-          </Typography>
-          <Typography
-            as="div"
-            variant="paragraph"
-            className="mb-2 h-7 w-[15rem] rounded-full bg-gray-100"
-          >
-            &nbsp;
-          </Typography>
-          <Typography
-            as="div"
-            variant="paragraph"
-            className="mb-2 h-7 w-[15rem] rounded-full bg-gray-100"
-          >
-            &nbsp;
-          </Typography>
-        </div>
-        <div className="">
-          <Typography
-            as="div"
-            variant="paragraph"
-            className="mb-2 mt-10 h-7 w-[15rem] rounded-full bg-gray-100"
-          >
-            &nbsp;
-          </Typography>
-          <Typography
-            as="div"
-            variant="paragraph"
-            className="mb-2 h-7 w-[15rem] rounded-full bg-gray-100"
-          >
-            &nbsp;
-          </Typography>
-          <Typography
-            as="div"
-            variant="paragraph"
-            className="mb-2 h-7 w-[15rem] rounded-full bg-gray-100"
-          >
-            &nbsp;
-          </Typography>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div>

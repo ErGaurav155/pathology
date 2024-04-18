@@ -25,7 +25,7 @@ const terms = () => {
           Criconai.com is not responsible for any legal mis happenings generated
           by AI.
         </p>
-        <h2 className="font-black text-3xl text-black mb-5">
+        <h2 className="font-black text-3xl text-black mb-5 ">
           Refunds/Cancellations
         </h2>
         <p className="mb-5">
