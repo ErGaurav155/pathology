@@ -14,10 +14,14 @@ const contactUs = () => {
     <div className="wrapper h-screen flex flex-col justify-between items-center ">
       <div className="max-w-3xl mx-auto px-5 md:px-10   mt-5 md:mt-10 w-full text-dark-400">
         <h2 className="font-black text-3xl text-black mb-5">Contact Us:</h2>
-        <p className="mb-5">
-          If you have any questions about this Privacy Policy or our practices
-          related to your information, please contact us at support@criconai.com
+        <p className="mb-2 text-black">Owner- Mr. GAURAV KHIARE</p>
+        <h2 className="mb-2 text-black">Business Name-GK Services</h2>
+        <p className="mb-2 text-black">Email-support@criconai.com</p>
+        <p className="mb-2 text-black">Mobile-9324350209</p>
+        <p className="mb-2 text-black">
+          Address- Harsul,post-Dugaon tel-chandwad, Nashik, Maharashtra - 423104
         </p>
+
         <div className="font-black text-3xl text-black mb-5">Our Socials:</div>
         <div className="flex gap-4 mt-20 text-blue-gray-900 sm:justify-center">
           <Typography

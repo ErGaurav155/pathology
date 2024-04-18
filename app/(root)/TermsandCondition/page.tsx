@@ -32,6 +32,11 @@ const terms = () => {
           For now we do not provide any refund policies. No Refunds for the
           Service will be given of purchase.We might think in future.
         </p>
+        <h2 className="font-black text-3xl text-black mb-5 ">Contact Us</h2>
+        <p className="mb-5">
+          If you have any questions about this Privacy Policy or our practices
+          related to your information, please contact us at support@criconai.com
+        </p>
       </div>
       <Footer />
     </div>
