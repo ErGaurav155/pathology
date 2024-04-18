@@ -85,7 +85,7 @@ export function Footer() {
           variant="small"
           className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
         >
-          &copy; {currentYear}
+          &copy; {currentYear}{" "}
           <a href="https://criconai.com">GK Services(Cricon Ai)</a>. All Rights
           Reserved.
         </Typography>
