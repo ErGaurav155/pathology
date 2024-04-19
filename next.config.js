@@ -9,6 +9,9 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    nftTracing: true,
+  },
 };
 
 module.exports = nextConfig;
