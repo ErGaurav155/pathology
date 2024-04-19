@@ -73,7 +73,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     body: JSON.stringify(formData2),
   });
   const speechBuffer = Buffer.from(await response2.arrayBuffer());
-  const outputFile = path.resolve("/assets/audio/output.mp3");
+  const outputFile = path.resolve("./public/assets/audio/output.mp3");
   await fs.writeFileSync(outputFile, speechBuffer);
   const gptArgs = outputFile;
   console.log(gptArgs);
