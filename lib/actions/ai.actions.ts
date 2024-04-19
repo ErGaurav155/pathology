@@ -231,7 +231,13 @@ export const generateGptResponse = async ({
       });
 
       const speechBuffer = Buffer.from(await mp3.arrayBuffer());
-      const outputFile = path.resolve("/assets/audio/output.mp3");
+      const outputFile = path.resolve("./public/assets/audio/output.mp3"); // Adjusted path
+
+      // Ensure the directory exists
+      const outputDir = path.dirname(outputFile);
+      fs.mkdirSync(outputDir, { recursive: true }); // Create directory recursively
+
+      // Write the file
       await fs.writeFileSync(outputFile, speechBuffer);
 
       const gptArgs = outputFile;
