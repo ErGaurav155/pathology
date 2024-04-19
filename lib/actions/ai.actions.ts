@@ -231,10 +231,7 @@ export const generateGptResponse = async ({
       // });
 
       // const speechBuffer = Buffer.from(await mp3.arrayBuffer());
-      const outputFile = path.join(
-        process.cwd(),
-        "public/assets/audio/output.mp3"
-      );
+      const outputFile = path.resolve("public/assets/audio/output.mp3");
 
       // await fs.writeFileSync(outputFile, speechBuffer);
 
