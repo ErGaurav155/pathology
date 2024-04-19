@@ -1,17 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "oaidalleapiprodscus.blob.core.windows.net",
-        port: "",
-      },
-    ],
-  },
-  experimental: {
-    nftTracing: true,
-  },
+module.exports = {
+  target: "serverless",
+  experimental: { nftTracing: true },
 };
-
-module.exports = nextConfig;
