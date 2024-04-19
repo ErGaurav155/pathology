@@ -224,19 +224,19 @@ export const generateGptResponse = async ({
     console.log("hi iam running on tts-1 ");
 
     try {
-      const mp3 = await openai.audio.speech.create({
-        model: `${model}`,
-        voice: `${selectTone}` as voiceType,
-        input: `${input}`,
-      });
+      // const mp3 = await openai.audio.speech.create({
+      //   model: `${model}`,
+      //   voice: `${selectTone}` as voiceType,
+      //   input: `${input}`,
+      // });
 
-      const speechBuffer = Buffer.from(await mp3.arrayBuffer());
+      // const speechBuffer = Buffer.from(await mp3.arrayBuffer());
       const outputFile = path.join(
         process.cwd(),
         "public/assets/audio/output.mp3"
       );
 
-      await fs.writeFileSync(outputFile, speechBuffer);
+      // await fs.writeFileSync(outputFile, speechBuffer);
 
       const gptArgs = outputFile;
 
