@@ -75,9 +75,9 @@ const Checkout = ({
           const transaction1 = {
             customerId: orderCreate.id,
             amount: amount / 100,
-            plan: plan || "",
-            credits: Number(credits) || 0,
-            buyerId: buyerId || "",
+            plan: plan,
+            credits: Number(credits),
+            buyerId: buyerId,
             createdAt: new Date(),
           };
 

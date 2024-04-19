@@ -75,7 +75,7 @@
 }
 
 .auth {
-  @apply flex-center min-h-screen w-full bg-purple-100
+  @apply flex-center min-h-screen w-full bg-purple-100;
 }
 
 .root {
@@ -83,18 +83,18 @@
 }
 
 .root-container {
-  @apply mt-16 flex-1  overflow-auto  md:static   lg:mt-0 lg:max-h-screen 
+  @apply mt-16 flex-1  overflow-auto  md:static   lg:mt-0 lg:max-h-screen;
 }
 
 /* ========================================== TAILWIND STYLES */
 @layer utilities {
   /* ===== UTILITIES */
-  
+
   .wrapper {
-    @apply max-w-5xl mx-auto px-5 md:px-10 w-full text-dark-400 ;
+    @apply max-w-5xl mx-auto px-5 md:px-10 w-full text-dark-400;
   }
   .wrapper2 {
-    @apply max-w-7xl mx-auto pr-1 sm:pr-3 md:pr-5  w-full text-dark-400 ;
+    @apply max-w-7xl mx-auto pr-1 sm:pr-3 md:pr-5  w-full text-dark-400;
   }
   .gradient-text {
     @apply bg-purple-gradient bg-cover bg-clip-text text-transparent;
@@ -363,14 +363,14 @@
     @apply flex-center p-14-medium h-full min-h-72 flex-col gap-5 rounded-[16px] border border-dashed bg-purple-100/20 shadow-inner;
   }
   /* Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 
-    .no-scrollbar {
-      -ms-overflow-style: none; /* IE and Edge */
-      scrollbar-width: none; /* Firefox */
-    }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }
 
 /* =====  CLERK OVERRIDES */
