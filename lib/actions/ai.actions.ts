@@ -2,9 +2,8 @@
 
 import { aiprompt } from "@/constants";
 import OpenAI from "openai";
-import path from "path";
-import fs from "fs";
 
+import { v2 as cloudinary } from "cloudinary";
 const openai = setupOpenAI();
 function setupOpenAI() {
   if (!process.env.OPENAI_API_KEY) {
@@ -37,10 +36,7 @@ export const generateGptResponse = async ({
   }
 
   if (model === "gpt-3.5-turbo") {
-    console.log("hi iam running on gpt-3.5 ");
     if (inputlag || outputlag) {
-      console.log("hi iam running on inputlag || outputlag ");
-
       const completion = await openai.chat.completions.create({
         model: `${model}`,
         messages: [
@@ -66,8 +62,6 @@ export const generateGptResponse = async ({
 
       return JSON.parse(JSON.stringify(gptArgs));
     } else if (selectTone) {
-      console.log("hi iam running on selectTone ");
-
       const completion = await openai.chat.completions.create({
         model: `${model}`,
         messages: [
@@ -93,8 +87,6 @@ export const generateGptResponse = async ({
 
       return JSON.parse(JSON.stringify(gptArgs));
     } else {
-      console.log("hi iam running on input ");
-
       const completion = await openai.chat.completions.create({
         model: `${model}`,
         messages: [
@@ -121,7 +113,6 @@ export const generateGptResponse = async ({
       return JSON.parse(JSON.stringify(gptArgs));
     }
   } else if (model === "dall-e-3") {
-    console.log("hi iam running on dall-e-3 ");
     if (!genType) {
       try {
         const completion = await openai.chat.completions.create({
@@ -170,7 +161,7 @@ export const generateGptResponse = async ({
             n: 1,
           });
           const imagedata = image;
-          console.log(imagedata);
+
           const imageUrl = image?.data[0]?.url;
           if (!imageUrl) {
             throw new Error("Bad response from OpenAI");
@@ -181,13 +172,12 @@ export const generateGptResponse = async ({
 
         return imageUrls;
       } catch (error) {
-        console.error(error);
         throw new Error("Bad response from OpenAI");
       }
     } else {
       try {
         let noOfImageG: number;
-        console.log("prompt based only");
+
         if (!outputlag) {
           noOfImageG = 1;
         } else {
@@ -204,8 +194,7 @@ export const generateGptResponse = async ({
             response_format: "url",
             n: 1,
           });
-          const imagedata = image;
-          console.log(imagedata);
+
           const imageUrl = image?.data[0]?.url;
           if (!imageUrl) {
             throw new Error("Bad response from OpenAI");
@@ -216,26 +205,37 @@ export const generateGptResponse = async ({
 
         return imageUrls;
       } catch (error) {
-        console.error(error);
         throw new Error("Bad response from OpenAI");
       }
     }
   } else if (model === "tts-1") {
-    console.log("hi iam running on tts-1 ");
-
+    cloudinary.config({
+      cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+    });
     try {
-      // const mp3 = await openai.audio.speech.create({
-      //   model: `${model}`,
-      //   voice: `${selectTone}` as voiceType,
-      //   input: `${input}`,
-      // });
+      const mp3 = await openai.audio.speech.create({
+        model: `${model}`,
+        voice: `${selectTone}` as voiceType,
+        input: `${input}`,
+        speed: 0.95,
+      });
 
-      // const speechBuffer = Buffer.from(await mp3.arrayBuffer());
-      const outputFile = path.resolve("public/assets/audio/output.mp3");
-      console.log(outputFile);
-      // await fs.writeFileSync(outputFile, speechBuffer);
+      const speechBuffer = Buffer.from(await mp3.arrayBuffer());
 
-      const gptArgs = outputFile;
+      const uploadResult: any = await new Promise((resolve, reject) => {
+        cloudinary.uploader
+          .upload_stream({ resource_type: "video" }, (error, uploadResult) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(uploadResult);
+            }
+          })
+          .end(speechBuffer);
+      });
+      const gptArgs = uploadResult?.secure_url;
 
       if (!gptArgs) {
         throw new Error("Bad response from OpenAI");
@@ -243,8 +243,7 @@ export const generateGptResponse = async ({
 
       return JSON.parse(JSON.stringify(gptArgs));
     } catch (error) {
-      console.log("Speech synthesis failed.");
-      console.error(error);
+      throw new Error(`Bad response from OpenAI : ${error}`);
     }
   } else {
     throw new Error("Bad response from OpenAI");
@@ -289,8 +288,7 @@ export async function fetchLongVidData({
       });
       return promise;
     } catch (error) {
-      console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
-      return ["Sorry request failed"]; // or handle the error in any appropriate way
+      throw new Error(`Bad response from OpenAI : ${error}`);
     }
   });
   const allResponses = await Promise.all(promises);
@@ -325,8 +323,7 @@ export async function fetchShortVidData({
       });
       return promise;
     } catch (error) {
-      console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
-      return ["Sorry request failed"]; // or handle the error in any appropriate way
+      throw new Error(`Bad response from OpenAI : ${error}`);
     }
   });
   const allResponses = await Promise.all(promises);
@@ -360,8 +357,7 @@ export async function fetchContentWriterData({
       });
       return promise;
     } catch (error) {
-      console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
-      return ["Sorry request failed"]; // or handle the error in any appropriate way
+      throw new Error(`Bad response from OpenAI : ${error}`);
     }
   });
   const allResponses = await Promise.all(promises);
@@ -395,8 +391,7 @@ export async function fetchSocialMediaData({
       });
       return promise;
     } catch (error) {
-      console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
-      return ["Sorry request failed"]; // or handle the error in any appropriate way
+      throw new Error(`Bad response from OpenAI : ${error}`);
     }
   });
   const allResponses = await Promise.all(promises);
@@ -430,8 +425,7 @@ export async function fetchMarketingData({
       });
       return promise;
     } catch (error) {
-      console.error(`Failed to fetch user with ID ${aiprompt}:`, error);
-      return ["Sorry request failed"]; // or handle the error in any appropriate way
+      throw new Error(`Bad response from OpenAI : ${error}`);
     }
   });
   const allResponses = await Promise.all(promises);

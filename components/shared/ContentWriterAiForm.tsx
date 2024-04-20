@@ -79,8 +79,6 @@ export default function ContentWriterAiForm({
   const contentWriter = contentwriterTypes[type];
   const [genType, setGenType] = useState(false);
 
-  const [isActive, setIsActive] = useState(false);
-  const [isDownload, setIsDownload] = useState(false);
   const [selectedAspectRatio, setSelectedAspectRatio] = useState<string>("1:1");
   const [credits, setCredits] = useState(contentWriter.credits);
   const [arImage, setArImage] = useState("1");
@@ -145,9 +143,6 @@ export default function ContentWriterAiForm({
     setCredits(contentWriter.credits + fullCredit);
   }, [selectedAspectRatio, arImage, contentWriter.credits]);
 
-  const handleAspectRatioChange = (value: string) => {
-    setSelectedAspectRatio(value); // Update the selected aspect ratio in state
-  };
   const [width, height] = selectedAspectRatio.split("x");
 
   const arwidth = parseInt(width);
@@ -169,14 +164,14 @@ export default function ContentWriterAiForm({
     setIsSubmitting(true);
     setIsResponse(true);
     const user = await getUserByDbId(userId);
-    console.log(user);
+
     setAvailableCredits(user.creditBalance);
     if (user.creditBalance < Math.abs(credits)) {
       setIsSubmitting(false);
       return <InsufficientCreditsModal />;
     }
     const { input, inputlag, outputlag, selectTone, description } = values;
-    console.log(values);
+
     try {
       if (type !== "all") {
         const res = await generateGptResponse({
@@ -219,7 +214,6 @@ export default function ContentWriterAiForm({
           await updateCredits(userId, -credits);
           setAllResponse(res.slice(0, 7));
           setImageUrl(res.slice(7));
-          console.log(res);
         } else {
           toast({
             title: "Content Warning",
@@ -690,7 +684,7 @@ export default function ContentWriterAiForm({
           {audioUrl && (
             <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
               <audio controls>
-                <source src="/assets/audio/output.mp3" type="audio/mpeg" />
+                <source src={audioUrl} type="audio/mpeg" />
               </audio>
             </div>
           )}

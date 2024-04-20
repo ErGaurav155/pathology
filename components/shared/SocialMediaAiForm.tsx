@@ -73,8 +73,6 @@ export default function SocialMediaAiForm({
   const [genType, setGenType] = useState(false);
   const [isResponse, setIsResponse] = useState(false);
 
-  const [isActive, setIsActive] = useState(false);
-  const [textToCopy, setTextToCopy] = useState("");
   const [imageUrl, setImageUrl] = useState<string[]>([]);
   const [availableCredits, setAvailableCredits] =
     useState<number>(creditBalance);
@@ -165,14 +163,14 @@ export default function SocialMediaAiForm({
     setIsSubmitting(true);
     setIsResponse(true);
     const user = await getUserByDbId(userId);
-    console.log(user);
+
     setAvailableCredits(user.creditBalance);
     if (user.creditBalance < Math.abs(credits)) {
       setIsSubmitting(false);
       return <InsufficientCreditsModal />;
     }
     const { input, inputlag, outputlag, selectTone, description } = values;
-    console.log(values);
+
     try {
       if (type !== "all") {
         const res = await generateGptResponse({
@@ -213,7 +211,6 @@ export default function SocialMediaAiForm({
           await updateCredits(userId, -credits);
           setAllResponse(res.slice(0, 5));
           setImageUrl(res.slice(5));
-          console.log(res);
         } else {
           toast({
             title: "Content Warning",

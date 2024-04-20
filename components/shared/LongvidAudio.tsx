@@ -24,7 +24,7 @@ const formSchema = z.object({
     .instanceof(File)
     .refine(
       (file) => file.size < 5 * 1024 * 1024,
-      "File size must be less than 3MB"
+      "File size must be less than 5MB"
     ),
 
   selectTone: z.string(),
@@ -59,8 +59,8 @@ export default function LongVidAudio({
   };
 
   useEffect(() => {
-    const fileCredits = calculateCredits(size); // Calculate credits based on file size
-    setCredits(longVid.credits + fileCredits); // Update credits state
+    const fileCredits = calculateCredits(size);
+    setCredits(longVid.credits + fileCredits);
   }, [longVid.credits, size]);
   let { type: string, topic, subtopic, tone, aiprompt, model } = longVid;
 
@@ -69,7 +69,7 @@ export default function LongVidAudio({
       return;
     }
     const user = await getUserByDbId(userId);
-    console.log(user);
+
     setAvailableCredits(user.creditBalance);
     if (user.creditBalance < Math.abs(credits)) {
       setIsSubmitting(false);
@@ -81,7 +81,6 @@ export default function LongVidAudio({
     formData.append("selectTone", value1);
     formData.append("outputlag", language1);
 
-    console.log(formData, language1, aiprompt, model);
     try {
       try {
         formSchema.parse({
@@ -102,7 +101,7 @@ export default function LongVidAudio({
       if (response.ok) {
         const data = await response.json();
         await updateCredits(userId, -credits);
-        console.log(data);
+
         setAudioUrl(data.output);
       } else {
         toast({
@@ -224,7 +223,7 @@ export default function LongVidAudio({
       {audioUrl ? (
         <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
           <audio controls>
-            <source src="/assets/audio/output.mp3" type="audio/mpeg" />
+            <source src={audioUrl} type="audio/mpeg" />
           </audio>
         </div>
       ) : (

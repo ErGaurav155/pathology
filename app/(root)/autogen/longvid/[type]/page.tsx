@@ -11,7 +11,7 @@ import Aiaudio from "@/components/shared/Aiaudio";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CriconAi",
+  title: "Ai Tools For YOUTUBERS only",
   description: "FREE AI-powered best quality technology for YOUTUBERS",
 };
 const AddTransformationTypePage = async ({

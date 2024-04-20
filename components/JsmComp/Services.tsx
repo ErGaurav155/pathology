@@ -1,17 +1,14 @@
 import Heading from "@/components/shared/Svgs/HEading";
 
-import check from "@/public/assets/check.svg";
 import service3 from "@/public/assets/services/service-3.png";
 import service2 from "@/public/assets/services/service-2.png";
-import service1 from "@/public/assets/services/service-1.png";
 
-import { brainwaveServices, brainwaveServicesIcons } from "@/constants";
+import { brainwaveServicesIcons } from "@/constants";
 import {
   PhotoChatMessage,
   VideoChatMessage,
 } from "@/components/shared/Svgs/Services";
 
-import Generating from "./Generating";
 import Image from "next/image";
 
 const Services = () => {

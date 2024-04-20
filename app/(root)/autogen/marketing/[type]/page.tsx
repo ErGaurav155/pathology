@@ -9,7 +9,7 @@ import MarketingAiForm from "@/components/shared/MarketingAiForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CriconAi",
+  title: "Best Ai Video Promotion Tool ",
   description:
     "FREE AI-powered best Promotion technology for SOCIAL MEDIA INFLUENCERS/YOUTUBERS",
 };

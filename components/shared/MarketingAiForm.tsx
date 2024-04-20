@@ -162,14 +162,14 @@ export default function MarketingAiForm({
     setIsSubmitting(true);
     setIsResponse(true);
     const user = await getUserByDbId(userId);
-    console.log(user);
+
     setAvailableCredits(user.creditBalance);
     if (user.creditBalance < Math.abs(credits)) {
       setIsSubmitting(false);
       return <InsufficientCreditsModal />;
     }
     const { input, inputlag, outputlag, selectTone, description } = values;
-    console.log(values);
+
     try {
       if (type !== "all") {
         const res = await generateGptResponse({
@@ -198,7 +198,6 @@ export default function MarketingAiForm({
           });
         }
       } else {
-        console.log("hi dalle 3 runnig");
         const res = await fetchMarketingData({
           input,
           selectTone,
@@ -210,7 +209,6 @@ export default function MarketingAiForm({
           await updateCredits(userId, -credits);
           setAllResponse(res.slice(0, 3));
           setImageUrl(res.slice(3));
-          console.log(res);
         } else {
           toast({
             title: "Content Warning",

@@ -15,7 +15,6 @@ export function Faq() {
   const [open, setOpen] = React.useState(0);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(0);
 
-  //   const openDrawer = () => setIsDrawerOpen((prev) => !prev);
   const openDrawer = (value: number) =>
     setIsDrawerOpen(open === value ? 0 : value);
 

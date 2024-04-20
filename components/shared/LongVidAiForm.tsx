@@ -160,7 +160,7 @@ export default function LongVidAiForm({
     setIsResponse(true);
 
     const user = await getUserByDbId(userId);
-    console.log(user);
+
     if (!user) {
       return;
     }
@@ -171,7 +171,6 @@ export default function LongVidAiForm({
     }
 
     const { input, inputlag, outputlag, selectTone, description } = values;
-    console.log(values);
 
     try {
       if (type !== "all") {
@@ -216,7 +215,6 @@ export default function LongVidAiForm({
           await updateCredits(userId, -credits);
           setAllResponse(res.slice(0, 5));
           setImageUrl(res.slice(5));
-          console.log(res);
         } else {
           toast({
             title: "Content Warning",
@@ -694,7 +692,7 @@ export default function LongVidAiForm({
           {audioUrl && (
             <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
               <audio controls>
-                <source src="/assets/audio/output.mp3" type="audio/mpeg" />
+                <source src={audioUrl} type="audio/mpeg" />
               </audio>
             </div>
           )}

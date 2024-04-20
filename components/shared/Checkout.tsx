@@ -35,20 +35,19 @@ const Checkout = ({
     if (!orderCreate.id) {
       throw new Error("Purchase Order is not created");
     }
-    // setLoading(false);
 
     const paymentOptions = {
       key: process.env.key_id!,
       amount: amount * 100,
       currency: "INR",
-      name: "GK Services", // Business name
-      description: "Payment",
+      name: "GK Services",
+      description: "Thanks For Taking Our Services",
       order_id: orderCreate.id,
       notes: {
         plan: plan,
         credits: credits,
         buyerId: buyerId,
-        amount: Number(amount),
+        amount: amount,
       },
       handler: async function (response: any) {
         const data = {
@@ -74,7 +73,7 @@ const Checkout = ({
           });
           const transaction1 = {
             customerId: orderCreate.id,
-            amount: amount / 100,
+            amount: amount,
             plan: plan,
             credits: Number(credits),
             buyerId: buyerId,
@@ -83,11 +82,9 @@ const Checkout = ({
 
           await createTransaction(transaction1);
         } else {
-          alert(res.message);
           toast({
             title: "Order canceled!",
-            description:
-              "Continue to shop around and checkout when you're ready",
+            description: res.message,
             duration: 5000,
             className: "error-toast",
           });
@@ -101,16 +98,16 @@ const Checkout = ({
     const paymentObject = new (window as any).Razorpay(paymentOptions);
 
     paymentObject.on("payment.failed", function (response: any) {
-      // Handle payment failure
-      alert(response.error.description);
-      // Other actions after payment failure
+      toast({
+        title: "Order failed!",
+        description: response.error.description,
+        duration: 5000,
+        className: "error-toast",
+      });
     });
 
-    // Open Razorpay payment modal
     paymentObject.open();
   };
-
-  // /checkout/?amount=${plan.price}
 
   return (
     <>

@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CriconAi",
+  title: "AI Tools For INFLUENCERS",
   description:
     "FREE AI-powered best content creation technology for SOCIAL MEDIA INFLUENCERS",
 };

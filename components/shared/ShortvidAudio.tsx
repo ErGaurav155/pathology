@@ -24,7 +24,7 @@ const formSchema = z.object({
     .instanceof(File)
     .refine(
       (file) => file.size < 5 * 1024 * 1024,
-      "File size must be less than 3MB"
+      "File size must be less than 5MB"
     ),
 
   selectTone: z.string(),
@@ -68,7 +68,7 @@ export default function ShortVidAudio({
       return;
     }
     const user = await getUserByDbId(userId);
-    console.log(user);
+
     setAvailableCredits(user.creditBalance);
     if (user.creditBalance < Math.abs(credits)) {
       setIsSubmitting(false);
@@ -79,7 +79,6 @@ export default function ShortVidAudio({
     formData.append("selectTone", value1);
     formData.append("outputlag", language1);
 
-    console.log(formData, language1, aiprompt, model);
     try {
       try {
         formSchema.parse({
@@ -100,9 +99,8 @@ export default function ShortVidAudio({
       if (response.ok) {
         const data = await response.json();
         await updateCredits(userId, -credits);
-        console.log(data);
+
         setAudioUrl(data.output);
-        console.log("File uploaded successfully");
       } else {
         toast({
           title: "Content Warning",
@@ -113,8 +111,12 @@ export default function ShortVidAudio({
         });
       }
     } catch (error) {
-      // Handle any errors
-      console.error("An error occurred while uploading the file", error);
+      toast({
+        title: "Something Went Wrong",
+        description: error as any,
+        duration: 2000,
+        className: "error-toast",
+      });
     }
 
     setTheFile(null);
@@ -218,7 +220,7 @@ export default function ShortVidAudio({
       {audioUrl ? (
         <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
           <audio controls>
-            <source src="/assets/audio/output.mp3" type="audio/mpeg" />
+            <source src={audioUrl} type="audio/mpeg" />
           </audio>
         </div>
       ) : (

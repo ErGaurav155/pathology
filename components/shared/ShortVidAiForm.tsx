@@ -72,11 +72,11 @@ export default function ShortVidAiForm({
 
   const [activeStates, setActiveStates] = useState(Array(5).fill(false));
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isActive, setIsActive] = useState(false);
+
   const [genType, setGenType] = useState(false);
   const [availableCredits, setAvailableCredits] =
     useState<number>(creditBalance);
-  const [textToCopy, setTextToCopy] = useState("");
+
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [imageUrl, setImageUrl] = useState<string[]>([]);
   const [isResponse, setIsResponse] = useState(false);
@@ -168,7 +168,7 @@ export default function ShortVidAiForm({
     setIsSubmitting(true);
     setIsResponse(true);
     const user = await getUserByDbId(userId);
-    console.log(user);
+
     setAvailableCredits(user.creditBalance);
     if (user.creditBalance < Math.abs(credits)) {
       setIsSubmitting(false);
@@ -176,7 +176,7 @@ export default function ShortVidAiForm({
     }
 
     const { input, inputlag, outputlag, selectTone, description } = values;
-    console.log(values);
+
     try {
       if (type !== "all") {
         const res = await generateGptResponse({
@@ -219,7 +219,6 @@ export default function ShortVidAiForm({
           await updateCredits(userId, -credits);
           setAllResponse(res.slice(0, 4));
           setImageUrl(res.slice(4));
-          console.log(res);
         } else {
           toast({
             title: "Content Warning",
@@ -696,7 +695,7 @@ export default function ShortVidAiForm({
           {audioUrl && (
             <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">
               <audio controls>
-                <source src="/assets/audio/output.mp3" type="audio/mpeg" />
+                <source src={audioUrl} type="audio/mpeg" />
               </audio>
             </div>
           )}

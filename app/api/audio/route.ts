@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import path from "path";
-import fs from "fs";
+import { v2 as cloudinary } from "cloudinary";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+cloudinary.config({
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+export async function POST(req: NextRequest) {
   const data = await req.formData();
   const theFile: File | null = data.get("file") as unknown as File;
   const value1: string | null = data.get("selectTone") as unknown as string;
@@ -25,7 +30,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
   );
 
   const body = await response.json();
-  console.log(body);
   const messages = [
     { role: "system", content: "You are a translator." },
     {
@@ -47,15 +51,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
   });
   const resData = await completion.json();
 
-  // const data = await response.json();
-
-  // Assuming data.choices[0].message.content is a string
   console.log(resData);
   const messageContent = resData.choices[0]?.message?.content;
 
   console.log(messageContent);
   if (!messageContent) {
-    console.log(messageContent, "hi my name ");
     return;
   }
 
@@ -73,14 +73,22 @@ export async function POST(req: NextRequest, res: NextResponse) {
     body: JSON.stringify(formData2),
   });
   const speechBuffer = Buffer.from(await response2.arrayBuffer());
-  const outputFile = path.resolve("public/assets/audio/output.mp3");
-  await fs.writeFileSync(outputFile, speechBuffer);
-  const gptArgs = outputFile;
-  console.log(gptArgs);
+
+  const uploadResult: any = await new Promise((resolve, reject) => {
+    cloudinary.uploader
+      .upload_stream({ resource_type: "video" }, (error, uploadResult) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(uploadResult);
+        }
+      })
+      .end(speechBuffer);
+  });
+  const gptArgs = uploadResult?.secure_url;
   if (!gptArgs) {
     throw new Error("Bad response from OpenAI");
   }
 
-  //   return JSON.parse(JSON.stringify(gptArgs));
   return NextResponse.json({ output: gptArgs });
 }

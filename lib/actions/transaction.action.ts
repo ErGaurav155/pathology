@@ -31,7 +31,6 @@ export async function checkoutCredits(transaction: CheckoutTransactionParams) {
 
     return order;
   } catch (error) {
-    console.error("Error creating Razorpay order:", error);
     throw error;
   }
 }

@@ -1,7 +1,3 @@
-// pages/api/image.ts
-
-import { Url } from "next/dist/shared/lib/router/router";
-import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -11,7 +7,6 @@ export async function POST(req: Request) {
   if (!Url) {
     throw new Error("url is missing");
   }
-  console.log(Url);
 
   try {
     const res = await fetch(Url);
@@ -26,7 +21,6 @@ export async function POST(req: Request) {
       status: 200,
     });
   } catch (error) {
-    console.error("Error fetching image:", error);
     NextResponse.json({ error: "Internal server error" });
   }
 }

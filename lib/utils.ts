@@ -1,11 +1,9 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-prototype-builtins */
 import { type ClassValue, clsx } from "clsx";
-import qs from "qs";
 import { twMerge } from "tailwind-merge";
 
 import { aspectRatioOptions } from "@/constants";
-import { any } from "zod";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -15,15 +13,12 @@ export function cn(...inputs: ClassValue[]) {
 export const handleError = (error: unknown) => {
   if (error instanceof Error) {
     // This is a native JavaScript error (e.g., TypeError, RangeError)
-    console.error(error.message);
     throw new Error(`Error: ${error.message}`);
   } else if (typeof error === "string") {
     // This is a string error message
-    console.error(error);
     throw new Error(`Error: ${error}`);
   } else {
     // This is an unknown type of error
-    console.error(error);
     throw new Error(`Unknown error: ${JSON.stringify(error)}`);
   }
 };
@@ -92,9 +87,6 @@ export const download = async (url: string, filename: string) => {
     });
 
     if (response) {
-      // Handle successful response
-      console.log("Download request successful", response);
-      // Optionally, you can download the response
       const blob = await response.blob();
       const url1 = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -105,11 +97,11 @@ export const download = async (url: string, filename: string) => {
       window.URL.revokeObjectURL(url1);
     } else {
       // Handle failed response
-      console.error("Download request failed");
+      throw new Error(`Error: Download request failed`);
     }
   } catch (error) {
     // Handle errors
-    console.error("An error occurred while downloading", error);
+    throw new Error(`Error: ${error}`);
   }
 };
 

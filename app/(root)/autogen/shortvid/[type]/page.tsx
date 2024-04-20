@@ -11,7 +11,7 @@ import Aiaudio from "@/components/shared/Aiaudio";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CriconAi",
+  title: "Ai Tools For Reels/Shorts",
   description:
     "FREE AI-powered best content creation technology for SOCIAL MEDIA INFLUENCERS",
 };
