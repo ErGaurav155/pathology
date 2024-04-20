@@ -4,6 +4,9 @@ import { aiprompt } from "@/constants";
 import OpenAI from "openai";
 
 import { v2 as cloudinary } from "cloudinary";
+import dotenv from "dotenv";
+
+dotenv.config();
 const openai = setupOpenAI();
 function setupOpenAI() {
   if (!process.env.OPENAI_API_KEY) {
@@ -236,7 +239,7 @@ export const generateGptResponse = async ({
           .end(speechBuffer);
       });
       const gptArgs = uploadResult?.secure_url;
-
+      console.log(gptArgs);
       if (!gptArgs) {
         throw new Error("Bad response from OpenAI");
       }
