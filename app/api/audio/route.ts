@@ -16,7 +16,6 @@ export async function POST(req: NextRequest) {
   const formData = new FormData();
   formData.append("file", theFile);
   formData.append("model", "whisper-1");
-  console.log("i am running in route handler");
 
   const response = await fetch(
     "https://api.openai.com/v1/audio/transcriptions",
