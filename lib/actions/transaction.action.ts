@@ -17,7 +17,7 @@ export async function checkoutCredits(transaction: CheckoutTransactionParams) {
 
   const options = {
     amount: Number(amount) * 100, // Amount in smallest currency unit (e.g., paisa)
-    currency: "INR",
+    currency: "USD",
     receipt: "rcp1",
     notes: {
       plan: plan,
