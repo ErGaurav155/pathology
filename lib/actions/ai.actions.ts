@@ -12,8 +12,6 @@ function setupOpenAI() {
   }
   return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 }
-// @ts-ignore
-export const maxDuration = 300;
 
 interface GenerateGptResponseParams {
   input: string;
