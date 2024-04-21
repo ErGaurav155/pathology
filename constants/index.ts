@@ -12,7 +12,6 @@ import recording01 from "@/public/assets/recording-01.svg";
 import disc02 from "@/public/assets/disc-02.svg";
 import chromecast from "@/public/assets/chrome-cast.svg";
 import sliders04 from "@/public/assets/sliders-04.svg";
-import Credits from "@/app/(root)/credits/page";
 
 export const plans = [
   {
@@ -2117,7 +2116,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/longvid/idea",
+        link: "/criconai/longvid/idea",
       },
       {
         id: "1",
@@ -2127,7 +2126,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/longvid/title",
+        link: "/criconai/longvid/title",
       },
       {
         id: "2",
@@ -2137,7 +2136,7 @@ export const benefits = [
         iconUrl: benefitIcon3,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/longvid/description",
+        link: "/criconai/longvid/description",
       },
       {
         id: "3",
@@ -2147,7 +2146,7 @@ export const benefits = [
         iconUrl: benefitIcon4,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/longvid/tags",
+        link: "/criconai/longvid/tags",
       },
       {
         id: "4",
@@ -2157,7 +2156,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/longvid/script",
+        link: "/criconai/longvid/script",
       },
       {
         id: "5",
@@ -2167,7 +2166,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/longvid/thumbnail",
+        link: "/criconai/longvid/thumbnail",
       },
       {
         id: "6",
@@ -2177,7 +2176,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/longvid/aiimages",
+        link: "/criconai/longvid/aiimages",
       },
       {
         id: "7",
@@ -2187,7 +2186,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/longvid/translate",
+        link: "/criconai/longvid/translate",
       },
       {
         id: "8",
@@ -2197,7 +2196,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/longvid/disclamer",
+        link: "/criconai/longvid/disclamer",
       },
       {
         id: "9",
@@ -2207,7 +2206,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/longvid/email",
+        link: "/criconai/longvid/email",
       },
     ],
   },
@@ -2222,7 +2221,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/shortvid/idea",
+        link: "/criconai/shortvid/idea",
       },
       {
         id: "1",
@@ -2232,7 +2231,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/shortvid/title",
+        link: "/criconai/shortvid/title",
       },
       {
         id: "2",
@@ -2242,7 +2241,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/shortvid/description",
+        link: "/criconai/shortvid/description",
       },
       {
         id: "3",
@@ -2252,7 +2251,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/shortvid/tags",
+        link: "/criconai/shortvid/tags",
       },
       {
         id: "4",
@@ -2263,7 +2262,7 @@ export const benefits = [
         imageUrl: benefitImage2,
         light: true,
 
-        link: "/autogen/shortvid/script",
+        link: "/criconai/shortvid/script",
       },
       {
         id: "5",
@@ -2273,7 +2272,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/shortvid/thumbnail",
+        link: "/criconai/shortvid/thumbnail",
       },
       {
         id: "6",
@@ -2283,7 +2282,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/shortvid/aiimages",
+        link: "/criconai/shortvid/aiimages",
       },
       {
         id: "7",
@@ -2293,7 +2292,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/shortvid/translate",
+        link: "/criconai/shortvid/translate",
       },
       {
         id: "8",
@@ -2303,7 +2302,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/shortvid/slogan",
+        link: "/criconai/shortvid/slogan",
       },
       {
         id: "9",
@@ -2313,7 +2312,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/shortvid/facts",
+        link: "/criconai/shortvid/facts",
       },
       {
         id: "10",
@@ -2323,7 +2322,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/shortvid/quote",
+        link: "/criconai/shortvid/quote",
       },
       {
         id: "11",
@@ -2333,7 +2332,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/shortvid/riddle",
+        link: "/criconai/shortvid/riddle",
       },
     ],
   },
@@ -2348,7 +2347,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/idea",
+        link: "/criconai/contentwriter/idea",
       },
 
       {
@@ -2359,7 +2358,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/outline",
+        link: "/criconai/contentwriter/outline",
       },
       {
         id: "2",
@@ -2369,7 +2368,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/article",
+        link: "/criconai/contentwriter/article",
       },
       {
         id: "3",
@@ -2379,7 +2378,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/blog",
+        link: "/criconai/contentwriter/blog",
       },
       {
         id: "4",
@@ -2389,7 +2388,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/book",
+        link: "/criconai/contentwriter/book",
       },
       {
         id: "5",
@@ -2400,7 +2399,7 @@ export const benefits = [
         imageUrl: benefitImage2,
         light: true,
 
-        link: "/autogen/contentwriter/title",
+        link: "/criconai/contentwriter/title",
       },
 
       {
@@ -2411,7 +2410,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/images",
+        link: "/criconai/contentwriter/images",
       },
       {
         id: "7",
@@ -2421,7 +2420,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/summary",
+        link: "/criconai/contentwriter/summary",
       },
       {
         id: "8",
@@ -2431,7 +2430,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/expander",
+        link: "/criconai/contentwriter/expander",
       },
 
       {
@@ -2442,7 +2441,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/translation",
+        link: "/criconai/contentwriter/translation",
       },
       {
         id: "10",
@@ -2452,7 +2451,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/coverimage",
+        link: "/criconai/contentwriter/coverimage",
       },
       {
         id: "11",
@@ -2462,7 +2461,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/email",
+        link: "/criconai/contentwriter/email",
       },
       {
         id: "12",
@@ -2472,7 +2471,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/slogan",
+        link: "/criconai/contentwriter/slogan",
       },
       {
         id: "13",
@@ -2482,7 +2481,7 @@ export const benefits = [
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/contentwriter/email",
+        link: "/criconai/contentwriter/email",
       },
     ],
   },
@@ -2497,7 +2496,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/socialmedia/idea",
+        link: "/criconai/socialmedia/idea",
       },
       {
         id: "1",
@@ -2507,7 +2506,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/socialmedia/images",
+        link: "/criconai/socialmedia/images",
       },
       {
         id: "2",
@@ -2517,7 +2516,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/socialmedia/bio",
+        link: "/criconai/socialmedia/bio",
       },
       {
         id: "3",
@@ -2527,7 +2526,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/socialmedia/tag",
+        link: "/criconai/socialmedia/tag",
       },
       {
         id: "4",
@@ -2537,7 +2536,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/socialmedia/caption",
+        link: "/criconai/socialmedia/caption",
       },
       {
         id: "5",
@@ -2547,7 +2546,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/socialmedia/description",
+        link: "/criconai/socialmedia/description",
       },
       {
         id: "6",
@@ -2557,7 +2556,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/socialmedia/comment",
+        link: "/criconai/socialmedia/comment",
       },
       {
         id: "7",
@@ -2567,7 +2566,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/socialmedia/tweet",
+        link: "/criconai/socialmedia/tweet",
       },
       {
         id: "8",
@@ -2577,7 +2576,7 @@ export const benefits = [
         iconUrl: benefitIcon1,
         imageUrl: benefitImage2,
         light: true,
-        link: "/autogen/socialmedia/avatar",
+        link: "/criconai/socialmedia/avatar",
       },
     ],
   },

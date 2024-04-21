@@ -95,7 +95,7 @@ export function Sidebar() {
               </ListItem>
               <AccordionBody className="py-1 ">
                 <List className="pl-4 ">
-                  <Link href="/autogen/longvid/idea">
+                  <Link href="/criconai/longvid/idea">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -103,7 +103,7 @@ export function Sidebar() {
                       Idea Generator
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/all">
+                  <Link href="/criconai/longvid/all">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -111,7 +111,7 @@ export function Sidebar() {
                       All-in-One
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/title">
+                  <Link href="/criconai/longvid/title">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -119,7 +119,7 @@ export function Sidebar() {
                       Title
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/description">
+                  <Link href="/criconai/longvid/description">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -127,7 +127,7 @@ export function Sidebar() {
                       Desc
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/tags">
+                  <Link href="/criconai/longvid/tags">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -135,7 +135,7 @@ export function Sidebar() {
                       Tags
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/script">
+                  <Link href="/criconai/longvid/script">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -143,7 +143,7 @@ export function Sidebar() {
                       Script
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/poll">
+                  <Link href="/criconai/longvid/poll">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -151,7 +151,7 @@ export function Sidebar() {
                       Poll Generation
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/thumbnail">
+                  <Link href="/criconai/longvid/thumbnail">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -159,7 +159,7 @@ export function Sidebar() {
                       Thumbnail
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/aiimages">
+                  <Link href="/criconai/longvid/aiimages">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -167,7 +167,7 @@ export function Sidebar() {
                       AiImages
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/prompt">
+                  <Link href="/criconai/longvid/prompt">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -175,7 +175,7 @@ export function Sidebar() {
                       Prompt Generation
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/translate">
+                  <Link href="/criconai/longvid/translate">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -183,7 +183,7 @@ export function Sidebar() {
                       script translator
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/TexttoAudio">
+                  <Link href="/criconai/longvid/TexttoAudio">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -191,7 +191,7 @@ export function Sidebar() {
                       Text-to-Audio
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/audiotoAudio">
+                  <Link href="/criconai/longvid/audiotoAudio">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -199,7 +199,7 @@ export function Sidebar() {
                       Audio-to-Audio
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/disclamer">
+                  <Link href="/criconai/longvid/disclamer">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -207,7 +207,7 @@ export function Sidebar() {
                       Disclamer
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/backgroundMusicGen">
+                  <Link href="/criconai/longvid/backgroundMusicGen">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -215,7 +215,7 @@ export function Sidebar() {
                       Background MusicGen
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/longvid/email">
+                  <Link href="/criconai/longvid/email">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -255,7 +255,7 @@ export function Sidebar() {
               </ListItem>
               <AccordionBody className="py-1">
                 <List className="pl-4">
-                  <Link href="/autogen/shortvid/idea">
+                  <Link href="/criconai/shortvid/idea">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -263,7 +263,7 @@ export function Sidebar() {
                       Video Idea
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/all">
+                  <Link href="/criconai/shortvid/all">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -271,7 +271,7 @@ export function Sidebar() {
                       All-in-One
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/title">
+                  <Link href="/criconai/shortvid/title">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -279,7 +279,7 @@ export function Sidebar() {
                       Title
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/description">
+                  <Link href="/criconai/shortvid/description">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -287,7 +287,7 @@ export function Sidebar() {
                       Description
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/tags">
+                  <Link href="/criconai/shortvid/tags">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -295,7 +295,7 @@ export function Sidebar() {
                       Tags
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/script">
+                  <Link href="/criconai/shortvid/script">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -303,7 +303,7 @@ export function Sidebar() {
                       Script
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/poll">
+                  <Link href="/criconai/shortvid/poll">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -311,7 +311,7 @@ export function Sidebar() {
                       Poll Generation
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/thumbnail">
+                  <Link href="/criconai/shortvid/thumbnail">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -319,7 +319,7 @@ export function Sidebar() {
                       Thumbnail
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/aiimages">
+                  <Link href="/criconai/shortvid/aiimages">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -327,7 +327,7 @@ export function Sidebar() {
                       AiImages
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/prompt">
+                  <Link href="/criconai/shortvid/prompt">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -335,7 +335,7 @@ export function Sidebar() {
                       Prompt Generation
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/translate">
+                  <Link href="/criconai/shortvid/translate">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -343,7 +343,7 @@ export function Sidebar() {
                       script translator
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/TexttoAudio">
+                  <Link href="/criconai/shortvid/TexttoAudio">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -351,7 +351,7 @@ export function Sidebar() {
                       Text-to-Audio
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/audiotoAudio">
+                  <Link href="/criconai/shortvid/audiotoAudio">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -359,7 +359,7 @@ export function Sidebar() {
                       Audio-to-Audio
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/backgroundMusicGen">
+                  <Link href="/criconai/shortvid/backgroundMusicGen">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -367,7 +367,7 @@ export function Sidebar() {
                       Background MusicGen
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/slogan">
+                  <Link href="/criconai/shortvid/slogan">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -375,7 +375,7 @@ export function Sidebar() {
                       Slogan
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/facts">
+                  <Link href="/criconai/shortvid/facts">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -383,7 +383,7 @@ export function Sidebar() {
                       Facts
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/quote">
+                  <Link href="/criconai/shortvid/quote">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -391,7 +391,7 @@ export function Sidebar() {
                       Quote
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/shortvid/riddle">
+                  <Link href="/criconai/shortvid/riddle">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -431,7 +431,7 @@ export function Sidebar() {
               </ListItem>
               <AccordionBody className="py-1">
                 <List className="pl-4">
-                  <Link href="/autogen/contentwriter/idea">
+                  <Link href="/criconai/contentwriter/idea">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -439,7 +439,7 @@ export function Sidebar() {
                       Idea
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/all">
+                  <Link href="/criconai/contentwriter/all">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -447,7 +447,7 @@ export function Sidebar() {
                       All-in-One
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/outline">
+                  <Link href="/criconai/contentwriter/outline">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -455,7 +455,7 @@ export function Sidebar() {
                       Outline
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/article">
+                  <Link href="/criconai/contentwriter/article">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -463,7 +463,7 @@ export function Sidebar() {
                       Article
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/blog">
+                  <Link href="/criconai/contentwriter/blog">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -471,7 +471,7 @@ export function Sidebar() {
                       Blog
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/book">
+                  <Link href="/criconai/contentwriter/book">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -479,7 +479,7 @@ export function Sidebar() {
                       Book
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/title">
+                  <Link href="/criconai/contentwriter/title">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -487,7 +487,7 @@ export function Sidebar() {
                       Title
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/images">
+                  <Link href="/criconai/contentwriter/images">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -495,7 +495,7 @@ export function Sidebar() {
                       AiImages
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/prompt">
+                  <Link href="/criconai/contentwriter/prompt">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -503,7 +503,7 @@ export function Sidebar() {
                       Prompt Generation
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/summary">
+                  <Link href="/criconai/contentwriter/summary">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -511,7 +511,7 @@ export function Sidebar() {
                       Summary
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/expander">
+                  <Link href="/criconai/contentwriter/expander">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -519,7 +519,7 @@ export function Sidebar() {
                       Expander
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/slogan">
+                  <Link href="/criconai/contentwriter/slogan">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -527,7 +527,7 @@ export function Sidebar() {
                       Slogan
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/translation">
+                  <Link href="/criconai/contentwriter/translation">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -535,7 +535,7 @@ export function Sidebar() {
                       Translation
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/TexttoAudio">
+                  <Link href="/criconai/contentwriter/TexttoAudio">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -543,7 +543,7 @@ export function Sidebar() {
                       Text-to-Audio
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/coverimage">
+                  <Link href="/criconai/contentwriter/coverimage">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -551,7 +551,7 @@ export function Sidebar() {
                       Book CoverImage
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/email">
+                  <Link href="/criconai/contentwriter/email">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -559,7 +559,7 @@ export function Sidebar() {
                       Email
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/contentwriter/tag">
+                  <Link href="/criconai/contentwriter/tag">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -599,7 +599,7 @@ export function Sidebar() {
               </ListItem>
               <AccordionBody className="py-1">
                 <List className="pl-4">
-                  <Link href="/autogen/socialmedia/idea">
+                  <Link href="/criconai/socialmedia/idea">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -607,7 +607,7 @@ export function Sidebar() {
                       Idea
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/socialmedia/all">
+                  <Link href="/criconai/socialmedia/all">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -615,7 +615,7 @@ export function Sidebar() {
                       All-in-one
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/socialmedia/images">
+                  <Link href="/criconai/socialmedia/images">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -623,7 +623,7 @@ export function Sidebar() {
                       Images
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/socialmedia/prompt">
+                  <Link href="/criconai/socialmedia/prompt">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -631,7 +631,7 @@ export function Sidebar() {
                       Prompt Generation
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/socialmedia/bio">
+                  <Link href="/criconai/socialmedia/bio">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -639,7 +639,7 @@ export function Sidebar() {
                       Bio
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/socialmedia/caption">
+                  <Link href="/criconai/socialmedia/caption">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -647,7 +647,7 @@ export function Sidebar() {
                       Caption
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/socialmedia/tag">
+                  <Link href="/criconai/socialmedia/tag">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -655,7 +655,7 @@ export function Sidebar() {
                       Tags
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/socialmedia/description">
+                  <Link href="/criconai/socialmedia/description">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -663,7 +663,7 @@ export function Sidebar() {
                       Description
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/socialmedia/poll">
+                  <Link href="/criconai/socialmedia/poll">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -671,7 +671,7 @@ export function Sidebar() {
                       Poll Generation
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/socialmedia/comment">
+                  <Link href="/criconai/socialmedia/comment">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -679,7 +679,7 @@ export function Sidebar() {
                       Comment
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/socialmedia/tweet">
+                  <Link href="/criconai/socialmedia/tweet">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -687,7 +687,7 @@ export function Sidebar() {
                       Tweet
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/socialmedia/avatar">
+                  <Link href="/criconai/socialmedia/avatar">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -695,7 +695,7 @@ export function Sidebar() {
                       Avatar
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/socialmedia/backgroundMusicGen">
+                  <Link href="/criconai/socialmedia/backgroundMusicGen">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -735,7 +735,7 @@ export function Sidebar() {
               </ListItem>
               <AccordionBody className="py-1">
                 <List className="pl-4">
-                  <Link href="/autogen/marketing/all">
+                  <Link href="/criconai/marketing/all">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -743,7 +743,7 @@ export function Sidebar() {
                       All
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/marketing/calculator">
+                  <Link href="/criconai/marketing/calculator">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -751,7 +751,7 @@ export function Sidebar() {
                       Promotion Price Cal
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/marketing/email">
+                  <Link href="/criconai/marketing/email">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -759,7 +759,7 @@ export function Sidebar() {
                       Promotion Email
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/marketing/finder">
+                  <Link href="/criconai/marketing/finder">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
@@ -767,7 +767,7 @@ export function Sidebar() {
                       Sponcership Finder
                     </ListItem>
                   </Link>
-                  <Link href="/autogen/marketing/promotion">
+                  <Link href="/criconai/marketing/promotion">
                     <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />

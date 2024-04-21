@@ -32,7 +32,7 @@ const Home = async () => {
                 </p>
 
                 <Link
-                  href="/autogen/longvid/idea"
+                  href="/criconai/longvid/idea"
                   className="inline-flex items-center px-6 py-4 mt-2 font-semibold text-black transition-all duration-200 bg-yellow-300 rounded-full lg:mt-3 hover:bg-yellow-400 focus:bg-yellow-400"
                   role="button"
                 >

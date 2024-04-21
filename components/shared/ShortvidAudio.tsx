@@ -67,6 +67,7 @@ export default function ShortVidAudio({
     if (!theFile) {
       return;
     }
+    setIsSubmitting(true);
     const user = await getUserByDbId(userId);
 
     setAvailableCredits(user.creditBalance);
@@ -90,7 +91,6 @@ export default function ShortVidAudio({
         setIsSubmitting(false);
         throw new Error("File size must be less than 3MB");
       }
-      setIsSubmitting(true);
 
       const response = await fetch("/api/audio", {
         method: "POST",

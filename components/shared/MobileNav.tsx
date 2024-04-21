@@ -143,7 +143,7 @@ export function MobileNav() {
                 </ListItem>
                 <AccordionBody className="py-1 ">
                   <List className="p-0">
-                    <Link onClick={closeDrawer} href="/autogen/longvid/idea">
+                    <Link onClick={closeDrawer} href="/criconai/longvid/idea">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -154,7 +154,7 @@ export function MobileNav() {
                         Idea Generator
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/longvid/all">
+                    <Link onClick={closeDrawer} href="/criconai/longvid/all">
                       <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -165,7 +165,7 @@ export function MobileNav() {
                         All-in-One
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/longvid/title">
+                    <Link onClick={closeDrawer} href="/criconai/longvid/title">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -178,7 +178,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/longvid/description"
+                      href="/criconai/longvid/description"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -190,7 +190,7 @@ export function MobileNav() {
                         Desc
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/longvid/tags">
+                    <Link onClick={closeDrawer} href="/criconai/longvid/tags">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -201,7 +201,7 @@ export function MobileNav() {
                         Tags
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/longvid/script">
+                    <Link onClick={closeDrawer} href="/criconai/longvid/script">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -212,7 +212,7 @@ export function MobileNav() {
                         Script
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/longvid/poll">
+                    <Link onClick={closeDrawer} href="/criconai/longvid/poll">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -225,7 +225,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/longvid/thumbnail"
+                      href="/criconai/longvid/thumbnail"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -239,7 +239,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/longvid/aiimages"
+                      href="/criconai/longvid/aiimages"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -251,7 +251,7 @@ export function MobileNav() {
                         AiImages
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/longvid/prompt">
+                    <Link onClick={closeDrawer} href="/criconai/longvid/prompt">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -264,7 +264,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/longvid/translate"
+                      href="/criconai/longvid/translate"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -278,7 +278,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/longvid/TexttoAudio"
+                      href="/criconai/longvid/TexttoAudio"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -292,7 +292,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/longvid/audiotoAudio"
+                      href="/criconai/longvid/audiotoAudio"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -306,7 +306,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/longvid/disclamer"
+                      href="/criconai/longvid/disclamer"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -320,7 +320,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/longvid/backgroundMusicGen"
+                      href="/criconai/longvid/backgroundMusicGen"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -332,7 +332,7 @@ export function MobileNav() {
                         backgroundMusicGen
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/longvid/email">
+                    <Link onClick={closeDrawer} href="/criconai/longvid/email">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -375,7 +375,7 @@ export function MobileNav() {
                 </ListItem>
                 <AccordionBody className="py-1">
                   <List className="p-0">
-                    <Link onClick={closeDrawer} href="/autogen/shortvid/idea">
+                    <Link onClick={closeDrawer} href="/criconai/shortvid/idea">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -386,7 +386,7 @@ export function MobileNav() {
                         Video Idea
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/shortvid/all">
+                    <Link onClick={closeDrawer} href="/criconai/shortvid/all">
                       <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -397,7 +397,7 @@ export function MobileNav() {
                         All-in-One
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/shortvid/title">
+                    <Link onClick={closeDrawer} href="/criconai/shortvid/title">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -410,7 +410,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/shortvid/description"
+                      href="/criconai/shortvid/description"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                         <ListItemPrefix>
@@ -422,7 +422,7 @@ export function MobileNav() {
                         Description
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/shortvid/tags">
+                    <Link onClick={closeDrawer} href="/criconai/shortvid/tags">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -433,7 +433,10 @@ export function MobileNav() {
                         Tags
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/shortvid/script">
+                    <Link
+                      onClick={closeDrawer}
+                      href="/criconai/shortvid/script"
+                    >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -444,7 +447,7 @@ export function MobileNav() {
                         Script
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/shortvid/poll">
+                    <Link onClick={closeDrawer} href="/criconai/shortvid/poll">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -457,7 +460,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/shortvid/thumbnail"
+                      href="/criconai/shortvid/thumbnail"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -471,7 +474,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/shortvid/aiimages"
+                      href="/criconai/shortvid/aiimages"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -483,7 +486,10 @@ export function MobileNav() {
                         AiImages
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/shortvid/prompt">
+                    <Link
+                      onClick={closeDrawer}
+                      href="/criconai/shortvid/prompt"
+                    >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -496,7 +502,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/shortvid/translate"
+                      href="/criconai/shortvid/translate"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -510,7 +516,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/shortvid/TexttoAudio"
+                      href="/criconai/shortvid/TexttoAudio"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -524,7 +530,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/shortvid/audiotoAudio"
+                      href="/criconai/shortvid/audiotoAudio"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -538,7 +544,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/shortvid/backgroundMusicGen"
+                      href="/criconai/shortvid/backgroundMusicGen"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -550,7 +556,10 @@ export function MobileNav() {
                         backgroundMusicGen
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/shortvid/slogan">
+                    <Link
+                      onClick={closeDrawer}
+                      href="/criconai/shortvid/slogan"
+                    >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -561,7 +570,7 @@ export function MobileNav() {
                         Slogan
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/shortvid/facts">
+                    <Link onClick={closeDrawer} href="/criconai/shortvid/facts">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -572,7 +581,7 @@ export function MobileNav() {
                         Facts
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/shortvid/quote">
+                    <Link onClick={closeDrawer} href="/criconai/shortvid/quote">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -583,7 +592,10 @@ export function MobileNav() {
                         Quote
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/shortvid/riddle">
+                    <Link
+                      onClick={closeDrawer}
+                      href="/criconai/shortvid/riddle"
+                    >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -628,7 +640,7 @@ export function MobileNav() {
                   <List className="p-0">
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/idea"
+                      href="/criconai/contentwriter/idea"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -642,7 +654,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/all"
+                      href="/criconai/contentwriter/all"
                     >
                       <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -656,7 +668,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/outline"
+                      href="/criconai/contentwriter/outline"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                         <ListItemPrefix>
@@ -670,7 +682,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/article"
+                      href="/criconai/contentwriter/article"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                         <ListItemPrefix>
@@ -684,7 +696,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/blog"
+                      href="/criconai/contentwriter/blog"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -698,7 +710,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/book"
+                      href="/criconai/contentwriter/book"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -712,7 +724,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/title"
+                      href="/criconai/contentwriter/title"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -726,7 +738,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/images"
+                      href="/criconai/contentwriter/images"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -740,7 +752,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/prompt"
+                      href="/criconai/contentwriter/prompt"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -754,7 +766,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/summary"
+                      href="/criconai/contentwriter/summary"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -768,7 +780,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/expander"
+                      href="/criconai/contentwriter/expander"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -782,7 +794,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/slogan"
+                      href="/criconai/contentwriter/slogan"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -796,7 +808,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/translation"
+                      href="/criconai/contentwriter/translation"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -810,7 +822,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/TexttoAudio"
+                      href="/criconai/contentwriter/TexttoAudio"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -824,7 +836,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/coverimage"
+                      href="/criconai/contentwriter/coverimage"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -838,7 +850,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/email"
+                      href="/criconai/contentwriter/email"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -852,7 +864,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/contentwriter/tag"
+                      href="/criconai/contentwriter/tag"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -898,7 +910,7 @@ export function MobileNav() {
                   <List className="p-0">
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/socialmedia/idea"
+                      href="/criconai/socialmedia/idea"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -910,7 +922,10 @@ export function MobileNav() {
                         Idea
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/socialmedia/all">
+                    <Link
+                      onClick={closeDrawer}
+                      href="/criconai/socialmedia/all"
+                    >
                       <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -923,7 +938,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/socialmedia/images"
+                      href="/criconai/socialmedia/images"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                         <ListItemPrefix>
@@ -937,7 +952,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/socialmedia/prompt"
+                      href="/criconai/socialmedia/prompt"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                         <ListItemPrefix>
@@ -949,7 +964,10 @@ export function MobileNav() {
                         Prompt Generation
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/socialmedia/bio">
+                    <Link
+                      onClick={closeDrawer}
+                      href="/criconai/socialmedia/bio"
+                    >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -962,7 +980,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/socialmedia/caption"
+                      href="/criconai/socialmedia/caption"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -974,7 +992,10 @@ export function MobileNav() {
                         Caption
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/socialmedia/tag">
+                    <Link
+                      onClick={closeDrawer}
+                      href="/criconai/socialmedia/tag"
+                    >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -987,7 +1008,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/socialmedia/description"
+                      href="/criconai/socialmedia/description"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -1001,7 +1022,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/socialmedia/poll"
+                      href="/criconai/socialmedia/poll"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -1015,7 +1036,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/socialmedia/comment"
+                      href="/criconai/socialmedia/comment"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -1029,7 +1050,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/socialmedia/tweet"
+                      href="/criconai/socialmedia/tweet"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -1043,7 +1064,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/socialmedia/avatar"
+                      href="/criconai/socialmedia/avatar"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -1057,7 +1078,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/socialmedia/backgroundMusicGen"
+                      href="/criconai/socialmedia/backgroundMusicGen"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -1101,7 +1122,7 @@ export function MobileNav() {
                 </ListItem>
                 <AccordionBody className="py-1">
                   <List className="p-0">
-                    <Link onClick={closeDrawer} href="/autogen/marketing/all">
+                    <Link onClick={closeDrawer} href="/criconai/marketing/all">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -1114,7 +1135,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/marketing/calculator"
+                      href="/criconai/marketing/calculator"
                     >
                       <ListItem className="focus:bg-sky-100 p-2 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
@@ -1128,7 +1149,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/marketing/finder"
+                      href="/criconai/marketing/finder"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                         <ListItemPrefix>
@@ -1140,7 +1161,10 @@ export function MobileNav() {
                         Sponcership Finder
                       </ListItem>
                     </Link>
-                    <Link onClick={closeDrawer} href="/autogen/marketing/email">
+                    <Link
+                      onClick={closeDrawer}
+                      href="/criconai/marketing/email"
+                    >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm ">
                         <ListItemPrefix>
                           <ChevronRightIcon
@@ -1153,7 +1177,7 @@ export function MobileNav() {
                     </Link>
                     <Link
                       onClick={closeDrawer}
-                      href="/autogen/marketing/promotion"
+                      href="/criconai/marketing/promotion"
                     >
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>
