@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { v2 as cloudinary } from "cloudinary";
 
-export const runtime = "nodejs";
 export const maxDuration = 300;
 
 cloudinary.config({
