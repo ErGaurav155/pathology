@@ -39,7 +39,7 @@ const Checkout = ({
     const paymentOptions = {
       key: process.env.key_id!,
       amount: amount * 100,
-      currency: "INR",
+      currency: "USD",
       name: "GK Services",
       description: "Thanks For Taking Our Services",
       order_id: orderCreate.id,
@@ -64,11 +64,10 @@ const Checkout = ({
         });
         const res = await result.json();
         if (res.isOk) {
-          alert(res.message);
           toast({
             title: "Order placed!",
-            description: "You will receive an email confirmation",
-            duration: 5000,
+            description: "Credits are added in your account",
+            duration: 3000,
             className: "success-toast",
           });
           const transaction1 = {
@@ -85,7 +84,7 @@ const Checkout = ({
           toast({
             title: "Order canceled!",
             description: res.message,
-            duration: 5000,
+            duration: 3000,
             className: "error-toast",
           });
         }
@@ -101,7 +100,7 @@ const Checkout = ({
       toast({
         title: "Order failed!",
         description: response.error.description,
-        duration: 5000,
+        duration: 3000,
         className: "error-toast",
       });
     });
