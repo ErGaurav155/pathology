@@ -135,7 +135,6 @@ export const generateGptResponse = async ({
           max_tokens: 1500,
         });
         const pregptArgs = completion?.choices[0]?.message?.content;
-        console.log(pregptArgs);
 
         if (!pregptArgs) {
           throw new Error("Bad response from OpenAI");
@@ -144,7 +143,7 @@ export const generateGptResponse = async ({
         const concepts = pregptArgs
           .split("\n")
           .filter((item) => item.trim() !== "");
-        console.log(concepts);
+
         let noOfImageG: number;
 
         if (!outputlag) {
@@ -237,7 +236,7 @@ export const generateGptResponse = async ({
           .end(speechBuffer);
       });
       const gptArgs = uploadResult?.secure_url;
-      console.log(gptArgs);
+
       if (!gptArgs) {
         throw new Error("Bad response from OpenAI");
       }
