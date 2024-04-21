@@ -4,7 +4,6 @@ import { aiprompt } from "@/constants";
 import OpenAI from "openai";
 
 import { v2 as cloudinary } from "cloudinary";
-export const maxDuration = 300;
 
 const openai = setupOpenAI();
 function setupOpenAI() {
