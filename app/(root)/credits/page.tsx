@@ -8,6 +8,7 @@ import { getUserById } from "@/lib/actions/user.actions";
 import Checkout from "@/components/shared/Checkout";
 import { Faq } from "@/components/shared/Faq";
 import { Footer } from "@/components/shared/Footer";
+import { IndianRupeeIcon } from "lucide-react";
 
 const Credits = async () => {
   const { userId } = auth();
@@ -28,8 +29,17 @@ const Credits = async () => {
                   <p className="p-20-semibold mt-2 text-purple-500">
                     {plan.name}
                   </p>
-                  <p className="h1-semibold text-dark-600">${plan.price}</p>
-                  <p className="p-16-regular">{plan.credits} Credits</p>
+                  <p className="text-[36px] font-normal sm:text-[44px] leading-[120%] sm:leading-[56px] text-dark-600">
+                    <IndianRupeeIcon className="w-6  h-6  inline-block" />
+
+                    {plan.price}
+                  </p>
+                  <p className=" p-16-regular">
+                    <span className=" font-semibold text-lg  text-green-600">
+                      {plan.credits}{" "}
+                    </span>
+                    Credits
+                  </p>
                 </div>
 
                 {/* Inclusions */}
