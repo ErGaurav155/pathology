@@ -39,7 +39,7 @@ const Checkout = ({
     const paymentOptions = {
       key: process.env.key_id!,
       amount: amount * 100,
-      currency: "USD",
+      currency: "INR",
       name: "GK Services",
       description: "Thanks For Taking Our Services",
       order_id: orderCreate.id,
