@@ -4,9 +4,8 @@ import { aiprompt } from "@/constants";
 import OpenAI from "openai";
 
 import { v2 as cloudinary } from "cloudinary";
-import dotenv from "dotenv";
-
-dotenv.config();
+export const maxDuration = 300;
+export const dynamic = "force-dynamic";
 const openai = setupOpenAI();
 function setupOpenAI() {
   if (!process.env.OPENAI_API_KEY) {

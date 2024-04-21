@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { v2 as cloudinary } from "cloudinary";
-import dotenv from "dotenv";
 
-dotenv.config();
+export const maxDuration = 300;
+export const dynamic = "force-dynamic";
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
