@@ -3,12 +3,6 @@ import { v2 as cloudinary } from "cloudinary";
 
 export const maxDuration = 300;
 
-cloudinary.config({
-  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
 export async function POST(req: NextRequest) {
   const data = await req.formData();
   const theFile: File | null = data.get("file") as unknown as File;
@@ -72,6 +66,11 @@ export async function POST(req: NextRequest) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(formData2),
+  });
+  cloudinary.config({
+    cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
   });
   const speechBuffer = Buffer.from(await response2.arrayBuffer());
 

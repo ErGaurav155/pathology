@@ -10,7 +10,7 @@ function setupOpenAI() {
   if (!process.env.OPENAI_API_KEY) {
     return new Error("OpenAI API key is not set");
   }
-  return new OpenAI({ api_key: process.env.OPENAI_API_KEY });
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 }
 interface GenerateGptResponseParams {
   input: string;
@@ -161,7 +161,6 @@ export const generateGptResponse = async ({
             response_format: "url",
             n: 1,
           });
-          const imagedata = image;
 
           const imageUrl = image?.data[0]?.url;
           if (!imageUrl) {
@@ -210,11 +209,6 @@ export const generateGptResponse = async ({
       }
     }
   } else if (model === "tts-1") {
-    cloudinary.config({
-      cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
-      api_key: process.env.CLOUDINARY_API_KEY,
-      api_secret: process.env.CLOUDINARY_API_SECRET,
-    });
     try {
       const mp3 = await openai.audio.speech.create({
         model: `${model}`,
@@ -222,7 +216,11 @@ export const generateGptResponse = async ({
         input: `${input}`,
         speed: 0.95,
       });
-
+      cloudinary.config({
+        cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+        api_key: process.env.CLOUDINARY_API_KEY,
+        api_secret: process.env.CLOUDINARY_API_SECRET,
+      });
       const speechBuffer = Buffer.from(await mp3.arrayBuffer());
 
       const uploadResult: any = await new Promise((resolve, reject) => {
