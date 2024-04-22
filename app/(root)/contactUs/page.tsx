@@ -17,7 +17,6 @@ const contactUs = () => {
         <p className="mb-2 text-black">Owner- Mr. GAURAV KHIARE</p>
         <h2 className="mb-2 text-black">Business Name-GK Services</h2>
         <p className="mb-2 text-black">Email-support@criconai.com</p>
-        <p className="mb-2 text-black">Mobile-9324350209</p>
         <p className="mb-2 text-black">
           Address- Harsul,post-Dugaon tel-chandwad, Nashik, Maharashtra - 423104
         </p>
