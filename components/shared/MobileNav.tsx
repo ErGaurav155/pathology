@@ -65,12 +65,11 @@ export function MobileNav() {
         className="flex items-center gap-2 md:py-2 font-sans text-3xl font-extrabold text-[#7e3caa]"
       >
         <Image
-          src="/assets/images/logo-icon.svg"
+          src="/assets/images/logo.png"
           alt="logo"
-          width={40}
-          height={24}
+          width={200}
+          height={40}
         />
-        CriconAi
       </Link>
       <SignedIn>
         <UserButton afterSignOutUrl="/" />

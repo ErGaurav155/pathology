@@ -39,21 +39,13 @@ export function Sidebar() {
   return (
     <div>
       <Card className="hidden min-h-screen h-screen bg-gray-50  text-gray-600 lg:flex  w-full max-w-[18rem] p-4 shadow-xl font-sans overflow-y-auto no-scrollbar  shadow-blue-100 ">
-        <div className="mb-2 flex items-center gap-1 p-4 ">
+        <div className=" flex items-center">
           <Image
-            src="/assets/images/logo-icon.svg"
-            alt="brand"
-            className="h-8 w-8"
-            width={32}
-            height={32}
+            src="/assets/images/logo.png"
+            alt="logo"
+            width={400}
+            height={24}
           />
-          <Typography
-            className=" flex items-center gap-2 md:py-2 font-sans text-3xl font-extrabold text-[#623282]"
-            variant="h5"
-            color="blue-gray"
-          >
-            CriconAi
-          </Typography>
         </div>
 
         <List className="flex flex-col justify-between h-full ">
