@@ -163,6 +163,13 @@ export default function ContentWriterAiForm({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     setIsResponse(true);
+    toast({
+      title: "Tip of the Day",
+      description: `Note : Plz copy response in word or download images or audio if
+        you want,once page refresh you will never see them back `,
+      duration: 5000,
+      className: "success-toast",
+    });
     const user = await getUserByDbId(userId);
 
     setAvailableCredits(user.creditBalance);

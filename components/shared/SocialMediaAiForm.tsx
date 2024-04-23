@@ -151,6 +151,7 @@ export default function SocialMediaAiForm({
     const words = response.trim().split(/\s+/);
     return words.filter((word) => word !== "").length;
   };
+
   const downloadHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     item: string,
@@ -162,6 +163,13 @@ export default function SocialMediaAiForm({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     setIsResponse(true);
+    toast({
+      title: "Tip of the Day",
+      description: `Note : Plz copy response in word or download images or audio if
+        you want,once page refresh you will never see them back `,
+      duration: 5000,
+      className: "success-toast",
+    });
     const user = await getUserByDbId(userId);
 
     setAvailableCredits(user.creditBalance);
@@ -475,6 +483,7 @@ export default function SocialMediaAiForm({
           </Button>
         </form>
       </Form>
+
       {!isResponse ? (
         <div>
           {response && (
