@@ -112,8 +112,9 @@ export default function ShortVidAudio({
       }
     } catch (error) {
       toast({
-        title: "Something Went Wrong",
-        description: error as any,
+        title: "Content Warning",
+        description:
+          "This prompt has been blocked. Our system automatically flagged this prompt because it may conflict with our content policy. More policy violations may lead to automatic suspension of your access.",
         duration: 2000,
         className: "error-toast",
       });

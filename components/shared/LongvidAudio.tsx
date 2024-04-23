@@ -114,12 +114,12 @@ export default function LongVidAudio({
       }
     } catch (error) {
       toast({
-        title: "Something went wrong",
-        description: "",
+        title: "Content Warning",
+        description:
+          "This prompt has been blocked. Our system automatically flagged this prompt because it may conflict with our content policy. More policy violations may lead to automatic suspension of your access.",
         duration: 2000,
         className: "error-toast",
       });
-      console.error("An error occurred while uploading the file", error);
     }
 
     setTheFile(null);
