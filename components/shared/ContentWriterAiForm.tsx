@@ -170,6 +170,7 @@ export default function ContentWriterAiForm({
       duration: 5000,
       className: "success-toast",
     });
+
     const user = await getUserByDbId(userId);
 
     setAvailableCredits(user.creditBalance);
