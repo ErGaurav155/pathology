@@ -413,7 +413,7 @@ export const longvidTypes = {
     3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
     4. Also provide an suitable title for the video and add it in to images as headline
     5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-   
+    6.  must provide output like this only -- desc1,desc2,desc3,etc.   
      Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
     
     `,
@@ -666,17 +666,17 @@ export const shortvidTypes = {
     topic: "Describe main points of video",
     subtopic: "Add your opinion ",
     tone: "Choose a tone ",
-    aiprompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
+    aiprompt: `**Generate compelling thumbnail prompts featuring multiple scenes and realistic human emotions based on the provided context as input**
+
+    **Instructions:**
     
-    Instructions:
-    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
-    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
-    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
-    4. Also provide an suitable title for the video and add it in to images as headline
-    5.Must add "typogaphy" text that best describe the video purpose .
-    6. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-   
-     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+    1.Design captivating thumbnail image that depict various scenes relevant to the provided context,merge all different scence one image like various scene in various position in that image college image .
+    2.Also if context needed human involvement incorporate upper chest bodies with extremely ultra realistic human face displaying extreme emotions that align with the context and intended tone.
+    3.overall thumbnail looks ultra real with ultra real human body and face.
+    4.Must add "typogaphy" text that best describe the video purpose  .
+    5.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
+    
+     Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
     `,
     model: "dall-e-3",
@@ -714,7 +714,7 @@ export const shortvidTypes = {
     3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
     4. Also provide an suitable title for the video and add it in to images as headline
     5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-    
+    6. Must provide output like this only -- desc1,desc2,desc3,etc .
      Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
     
     `,
@@ -934,7 +934,7 @@ export const contentwriterTypes = {
     topic: "Describe your outline topics",
     subtopic: "Include more information ",
     tone: "",
-    aiprompt: `Given the context provided as input, create a detailed outline for an article or blog post. Structure the outline to include key sections, headings, and subheadings, ensuring a logical flow of ideas. Consider incorporating relevant details, examples, and supporting information within each section.
+    aiprompt: `Given the context provided as input, create a detailed outline for an article , blog or book mentioned in input. Structure the outline to include key sections, headings, and subheadings, ensuring a logical flow of ideas. Consider incorporating relevant details, examples, and supporting information within each section.
 
     
     Instructions:
@@ -944,7 +944,7 @@ export const contentwriterTypes = {
     4. don’t explain to much in the outline just take the headings H1 and subheadings as H2 
     5.generate a outline such that it looks like an professional human written.
     ---
-     generate an article or blog outline to produce a structured and well-organized outline that serves as a foundation for developing a detailed article or blog post. Adjust the instructions as needed based on your specific outline generation requirements.`,
+     generate an outline according to input to produce a structured and well-organized outline that serves as a foundation for developing a detailed article or blog post or book as provided. Adjust the instructions as needed based on your specific outline generation requirements.`,
     model: "gpt-3.5-turbo",
     credits: 1,
   },
@@ -1038,19 +1038,17 @@ export const contentwriterTypes = {
     topic: "Describe your video or scipt",
     subtopic: "Also inlcude main points ",
     tone: "Choose images style",
-    aiprompt: `*Generate captivating poster or banner ideas based on the provided context provided as input*
+    aiprompt: `**Generate compelling thumbnail prompts featuring multiple scenes and realistic human emotions based on the provided context as input**
 
     **Instructions:**
-    1. Brainstorm visually appealing concepts that resonate with the essence of the provided context.
-    2. Consider the target audience and tailor the poster or banner ideas to their preferences and interests.
-    3. Explore creative design elements, colors, and imagery that evoke emotions and grab attention.
+    
+    1.Design captivating thumbnail image that depict various scenes relevant to the provided context,merge all different scence one image like various scene in various position in that image college.
+    2.Also if context needed human involvement incorporate upper chest bodies with extremely ultra realistic human face displaying extreme emotions that align with the context and intended tone.
+    3.overall thumbnail looks ultra real with ultra real human body and face.
     4.Must add "typogaphy" text that best describe the video purpose .
-    5. Aim for clarity, simplicity, and aesthetic appeal to make the poster or banner visually impactful.
-    6. Experiment with different layouts, fonts, and visual elements to create a memorable design.
-    7. provide 4 poster ideas with typography and output must be in 30-50 words .
-    8. Ensure that the poster or banner effectively communicates the key message or theme of the context.
-    ---
-    Generate engaging poster or banner ideas that effectively convey the essence of the provided context. Focus on creating visually stunning designs that captivate the audience and leave a lasting impression. Adjust the instructions as needed to suit your specific poster or banner creation requirements.
+    5.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
+    
+     Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     `,
     model: "dall-e-3",
     credits: 2,
@@ -1069,7 +1067,7 @@ export const contentwriterTypes = {
     3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
     4. Also provide an suitable title for the video and add it in to images as headline
     5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-    
+    6. Must provide output like this only -- desc1,desc2,desc3,etc .
      Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
     
     `,
@@ -1159,7 +1157,7 @@ export const contentwriterTypes = {
     2. Incorporate eye-catching visuals, colors, and typography that resonate with the genre and tone of the book.
     3. Consider the target audience and genre when selecting imagery and designing the layout of the book cover.
     4. Ensure that the book title and author name are prominently displayed and legible against the background.
-    5.Must add "typogaphy" text that best describe the video purpose .
+    5.Must add "typogaphy" text that best describe the video purpose in book coverimage like name of book .
     6. Aim for originality and creativity, creating a cover that stands out on bookstore shelves and online platforms.
     7. Optionally, provide a unique quote related to the context that adds intrigue and allure to the book cover.
     
@@ -1242,7 +1240,7 @@ export const contentwriterTypes = {
     tone: "Choose a tone ",
     aiprompt: "",
     model: "gpt-3.5-turbo",
-    credits: 25,
+    credits: 35,
   },
 };
 
@@ -1306,7 +1304,8 @@ export const socialmediaTypes = {
     5. Aim for clarity, simplicity, and aesthetic appeal to make the poster or banner visually impactful.
     6. Experiment with different layouts, fonts, and visual elements to create a memorable design.
     7. provide 2 poster ideas with typography and output must be in 30-50 words .
-    
+    8. Must provide output like this only -- desc1,desc2,desc3,etc .
+
     Generate engaging poster or banner ideas that effectively convey the essence of the provided context. Focus on creating visually stunning designs that captivate the audience and leave a lasting impression. Adjust the instructions as needed to suit your specific poster or banner creation requirements`,
     model: "gpt-3.5-turbo",
     credits: 1,
@@ -1525,7 +1524,7 @@ export const MarketingFormProps = {
     tone: "choose a tone",
     aiprompt: ` `,
     model: "gpt-3.5-turbo",
-    credits: 8,
+    credits: 10,
   },
   calculator: {
     type: "calculator",
@@ -1593,7 +1592,7 @@ export const MarketingFormProps = {
   },
   promotion: {
     type: "promotion",
-    title: "Promotion Helper ",
+    title: "collaboration Helper ",
     topic: "Describe the here ",
     subtopic: "Include more details",
     tone: "",
@@ -1689,18 +1688,18 @@ export const aiprompt = [
         model: "gpt-3.5-turbo",
       },
       {
-        prompt: `Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.
+        prompt: `**Generate compelling thumbnail prompts featuring multiple scenes and realistic human emotions based on the provided context as input**
 
-      Instructions:
-      1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
-      2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
-      3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
-      4. Also provide an suitable title for the video and add it in to images as headline
-
-      5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed and also add texrt that best tell video is about.
-      
-       Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
-
+        **Instructions:**
+        
+        1.Design captivating thumbnail image that depict various scenes relevant to the provided context,merge all different scence one image like various scene in various position in that image college.
+        2.Also if context needed human involvement incorporate upper chest bodies with extremely ultra realistic human face displaying extreme emotions that align with the context and intended tone.
+        3.overall thumbnail looks ultra real with ultra real human body and face.
+        4.Must add "typogaphy" text that best describe the video purpose in thumbnail .
+        5.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
+        
+         Adjust the instructions as needed to suit your specific thumbnail generation requirements.
+    
       `,
         model: "dall-e-3",
       },
@@ -1740,7 +1739,7 @@ export const aiprompt = [
     2. Consider incorporating imaginative language, vivid imagery, biographical information .
     3. Ensure the description complements the tone and theme of the content it accompanies.
     4. Aim for originality and a description that sparks curiosity or emotion that easily understand by peoples.
-    5.  Ensure by default generate output in hinglish language if no language is provided in context.
+    5.  Ensure by default generate output in hinglish language means hindi but written in english if no language is provided in context.
 
 
      Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.
@@ -1764,7 +1763,7 @@ export const aiprompt = [
         model: "gpt-3.5-turbo",
       },
       {
-        prompt: `Given the context or post provided as input, craft a creative and unique reel script that brings the content to life in hinglish language only . Develop a script that is engaging, captures attention, and aligns with the tone and purpose of the provided context or post.
+        prompt: `Given the context or post provided as input, craft a creative and unique reel script that brings the content to life in hinglish language only means hindi but written in english . Develop a script that is engaging, captures attention, and aligns with the tone and purpose of the provided context or post.
 
     Instructions:
     1. Generate a reel script/story that is comedic, creative and unique, adding a fresh perspective to the provided context or post.
@@ -1780,18 +1779,17 @@ export const aiprompt = [
       },
 
       {
-        prompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
+        prompt: `**Generate compelling thumbnail prompts featuring multiple scenes and realistic human emotions based on the provided context as input**
 
-    
-    Instructions:
-    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
-    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
-    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
-    4. Aim for thumbnails that evoke curiosity and compel viewers to click and watch the video.
-    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-    6. must design an eye-catching thumbnail that represents the essence of the video content which provided in context,ensure vibrant clors,engaging visuals,and clear text elements.
-    
-     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+        **Instructions:**
+        
+        1.Design captivating thumbnail image that depict various scenes relevant to the provided context,merge all different scence one image like various scene in various position in that image college.
+        2.Also if context needed human involvement incorporate upper chest bodies with extremely ultra realistic human face displaying extreme emotions that align with the context and intended tone.
+        3.overall thumbnail looks ultra real with ultra real human body and face.
+        4.Must add "typogaphy" text that best describe the video purpose in thumbnail .
+        5.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
+        
+         Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
     `,
         model: "dall-e-3",
@@ -1816,21 +1814,21 @@ export const aiprompt = [
     id: 3,
     contentwriterTypes: [
       {
-        prompt: `Given the context provided as input, create a detailed outline for an article or blog post. Structure the outline to include key sections, headings, and subheadings, ensuring a logical flow of ideas. Consider incorporating relevant details, examples, and supporting information within each section.
+        prompt: `Given the context provided as input, create a detailed outline for an article , blog or book mentioned in input. Structure the outline to include key sections, headings, and subheadings, ensuring a logical flow of ideas. Consider incorporating relevant details, examples, and supporting information within each section.
 
     
-    Instructions:
-    1. Develop a comprehensive outline that organizes the content logically.
-    2. Include main sections, headings, and subheadings based on the key themes in the context.
-    3. Ensure coherence and a smooth transition between different parts of the outline
-    4. don’t explain to much in the outline just take the headings H1 and subheadings as H2 
-    5.generate a outline such that it looks like an professional human written.
-    ---
-     generate an article or blog outline to produce a structured and well-organized outline that serves as a foundation for developing a detailed article or blog post. Adjust the instructions as needed based on your specific outline generation requirements.`,
+        Instructions:
+        1. Develop a comprehensive outline that organizes the content logically.
+        2. Include main sections, headings, and subheadings based on the key themes in the context.
+        3. Ensure coherence and a smooth transition between different parts of the outline
+        4. don’t explain to much in the outline just take the headings H1 and subheadings as H2 
+        5.generate a outline such that it looks like an professional human written.
+        ---
+         generate an outline according to input to produce a structured and well-organized outline that serves as a foundation for developing a detailed article or blog post or book as provided. Adjust the instructions as needed based on your specific outline generation requirements.`,
         model: "gpt-3.5-turbo",
       },
       {
-        prompt: `Given the context provided as input, create compelling and attention-grabbing titles for an article or blog post. Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
+        prompt: `Given the context provided as input, create compelling and attention-grabbing titles for an article, blog post or book mentioned in input . Craft titles that accurately represent the content, spark curiosity, and entice the reader to explore further.
 
     
     Instructions:
@@ -1839,7 +1837,7 @@ export const aiprompt = [
     3. Consider incorporating engaging language, keywords, or intriguing phrases.
     4. Provide a variety of title options to choose from.
     
-     generate article or blog titles. each designed to capture attention and accurately represent the content within the provided context. Adjust the instructions as needed based on your specific title generation requirements.`,
+     generate article,blog or book titles mentioned in input . each designed to capture attention and accurately represent the content within the provided context. Adjust the instructions as needed based on your specific title generation requirements.`,
         model: "gpt-3.5-turbo",
       },
 
@@ -1871,23 +1869,7 @@ export const aiprompt = [
     This prompt guides the model to provide a more detailed and nuanced exploration of the input context. Adjust the instructions as needed for your specific requirements.`,
         model: "gpt-3.5-turbo",
       },
-      {
-        prompt: `Given the context provided as input, generate an email with a specified tone. Craft the email content to align with the themes, intentions, or emotions present in the context. After generating the email, use it as input for an audio generator to create a spoken version of the email.
 
-    
-    
-    Instructions:
-    1. Generate an email content that addresses the themes or information from the provided context.
-    2. Tailor the tone of the email based on the specified tone input.
-    3. Ensure the email is coherent, well-structured, and suitable for conversion to audio.
-    4. Use the generated email as input for an audio generator to create a spoken version.
-    5. ensure that content must looks like human written not look like ai generated .
-    
-    
-   This prompt guides the model to generate an email with a specified tone, and you can then use the generated email as input for an audio generator to create a spoken version. Adjust the instructions as needed based on your specific email and audio generation requirements.
-    `,
-        model: "gpt-3.5-turbo",
-      },
       {
         prompt: `Given the context or post provided as input, generate creative and unique hashtags that enhance the discover-ability and engagement of the content. Develop hashtags that capture the essence of the provided context or post, adding a distinctive touch.
 
@@ -1920,20 +1902,18 @@ export const aiprompt = [
         model: "gpt-3.5-turbo",
       },
       {
-        prompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity
+        prompt: `**Generate compelling thumbnail prompts featuring multiple scenes and realistic human emotions based on the provided context as input**
+
+        **Instructions:**
+        
+        1.Design captivating thumbnail image that depict various scenes relevant to the provided context,merge all different scence one image like various scene in various position in that image college.
+        2.Also if context needed human involvement incorporate upper chest bodies with extremely ultra realistic human face displaying extreme emotions that align with the context and intended tone.
+        3.overall thumbnail looks ultra real with ultra real human body and face.
+        4.Must add "typogaphy" text that best describe the video purpose in thumbnail .
+        5.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
+        
+         Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
-    
-    
-    Instructions:
-    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
-    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
-    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
-    4. Aim for thumbnails that evoke curiosity and compel viewers to click and watch the video.
-    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-    6. must design an eye-catching thumbnail that represents the essence of the video content which provided in context,ensure vibrant clors,engaging visuals,and clear text elements.
-    
-    
-     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
     `,
         model: "dall-e-3",
       },
@@ -1958,23 +1938,6 @@ export const aiprompt = [
   {
     id: 4,
     socialmediaTypes: [
-      {
-        prompt: `Generate captivating poster or banner ideas based on the provided context:
-
-    
-    
-    Instructions:
-    1. Brainstorm visually appealing concepts that resonate with the essence of the provided context.
-    2. Consider the target audience and tailor the poster or banner ideas to their preferences and interests.
-    3. Explore creative design elements, colors, and imagery that evoke emotions and grab attention.
-    4. Ensure that the poster or banner effectively communicates the key message or theme of the context.
-    5. Aim for clarity, simplicity, and aesthetic appeal to make the poster or banner visually impactful.
-    6. Experiment with different layouts, fonts, and visual elements to create a memorable design.
-    7. provide 2 poster ideas with typography and output must be in 30-50 words .
-    
-    Generate engaging poster or banner ideas that effectively convey the essence of the provided context. Focus on creating visually stunning designs that captivate the audience and leave a lasting impression. Adjust the instructions as needed to suit your specific poster or banner creation requirements`,
-        model: "gpt-3.5-turbo",
-      },
       {
         prompt: `Given the context or post provided as input, craft a creative and unique social media caption that complements the content and captivates the audience. Develop a caption that stands out, aligns with the tone of the content, and sparks engagement.
 
@@ -2019,11 +1982,26 @@ export const aiprompt = [
     2. Consider incorporating imaginative language, vivid imagery, biographical information .
     3. Ensure the description complements the tone and theme of the content it accompanies.
     4. Aim for originality and a description that sparks curiosity or emotion that easily understand by peoples.
-    5.  Ensure by default generate output in hinglish language if no language is provided in context.
+    5.  Ensure by default generate output in hinglish language means hindi but written in english if no language is provided in context.
    
     
     Generate distinctive and engaging description tailored to the provided content. Adjust the instructions as needed based on your specific description generation requirements.`,
         model: "gpt-3.5-turbo",
+      },
+      {
+        prompt: `Generate captivating poster or banner ideas based on the provided context:
+ 
+        Instructions:
+        1. Brainstorm visually appealing concepts that resonate with the essence of the provided context.
+        2. Consider the target audience and tailor the poster or banner ideas to their preferences and interests.
+        3. Explore creative design elements, colors, and imagery that evoke emotions and grab attention.
+        4. Ensure that the poster or banner effectively communicates the key message or theme of the context.
+        5. Aim for clarity, simplicity, and aesthetic appeal to make the poster or banner visually impactful.
+        6. Experiment with different layouts, fonts, and visual elements to create a memorable design.
+        7. provide 2 poster ideas with typography and output must be in 30-50 words .
+        
+        Generate engaging poster or banner ideas that effectively convey the essence of the provided context. Focus on creating visually stunning designs that captivate the audience and leave a lasting impression. Adjust the instructions as needed to suit your specific poster or banner creation requirements`,
+        model: "dall-e-3",
       },
     ],
   },

@@ -50,7 +50,7 @@ export const generateGptResponse = async ({
           },
           {
             role: "user",
-            content: `input language-[${inputlag}] and output language-[${outputlag}] also consider '${input}' do ${aiprompt}`,
+            content: `input language-[${inputlag}] and output language-[${outputlag}] and provided input is '${input}'want to do ${aiprompt}`,
           },
         ],
 
@@ -75,7 +75,7 @@ export const generateGptResponse = async ({
           },
           {
             role: "user",
-            content: `context input-[${input}] with the tone of '${selectTone}' also consider this '${description}' do ${aiprompt} `,
+            content: `context input-[${input}] with the tone of '${selectTone}' also consider this '${description}'want to do ${aiprompt} `,
           },
         ],
 
@@ -100,7 +100,7 @@ export const generateGptResponse = async ({
           },
           {
             role: "user",
-            content: `context input-[${input}] also consider this '${description}' do ${aiprompt} `,
+            content: `context input-[${input}] also consider this '${description}' want to do ${aiprompt} `,
           },
         ],
 
@@ -127,7 +127,7 @@ export const generateGptResponse = async ({
             },
             {
               role: "user",
-              content: `context input-[${input}] with the tone of '${selectTone}' also consider this '${description}' do ${aiprompt} `,
+              content: `context input-[${input}] with the tone of '${selectTone}' also consider this '${description}' want to do ${aiprompt} `,
             },
           ],
 
@@ -151,26 +151,33 @@ export const generateGptResponse = async ({
         } else {
           noOfImageG = parseInt(outputlag);
         }
-        const imageUrls = [];
+        const promises: Promise<string>[] = [];
 
         for (let i = 0; i < noOfImageG; i++) {
-          const image = await openai.images.generate({
-            model: model,
-            prompt: concepts[i],
-            size: inputlag as imageType,
-            quality: "standard",
-            response_format: "url",
-            n: 1,
-          });
+          const promise = (async () => {
+            try {
+              const image = await openai.images.generate({
+                model: model,
+                prompt: concepts[i],
+                size: inputlag as imageType,
+                quality: "standard",
+                response_format: "url",
+                n: 1,
+              });
 
-          const imageUrl = image?.data[0]?.url;
-          if (!imageUrl) {
-            throw new Error("Bad response from OpenAI");
-          }
+              const imageUrl = image?.data[0]?.url;
+              if (!imageUrl) {
+                throw new Error("Bad response from OpenAI");
+              }
 
-          imageUrls.push(imageUrl);
+              return imageUrl;
+            } catch (error) {
+              throw new Error(`Error generating image: ${error}`);
+            }
+          })();
+          promises.push(promise);
         }
-
+        const imageUrls = await Promise.all(promises);
         return imageUrls;
       } catch (error) {
         throw new Error("Bad response from OpenAI");
@@ -184,26 +191,33 @@ export const generateGptResponse = async ({
         } else {
           noOfImageG = parseInt(outputlag);
         }
-        const imageUrls = [];
+        const promises: Promise<string>[] = [];
 
         for (let i = 0; i < noOfImageG; i++) {
-          const image = await openai.images.generate({
-            model: model,
-            prompt: input,
-            size: inputlag as imageType,
-            quality: "standard",
-            response_format: "url",
-            n: 1,
-          });
+          const promise = (async () => {
+            try {
+              const image = await openai.images.generate({
+                model: model,
+                prompt: input,
+                size: inputlag as imageType,
+                quality: "standard",
+                response_format: "url",
+                n: 1,
+              });
 
-          const imageUrl = image?.data[0]?.url;
-          if (!imageUrl) {
-            throw new Error("Bad response from OpenAI");
-          }
+              const imageUrl = image?.data[0]?.url;
+              if (!imageUrl) {
+                throw new Error("Bad response from OpenAI");
+              }
 
-          imageUrls.push(imageUrl);
+              return imageUrl;
+            } catch (error) {
+              throw new Error(`Error generating image: ${error}`);
+            }
+          })();
+          promises.push(promise);
         }
-
+        const imageUrls = await Promise.all(promises);
         return imageUrls;
       } catch (error) {
         throw new Error("Bad response from OpenAI");
@@ -347,9 +361,9 @@ export async function fetchContentWriterData({
     try {
       const promise = generateGptResponse({
         input,
-        inputlag: index < 7 ? undefined : inputlag,
-        outputlag: index < 7 ? undefined : outputlag,
-        selectTone: index < 7 ? undefined : selectTone,
+        inputlag: index < 6 ? undefined : inputlag,
+        outputlag: index < 6 ? undefined : outputlag,
+        selectTone: index < 6 ? undefined : selectTone,
         description,
         aiprompt: item.prompt,
         model: item.model,
@@ -381,9 +395,9 @@ export async function fetchSocialMediaData({
     try {
       const promise = generateGptResponse({
         input,
-        inputlag: index < 5 ? undefined : inputlag,
-        outputlag: index < 5 ? undefined : outputlag,
-        selectTone: index < 5 ? undefined : selectTone,
+        inputlag: index < 3 ? undefined : inputlag,
+        outputlag: index < 3 ? undefined : outputlag,
+        selectTone: index < 3 ? undefined : selectTone,
         description,
         aiprompt: item.prompt,
         model: item.model,

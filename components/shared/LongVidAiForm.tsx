@@ -501,7 +501,13 @@ export default function LongVidAiForm({
                     >
                       <FormControl>
                         <SelectTrigger className="select-field ">
-                          <SelectValue />
+                          <SelectValue
+                            placeholder={
+                              type === "all"
+                                ? "For Each Thumbnail & AiImage"
+                                : " "
+                            }
+                          />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>

@@ -501,7 +501,13 @@ export default function ShortVidAiForm({
                     >
                       <FormControl>
                         <SelectTrigger className="select-field ">
-                          <SelectValue />
+                          <SelectValue
+                            placeholder={
+                              type === "all"
+                                ? "For Each Thumbnail & AiImage"
+                                : " "
+                            }
+                          />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -665,11 +671,6 @@ export default function ShortVidAiForm({
                 {index === 3 && (
                   <label className="flex-2 font-sans font-bold text-n-8">
                     Script :
-                  </label>
-                )}
-                {index === 3 && (
-                  <label className="flex-2 font-sans font-bold text-n-8">
-                    DIsclaimer :
                   </label>
                 )}
 

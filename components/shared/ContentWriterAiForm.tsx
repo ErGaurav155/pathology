@@ -220,8 +220,8 @@ export default function ContentWriterAiForm({
         });
         if (res) {
           await updateCredits(userId, -credits);
-          setAllResponse(res.slice(0, 7));
-          setImageUrl(res.slice(7));
+          setAllResponse(res.slice(0, 6));
+          setImageUrl(res.slice(6));
         } else {
           toast({
             title: "Content Warning",
@@ -495,7 +495,13 @@ export default function ContentWriterAiForm({
                     >
                       <FormControl>
                         <SelectTrigger className="select-field ">
-                          <SelectValue />
+                          <SelectValue
+                            placeholder={
+                              type === "all"
+                                ? "For Each Thumbnail & AiImage"
+                                : " "
+                            }
+                          />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -643,27 +649,32 @@ export default function ContentWriterAiForm({
               >
                 {index === 0 && (
                   <label className="flex-2 font-sans font-bold text-n-8">
-                    Title :
+                    Outline :
                   </label>
                 )}
                 {index === 1 && (
                   <label className="flex-2 font-sans font-bold text-n-8">
-                    Describtion :
+                    Title :
                   </label>
                 )}
                 {index === 2 && (
                   <label className="flex-2 font-sans font-bold text-n-8">
+                    Summary :
+                  </label>
+                )}
+                {index === 3 && (
+                  <label className="flex-2 font-sans font-bold text-n-8">
+                    Expander :
+                  </label>
+                )}
+                {index === 4 && (
+                  <label className="flex-2 font-sans font-bold text-n-8">
                     Hashtags :
                   </label>
                 )}
-                {index === 3 && (
+                {index === 5 && (
                   <label className="flex-2 font-sans font-bold text-n-8">
-                    Script :
-                  </label>
-                )}
-                {index === 3 && (
-                  <label className="flex-2 font-sans font-bold text-n-8">
-                    DIsclaimer :
+                    Slogans :
                   </label>
                 )}
 

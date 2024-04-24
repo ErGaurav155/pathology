@@ -401,7 +401,11 @@ export default function MarketingAiForm({
                     >
                       <FormControl>
                         <SelectTrigger className="select-field ">
-                          <SelectValue />
+                          <SelectValue
+                            placeholder={
+                              type === "all" ? "For Poster Only" : " "
+                            }
+                          />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>

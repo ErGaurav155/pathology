@@ -217,8 +217,8 @@ export default function SocialMediaAiForm({
         });
         if (res) {
           await updateCredits(userId, -credits);
-          setAllResponse(res.slice(0, 5));
-          setImageUrl(res.slice(5));
+          setAllResponse(res.slice(0, 3));
+          setImageUrl(res.slice(3));
         } else {
           toast({
             title: "Content Warning",
@@ -277,10 +277,7 @@ export default function SocialMediaAiForm({
             )}
           />
 
-          {(type === "caption" ||
-            type === "comment" ||
-            type === "tweet" ||
-            type === "all") && (
+          {(type === "caption" || type === "comment" || type === "tweet") && (
             <FormField
               control={form.control}
               name="selectTone"
@@ -315,7 +312,7 @@ export default function SocialMediaAiForm({
             />
           )}
 
-          {(type === "images" || type === "avatar") && (
+          {(type === "images" || type === "avatar" || type === "all") && (
             <FormField
               control={form.control}
               name="selectTone"
@@ -417,7 +414,11 @@ export default function SocialMediaAiForm({
                     >
                       <FormControl>
                         <SelectTrigger className="select-field ">
-                          <SelectValue />
+                          <SelectValue
+                            placeholder={
+                              type === "all" ? "For Poster Only" : " "
+                            }
+                          />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -519,27 +520,17 @@ export default function SocialMediaAiForm({
               >
                 {index === 0 && (
                   <label className="flex-2 font-sans font-bold text-n-8">
-                    Title :
+                    Caption :
                   </label>
                 )}
                 {index === 1 && (
                   <label className="flex-2 font-sans font-bold text-n-8">
-                    Describtion :
+                    Hashtags :
                   </label>
                 )}
                 {index === 2 && (
                   <label className="flex-2 font-sans font-bold text-n-8">
-                    Hashtags :
-                  </label>
-                )}
-                {index === 3 && (
-                  <label className="flex-2 font-sans font-bold text-n-8">
-                    Script :
-                  </label>
-                )}
-                {index === 3 && (
-                  <label className="flex-2 font-sans font-bold text-n-8">
-                    DIsclaimer :
+                    Description :
                   </label>
                 )}
 
