@@ -2,5 +2,5 @@
 module.exports = {
   siteUrl: "https://criconai.com/",
   generateRobotsTxt: true,
-  sitemapSize: 700,
+  sitemapSize: 70,
 };
