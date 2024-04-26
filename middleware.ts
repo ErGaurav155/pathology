@@ -7,7 +7,6 @@ export default authMiddleware({
     "/privacy-policy",
     "/TermsandCondition",
     "/api/webhooks/clerk",
-    "/api/webhooks/stripe",
   ],
 });
 
