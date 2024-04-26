@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://criconai.com/
+
+# Sitemaps
+Sitemap: https://criconai.com/sitemap.xml
