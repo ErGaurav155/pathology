@@ -155,7 +155,7 @@ export default function LongVidAudio({
         />
       </div>
       <div className="flex">
-        <div className="flex-auto">
+        <div className="w-[50%]">
           <label className="text-n-8">Select Character</label>
           <Select required onValueChange={handleValueChange} value={value1}>
             <SelectTrigger className="select-field ">
@@ -175,7 +175,7 @@ export default function LongVidAudio({
             </SelectContent>
           </Select>
         </div>
-        <div className="flex-auto">
+        <div className="w-[50%]">
           <label className="text-n-8">Output Language</label>
           <Select
             required

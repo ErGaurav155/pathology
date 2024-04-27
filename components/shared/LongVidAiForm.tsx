@@ -448,7 +448,7 @@ export default function LongVidAiForm({
                 control={form.control}
                 name="inputlag"
                 render={({ field }) => (
-                  <FormItem className="flex-auto">
+                  <FormItem className="w-[50%]">
                     <FormLabel className="text-n-8">aspect ratio:</FormLabel>
                     <Select
                       onValueChange={(value) => {
@@ -487,7 +487,7 @@ export default function LongVidAiForm({
                 control={form.control}
                 name="outputlag"
                 render={({ field }) => (
-                  <FormItem className="flex-auto">
+                  <FormItem className="w-[50%]">
                     <FormLabel className="text-n-8">
                       Number of Images:
                     </FormLabel>
