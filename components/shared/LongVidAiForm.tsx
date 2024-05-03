@@ -674,7 +674,7 @@ export default function LongVidAiForm({
                     Script :
                   </label>
                 )}
-                {index === 3 && (
+                {index === 4 && (
                   <label className="flex-2 font-sans font-bold text-n-8">
                     DIsclaimer :
                   </label>
