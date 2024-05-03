@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CriconAi",
+  title: "AI Tools For Content Creators",
   description: "AI-powered content creation technology for content creators",
 };
 const Layout = ({ children }: { children: React.ReactNode }) => {
