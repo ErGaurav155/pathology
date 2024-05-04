@@ -40,7 +40,11 @@ import {
   fetchLongVidData,
   generateGptResponse,
 } from "@/lib/actions/ai.actions";
-import { getUserByDbId, updateCredits } from "@/lib/actions/user.actions";
+import {
+  getUserByDbId,
+  saveImageUrls,
+  updateCredits,
+} from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import { Copy, DownloadIcon } from "lucide-react";
 import Image from "next/image";
@@ -162,7 +166,7 @@ export default function LongVidAiForm({
       title: "Tip of the Day",
       description: `Note : Plz copy response in word or download images or audio if
         you want,once page refresh you will never see them back `,
-      duration: 5000,
+      duration: 2000,
       className: "success-toast",
     });
 
@@ -198,6 +202,7 @@ export default function LongVidAiForm({
             setResponse(res);
           } else if (model === "dall-e-3") {
             setImageUrl(res);
+            await saveImageUrls(userId, res);
           } else {
             setAudioUrl(res);
           }
@@ -222,6 +227,7 @@ export default function LongVidAiForm({
           await updateCredits(userId, -credits);
           setAllResponse(res.slice(0, 5));
           setImageUrl(res.slice(5));
+          await saveImageUrls(userId, res.slice(5));
         } else {
           toast({
             title: "Content Warning",

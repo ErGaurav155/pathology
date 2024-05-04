@@ -39,7 +39,11 @@ import {
   fetchShortVidData,
   generateGptResponse,
 } from "@/lib/actions/ai.actions";
-import { getUserByDbId, updateCredits } from "@/lib/actions/user.actions";
+import {
+  getUserByDbId,
+  saveImageUrls,
+  updateCredits,
+} from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import { Copy, DownloadIcon } from "lucide-react";
 import Image from "next/image";
@@ -171,7 +175,7 @@ export default function ShortVidAiForm({
       title: "Tip of the Day",
       description: `Note : Plz copy response in word or download images or audio if
         you want,once page refresh you will never see them back `,
-      duration: 5000,
+      duration: 2000,
       className: "success-toast",
     });
     const user = await getUserByDbId(userId);
@@ -202,6 +206,7 @@ export default function ShortVidAiForm({
             setResponse(res);
           } else if (model === "dall-e-3") {
             setImageUrl(res);
+            await saveImageUrls(userId, res);
           } else {
             setAudioUrl(res);
           }
@@ -226,6 +231,7 @@ export default function ShortVidAiForm({
           await updateCredits(userId, -credits);
           setAllResponse(res.slice(0, 4));
           setImageUrl(res.slice(4));
+          await saveImageUrls(userId, res.slice(4));
         } else {
           toast({
             title: "Content Warning",

@@ -37,7 +37,11 @@ import {
 import { redirect } from "next/navigation";
 import { generateGptResponse } from "@/lib/actions/ai.actions";
 import { fetchContentWriterData } from "@/lib/actions/ai.actions";
-import { getUserByDbId, updateCredits } from "@/lib/actions/user.actions";
+import {
+  getUserByDbId,
+  saveImageUrls,
+  updateCredits,
+} from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import { Copy, DownloadIcon } from "lucide-react";
 import Image from "next/image";
@@ -167,7 +171,7 @@ export default function ContentWriterAiForm({
       title: "Tip of the Day",
       description: `Note : Plz copy response in word or download images or audio if
         you want,once page refresh you will never see them back `,
-      duration: 5000,
+      duration: 2000,
       className: "success-toast",
     });
 
@@ -196,8 +200,9 @@ export default function ContentWriterAiForm({
           await updateCredits(userId, -credits);
           if (model === "gpt-3.5-turbo") {
             setResponse(res);
-          } else if (model === "dall-e-2") {
+          } else if (model === "dall-e-3") {
             setImageUrl(res);
+            await saveImageUrls(userId, res);
           } else {
             setAudioUrl(res);
           }
@@ -222,6 +227,7 @@ export default function ContentWriterAiForm({
           await updateCredits(userId, -credits);
           setAllResponse(res.slice(0, 6));
           setImageUrl(res.slice(6));
+          await saveImageUrls(userId, res.slice(6));
         } else {
           toast({
             title: "Content Warning",

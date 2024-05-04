@@ -107,3 +107,23 @@ export async function updateCredits(userId: string, creditFee: number) {
     handleError(error);
   }
 }
+
+export async function saveImageUrls(userId: string, imageUrls: string[]) {
+  try {
+    // Find the user by clerkId
+    const user = await User.findOne({ _id: userId });
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    // Add imageUrls to the user document
+    user.imageUrls = [...user.imageUrls, ...imageUrls];
+
+    // Save the user document
+    await user.save();
+
+    return user.imageUrls; // Return updated imageUrls
+  } catch (error) {
+    handleError(error);
+  }
+}

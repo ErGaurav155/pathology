@@ -37,7 +37,11 @@ import {
   fetchSocialMediaData,
   generateGptResponse,
 } from "@/lib/actions/ai.actions";
-import { getUserByDbId, updateCredits } from "@/lib/actions/user.actions";
+import {
+  getUserByDbId,
+  saveImageUrls,
+  updateCredits,
+} from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import { Copy, DownloadIcon } from "lucide-react";
 import Image from "next/image";
@@ -167,7 +171,7 @@ export default function SocialMediaAiForm({
       title: "Tip of the Day",
       description: `Note : Plz copy response in word or download images or audio if
         you want,once page refresh you will never see them back `,
-      duration: 5000,
+      duration: 2000,
       className: "success-toast",
     });
     const user = await getUserByDbId(userId);
@@ -197,6 +201,7 @@ export default function SocialMediaAiForm({
             setResponse(res);
           } else {
             setImageUrl(res);
+            await saveImageUrls(userId, res);
           }
         } else {
           toast({
@@ -219,6 +224,7 @@ export default function SocialMediaAiForm({
           await updateCredits(userId, -credits);
           setAllResponse(res.slice(0, 3));
           setImageUrl(res.slice(3));
+          await saveImageUrls(userId, res.slice(3));
         } else {
           toast({
             title: "Content Warning",

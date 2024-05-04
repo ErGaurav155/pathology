@@ -23,6 +23,10 @@ const UserSchema = new Schema({
   lastName: {
     type: String,
   },
+  imageUrls: {
+    type: [String],
+    default: [],
+  },
   planId: {
     type: Number,
     default: 0,

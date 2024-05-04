@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 
 import Header from "@/components/shared/Header";
 import { getUserById } from "@/lib/actions/user.actions";
+import Link from "next/link";
 
 const Profile = async () => {
   const { userId } = auth();
@@ -42,6 +43,9 @@ const Profile = async () => {
               className="size-9 md:size-12"
             />
           </div>
+          <Link href={`/criconai/profile/${user._id}`}>
+            <h2 className="h2-bold text-dark-600">{user.imageUrls.length}</h2>
+          </Link>
         </div>
       </section>
     </div>
