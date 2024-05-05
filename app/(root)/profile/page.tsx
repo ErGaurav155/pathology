@@ -12,7 +12,7 @@ const Profile = async () => {
   if (!userId) redirect("/sign-in");
 
   const user = await getUserById(userId);
-  const userID = user._id;
+  const userID = user._id as string;
   return (
     <div className="wrapper">
       <Header title="Profile" />
