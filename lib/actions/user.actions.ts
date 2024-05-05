@@ -117,7 +117,7 @@ export async function saveImageUrls(userId: string, imageUrls: string[]) {
     }
 
     // Add imageUrls to the user document
-    user.imageUrls = [...user.imageUrls, ...imageUrls];
+    user.imageUrls = [...imageUrls, ...user.imageUrls];
 
     // Save the user document
     await user.save();
