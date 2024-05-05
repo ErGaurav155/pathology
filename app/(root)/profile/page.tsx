@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import Header from "@/components/shared/Header";
 import { getUserById } from "@/lib/actions/user.actions";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const Profile = async () => {
   const { userId } = auth();
@@ -47,6 +48,9 @@ const Profile = async () => {
               />
 
               <h2 className="h2-bold text-dark-600">{user.imageUrls.length}</h2>
+              <Button className=" rounded-md bg-purple-gradient bg-cover">
+                View Images
+              </Button>
             </div>
           </Link>
         </div>
