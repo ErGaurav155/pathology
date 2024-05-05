@@ -33,19 +33,22 @@ const Profile = async () => {
         </div>
 
         <div className="profile-image-manipulation">
-          <p className="p-14-medium md:p-16-medium">IMAGE MANIPULATION DONE</p>
-          <div className="mt-4 flex items-center gap-4">
-            <Image
-              src="/assets/icons/photo.svg"
-              alt="coins"
-              width={50}
-              height={50}
-              className="size-9 md:size-12"
-            />
-            <Link href={`/criconai/profile/${userID}`}>
+          <Link href={`/profile/${userID}`}>
+            <p className="p-14-medium md:p-16-medium">
+              IMAGE MANIPULATION DONE
+            </p>
+            <div className="mt-4 flex items-center gap-4">
+              <Image
+                src="/assets/icons/photo.svg"
+                alt="coins"
+                width={50}
+                height={50}
+                className="size-9 md:size-12"
+              />
+
               <h2 className="h2-bold text-dark-600">{user.imageUrls.length}</h2>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       </section>
     </div>
