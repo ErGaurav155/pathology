@@ -7,7 +7,7 @@ import Heading from "@/components/shared/Svgs/HEading";
 import { DownloadIcon } from "lucide-react";
 import { download } from "@/lib/utils";
 
-export const ImageGalleryPage = ({ userID }: { userID: string }) => {
+export default function ImageGalleryPage({ userID }: { userID: string }) {
   // State to store user data
   const [userData, setUserData] = useState<any>(null);
 
@@ -73,4 +73,4 @@ export const ImageGalleryPage = ({ userID }: { userID: string }) => {
       )}
     </div>
   );
-};
+}
