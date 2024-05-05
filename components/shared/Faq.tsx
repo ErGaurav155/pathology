@@ -36,11 +36,11 @@ export function Faq() {
                 open === 1 ? "text-blue-500 hover:!text-blue-700" : ""
               }`}
             >
-              What is an Ai content generator or writer ?
+              What is Ai content generator or writer ?
             </AccordionHeader>
 
             <AccordionBody className="pt-0 text-base font-normal">
-              An AI writer is a software or program that uses artificial
+              AI writer is a software or program that uses artificial
               intelligence technology to automatically generate written content.
               It leverages algorithms and language models to mimic human writing
               styles and produce text that appears to be written by a person. AI
@@ -73,15 +73,15 @@ export function Faq() {
                 open === 2 ? "text-blue-500 hover:!text-blue-700" : ""
               }`}
             >
-              How does an Ai generator or writer work?
+              How does Ai generator or writer work?
             </AccordionHeader>
             <AccordionBody className="pt-0 text-base font-normal">
-              An AI writer operates by employing advanced algorithms and
-              language models. It analyzes vast amounts of data to understand
-              language patterns, styles, and structures. Using this knowledge,
-              the AI writer generates text by predicting and assembling words
-              and phrases to create coherent and contextually appropriate
-              content, closely resembling human-written text.
+              AI writer operates by employing advanced algorithms and language
+              models. It analyzes vast amounts of data to understand language
+              patterns, styles, and structures. Using this knowledge, the AI
+              writer generates text by predicting and assembling words and
+              phrases to create coherent and contextually appropriate content,
+              closely resembling human-written text.
             </AccordionBody>
           </div>
           <div
@@ -177,11 +177,11 @@ export function Faq() {
                 open === 5 ? "text-blue-500 hover:!text-blue-700" : ""
               }`}
             >
-              Can an Ai generator produce unique content?
+              Can Ai generator produce unique content?
             </AccordionHeader>
             <AccordionBody className="pt-0 text-base font-normal ">
-              An AI text generator has the capability to produce unique content
-              by leveraging its language models and algorithms to generate text
+              AI text generator has the capability to produce unique content by
+              leveraging its language models and algorithms to generate text
               that may not exist elsewhere. However, the uniqueness and
               originality of the content can vary depending on the data and
               training the AI model has received. While an AI text generator can
@@ -245,7 +245,7 @@ export function Faq() {
                 open === 7 ? "text-blue-500 hover:!text-blue-700" : ""
               }`}
             >
-              Does Cricon support languages other than English?
+              Does CriconAi support languages other than English?
             </AccordionHeader>
             <AccordionBody className="pt-0 text-base font-normal ">
               Yes, Cricon AI text generator supports 25+ languages. So, you

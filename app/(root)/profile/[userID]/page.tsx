@@ -7,7 +7,7 @@ import Heading from "@/components/shared/Svgs/HEading";
 import { DownloadIcon } from "lucide-react";
 import { download } from "@/lib/utils";
 
-const ImageGalleryPage = ({ userId }: { userId: string }) => {
+const ImageGalleryPage = ({ userID }: { userID: string }) => {
   // State to store user data
   const [userData, setUserData] = useState<any>(null);
 
@@ -15,7 +15,7 @@ const ImageGalleryPage = ({ userId }: { userId: string }) => {
     // Fetch user data when component mounts
     async function fetchData() {
       try {
-        const user = await getUserByDbId(userId);
+        const user = await getUserByDbId(userID);
         setUserData(user);
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -23,7 +23,7 @@ const ImageGalleryPage = ({ userId }: { userId: string }) => {
     }
 
     fetchData();
-  }, [userId]);
+  }, [userID]);
 
   const downloadHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,

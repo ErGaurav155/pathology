@@ -572,6 +572,9 @@ export default function SocialMediaAiForm({
               h-[${arheight}]`}
                   key={index}
                 >
+                  <label className=" font-sans font-bold text-n-8">
+                    {index < imageUrl.length / 2 ? "Poster" : " Ai Images"}
+                  </label>
                   <button
                     className="absolute top-1 right-1 rounded-md bg-white p-2"
                     onClick={(e) =>

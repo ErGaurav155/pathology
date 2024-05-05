@@ -12,7 +12,7 @@ const Profile = async () => {
   if (!userId) redirect("/sign-in");
 
   const user = await getUserById(userId);
-
+  const userID = user._id;
   return (
     <div className="wrapper">
       <Header title="Profile" />
@@ -42,10 +42,10 @@ const Profile = async () => {
               height={50}
               className="size-9 md:size-12"
             />
+            <Link href={`/criconai/profile/${userID}`}>
+              <h2 className="h2-bold text-dark-600">{user.imageUrls.length}</h2>
+            </Link>
           </div>
-          <Link href={`/criconai/profile/${user._id}`}>
-            <h2 className="h2-bold text-dark-600">{user.imageUrls.length}</h2>
-          </Link>
         </div>
       </section>
     </div>
