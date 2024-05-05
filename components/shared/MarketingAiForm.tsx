@@ -553,36 +553,37 @@ export default function MarketingAiForm({
           {imageUrl && (
             <div className="min-h-max p-5 m-auto grid grid-cols-2  gap-2 ">
               {imageUrl.map((item, index) => (
-                <div
-                  className={`rounded-md overflow-hidden relative w-[${arwidth}]
-              h-[${arheight}]`}
-                  key={index}
-                >
+                <div key={index}>
                   <label className=" font-sans font-bold text-n-8">
                     {index < imageUrl.length / 2 ? "Thumbnail" : " Ai Images"}
                   </label>
-                  <button
-                    className="absolute top-1 right-1 rounded-md bg-white p-2"
-                    onClick={(e) =>
-                      downloadHandler(
-                        e,
-                        item,
-                        "image" +
-                          (Math.floor(Math.random() * 100) + 1).toString()
-                      )
-                    }
+                  <div
+                    className={`rounded-md overflow-hidden relative w-[${arwidth}]
+              h-[${arheight}]`}
                   >
-                    <DownloadIcon />
-                  </button>
+                    <button
+                      className="absolute top-2 right-2 rounded-md bg-white p-2"
+                      onClick={(e) =>
+                        downloadHandler(
+                          e,
+                          item,
+                          "image" +
+                            (Math.floor(Math.random() * 100) + 1).toString()
+                        )
+                      }
+                    >
+                      <DownloadIcon />
+                    </button>
 
-                  <Image
-                    alt="image"
-                    className="flex-1 "
-                    src={item}
-                    width={arwidth}
-                    height={arheight}
-                    priority
-                  />
+                    <Image
+                      alt="image"
+                      className="flex-1 "
+                      src={item}
+                      width={arwidth}
+                      height={arheight}
+                      priority
+                    />
+                  </div>
                 </div>
               ))}
             </div>
