@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     { role: "system", content: "You are a translator." },
     {
       role: "user",
-      content: `convert this text- ${body.text} into this language-${outputlag}`,
+      content: `convert this text- ${body.text} into this ${outputlag} language but written in english`,
     },
   ];
   const formData1 = {
@@ -46,10 +46,8 @@ export async function POST(req: NextRequest) {
   });
   const resData = await completion.json();
 
-  console.log(resData);
   const messageContent = resData.choices[0]?.message?.content;
 
-  console.log(messageContent);
   if (!messageContent) {
     return;
   }
