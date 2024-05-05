@@ -68,6 +68,34 @@ export const totalCredits = (selectedAspectRatio: string, arImage: string) => {
       return 0;
   }
 };
+export const handleCredit = (value: string) => {
+  const length = value.length;
+
+  let calculatedCredits = 0;
+  if (length >= 0 && length <= 100) {
+    return (calculatedCredits = 2);
+  } else if (length > 100 && length <= 200) {
+    return (calculatedCredits = 3);
+  } else if (length > 200 && length <= 300) {
+    return (calculatedCredits = 5);
+  } else if (length > 300 && length <= 500) {
+    return (calculatedCredits = 8);
+  } else if (length > 500 && length <= 700) {
+    return (calculatedCredits = 10);
+  } else if (length > 700 && length <= 1000) {
+    return (calculatedCredits = 12);
+  } else if (length > 1000 && length <= 1500) {
+    return (calculatedCredits = 15);
+  } else if (length > 1500 && length <= 2000) {
+    return (calculatedCredits = 20);
+  } else if (length > 2000 && length <= 2500) {
+    return (calculatedCredits = 25);
+  } else if (length > 2500 && length <= 3000) {
+    return (calculatedCredits = 30);
+  } else {
+    return 50;
+  }
+};
 
 export const calculateCredits = (fileSize?: number) => {
   if (!fileSize) {

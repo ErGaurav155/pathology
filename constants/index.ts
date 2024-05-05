@@ -372,7 +372,7 @@ export const longvidTypes = {
     tone: "Chooose a Character",
     aiprompt: `generate audio for provided text`,
     model: "tts-1",
-    credits: 10,
+    credits: 1,
   },
   audiotoAudio: {
     type: "audiotoAudio",
@@ -694,7 +694,7 @@ export const shortvidTypes = {
     tone: "Chooose a Character",
     aiprompt: ``,
     model: "tts-1",
-    credits: 8,
+    credits: 1,
   },
   audiotoAudio: {
     type: "audiotoAudio",
@@ -1065,7 +1065,7 @@ export const contentwriterTypes = {
     tone: "Chooose a Character",
     aiprompt: ``,
     model: "tts-1",
-    credits: 8,
+    credits: 1,
   },
 
   coverimage: {

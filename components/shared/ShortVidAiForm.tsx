@@ -47,7 +47,7 @@ import {
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import { Copy, DownloadIcon } from "lucide-react";
 import Image from "next/image";
-import { download, totalCredits } from "@/lib/utils";
+import { download, handleCredit, totalCredits } from "@/lib/utils";
 import { Switch } from "../ui/switch";
 import { Skeleton } from "../ui/skeleton";
 
@@ -593,6 +593,13 @@ export default function ShortVidAiForm({
                     placeholder=""
                     className="rounded-[16px] border-2 border-purple-200/20 shadow-sm shadow-purple-200/15  disabled:opacity-100 p-16-semibold h-[50px] md:h-[54px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent resize-none text-black text-xs"
                     {...field}
+                    onChange={(e) => {
+                      field.onChange(e);
+                      if (type === "TexttoAudio") {
+                        const earnCredit = handleCredit(e.target.value);
+                        setCredits(earnCredit);
+                      }
+                    }}
                   />
                 </FormControl>
                 <FormMessage />
