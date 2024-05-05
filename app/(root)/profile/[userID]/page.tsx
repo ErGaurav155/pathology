@@ -62,7 +62,7 @@ export default function ImageGalleryPage({
               </button>
 
               <Image
-                alt="image"
+                alt="image removed"
                 className="flex-1 "
                 src={imageUrl}
                 width={1024}
