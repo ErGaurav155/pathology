@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { getUserByDbId } from "@/lib/actions/user.actions";
+import { getUserByDbId, updateCredits } from "@/lib/actions/user.actions";
 import Heading from "@/components/shared/Svgs/HEading";
 import { DownloadIcon } from "lucide-react";
 import { download } from "@/lib/utils";
@@ -29,13 +29,14 @@ export default function ImageGalleryPage({
     fetchData();
   }, [userID]);
 
-  const downloadHandler = (
+  const downloadHandler = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     item: string,
     title: string
   ) => {
     e.preventDefault();
     download(item, title);
+    await updateCredits(userID, -1);
   };
   return (
     <div className="p-4 mt-5  ">
@@ -49,7 +50,7 @@ export default function ImageGalleryPage({
               key={index}
             >
               <button
-                className="absolute top-1 right-1 rounded-md bg-white p-2"
+                className="absolute top-1 right-1 rounded-md bg-white p-2 flex  items-center justify-center gap-1"
                 onClick={(e) =>
                   downloadHandler(
                     e,
@@ -58,6 +59,16 @@ export default function ImageGalleryPage({
                   )
                 }
               >
+                <span>
+                  <Image
+                    src="/assets/icons/coins.svg"
+                    alt="coins"
+                    width={1}
+                    height={1}
+                    className="size-4 md:size-6"
+                  />
+                </span>{" "}
+                <h1 className=" font-bold text-lg">1</h1>
                 <DownloadIcon />
               </button>
 
