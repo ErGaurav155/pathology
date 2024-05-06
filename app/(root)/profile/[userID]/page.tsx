@@ -2,10 +2,15 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { getUserByDbId, updateCredits } from "@/lib/actions/user.actions";
+import {
+  deleteImageUrls,
+  getUserByDbId,
+  updateCredits,
+} from "@/lib/actions/user.actions";
 import Heading from "@/components/shared/Svgs/HEading";
-import { DownloadIcon } from "lucide-react";
+import { DownloadIcon, Trash2 } from "lucide-react";
 import { download } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 export default function ImageGalleryPage({
   params: { userID },
@@ -13,6 +18,7 @@ export default function ImageGalleryPage({
   params: { userID: string };
 }) {
   // State to store user data
+  const router = useRouter();
   const [userData, setUserData] = useState<any>(null);
 
   useEffect(() => {
@@ -35,8 +41,19 @@ export default function ImageGalleryPage({
     title: string
   ) => {
     e.preventDefault();
-    download(item, title);
-    await updateCredits(userID, -1);
+    download(item, title).then(async (result) => {
+      if (result) {
+        await updateCredits(userID, -1);
+      }
+    });
+  };
+  const deleteHandler = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    item: string
+  ) => {
+    e.preventDefault();
+    await deleteImageUrls(userID, item);
+    router.refresh();
   };
   return (
     <div className="p-4 mt-5  ">
@@ -49,28 +66,36 @@ export default function ImageGalleryPage({
         h-[${1024}]`}
               key={index}
             >
-              <button
-                className="absolute top-1 right-1 rounded-md bg-white p-2 flex  items-center justify-center gap-1"
-                onClick={(e) =>
-                  downloadHandler(
-                    e,
-                    imageUrl,
-                    "image" + (Math.floor(Math.random() * 100) + 1).toString()
-                  )
-                }
-              >
-                <span>
-                  <Image
-                    src="/assets/icons/coins.svg"
-                    alt="coins"
-                    width={1}
-                    height={1}
-                    className="size-4 md:size-6"
-                  />
-                </span>{" "}
-                <h1 className=" font-bold text-lg">1</h1>
-                <DownloadIcon />
-              </button>
+              <div>
+                <button
+                  className="absolute top-1 right-15 rounded-md bg-white p-2 flex  items-center justify-center gap-1"
+                  onClick={(e) =>
+                    downloadHandler(
+                      e,
+                      imageUrl,
+                      "image" + (Math.floor(Math.random() * 100) + 1).toString()
+                    )
+                  }
+                >
+                  <span>
+                    <Image
+                      src="/assets/icons/coins.svg"
+                      alt="coins"
+                      width={1}
+                      height={1}
+                      className="size-4 md:size-6"
+                    />
+                  </span>{" "}
+                  <h1 className=" font-bold text-lg">1</h1>
+                  <DownloadIcon />
+                </button>
+                <button
+                  className="absolute top-1 right-1 rounded-md bg-white p-2.5 flex  items-center justify-center gap-1"
+                  onClick={(e) => deleteHandler(e, imageUrl)}
+                >
+                  <Trash2 />
+                </button>
+              </div>
 
               <Image
                 alt="image removed"

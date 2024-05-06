@@ -4,6 +4,8 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 import { aspectRatioOptions } from "@/constants";
+import { toast } from "@/components/ui/use-toast";
+import { ok } from "assert";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -37,7 +39,7 @@ export const download = async (url: string, filename: string) => {
       body: formData,
     });
 
-    if (response) {
+    if (response.ok) {
       const blob = await response.blob();
       const url1 = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -46,12 +48,17 @@ export const download = async (url: string, filename: string) => {
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url1);
+      return true;
     } else {
-      // Handle failed response
-      throw new Error(`Error: Download request failed`);
+      toast({
+        title: "Sorry Image Can't Download",
+        description: " Url Expired || 2 hours life only",
+        duration: 3000,
+        className: "error-toast",
+      });
+      return false;
     }
   } catch (error) {
-    // Handle errors
     throw new Error(`Error: ${error}`);
   }
 };

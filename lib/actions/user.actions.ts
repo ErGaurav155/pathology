@@ -127,3 +127,22 @@ export async function saveImageUrls(userId: string, imageUrls: string[]) {
     handleError(error);
   }
 }
+
+export async function deleteImageUrls(userId: string, urlToDelete: string) {
+  try {
+    // Remove the specified URL from the imageUrls array
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: userId },
+      { $pull: { imageUrls: urlToDelete } },
+      { new: true } // Return the updated document
+    );
+
+    if (!updatedUser) {
+      throw new Error("User not found");
+    }
+
+    return updatedUser.imageUrls; // Return the updated imageUrls
+  } catch (error) {
+    handleError(error);
+  }
+}
