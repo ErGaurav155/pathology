@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { Button } from "../ui/button";
 import {
@@ -43,14 +43,25 @@ export function MobileNav() {
   const [open, setOpen] = useState(0);
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
+  const [shouldOpenDrawer, setShouldOpenDrawer] = useState(true);
   const handleOpen = (value: number) => {
     setOpen(open === value ? 0 : value);
   };
 
   const openDrawer = () => setIsDrawerOpen(true);
   const closeDrawer = () => setIsDrawerOpen(false);
+  useEffect(() => {
+    // Automatically open the drawer after 5 seconds on the first render
+    const timer = setTimeout(() => {
+      if (shouldOpenDrawer) {
+        openDrawer();
+        setShouldOpenDrawer(false); // Set to false to prevent auto-opening on subsequent renders
+      }
+    }, 5000);
 
+    // Clean up the timer on component unmount or if the drawer is manually opened
+    return () => clearTimeout(timer);
+  }, [shouldOpenDrawer]);
   return (
     <header className="header absolute z-50 top-0 left-0 bg-gray-50  text-gray-600 font-serif ">
       <IconButton variant="text" size="lg" onClick={openDrawer}>
@@ -74,6 +85,11 @@ export function MobileNav() {
       <SignedIn>
         <UserButton afterSignOutUrl="/" />
       </SignedIn>
+      <SignedOut>
+        <Button asChild className="ml-2 button bg-purple-gradient bg-cover">
+          <Link href="/sign-in">Login</Link>
+        </Button>
+      </SignedOut>
 
       <Drawer
         open={isDrawerOpen}
