@@ -507,13 +507,7 @@ export default function ShortVidAiForm({
                     >
                       <FormControl>
                         <SelectTrigger className="select-field ">
-                          <SelectValue
-                            placeholder={
-                              type === "all"
-                                ? "For Each Thumbnail & AiImage"
-                                : " "
-                            }
-                          />
+                          <SelectValue />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>

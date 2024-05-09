@@ -422,7 +422,7 @@ export default function SocialMediaAiForm({
                         <SelectTrigger className="select-field ">
                           <SelectValue
                             placeholder={
-                              type === "all" ? "For Poster Only" : " "
+                              type === "all" ? "No. Of Poster " : " "
                             }
                           />
                         </SelectTrigger>

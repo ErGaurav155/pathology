@@ -409,7 +409,7 @@ export default function MarketingAiForm({
                         <SelectTrigger className="select-field ">
                           <SelectValue
                             placeholder={
-                              type === "all" ? "For Poster Only" : " "
+                              type === "all" ? "No. Of Poster " : " "
                             }
                           />
                         </SelectTrigger>

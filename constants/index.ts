@@ -19,10 +19,10 @@ export const plans = [
     name: "Basic Package",
     icon: "/assets/icons/free-plan.svg",
     price: 599,
-    credits: 360,
+    credits: 700,
     inclusions: [
       {
-        label: "360 Credits",
+        label: "700 Credits",
         isIncluded: true,
       },
 
@@ -371,7 +371,7 @@ export const longvidTypes = {
     subtopic: "Explain more",
     tone: "Chooose a Character",
     aiprompt: `generate audio for provided text`,
-    model: "tts-1",
+    model: "tts-1-hd",
     credits: 1,
   },
   audiotoAudio: {
@@ -478,7 +478,7 @@ export const longvidTypes = {
     tone: "Choose a tone ",
     aiprompt: "",
     model: "gpt-3.5-turbo",
-    credits: 35,
+    credits: 20,
   },
 };
 
@@ -693,7 +693,7 @@ export const shortvidTypes = {
     subtopic: "Explain more",
     tone: "Chooose a Character",
     aiprompt: ``,
-    model: "tts-1",
+    model: "tts-1-hd",
     credits: 1,
   },
   audiotoAudio: {
@@ -825,7 +825,7 @@ export const shortvidTypes = {
     tone: "Choose a tone ",
     aiprompt: "",
     model: "gpt-3.5-turbo",
-    credits: 35,
+    credits: 20,
   },
 };
 
@@ -1064,7 +1064,7 @@ export const contentwriterTypes = {
     subtopic: "Explain more",
     tone: "Chooose a Character",
     aiprompt: ``,
-    model: "tts-1",
+    model: "tts-1-hd",
     credits: 1,
   },
 
@@ -1164,7 +1164,7 @@ export const contentwriterTypes = {
     tone: "Choose a tone ",
     aiprompt: "",
     model: "gpt-3.5-turbo",
-    credits: 35,
+    credits: 20,
   },
 };
 
@@ -1627,18 +1627,6 @@ export const aiprompt = [
       `,
         model: "dall-e-3",
       },
-      {
-        prompt: `Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
-
-       Instructions:
-        1. Generate creative image ideas that offer a fresh and unique perspective on the provided context.
-        2. Consider incorporating innovative visual elements, symbolism, or artistic techniques.
-        3. Ensure the visual concepts align with the overall tone and objectives of the context.
-        4. Aim for freshness and originality to captivate the audience visually.
-
-         generate creative and unique image ideas.Descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific image idea generation requirements.`,
-        model: "dall-e-3",
-      },
     ],
   },
   {
@@ -1716,20 +1704,6 @@ export const aiprompt = [
          Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
     `,
-        model: "dall-e-3",
-      },
-      {
-        prompt: `Given the context provided as input, brainstorm creative and unique visual concepts suitable for posts, graphics, or images. Develop ideas that stand out, convey the essence of the context, and engage the audience through innovative visuals.
-
-    
-    
-    **Instructions:**
-    1. Generate creative image ideas that offer a fresh and unique perspective on the provided context.
-    2. Consider incorporating innovative visual elements, symbolism, or artistic techniques.
-    3. Ensure the visual concepts align with the overall tone and objectives of the context.
-    4. Aim for freshness and originality to captivate the audience visually.
-    
-     generate creative and unique image ideas.Descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific image idea generation requirements.`,
         model: "dall-e-3",
       },
     ],
@@ -1838,21 +1812,6 @@ export const aiprompt = [
         
          Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
-    `,
-        model: "dall-e-3",
-      },
-      {
-        prompt: `Given the context provided as input, generate a descriptive text that vividly describes an image related to the context. Craft a detailed and engaging description that captures the visual elements, details, and emotions portrayed in the imagined image.
-
-    
-    Instructions:
-    1. Imagine an image related to the provided context.
-    2. Generate descriptive text that vividly describes the visual elements, details, and emotions portrayed in the imagined image.
-    3. Include specific details, colors, shapes, and any noteworthy features in your description.
-    4. Craft a narrative that conveys the overall mood or message of the imagined image.
-    
-    
-   generate an image description. This prompt guides the model to create a detailed textual description of an imagined image related to the provided context. Adjust the instructions as needed based on your specific requirements for image description generation.
     `,
         model: "dall-e-3",
       },
@@ -2022,26 +1981,17 @@ export const benefits = [
       },
       {
         id: "1",
-        title: "Title Generator",
-        text: "Without a catchy title, you won't catch the attention. Let this tool generate the titles for you. They are often better.",
-        // backgroundUrl: "@public/assets/benefits/card-2.svg",
+        title: "Thumbnail Generator",
+        text: "Craft Eye-Catching Thumbnails to Boost Clicks and Views Effortlessly!",
+        // backgroundUrl: "@public/assets/benefits/card-6.svg",
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link: "/criconai/longvid/title",
+        link: "/criconai/longvid/thumbnail",
       },
+
       {
         id: "2",
-        title: "Description Generator",
-        text: "Nowadays, AI generates better Description for your content than most people, so what are you waiting for?.",
-        // backgroundUrl: "@public/assets/benefits/card-3.svg",
-        iconUrl: benefitIcon3,
-        imageUrl: benefitImage2,
-        light: true,
-        link: "/criconai/longvid/description",
-      },
-      {
-        id: "3",
         title: "Tags Generator",
         text: "Find the best hashtags for your new post which can generate additional clicks and views.",
         // backgroundUrl: "@/benefits/card-4.svg",
@@ -2051,7 +2001,7 @@ export const benefits = [
         link: "/criconai/longvid/tags",
       },
       {
-        id: "4",
+        id: "3",
         title: "Script Generator",
         text: "Level up your (video) creations with generated scripts that guide you through the creation process.",
         // backgroundUrl: "@public/assets/benefits/card-5.svg",
@@ -2061,14 +2011,24 @@ export const benefits = [
         link: "/criconai/longvid/script",
       },
       {
+        id: "4",
+        title: "Description Generator",
+        text: "Nowadays, AI generates better Description for your content than most people, so what are you waiting for?.",
+        // backgroundUrl: "@public/assets/benefits/card-3.svg",
+        iconUrl: benefitIcon3,
+        imageUrl: benefitImage2,
+        light: true,
+        link: "/criconai/longvid/description",
+      },
+      {
         id: "5",
-        title: "Thumbnail Generator",
-        text: "Craft Eye-Catching Thumbnails to Boost Clicks and Views Effortlessly!",
-        // backgroundUrl: "@public/assets/benefits/card-6.svg",
+        title: "Title Generator",
+        text: "Without a catchy title, you won't catch the attention. Let this tool generate the titles for you. They are often better.",
+        // backgroundUrl: "@public/assets/benefits/card-2.svg",
         iconUrl: benefitIcon2,
         imageUrl: benefitImage2,
         light: true,
-        link: "/criconai/longvid/thumbnail",
+        link: "/criconai/longvid/title",
       },
       {
         id: "6",

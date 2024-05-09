@@ -223,7 +223,7 @@ export const generateGptResponse = async ({
         throw new Error("Bad response from OpenAI");
       }
     }
-  } else if (model === "tts-1") {
+  } else if (model === "tts-1-hd") {
     try {
       const mp3 = await openai.audio.speech.create({
         model: `${model}`,

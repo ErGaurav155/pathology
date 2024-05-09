@@ -3,9 +3,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-import { aspectRatioOptions } from "@/constants";
 import { toast } from "@/components/ui/use-toast";
-import { ok } from "assert";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -66,41 +64,37 @@ export const download = async (url: string, filename: string) => {
 export const totalCredits = (selectedAspectRatio: string, arImage: string) => {
   switch (selectedAspectRatio) {
     case "1024x1024":
-      return 4 * Number(arImage);
+      return 10 * Number(arImage);
     case "1792x1024":
-      return 6 * Number(arImage);
+      return 15 * Number(arImage);
     case "1024x1792":
-      return 6 * Number(arImage);
+      return 15 * Number(arImage);
     default:
-      return 0;
+      return 10;
   }
 };
 export const handleCredit = (value: string) => {
   const length = value.length;
 
   let calculatedCredits = 0;
-  if (length >= 0 && length <= 100) {
+  if (length >= 0 && length <= 200) {
     return (calculatedCredits = 2);
-  } else if (length > 100 && length <= 200) {
-    return (calculatedCredits = 3);
   } else if (length > 200 && length <= 300) {
+    return (calculatedCredits = 3);
+  } else if (length > 300 && length <= 700) {
     return (calculatedCredits = 5);
-  } else if (length > 300 && length <= 500) {
-    return (calculatedCredits = 8);
-  } else if (length > 500 && length <= 700) {
-    return (calculatedCredits = 10);
   } else if (length > 700 && length <= 1000) {
-    return (calculatedCredits = 12);
+    return (calculatedCredits = 7);
   } else if (length > 1000 && length <= 1500) {
-    return (calculatedCredits = 15);
+    return (calculatedCredits = 10);
   } else if (length > 1500 && length <= 2000) {
-    return (calculatedCredits = 20);
+    return (calculatedCredits = 13);
   } else if (length > 2000 && length <= 2500) {
-    return (calculatedCredits = 25);
+    return (calculatedCredits = 16);
   } else if (length > 2500 && length <= 3000) {
-    return (calculatedCredits = 30);
+    return (calculatedCredits = 20);
   } else {
-    return 50;
+    return 25;
   }
 };
 
@@ -109,16 +103,16 @@ export const calculateCredits = (fileSize?: number) => {
     return 1;
   }
   if (fileSize <= 1 * 1024 * 1024) {
-    return 4;
-  } else if (fileSize <= 2 * 1024 * 1024) {
-    return 6;
-  } else if (fileSize <= 3 * 1024 * 1024) {
-    return 8;
-  } else if (fileSize <= 4 * 1024 * 1024) {
     return 10;
+  } else if (fileSize <= 2 * 1024 * 1024) {
+    return 18;
+  } else if (fileSize <= 3 * 1024 * 1024) {
+    return 25;
+  } else if (fileSize <= 4 * 1024 * 1024) {
+    return 35;
   } else if (fileSize <= 5 * 1024 * 1024) {
-    return 12;
+    return 45;
   } else {
-    return 15;
+    return 30;
   }
 };
