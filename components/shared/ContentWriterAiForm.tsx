@@ -721,7 +721,7 @@ export default function ContentWriterAiForm({
               {imageUrl.map((item, index) => (
                 <div key={index}>
                   <label className=" font-sans font-bold text-n-8">
-                    {index < imageUrl.length / 2 ? "Thumbnail" : " Ai Images"}
+                    Thumbnail
                   </label>
 
                   <div
