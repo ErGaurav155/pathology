@@ -7,8 +7,8 @@ export default authMiddleware({
     "/privacy-policy",
     "/TermsandCondition",
     "/api/webhooks/clerk",
-    "/criconai/:path*",
   ],
+  publicRoutes: ["/criconai/:path*"],
 });
 
 export const config = {

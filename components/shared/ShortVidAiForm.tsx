@@ -45,7 +45,7 @@ import {
   updateCredits,
 } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
-import { Copy, DownloadIcon } from "lucide-react";
+import { Copy, DownloadIcon, Link } from "lucide-react";
 import Image from "next/image";
 import { download, handleCredit, totalCredits } from "@/lib/utils";
 import { Switch } from "../ui/switch";
@@ -69,8 +69,7 @@ interface AiImages {
 
 export default function ShortVidAiForm({ type }: ShortAiFormProps) {
   const { userId } = useAuth();
-  if (!userId) redirect("/sign-in");
-  const UserID = userId;
+
   const shortVid = shortvidTypes[type];
 
   const [activeStates, setActiveStates] = useState(Array(5).fill(false));
@@ -176,8 +175,10 @@ export default function ShortVidAiForm({ type }: ShortAiFormProps) {
       duration: 2000,
       className: "success-toast",
     });
-
-    const user = await getUserById(UserID);
+    if (!userId) {
+      return;
+    }
+    const user = await getUserById(userId);
 
     if (!user) {
       return;
@@ -607,30 +608,39 @@ export default function ShortVidAiForm({ type }: ShortAiFormProps) {
             )}
           />
 
-          <Button
-            type="submit"
-            key="submitButton"
-            className="submit-button capitalize"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              "Submitting..."
-            ) : (
-              <div className="flex text-lg font-semibold gap-2 items-center justify-center">
-                Generate{" "}
-                <span>
-                  <Image
-                    src="/assets/icons/coins.svg"
-                    alt="coins"
-                    width={1}
-                    height={1}
-                    className="size-6 md:size-8"
-                  />
-                </span>{" "}
-                {credits}
-              </div>
-            )}
-          </Button>
+          {userId ? (
+            <Button
+              type="submit"
+              key="submitButton"
+              className="submit-button capitalize"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                "Submitting..."
+              ) : (
+                <div className="flex text-lg font-semibold gap-2 items-center justify-center">
+                  Generate{" "}
+                  <span>
+                    <Image
+                      src="/assets/icons/coins.svg"
+                      alt="coins"
+                      width={1}
+                      height={1}
+                      className="size-6 md:size-8"
+                    />
+                  </span>{" "}
+                  {credits}
+                </div>
+              )}
+            </Button>
+          ) : (
+            <Link
+              href={"/sign-in"}
+              className="text-white flex text-lg font-semibold gap-2 items-center justify-center"
+            >
+              <div className="submit-button capitalize text-center">LOGIN </div>
+            </Link>
+          )}
         </form>
       </Form>
       {!isResponse ? (

@@ -20,6 +20,7 @@ import { Skeleton } from "../ui/skeleton";
 import Image from "next/image";
 import { useAuth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 const formSchema = z.object({
   file: z
@@ -35,8 +36,7 @@ const formSchema = z.object({
 
 export default function LongVidAudio({ type }: LongAiFormProps) {
   const { userId } = useAuth();
-  if (!userId) redirect("/sign-in");
-  const UserID = userId;
+
   const longVid = longvidTypes[type];
   const [availableCredits, setAvailableCredits] = useState<boolean>(false);
 
@@ -77,8 +77,10 @@ export default function LongVidAudio({ type }: LongAiFormProps) {
       duration: 5000,
       className: "success-toast",
     });
-
-    const user = await getUserById(UserID);
+    if (!userId) {
+      return;
+    }
+    const user = await getUserById(userId);
 
     if (!user) {
       return;
@@ -209,31 +211,40 @@ export default function LongVidAudio({ type }: LongAiFormProps) {
         </div>
       </div>
       <div className="">
-        <Button
-          type="submit"
-          onClick={callGetTranscription}
-          key="submitButton"
-          className="submit-button  capitalize pt-10"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? (
-            "Submitting..."
-          ) : (
-            <div className="flex text-lg font-semibold gap-2 items-center justify-center">
-              Generate{" "}
-              <span>
-                <Image
-                  src="/assets/icons/coins.svg"
-                  alt="coins"
-                  width={1}
-                  height={1}
-                  className="size-6 md:size-8"
-                />
-              </span>{" "}
-              {credits}
-            </div>
-          )}
-        </Button>
+        {userId ? (
+          <Button
+            type="submit"
+            onClick={callGetTranscription}
+            key="submitButton"
+            className="submit-button capitalize"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              "Submitting..."
+            ) : (
+              <div className="flex text-lg font-semibold gap-2 items-center justify-center">
+                Generate{" "}
+                <span>
+                  <Image
+                    src="/assets/icons/coins.svg"
+                    alt="coins"
+                    width={1}
+                    height={1}
+                    className="size-6 md:size-8"
+                  />
+                </span>{" "}
+                {credits}
+              </div>
+            )}
+          </Button>
+        ) : (
+          <Link
+            href={"/sign-in"}
+            className="text-white flex text-lg font-semibold gap-2 items-center justify-center"
+          >
+            <div className="submit-button capitalize text-center">LOGIN </div>
+          </Link>
+        )}
       </div>
       {audioUrl ? (
         <div className="min-h-max h-[30vh] md:h-[80vh]   p-5 m-auto flex flex-col w-full gap-2">

@@ -1,7 +1,7 @@
 import Header from "@/components/shared/Header";
 import { contentwriterTypes } from "@/constants";
 import { getUserById } from "@/lib/actions/user.actions";
-import { auth } from "@clerk/nextjs";
+import { SignIn, auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import ContentWriterAiForm from "@/components/shared/ContentWriterAiForm";
 import Editor from "@/components/shared/Editor";

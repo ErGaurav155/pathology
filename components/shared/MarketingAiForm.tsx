@@ -49,6 +49,7 @@ import Image from "next/image";
 import { download, totalCredits } from "@/lib/utils";
 import { Skeleton } from "../ui/skeleton";
 import { useAuth } from "@clerk/nextjs";
+import Link from "next/link";
 
 const formSchema = z.object({
   input: z.string().min(5, {
@@ -67,8 +68,7 @@ interface AiImages {
 
 export default function MarketingAiForm({ type }: MarketingFormProps) {
   const { userId } = useAuth();
-  if (!userId) redirect("/sign-in");
-  const UserID = userId;
+
   const [activeStates, setActiveStates] = useState(Array(5).fill(false));
   const [isSubmitting, setIsSubmitting] = useState(false);
   const Marketing = MarketingFormProps[type];
@@ -170,8 +170,10 @@ export default function MarketingAiForm({ type }: MarketingFormProps) {
       duration: 2000,
       className: "success-toast",
     });
-
-    const user = await getUserById(UserID);
+    if (!userId) {
+      return;
+    }
+    const user = await getUserById(userId);
 
     if (!user) {
       return;
@@ -457,30 +459,39 @@ export default function MarketingAiForm({ type }: MarketingFormProps) {
             )}
           />
 
-          <Button
-            type="submit"
-            key="submitButton"
-            className="submit-button capitalize"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              "Submitting..."
-            ) : (
-              <div className="flex text-lg font-semibold gap-2 items-center justify-center">
-                Generate{" "}
-                <span>
-                  <Image
-                    src="/assets/icons/coins.svg"
-                    alt="coins"
-                    width={1}
-                    height={1}
-                    className="size-6 md:size-8"
-                  />
-                </span>{" "}
-                {credits}
-              </div>
-            )}
-          </Button>
+          {userId ? (
+            <Button
+              type="submit"
+              key="submitButton"
+              className="submit-button capitalize"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                "Submitting..."
+              ) : (
+                <div className="flex text-lg font-semibold gap-2 items-center justify-center">
+                  Generate{" "}
+                  <span>
+                    <Image
+                      src="/assets/icons/coins.svg"
+                      alt="coins"
+                      width={1}
+                      height={1}
+                      className="size-6 md:size-8"
+                    />
+                  </span>{" "}
+                  {credits}
+                </div>
+              )}
+            </Button>
+          ) : (
+            <Link
+              href={"/sign-in"}
+              className="text-white flex text-lg font-semibold gap-2 items-center justify-center"
+            >
+              <div className="submit-button capitalize text-center">LOGIN </div>
+            </Link>
+          )}
         </form>
       </Form>
       {!isResponse ? (
