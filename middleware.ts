@@ -7,6 +7,7 @@ export default authMiddleware({
     "/privacy-policy",
     "/TermsandCondition",
     "/api/webhooks/clerk",
+    "/criconai/:path*",
   ],
 });
 

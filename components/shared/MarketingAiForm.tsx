@@ -39,7 +39,7 @@ import {
   generateGptResponse,
 } from "@/lib/actions/ai.actions";
 import {
-  getUserByDbId,
+  getUserById,
   saveImageUrls,
   updateCredits,
 } from "@/lib/actions/user.actions";
@@ -48,6 +48,7 @@ import { Copy, DownloadIcon } from "lucide-react";
 import Image from "next/image";
 import { download, totalCredits } from "@/lib/utils";
 import { Skeleton } from "../ui/skeleton";
+import { useAuth } from "@clerk/nextjs";
 
 const formSchema = z.object({
   input: z.string().min(5, {
@@ -64,19 +65,16 @@ interface AiImages {
   values: string[];
 }
 
-export default function MarketingAiForm({
-  userId,
-  type,
-  creditBalance,
-}: MarketingFormProps) {
+export default function MarketingAiForm({ type }: MarketingFormProps) {
+  const { userId } = useAuth();
   if (!userId) redirect("/sign-in");
-
+  const UserID = userId;
   const [activeStates, setActiveStates] = useState(Array(5).fill(false));
   const [isSubmitting, setIsSubmitting] = useState(false);
   const Marketing = MarketingFormProps[type];
   const [imageUrl, setImageUrl] = useState<string[]>([]);
-  const [availableCredits, setAvailableCredits] =
-    useState<number>(creditBalance);
+  const [availableCredits, setAvailableCredits] = useState<boolean>(false);
+
   const [isResponse, setIsResponse] = useState(false);
 
   const [response, setResponse] = useState<string | null>();
@@ -172,12 +170,18 @@ export default function MarketingAiForm({
       duration: 2000,
       className: "success-toast",
     });
-    const user = await getUserByDbId(userId);
 
-    setAvailableCredits(user.creditBalance);
+    const user = await getUserById(UserID);
+
+    if (!user) {
+      return;
+    }
+    const userDbId = user._id;
     if (user.creditBalance < Math.abs(credits)) {
       setIsSubmitting(false);
-      return <InsufficientCreditsModal />;
+      setIsResponse(false);
+      setAvailableCredits(true);
+      return;
     }
     const { input, inputlag, outputlag, selectTone, description } = values;
 
@@ -193,12 +197,12 @@ export default function MarketingAiForm({
           model,
         });
         if (res) {
-          await updateCredits(userId, -credits);
+          await updateCredits(userDbId, -credits);
           if (model === "gpt-3.5-turbo") {
             setResponse(res);
           } else {
             setImageUrl(res);
-            await saveImageUrls(userId, res);
+            await saveImageUrls(userDbId, res);
           }
         } else {
           toast({
@@ -218,10 +222,10 @@ export default function MarketingAiForm({
           description,
         });
         if (res) {
-          await updateCredits(userId, -credits);
+          await updateCredits(userDbId, -credits);
           setAllResponse(res.slice(0, 3));
           setImageUrl(res.slice(3));
-          await saveImageUrls(userId, res.slice(3));
+          await saveImageUrls(userDbId, res.slice(3));
         } else {
           toast({
             title: "Content Warning",
@@ -245,6 +249,9 @@ export default function MarketingAiForm({
       setIsResponse(false);
     }
   }
+  if (availableCredits) {
+    return <InsufficientCreditsModal />;
+  }
   return (
     <div>
       <div className=" mb-5 h-[70px]">
@@ -254,7 +261,6 @@ export default function MarketingAiForm({
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {availableCredits < Math.abs(credits) && <InsufficientCreditsModal />}
           <FormField
             control={form.control}
             name="input"

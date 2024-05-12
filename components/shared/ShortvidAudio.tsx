@@ -11,13 +11,15 @@ import {
 } from "../ui/select";
 import { languages, shortvidTypes, voice } from "@/constants";
 import { Button } from "../ui/button";
-import { getUserByDbId, updateCredits } from "@/lib/actions/user.actions";
+import { getUserById, updateCredits } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import { z } from "zod";
 import { calculateCredits } from "@/lib/utils";
 import { toast } from "../ui/use-toast";
 import { Skeleton } from "../ui/skeleton";
 import Image from "next/image";
+import { redirect } from "next/navigation";
+import { auth, useAuth } from "@clerk/nextjs";
 
 const formSchema = z.object({
   file: z
@@ -30,14 +32,12 @@ const formSchema = z.object({
   selectTone: z.string(),
   outputlag: z.string(),
 });
-export default function ShortVidAudio({
-  userId,
-  type,
-  creditBalance,
-}: ShortAiFormProps) {
+export default function ShortVidAudio({ type }: ShortAiFormProps) {
+  const { userId } = useAuth();
+  if (!userId) redirect("/sign-in");
+  const UserID = userId;
   const shortVid = shortvidTypes[type];
-  const [availableCredits, setAvailableCredits] =
-    useState<number>(creditBalance);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [theFile, setTheFile] = useState<File | null>(null);
@@ -45,6 +45,7 @@ export default function ShortVidAudio({
   const [language1, setLanguage1] = useState("");
   const [credits, setCredits] = useState(shortVid.credits);
   const [size, setSize] = useState<number>();
+  const [availableCredits, setAvailableCredits] = useState<boolean>(false);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.currentTarget.files?.[0];
@@ -75,12 +76,17 @@ export default function ShortVidAudio({
       duration: 5000,
       className: "success-toast",
     });
-    const user = await getUserByDbId(userId);
 
-    setAvailableCredits(user.creditBalance);
+    const user = await getUserById(UserID);
+
+    if (!user) {
+      return;
+    }
+    const userDbId = user._id;
     if (user.creditBalance < Math.abs(credits)) {
       setIsSubmitting(false);
-      return <InsufficientCreditsModal />;
+      setAvailableCredits(true);
+      return;
     }
     const formData = new FormData();
     formData.append("file", theFile);
@@ -105,7 +111,7 @@ export default function ShortVidAudio({
       });
       if (response.ok) {
         const data = await response.json();
-        await updateCredits(userId, -credits);
+        await updateCredits(userDbId, -credits);
 
         setAudioUrl(data.output);
       } else {
@@ -138,10 +144,11 @@ export default function ShortVidAudio({
   const handleLanguageChange = (newLanguage: string) => {
     setLanguage1(newLanguage);
   };
-
+  if (availableCredits) {
+    return <InsufficientCreditsModal />;
+  }
   return (
     <main className="space-y-20 mb-10 mt-10 ">
-      {availableCredits < Math.abs(credits) && <InsufficientCreditsModal />}
       <div>
         <label className="text-n-8 ">Upload File:</label>
         <Input

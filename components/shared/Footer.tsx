@@ -20,7 +20,7 @@ export function Footer() {
             src="/assets/images/logo.png"
             alt="logo"
             width={200}
-            height={24}
+            height={200}
           />
         </div>
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">

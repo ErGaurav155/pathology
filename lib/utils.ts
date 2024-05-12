@@ -70,7 +70,7 @@ export const totalCredits = (selectedAspectRatio: string, arImage: string) => {
     case "1024x1792":
       return 15 * Number(arImage);
     default:
-      return 10;
+      return 0;
   }
 };
 export const handleCredit = (value: string) => {

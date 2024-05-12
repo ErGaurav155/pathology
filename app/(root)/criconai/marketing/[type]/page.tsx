@@ -16,12 +16,7 @@ export const metadata: Metadata = {
 const AddTransformationTypePage = async ({
   params: { type },
 }: MarketingSearchParamProps) => {
-  const { userId } = auth();
   const Marketing = MarketingFormProps[type];
-
-  if (!userId) redirect("/sign-in");
-
-  const user = await getUserById(userId);
 
   return (
     <div className="flex items-center justify-center md:items-start md:justify-start flex-col md:flex-row wrapper2 gap-5">
@@ -29,11 +24,7 @@ const AddTransformationTypePage = async ({
         <Header title={Marketing.title} />
 
         <section className="mt-10">
-          <MarketingAiForm
-            userId={user._id}
-            type={Marketing.type as MarketingTypeKey}
-            creditBalance={user.creditBalance}
-          />
+          <MarketingAiForm type={Marketing.type as MarketingTypeKey} />
         </section>
       </div>
 

@@ -22,10 +22,9 @@ export const plans = [
     credits: 700,
     inclusions: [
       {
-        label: "700 Credits",
+        label: "700 Credits + NO FREE",
         isIncluded: true,
       },
-
       {
         label: "Priority Customer Support",
         isIncluded: false,

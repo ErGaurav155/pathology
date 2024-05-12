@@ -44,7 +44,7 @@ export function Sidebar() {
             src="/assets/images/logo.png"
             alt="logo"
             width={400}
-            height={24}
+            height={400}
           />
         </div>
 

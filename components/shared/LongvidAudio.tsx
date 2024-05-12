@@ -11,13 +11,15 @@ import {
 } from "../ui/select";
 import { languages, longvidTypes, voice } from "@/constants";
 import { Button } from "../ui/button";
-import { getUserByDbId, updateCredits } from "@/lib/actions/user.actions";
+import { getUserById, updateCredits } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import { z } from "zod";
 import { calculateCredits } from "@/lib/utils";
 import { toast } from "../ui/use-toast";
 import { Skeleton } from "../ui/skeleton";
 import Image from "next/image";
+import { useAuth } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 const formSchema = z.object({
   file: z
@@ -31,14 +33,13 @@ const formSchema = z.object({
   outputlag: z.string(),
 });
 
-export default function LongVidAudio({
-  userId,
-  type,
-  creditBalance,
-}: LongAiFormProps) {
+export default function LongVidAudio({ type }: LongAiFormProps) {
+  const { userId } = useAuth();
+  if (!userId) redirect("/sign-in");
+  const UserID = userId;
   const longVid = longvidTypes[type];
-  const [availableCredits, setAvailableCredits] =
-    useState<number>(creditBalance);
+  const [availableCredits, setAvailableCredits] = useState<boolean>(false);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [theFile, setTheFile] = useState<File | null>(null);
@@ -76,12 +77,18 @@ export default function LongVidAudio({
       duration: 5000,
       className: "success-toast",
     });
-    const user = await getUserByDbId(userId);
 
-    setAvailableCredits(user.creditBalance);
+    const user = await getUserById(UserID);
+
+    if (!user) {
+      return;
+    }
+    const userDbId = user._id;
     if (user.creditBalance < Math.abs(credits)) {
       setIsSubmitting(false);
-      return <InsufficientCreditsModal />;
+
+      setAvailableCredits(true);
+      return;
     }
 
     const formData = new FormData();
@@ -107,7 +114,7 @@ export default function LongVidAudio({
       });
       if (response.ok) {
         const data = await response.json();
-        await updateCredits(userId, -credits);
+        await updateCredits(userDbId, -credits);
 
         setAudioUrl(data.output);
       } else {
@@ -140,10 +147,11 @@ export default function LongVidAudio({
   const handleLanguageChange = (newLanguage: string) => {
     setLanguage1(newLanguage);
   };
-
+  if (availableCredits) {
+    return <InsufficientCreditsModal />;
+  }
   return (
     <main className="space-y-20 mb-10 mt-10 ">
-      {availableCredits < Math.abs(credits) && <InsufficientCreditsModal />}
       <div>
         <label className="text-n-8 ">Upload File:</label>
         <Input

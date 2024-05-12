@@ -17,11 +17,7 @@ export const metadata: Metadata = {
 const AddTransformationTypePage = async ({
   params: { type },
 }: LongSearchParamProps) => {
-  const { userId } = auth();
   const longVid = longvidTypes[type];
-  if (!userId) redirect("/sign-in");
-
-  const user = await getUserById(userId);
 
   return (
     <div className="flex items-center justify-center md:items-start md:justify-start flex-col md:flex-row wrapper2 gap-5">
@@ -30,18 +26,10 @@ const AddTransformationTypePage = async ({
 
         <section className="mt-10">
           {type === "audiotoAudio" && (
-            <LongVidAudio
-              userId={user._id}
-              type={longVid.type as LongVidTypeKey}
-              creditBalance={user.creditBalance}
-            />
+            <LongVidAudio type={longVid.type as LongVidTypeKey} />
           )}
           {type !== "audiotoAudio" && (
-            <LongVidAiForm
-              userId={user._id}
-              type={longVid.type as LongVidTypeKey}
-              creditBalance={user.creditBalance}
-            />
+            <LongVidAiForm type={longVid.type as LongVidTypeKey} />
           )}
         </section>
       </div>

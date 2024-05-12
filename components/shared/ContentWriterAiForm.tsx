@@ -38,7 +38,7 @@ import { redirect } from "next/navigation";
 import { generateGptResponse } from "@/lib/actions/ai.actions";
 import { fetchContentWriterData } from "@/lib/actions/ai.actions";
 import {
-  getUserByDbId,
+  getUserById,
   saveImageUrls,
   updateCredits,
 } from "@/lib/actions/user.actions";
@@ -48,6 +48,7 @@ import Image from "next/image";
 import { download, handleCredit, totalCredits } from "@/lib/utils";
 import { Switch } from "../ui/switch";
 import { Skeleton } from "../ui/skeleton";
+import { auth, useAuth } from "@clerk/nextjs";
 
 const formSchema = z.object({
   input: z.string().min(5, {
@@ -64,18 +65,17 @@ interface AiImages {
   values: string[];
 }
 export default function ContentWriterAiForm({
-  userId,
   type,
-  creditBalance,
 }: ContentWriterAiFormProps) {
+  const { userId } = useAuth();
   if (!userId) redirect("/sign-in");
+  const UserID = userId;
 
   const [activeStates, setActiveStates] = useState(Array(5).fill(false));
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [imageUrl, setImageUrl] = useState<string[]>([]);
-  const [availableCredits, setAvailableCredits] =
-    useState<number>(creditBalance);
   const [isResponse, setIsResponse] = useState(false);
+  const [availableCredits, setAvailableCredits] = useState<boolean>(false);
 
   const [response, setResponse] = useState<string | null>();
   const [allResponse, setAllResponse] = useState<string[] | null>();
@@ -175,12 +175,17 @@ export default function ContentWriterAiForm({
       className: "success-toast",
     });
 
-    const user = await getUserByDbId(userId);
+    const user = await getUserById(UserID);
 
-    setAvailableCredits(user.creditBalance);
+    if (!user) {
+      return;
+    }
+    const userDbId = user._id;
     if (user.creditBalance < Math.abs(credits)) {
       setIsSubmitting(false);
-      return <InsufficientCreditsModal />;
+      setIsResponse(false);
+      setAvailableCredits(true);
+      return;
     }
     const { input, inputlag, outputlag, selectTone, description } = values;
 
@@ -197,12 +202,12 @@ export default function ContentWriterAiForm({
           genType,
         });
         if (res) {
-          await updateCredits(userId, -credits);
+          await updateCredits(userDbId, -credits);
           if (model === "gpt-3.5-turbo") {
             setResponse(res);
           } else if (model === "dall-e-3") {
             setImageUrl(res);
-            await saveImageUrls(userId, res);
+            await saveImageUrls(userDbId, res);
           } else {
             setAudioUrl(res);
           }
@@ -224,10 +229,10 @@ export default function ContentWriterAiForm({
           description,
         });
         if (res) {
-          await updateCredits(userId, -credits);
+          await updateCredits(userDbId, -credits);
           setAllResponse(res.slice(0, 6));
           setImageUrl(res.slice(6));
-          await saveImageUrls(userId, res.slice(6));
+          await saveImageUrls(userDbId, res.slice(6));
         } else {
           toast({
             title: "Content Warning",
@@ -251,6 +256,9 @@ export default function ContentWriterAiForm({
       setIsResponse(false);
     }
   }
+  if (availableCredits) {
+    return <InsufficientCreditsModal />;
+  }
   return (
     <div>
       {(type === "coverimage" || type === "images") && (
@@ -273,7 +281,6 @@ export default function ContentWriterAiForm({
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 mb-10"
         >
-          {availableCredits < Math.abs(credits) && <InsufficientCreditsModal />}
           {type !== "translation" && type !== "TexttoAudio" && (
             <FormField
               control={form.control}

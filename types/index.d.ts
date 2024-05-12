@@ -154,27 +154,17 @@ declare type ContentWriterSearchParamProps = {
 };
 
 declare type LongAiFormProps = {
-  userId: string;
   type: LongVidTypeKey;
-  creditBalance: number;
 };
 declare type ShortAiFormProps = {
-  userId: string;
   type: ShortVidTypeKey;
-  creditBalance: number;
 };
 declare type ContentWriterAiFormProps = {
-  userId: string;
   type: ContentWriterTypeKey;
-  creditBalance: number;
 };
 declare type SocialMediaFormProps = {
-  userId: string;
   type: SocialMediaTypeKey;
-  creditBalance: number;
 };
 declare type MarketingFormProps = {
-  userId: string;
   type: MarketingTypeKey;
-  creditBalance: number;
 };

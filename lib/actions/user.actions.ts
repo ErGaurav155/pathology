@@ -90,12 +90,12 @@ export async function deleteUser(clerkId: string) {
 }
 
 // USE CREDITS
-export async function updateCredits(userId: string, creditFee: number) {
+export async function updateCredits(userDbId: string, creditFee: number) {
   try {
     await connectToDatabase();
 
     const updatedUserCredits = await User.findOneAndUpdate(
-      { _id: userId },
+      { _id: userDbId },
       { $inc: { creditBalance: creditFee } },
       { new: true }
     );
@@ -108,10 +108,10 @@ export async function updateCredits(userId: string, creditFee: number) {
   }
 }
 
-export async function saveImageUrls(userId: string, imageUrls: string[]) {
+export async function saveImageUrls(userDbId: string, imageUrls: string[]) {
   try {
     // Find the user by clerkId
-    const user = await User.findOne({ _id: userId });
+    const user = await User.findOne({ _id: userDbId });
     if (!user) {
       throw new Error("User not found");
     }
@@ -128,11 +128,11 @@ export async function saveImageUrls(userId: string, imageUrls: string[]) {
   }
 }
 
-export async function deleteImageUrls(userId: string, urlToDelete: string) {
+export async function deleteImageUrls(userDbId: string, urlToDelete: string) {
   try {
     // Remove the specified URL from the imageUrls array
     const updatedUser = await User.findOneAndUpdate(
-      { _id: userId },
+      { _id: userDbId },
       { $pull: { imageUrls: urlToDelete } },
       { new: true } // Return the updated document
     );

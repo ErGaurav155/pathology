@@ -18,12 +18,7 @@ export const metadata: Metadata = {
 const AddTransformationTypePage = async ({
   params: { type },
 }: ShortSearchParamProps) => {
-  const { userId } = auth();
   const shortVid = shortvidTypes[type];
-
-  if (!userId) redirect("/sign-in");
-
-  const user = await getUserById(userId);
 
   return (
     <div className="flex items-center justify-center md:items-start md:justify-start flex-col md:flex-row wrapper2 gap-5">
@@ -32,18 +27,10 @@ const AddTransformationTypePage = async ({
 
         <section className="mt-10">
           {type === "audiotoAudio" && (
-            <ShortVidAudio
-              userId={user._id}
-              type={shortVid.type as ShortVidTypeKey}
-              creditBalance={user.creditBalance}
-            />
+            <ShortVidAudio type={shortVid.type as ShortVidTypeKey} />
           )}
           {type !== "audiotoAudio" && (
-            <ShortVidAiForm
-              userId={user._id}
-              type={shortVid.type as ShortVidTypeKey}
-              creditBalance={user.creditBalance}
-            />
+            <ShortVidAiForm type={shortVid.type as ShortVidTypeKey} />
           )}
         </section>
       </div>

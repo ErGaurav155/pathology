@@ -40,7 +40,7 @@ import {
   generateGptResponse,
 } from "@/lib/actions/ai.actions";
 import {
-  getUserByDbId,
+  getUserById,
   saveImageUrls,
   updateCredits,
 } from "@/lib/actions/user.actions";
@@ -50,6 +50,7 @@ import Image from "next/image";
 import { download, handleCredit, totalCredits } from "@/lib/utils";
 import { Switch } from "../ui/switch";
 import { Skeleton } from "../ui/skeleton";
+import { useAuth } from "@clerk/nextjs";
 
 const formSchema = z.object({
   input: z.string().min(5, {
@@ -66,20 +67,17 @@ interface AiImages {
   values: string[];
 }
 
-export default function ShortVidAiForm({
-  userId,
-  type,
-  creditBalance,
-}: ShortAiFormProps) {
+export default function ShortVidAiForm({ type }: ShortAiFormProps) {
+  const { userId } = useAuth();
   if (!userId) redirect("/sign-in");
+  const UserID = userId;
   const shortVid = shortvidTypes[type];
 
   const [activeStates, setActiveStates] = useState(Array(5).fill(false));
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [availableCredits, setAvailableCredits] = useState<boolean>(false);
 
   const [genType, setGenType] = useState(false);
-  const [availableCredits, setAvailableCredits] =
-    useState<number>(creditBalance);
 
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [imageUrl, setImageUrl] = useState<string[]>([]);
@@ -178,12 +176,18 @@ export default function ShortVidAiForm({
       duration: 2000,
       className: "success-toast",
     });
-    const user = await getUserByDbId(userId);
 
-    setAvailableCredits(user.creditBalance);
+    const user = await getUserById(UserID);
+
+    if (!user) {
+      return;
+    }
+    const userDbId = user._id;
     if (user.creditBalance < Math.abs(credits)) {
       setIsSubmitting(false);
-      return <InsufficientCreditsModal />;
+      setIsResponse(false);
+      setAvailableCredits(true);
+      return;
     }
 
     const { input, inputlag, outputlag, selectTone, description } = values;
@@ -201,12 +205,12 @@ export default function ShortVidAiForm({
           genType,
         });
         if (res) {
-          await updateCredits(userId, -credits);
+          await updateCredits(userDbId, -credits);
           if (model === "gpt-3.5-turbo") {
             setResponse(res);
           } else if (model === "dall-e-3") {
             setImageUrl(res);
-            await saveImageUrls(userId, res);
+            await saveImageUrls(userDbId, res);
           } else {
             setAudioUrl(res);
           }
@@ -228,10 +232,10 @@ export default function ShortVidAiForm({
           description,
         });
         if (res) {
-          await updateCredits(userId, -credits);
+          await updateCredits(userDbId, -credits);
           setAllResponse(res.slice(0, 4));
           setImageUrl(res.slice(4));
-          await saveImageUrls(userId, res.slice(4));
+          await saveImageUrls(userDbId, res.slice(4));
         } else {
           toast({
             title: "Content Warning",
@@ -255,6 +259,9 @@ export default function ShortVidAiForm({
       setIsResponse(false);
     }
   }
+  if (availableCredits) {
+    return <InsufficientCreditsModal />;
+  }
   return (
     <div>
       {(type === "thumbnail" || type === "aiimages") && (
@@ -274,7 +281,6 @@ export default function ShortVidAiForm({
       )}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {availableCredits < Math.abs(credits) && <InsufficientCreditsModal />}
           {type !== "translate" && type !== "TexttoAudio" && (
             <FormField
               control={form.control}

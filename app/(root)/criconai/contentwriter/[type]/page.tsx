@@ -17,12 +17,7 @@ export const metadata: Metadata = {
 const AddTransformationTypePage = async ({
   params: { type },
 }: ContentWriterSearchParamProps) => {
-  const { userId } = auth();
   const contentWriter = contentwriterTypes[type];
-
-  if (!userId) redirect("/sign-in");
-
-  const user = await getUserById(userId);
 
   return (
     <div className="flex items-center justify-center md:items-start md:justify-start flex-col md:flex-row wrapper2 gap-5">
@@ -31,9 +26,7 @@ const AddTransformationTypePage = async ({
 
         <section className="mt-10">
           <ContentWriterAiForm
-            userId={user._id}
             type={contentWriter.type as ContentWriterTypeKey}
-            creditBalance={user.creditBalance}
           />
         </section>
       </div>

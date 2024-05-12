@@ -16,12 +16,7 @@ export const metadata: Metadata = {
 const AddTransformationTypePage = async ({
   params: { type },
 }: SocialMediaSearchParamProps) => {
-  const { userId } = auth();
   const socialMedia = socialmediaTypes[type];
-
-  if (!userId) redirect("/sign-in");
-
-  const user = await getUserById(userId);
 
   return (
     <div className="flex items-center justify-center md:items-start md:justify-start flex-col md:flex-row wrapper2 gap-5">
@@ -29,11 +24,7 @@ const AddTransformationTypePage = async ({
         <Header title={socialMedia.title} />
 
         <section className="mt-10">
-          <SocialMediaAiForm
-            userId={user._id}
-            type={socialMedia.type as SocialMediaTypeKey}
-            creditBalance={user.creditBalance}
-          />
+          <SocialMediaAiForm type={socialMedia.type as SocialMediaTypeKey} />
         </section>
       </div>
 

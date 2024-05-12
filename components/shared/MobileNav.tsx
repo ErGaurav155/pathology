@@ -78,7 +78,7 @@ export function MobileNav() {
           src="/assets/images/logo.png"
           alt="logo"
           width={200}
-          height={40}
+          height={200}
         />
       </Link>
       <SignedIn>
