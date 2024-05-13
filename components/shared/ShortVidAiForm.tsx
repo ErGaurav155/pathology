@@ -45,12 +45,13 @@ import {
   updateCredits,
 } from "@/lib/actions/user.actions";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
-import { Copy, DownloadIcon, Link } from "lucide-react";
+import { Copy, DownloadIcon } from "lucide-react";
 import Image from "next/image";
 import { download, handleCredit, totalCredits } from "@/lib/utils";
 import { Switch } from "../ui/switch";
 import { Skeleton } from "../ui/skeleton";
 import { useAuth } from "@clerk/nextjs";
+import Link from "next/link";
 
 const formSchema = z.object({
   input: z.string().min(5, {
@@ -607,7 +608,6 @@ export default function ShortVidAiForm({ type }: ShortAiFormProps) {
               </FormItem>
             )}
           />
-
           {userId ? (
             <Button
               type="submit"
