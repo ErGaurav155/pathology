@@ -18,8 +18,7 @@ import { calculateCredits } from "@/lib/utils";
 import { toast } from "../ui/use-toast";
 import { Skeleton } from "../ui/skeleton";
 import Image from "next/image";
-import { redirect } from "next/navigation";
-import { auth, useAuth } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 
 const formSchema = z.object({

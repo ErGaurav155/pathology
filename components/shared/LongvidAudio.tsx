@@ -19,7 +19,6 @@ import { toast } from "../ui/use-toast";
 import { Skeleton } from "../ui/skeleton";
 import Image from "next/image";
 import { useAuth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
 import Link from "next/link";
 
 const formSchema = z.object({

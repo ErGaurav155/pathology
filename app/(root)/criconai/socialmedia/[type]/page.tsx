@@ -1,17 +1,15 @@
 import Header from "@/components/shared/Header";
 import { socialmediaTypes } from "@/constants";
-import { getUserById } from "@/lib/actions/user.actions";
-import { auth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+
 import SocialMediaAiForm from "@/components/shared/SocialMediaAiForm";
 import Editor from "@/components/shared/Editor";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Tools For INFLUENCERS",
+  title: "Top 15 AI Tools For INFLUENCERS",
   description:
-    "FREE AI-powered best content creation technology for SOCIAL MEDIA INFLUENCERS",
+    "FREE AI-Tools Like 'Reels/Shorts Video Idea','Comment/Tweet Replies','Post Generators','Trending-Hashtags','Bio Generators','Generate Ai Images For Topic Explaination',etc .For SOCIAL MEDIA INFLUENCERS",
 };
 const AddTransformationTypePage = async ({
   params: { type },

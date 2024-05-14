@@ -1,17 +1,15 @@
 import Header from "@/components/shared/Header";
 import { MarketingFormProps } from "@/constants";
-import { getUserById } from "@/lib/actions/user.actions";
-import { auth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+
 import Editor from "@/components/shared/Editor";
 import { Button } from "@/components/ui/button";
 import MarketingAiForm from "@/components/shared/MarketingAiForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best Ai Video Promotion Tool ",
+  title: "AI Tools For Video Promotion ",
   description:
-    "FREE AI-powered best Promotion technology for SOCIAL MEDIA INFLUENCERS/YOUTUBERS",
+    "FREE Tools-'Sponser Founder','Video Promotion Helper','Promotion Fee Calculator',etc. for SOCIAL MEDIA INFLUENCERS/YOUTUBERS",
 };
 const AddTransformationTypePage = async ({
   params: { type },

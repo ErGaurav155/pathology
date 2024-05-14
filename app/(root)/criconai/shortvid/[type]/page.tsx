@@ -1,8 +1,6 @@
 import Header from "@/components/shared/Header";
 import { shortvidTypes } from "@/constants";
-import { getUserById } from "@/lib/actions/user.actions";
-import { auth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+
 import ShortVidAiForm from "@/components/shared/ShortVidAiForm";
 import Editor from "@/components/shared/Editor";
 import { Button } from "@/components/ui/button";
@@ -11,9 +9,9 @@ import Aiaudio from "@/components/shared/Aiaudio";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ai Tools For Reels/Shorts",
+  title: "Top 15 AI Tools For Reels/Shorts Video Creators",
   description:
-    "FREE AI-powered best content creation technology for SOCIAL MEDIA INFLUENCERS",
+    "FREE AI-Tools Like 'Reels/Shorts Video Idea','Clicky-Thumbnail','ToneBased-Video Script','Trending-Hashtags','Audio Translator','Generate Ai Images For Topic Explaination',etc .For REELS/SHORTS CREATORS",
 };
 const AddTransformationTypePage = async ({
   params: { type },

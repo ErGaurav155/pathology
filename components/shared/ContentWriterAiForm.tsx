@@ -34,7 +34,7 @@ import {
   noOfImage,
   voice,
 } from "@/constants";
-import { redirect } from "next/navigation";
+
 import { generateGptResponse } from "@/lib/actions/ai.actions";
 import { fetchContentWriterData } from "@/lib/actions/ai.actions";
 import {
@@ -48,7 +48,7 @@ import Image from "next/image";
 import { download, handleCredit, totalCredits } from "@/lib/utils";
 import { Switch } from "../ui/switch";
 import { Skeleton } from "../ui/skeleton";
-import { SignIn, useAuth } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 
 const formSchema = z.object({

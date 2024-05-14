@@ -35,7 +35,6 @@ import {
   noOfImage,
   voice,
 } from "@/constants";
-import { redirect } from "next/navigation";
 import {
   fetchLongVidData,
   generateGptResponse,

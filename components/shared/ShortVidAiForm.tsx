@@ -34,7 +34,6 @@ import {
   shortvidTypes,
   voice,
 } from "@/constants";
-import { redirect } from "next/navigation";
 import {
   fetchShortVidData,
   generateGptResponse,

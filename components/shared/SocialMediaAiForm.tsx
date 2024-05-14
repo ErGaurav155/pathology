@@ -32,7 +32,6 @@ import {
   noOfImage,
   socialmediaTypes,
 } from "@/constants";
-import { redirect } from "next/navigation";
 import {
   fetchSocialMediaData,
   generateGptResponse,
@@ -48,7 +47,7 @@ import Image from "next/image";
 import { download, totalCredits } from "@/lib/utils";
 import { Switch } from "../ui/switch";
 import { Skeleton } from "../ui/skeleton";
-import { auth, useAuth } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 
 const formSchema = z.object({

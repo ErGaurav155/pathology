@@ -1,8 +1,6 @@
 import Header from "@/components/shared/Header";
 import { contentwriterTypes } from "@/constants";
-import { getUserById } from "@/lib/actions/user.actions";
-import { SignIn, auth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+
 import ContentWriterAiForm from "@/components/shared/ContentWriterAiForm";
 import Editor from "@/components/shared/Editor";
 import { Button } from "@/components/ui/button";
@@ -10,9 +8,9 @@ import Aiaudio from "@/components/shared/Aiaudio";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Tools For Content Writers",
+  title: "Top 10 AI Tools For Content Writers",
   description:
-    "AI-powered Article/Blog writting technology for content writers",
+    "FREE AI-Tools For Clicky-Thumbnail,ToneBased-Article,Blog and Book Generator,Trending-Hashtags,Text Translator,Generate Ai Images For Topic Representation ",
 };
 const AddTransformationTypePage = async ({
   params: { type },

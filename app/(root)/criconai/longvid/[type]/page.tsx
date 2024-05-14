@@ -1,8 +1,6 @@
 import Header from "@/components/shared/Header";
 import { longvidTypes } from "@/constants";
-import { getUserById } from "@/lib/actions/user.actions";
-import { auth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+
 import LongVidAiForm from "@/components/shared/LongVidAiForm";
 import Editor from "@/components/shared/Editor";
 import { Button } from "@/components/ui/button";
@@ -11,8 +9,9 @@ import Aiaudio from "@/components/shared/Aiaudio";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ai Tools For YOUTUBERS only",
-  description: "FREE AI-powered best quality technology for YOUTUBERS",
+  title: "Top 15 AI Tools For YOUTUBERS",
+  description:
+    "FREE AI-Tools For Clicky-Thumbnail,ToneBased-Video Script ,Trending-Hashtags,Audio Translator,Generate Ai Images For Topic Explaination ",
 };
 const AddTransformationTypePage = async ({
   params: { type },
