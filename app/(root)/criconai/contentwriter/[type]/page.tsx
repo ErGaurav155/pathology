@@ -8,9 +8,9 @@ import Aiaudio from "@/components/shared/Aiaudio";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Top 10 AI Tools For Content Writers",
+  title: "Top 10 AI Tools For Content Writers in 2024",
   description:
-    "FREE AI-Tools For Clicky-Thumbnail,ToneBased-Article,Blog and Book Generator,Trending-Hashtags,Text Translator,Generate Ai Images For Topic Representation ",
+    "AI-Tools For Clicky-Thumbnail,ToneBased-Article,Blog and Book Generator,Trending-Hashtags,Text Translator,Generate Ai Images For Topic Representation(FREE) ",
 };
 const AddTransformationTypePage = async ({
   params: { type },

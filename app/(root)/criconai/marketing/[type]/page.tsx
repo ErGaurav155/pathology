@@ -7,9 +7,9 @@ import MarketingAiForm from "@/components/shared/MarketingAiForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Tools For Video Promotion ",
+  title: "AI Tools For Video Promotion in 2024 ",
   description:
-    "FREE Tools-'Sponser Founder','Video Promotion Helper','Promotion Fee Calculator',etc. for SOCIAL MEDIA INFLUENCERS/YOUTUBERS",
+    "AI Tools-'Sponser Founder','Video Promotion Helper','Promotion Fee Calculator',etc. for Social Media Influencer/Youtuber(FREE)",
 };
 const AddTransformationTypePage = async ({
   params: { type },

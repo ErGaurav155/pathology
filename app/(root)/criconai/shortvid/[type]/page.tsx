@@ -9,9 +9,9 @@ import Aiaudio from "@/components/shared/Aiaudio";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Top 15 AI Tools For Reels/Shorts Video Creators",
+  title: "Top 15 AI Tools For Reels/Shorts Video Creators in 2024",
   description:
-    "FREE AI-Tools Like 'Reels/Shorts Video Idea','Clicky-Thumbnail','ToneBased-Video Script','Trending-Hashtags','Audio Translator','Generate Ai Images For Topic Explaination',etc .For REELS/SHORTS CREATORS",
+    "AI-Tools Like 'Reels/Shorts Video Idea','Clicky-Thumbnail','ToneBased-Video Script','Trending-Hashtags','Audio Translator','Generate Ai Images For Topic Explaination',etc .For REELS/SHORTS Creators(FREE)",
 };
 const AddTransformationTypePage = async ({
   params: { type },

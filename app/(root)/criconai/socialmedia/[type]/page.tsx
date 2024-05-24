@@ -9,7 +9,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Top 15 AI Tools For INFLUENCERS",
   description:
-    "FREE AI-Tools Like 'Reels/Shorts Video Idea','Comment/Tweet Replies','Post Generators','Trending-Hashtags','Bio Generators','Generate Ai Images For Topic Explaination',etc .For SOCIAL MEDIA INFLUENCERS",
+    "AI-Tools Like 'Reels/Shorts Video Idea','Comment/Tweet Replies','Post Generators','Trending-Hashtags','Bio Generators','Generate Ai Images For Topic Explaination',etc .For Social Media Influencer(FREE)",
 };
 const AddTransformationTypePage = async ({
   params: { type },

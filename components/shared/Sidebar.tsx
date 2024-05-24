@@ -781,15 +781,6 @@ export function Sidebar() {
                     <UserIcon className="h-5 w-5" />
                   </ListItemPrefix>
                   Profile
-                  <ListItemSuffix>
-                    <Chip
-                      value="14"
-                      size="sm"
-                      variant="ghost"
-                      color="blue-gray"
-                      className="rounded-full"
-                    />
-                  </ListItemSuffix>
                 </ListItem>
               </Link>
               <Link href="/credits">
