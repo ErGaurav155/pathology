@@ -11,14 +11,27 @@ import {
   CarouselPoster,
   CarouselThumbnail,
 } from "@/components/shared/carousel";
+import { Button } from "@/components/ui/button";
 
-import { ArrowBigRight } from "lucide-react";
+import { ArrowBigRight, RocketIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Home = async () => {
   return (
     <div className="wrapper pb-8 lg:pb-10">
+      <Button className="text-white bg-green-800 hover:bg-[#1c7429] rounded-md self-start w-full  cursor-default  max-h-min  mt-2 overflow-hidden">
+        <Link
+          href={"/credits"}
+          className="flex animate-scroll-left whitespace-nowrap "
+        >
+          Get
+          <span className="text-yellow-500"> &nbsp;25 Free &nbsp;</span>
+          Credits For First 100 package purchase &nbsp;
+          <RocketIcon color="yellow" />
+        </Link>
+      </Button>
+
       <div className="flex  flex-col gap-10 items-center m-auto justify-center">
         <section className="bg-[#FCF8F1] bg-opacity-30 pt-4">
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">

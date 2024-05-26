@@ -19,10 +19,10 @@ export const plans = [
     name: "Basic Package",
     icon: "/assets/icons/free-plan.svg",
     price: 599,
-    credits: 700,
+    credits: 725,
     inclusions: [
       {
-        label: "700 Credits + NO FREE",
+        label: "700 Credits + 25 FREE",
         isIncluded: true,
       },
       {

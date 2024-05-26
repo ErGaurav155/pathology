@@ -8,7 +8,8 @@ import { getUserById } from "@/lib/actions/user.actions";
 import Checkout from "@/components/shared/Checkout";
 import { Faq } from "@/components/shared/Faq";
 import { Footer } from "@/components/shared/Footer";
-import { IndianRupeeIcon } from "lucide-react";
+import { IndianRupeeIcon, RocketIcon } from "lucide-react";
+import Link from "next/link";
 
 const Credits = async () => {
   const { userId } = auth();
@@ -19,6 +20,17 @@ const Credits = async () => {
 
   return (
     <div className="wrapper">
+      <Button className="text-white bg-green-800 hover:bg-[#1c7429] rounded-md self-start w-full  cursor-default  max-h-min  mt-2 overflow-hidden">
+        <Link
+          href={"/credits"}
+          className="flex animate-scroll-left whitespace-nowrap "
+        >
+          Get
+          <span className="text-yellow-500"> &nbsp;25 Free &nbsp;</span>
+          Credits For First 100 package purchase &nbsp;
+          <RocketIcon color="yellow" />
+        </Link>
+      </Button>
       <div className="flex flex-col gap-20">
         <section>
           <ul className="credits-list">
@@ -57,7 +69,7 @@ const Credits = async () => {
                         width={24}
                         height={24}
                       />
-                      <p className="p-16-regular">{inclusion.label}</p>
+                      <p className="p-16-regular ">{inclusion.label}</p>
                     </li>
                   ))}
                 </ul>
