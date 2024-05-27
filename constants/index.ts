@@ -288,16 +288,15 @@ export const longvidTypes = {
     subtopic: "Add your opinion ",
     tone: "Choose a tone ",
 
-    aiprompt: `**Generate compelling thumbnail prompts featuring multiple scenes and realistic human emotions based on the provided context as input**
+    aiprompt: `Generate compelling thumbnail prompts featuring maximum 2 to 3 scenes and realistic human emotions based on the provided context as input**
 
     **Instructions:**
     
-    1.Design captivating thumbnail image that depict various scenes relevant to the provided context,merge all different scence one image like various scene in various position in that image college image .
-    2.Also if context needed human involvement incorporate upper chest bodies with extremely ultra realistic human face displaying extreme emotions that align with the context and intended tone.
-    3.overall thumbnail looks ultra real with ultra real human body and face.
-    4.Must add "typogaphy" text that best describe the video purpose .
-    5.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
-    
+    1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
+    2.Also provide an suitable typography text for the video and add it in to images as headline
+    3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
+    4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,thumbnail4,etc"
+    5. provide all information for each thumbnail in single paragraph.
      Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
     `,
@@ -328,16 +327,16 @@ export const longvidTypes = {
     topic: "Describe the topic for title",
     subtopic: "Include more info",
     tone: "",
-    aiprompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
+    aiprompt: `Generate compelling thumbnail prompts featuring maximum 2 to 3 scenes and realistic human emotions based on the provided context as input**
+
+    **Instructions:**
     
-    Instructions:
-    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
-    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
-    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
-    4. Also provide an suitable title for the video and add it in to images as headline
-    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-    6.  must provide output like this only -- desc1,desc2,desc3,etc.   
-     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+    1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
+    2.Also provide an suitable typography text for the video and add it in to images as headline
+    3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
+    4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,thumbnail4,etc"
+    5. provide all information for each thumbnail in single paragraph.
+     Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
     `,
     model: "gpt-3.5-turbo",
@@ -589,16 +588,15 @@ export const shortvidTypes = {
     topic: "Describe main points of video",
     subtopic: "Add your opinion ",
     tone: "Choose a tone ",
-    aiprompt: `**Generate compelling thumbnail prompts featuring multiple scenes and realistic human emotions based on the provided context as input**
+    aiprompt: `Generate compelling thumbnail prompts featuring maximum 2 to 3 scenes and realistic human emotions based on the provided context as input**
 
     **Instructions:**
     
-    1.Design captivating thumbnail image that depict various scenes relevant to the provided context,merge all different scence one image like various scene in various position in that image college image .
-    2.Also if context needed human involvement incorporate upper chest bodies with extremely ultra realistic human face displaying extreme emotions that align with the context and intended tone.
-    3.overall thumbnail looks ultra real with ultra real human body and face.
-    4.Must add "typogaphy" text that best describe the video purpose  .
-    5.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
-    
+    1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
+    2.Also provide an suitable typography text for the video and add it in to images as headline
+    3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
+    4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,thumbnail4,etc"
+    5. provide all information for each thumbnail in single paragraph.
      Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
     `,
@@ -629,16 +627,16 @@ export const shortvidTypes = {
     topic: "Describe the topic for title",
     subtopic: "Include more info",
     tone: "",
-    aiprompt: `**Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
+    aiprompt: `Generate compelling thumbnail prompts featuring maximum 2 to 3 scenes and realistic human emotions based on the provided context as input**
+
+    **Instructions:**
     
-    Instructions:
-    1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
-    2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
-    3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
-    4. Also provide an suitable title for the video and add it in to images as headline
-    5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
-    6. Must provide output like this only -- desc1,desc2,desc3,etc .
-     Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
+    1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
+    2.Also provide an suitable typography text for the video and add it in to images as headline
+    3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
+    4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,thumbnail4,etc"
+    5. provide all information for each thumbnail in single paragraph.
+     Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
     `,
     model: "gpt-3.5-turbo",
@@ -1611,18 +1609,17 @@ export const aiprompt = [
         model: "gpt-3.5-turbo",
       },
       {
-        prompt: `**Generate compelling thumbnail prompts featuring multiple scenes and realistic human emotions based on the provided context as input**
+        prompt: `Generate compelling thumbnail prompts featuring maximum 2 to 3 scenes and realistic human emotions based on the provided context as input**
 
         **Instructions:**
         
-        1.Design captivating thumbnail image that depict various scenes relevant to the provided context,merge all different scence one image like various scene in various position in that image college.
-        2.Also if context needed human involvement incorporate upper chest bodies with extremely ultra realistic human face displaying extreme emotions that align with the context and intended tone.
-        3.overall thumbnail looks ultra real with ultra real human body and face.
-        4.Must add "typogaphy" text that best describe the video purpose in thumbnail .
-        5.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
-        
+        1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
+        2.Also provide an suitable typography text for the video and add it in to images as headline
+        3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
+        4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,thumbnail4,etc"
+        5. provide all information for each thumbnail in single paragraph.
          Adjust the instructions as needed to suit your specific thumbnail generation requirements.
-    
+        
       `,
         model: "dall-e-3",
       },
@@ -1690,18 +1687,17 @@ export const aiprompt = [
       },
 
       {
-        prompt: `**Generate compelling thumbnail prompts featuring multiple scenes and realistic human emotions based on the provided context as input**
+        prompt: `Generate compelling thumbnail prompts featuring maximum 2 to 3 scenes and realistic human emotions based on the provided context as input**
 
         **Instructions:**
         
-        1.Design captivating thumbnail image that depict various scenes relevant to the provided context,merge all different scence one image like various scene in various position in that image college.
-        2.Also if context needed human involvement incorporate upper chest bodies with extremely ultra realistic human face displaying extreme emotions that align with the context and intended tone.
-        3.overall thumbnail looks ultra real with ultra real human body and face.
-        4.Must add "typogaphy" text that best describe the video purpose in thumbnail .
-        5.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
-        
+        1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
+        2.Also provide an suitable typography text for the video and add it in to images as headline
+        3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
+        4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,thumbnail4,etc"
+        5. provide all information for each thumbnail in single paragraph.
          Adjust the instructions as needed to suit your specific thumbnail generation requirements.
-    
+        
     `,
         model: "dall-e-3",
       },
@@ -2494,3 +2490,13 @@ export const brainwaveServicesIcons = [
   chromecast,
   sliders04,
 ];
+// **Generate clickbait thumbnails that encapsulate the essence of the video content and entice viewers to click and watch. Craft visually compelling images that convey the main idea of the video while intriguing the audience with curiosity.**
+
+//     Instructions:
+//     1. Create clickbait thumbnails by understanding the information provided in context that vividly represent the core concept or topic discussed in the video or provided context.
+//     2. Incorporate eye-catching visuals, vibrant colors, and attention-grabbing elements to capture viewers' attention.
+//     3. Ensure the thumbnails provide a clear indication of what the video is about and what viewers can expect to see.
+//     4. Also provide an suitable typography text for the video and add it in to images as headline
+//     5. Make sure the thumbnails are high-quality, photorealistic, high-resolution, and detailed.
+//     6.  must provide output like this only -- desc1,desc2,desc3,etc.
+//      Generate descriptions or concepts that can inspire visual content creation. Adjust the instructions as needed based on your specific thumbnail generation requirements.
