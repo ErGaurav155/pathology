@@ -1,5 +1,7 @@
-import * as React from "react";
+"use client";
 
+import * as React from "react";
+import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -13,6 +15,10 @@ import img2 from "@/public/assets/Thumbnail/Thumbnail2.jpg";
 import img3 from "@/public/assets/Thumbnail/Thumbnail3.jpg";
 import img4 from "@/public/assets/Thumbnail/Thumbnail4.png";
 import img5 from "@/public/assets/Thumbnail/Thumbnail5.jpg";
+import img6 from "@/public/assets/Thumbnail/thumbnail6.png";
+import img7 from "@/public/assets/Thumbnail/thumbnail7.png";
+import img8 from "@/public/assets/Thumbnail/thumbnail8.jpeg";
+
 import thumbimg1 from "@/public/assets/Aiimages/aiimages.jpg";
 import thumbimg2 from "@/public/assets/Aiimages/aiimages2.jpg";
 import thumbimg3 from "@/public/assets/Aiimages/aiimages3.jpg";
@@ -39,13 +45,20 @@ const thumbnail1 = [
 ];
 export function CarouselAiimages() {
   return (
-    <Carousel className="w-full  sm:max-w-sm md:max-w-lg ">
+    <Carousel
+      plugins={[
+        Autoplay({
+          delay: 2500,
+        }),
+      ]}
+      className="w-full  sm:max-w-sm md:max-w-lg "
+    >
       <CarouselContent className="-mt-1 ">
         {thumbnail1.map((img, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
               <Card>
-                <CardContent className="flex aspect-video items-center justify-center p-6">
+                <CardContent className="flex aspect-video items-center justify-center ">
                   <Image
                     src={img}
                     alt={`Image ${index}`}
@@ -69,11 +82,18 @@ export function CarouselAiimages() {
   );
 }
 
-const thumbnail = [img1, img2, img3, img4, img5];
+const thumbnail = [img1, img6, img7, img8, img2, img3, img4, img5];
 
 export function CarouselThumbnail() {
   return (
-    <Carousel className="w-full  sm:max-w-sm md:max-w-lg ">
+    <Carousel
+      plugins={[
+        Autoplay({
+          delay: 2000,
+        }),
+      ]}
+      className="w-full  sm:max-w-sm md:max-w-lg "
+    >
       <CarouselContent className="-mt-1 ">
         {thumbnail.map((img, index) => (
           <CarouselItem key={index}>
@@ -107,7 +127,14 @@ const Poster = [poster1, poster2, poster3, poster4, poster5, poster6];
 
 export function CarouselPoster() {
   return (
-    <Carousel className="w-full  sm:max-w-sm md:max-w-lg ">
+    <Carousel
+      plugins={[
+        Autoplay({
+          delay: 1500,
+        }),
+      ]}
+      className="w-full  sm:max-w-sm md:max-w-lg "
+    >
       <CarouselContent className="-mt-1 ">
         {Poster.map((img, index) => (
           <CarouselItem key={index}>
