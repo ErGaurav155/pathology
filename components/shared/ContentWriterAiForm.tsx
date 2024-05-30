@@ -136,7 +136,10 @@ export default function ContentWriterAiForm({
     defaultValues: {
       input: "",
       selectTone: "",
-      description: "",
+      description:
+        type === "coverimage"
+          ? "add yellow colour neon light to border of all things in image"
+          : "",
       inputlag: "",
       outputlag: "",
     },

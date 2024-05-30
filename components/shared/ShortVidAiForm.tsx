@@ -138,7 +138,10 @@ export default function ShortVidAiForm({ type }: ShortAiFormProps) {
     defaultValues: {
       input: "",
       selectTone: "",
-      description: "",
+      description:
+        type === "thumbnail"
+          ? "add yellow colour neon light to border of all things in image"
+          : "",
       inputlag: "",
       outputlag: "",
     },

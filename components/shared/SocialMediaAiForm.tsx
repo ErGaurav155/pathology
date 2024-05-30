@@ -133,7 +133,10 @@ export default function SocialMediaAiForm({ type }: SocialMediaFormProps) {
     defaultValues: {
       input: "",
       selectTone: "",
-      description: "",
+      description:
+        type === "avatar"
+          ? "add yellow colour neon light to border of all things in image"
+          : "",
       inputlag: "",
       outputlag: "",
     },

@@ -26,8 +26,8 @@ const Credits = async () => {
           className="flex animate-scroll-left whitespace-nowrap "
         >
           Get
-          <span className="text-yellow-500"> &nbsp;25 Free &nbsp;</span>
-          Credits For First 100 package purchase &nbsp;
+          <span className="text-yellow-500"> &nbsp;250 Free &nbsp;</span>
+          Credits For First 100 premium package purchase &nbsp;
           <RocketIcon color="yellow" />
         </Link>
       </Button>

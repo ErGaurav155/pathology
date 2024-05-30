@@ -18,11 +18,11 @@ export const plans = [
     _id: 1,
     name: "Basic Package",
     icon: "/assets/icons/free-plan.svg",
-    price: 599,
-    credits: 725,
+    price: 299,
+    credits: 350,
     inclusions: [
       {
-        label: "700 Credits + 25 FREE",
+        label: "325 Credits + 25 FREE ",
         isIncluded: true,
       },
       {
@@ -43,11 +43,11 @@ export const plans = [
     _id: 2,
     name: "Pro Package",
     icon: "/assets/icons/free-plan.svg",
-    price: 2999,
-    credits: 3750,
+    price: 599,
+    credits: 725,
     inclusions: [
       {
-        label: " 3500 Credits + 250 FREE",
+        label: "625 Credits + 100 FREE ",
         isIncluded: true,
       },
 
@@ -69,11 +69,11 @@ export const plans = [
     _id: 3,
     name: "Premium Package",
     icon: "/assets/icons/free-plan.svg",
-    price: 4999,
-    credits: 6200,
+    price: 2999,
+    credits: 3750,
     inclusions: [
       {
-        label: "5800 Credits + 400 FREE",
+        label: "3500 Credits + 250 FREE",
         isIncluded: true,
       },
 
@@ -293,9 +293,9 @@ export const longvidTypes = {
     **Instructions:**
     
     1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
-    2.Also provide an suitable typography text for the video and add it in to images as headline
+    2.Also provide an suitable typography 3 to 4 words text for the video and add it in to images as headline
     3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
-    4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,thumbnail4,etc"
+    4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,etc"
     5. provide all information for each thumbnail in single paragraph.
      Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
@@ -334,7 +334,7 @@ export const longvidTypes = {
     1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
     2.Also provide an suitable typography text for the video and add it in to images as headline
     3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
-    4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,thumbnail4,etc"
+    4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,etc"
     5. provide all information for each thumbnail in single paragraph.
      Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
@@ -595,7 +595,7 @@ export const shortvidTypes = {
     1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
     2.Also provide an suitable typography text for the video and add it in to images as headline
     3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
-    4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,thumbnail4,etc"
+    4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,etc"
     5. provide all information for each thumbnail in single paragraph.
      Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
@@ -634,7 +634,7 @@ export const shortvidTypes = {
     1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
     2.Also provide an suitable typography text for the video and add it in to images as headline
     3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
-    4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,thumbnail4,etc"
+    4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,etc"
     5. provide all information for each thumbnail in single paragraph.
      Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
