@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import ShortVidAudio from "@/components/shared/ShortvidAudio";
 import Aiaudio from "@/components/shared/Aiaudio";
 import { Metadata } from "next";
+import Thumbnail from "@/components/shared/Thumbnail";
 
 export const metadata: Metadata = {
   title: "Top 15 AI Tools For Reels/Shorts Video Creators in 2024",
@@ -34,15 +35,18 @@ const AddTransformationTypePage = async ({
       </div>
 
       {(type === "audiotoAudio" || type === "TexttoAudio") && <Aiaudio />}
+      {type === "thumbnail" && <Thumbnail />}
 
-      {type !== "audiotoAudio" && type !== "TexttoAudio" && (
-        <div className="sticky top-0  md:flex-auto h-[100vh] w-full md:w-2/6  pt-4 ">
-          <Button className="text-white bg-green-800 hover:bg-[#1c7429] rounded-md self-start w-[20vw] cursor-default max-h-min ml-4 mt-6">
-            Editor
-          </Button>
-          <Editor />
-        </div>
-      )}
+      {type !== "audiotoAudio" &&
+        type !== "TexttoAudio" &&
+        type !== "thumbnail" && (
+          <div className="sticky top-0  md:flex-auto h-[100vh] w-full md:w-2/6  pt-4 ">
+            <Button className="text-white bg-green-800 hover:bg-[#1c7429] rounded-md self-start w-[20vw] cursor-default max-h-min ml-4 mt-6">
+              Editor
+            </Button>
+            <Editor />
+          </div>
+        )}
     </div>
   );
 };

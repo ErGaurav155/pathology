@@ -1,7 +1,7 @@
 import { SignedIn, auth } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-
+import Bestseller from "@/public/assets/bestseller.webp";
 import { Button } from "@/components/ui/button";
 import { plans } from "@/constants";
 import { getUserById } from "@/lib/actions/user.actions";
@@ -35,7 +35,22 @@ const Credits = async () => {
         <section>
           <ul className="credits-list">
             {plans.map((plan) => (
-              <li key={plan.name} className="credits-item ">
+              <li key={plan.name} className="relative credits-item ">
+                {plan.name === "Pro Package" ? (
+                  <div className="absolute -top-10 -right-10 flex ">
+                    <div className="flex-1">
+                      <Image
+                        src={Bestseller}
+                        alt="check"
+                        width={150}
+                        height={500}
+                        priority
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
                 <div className="flex-center flex-col gap-3">
                   <Image src={plan.icon} alt="check" width={50} height={50} />
                   <p className="p-20-semibold mt-2 text-purple-500">
