@@ -332,7 +332,7 @@ export const longvidTypes = {
     **Instructions:**
     
     1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
-    2.Also provide an suitable typography text for the video and add it in to images as headline
+    2.Also provide an suitable typography 2 to 3 words text for the video and add it in to images as headline
     3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
     4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,etc"
     5. provide all information for each thumbnail in single paragraph.
@@ -593,7 +593,7 @@ export const shortvidTypes = {
     **Instructions:**
     
     1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
-    2.Also provide an suitable typography text for the video and add it in to images as headline
+    2.Also provide an suitable typography 2 to 3 words text for the video and add it in to images as headline
     3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
     4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,etc"
     5. provide all information for each thumbnail in single paragraph.
@@ -632,7 +632,7 @@ export const shortvidTypes = {
     **Instructions:**
     
     1.Design captivating thumbnail image that depict 2 to 3 scenes relevant to the provided context,merge all different scence one image like Photomontage but dont seperate scence merge them  .
-    2.Also provide an suitable typography text for the video and add it in to images as headline
+    2.Also provide an suitable typography 2 to 3 words text for the video and add it in to images as headline
     3.Provide only four thumbnail options with well explations based on above information options must contains all information as given in input  
     4.must provide output like this "thumbnail1,thumbnail2,thumbnail3,etc"
     5. provide all information for each thumbnail in single paragraph.
