@@ -23,7 +23,7 @@ import thumbimg1 from "@/public/assets/Aiimages/Aiimages1.png";
 import thumbimg2 from "@/public/assets/Aiimages/Aiimages2.png";
 import thumbimg3 from "@/public/assets/Aiimages/Aiimages3.png";
 import thumbimg4 from "@/public/assets/Aiimages/Aiimages4.png";
-import thumbimg5 from "@/public/assets/Aiimages/Aiimages5.png";
+import thumbimg5 from "@/public/assets/Aiimages/Aiimages5.jpg";
 import thumbimg6 from "@/public/assets/Aiimages/Aiimages6.jpg";
 
 import poster1 from "@/public/assets/Posters/poster5.jpg";
