@@ -70,7 +70,6 @@ export function CarouselAiimages() {
                     src={img}
                     alt={`Image ${index}`}
                     sizes="100vw"
-                    // Make the image display full width
                     style={{
                       width: "100%",
                       height: "auto",
