@@ -21,7 +21,7 @@ export function Faq() {
   const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
 
   return (
-    <div className="">
+    <div className="w-full">
       <Header title="Frequently Asked Questions" />
       <div className="">
         <Accordion
@@ -280,7 +280,7 @@ export function Faq() {
                 open === 8 ? "text-blue-500 hover:!text-blue-700" : ""
               }`}
             >
-              Can Ai generate Images/Thumbnails?
+              Can Ai generate Images/Thumbnails?{" "}
             </AccordionHeader>
             <AccordionBody className="pt-0 text-base font-normal ">
               Yes, AI can generate images and thumbnails through techniques like

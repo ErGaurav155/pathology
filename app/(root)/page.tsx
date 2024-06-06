@@ -47,7 +47,7 @@ const Home = async () => {
 
                 <Link
                   href="/criconai/longvid/idea"
-                  className="inline-flex items-center px-6 py-4 mt-2 font-semibold text-white transition-all duration-200 bg-[#73257a] rounded-full lg:mt-3 hover:bg-[#bb76c2] focus:bg-[#bb76c2] "
+                  className="inline-flex items-center px-6 py-4 mt-2 font-semibold text-white transition-all duration-200 bg-[#73257a] rounded-full lg:mt-3 hover:bg-[#bb76c2]  "
                   role="button"
                 >
                   Start for free
@@ -81,11 +81,10 @@ const Home = async () => {
 
                 <Link
                   href="/credits"
-                  className="inline-flex items-center px:4 py-2 lg:px-6 lg:py-4 mt-2 font-normal md:font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-full lg:mt-3 hover:bg-[#4c8eeb] focus:bg-[#90a1cd] "
+                  className="inline-flex items-center p-3 md:p-5 mt-2 font-normal md:font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-full lg:mt-3 hover:bg-[#4c8eeb]  "
                   role="button"
                 >
                   Grab Opportunity Now
-                  <ArrowBigRight />
                 </Link>
               </div>
 
@@ -95,24 +94,25 @@ const Home = async () => {
         </section>
         <TabsDemo />
         <div className="flex flex-col-reverse gap-5">
-          <section className="bg-[#cfe4e2] bg-opacity-30 p-4 rounded-lg">
-            <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-              <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
-                <div>
-                  <p className="mt-4 text-base text-black lg:mt-8 sm:text-2xl pb-10">
+          <section className="bg-[#cfe4e2] bg-opacity-30  rounded-lg">
+            <div className=" mx-auto max-w-7xl ">
+              <div className="grid items-center grid-cols-1 gap-8 lg:gap-12 lg:grid-cols-2 p-8">
+                <div className="p-3 ">
+                  <p className=" text-base text-black lg:mt-8 sm:text-2xl text-center ">
                     Cricon Ai Generated Posters
                   </p>
-                  <Link
-                    href="/credits"
-                    className="inline-flex items-center px-6 py-4 mt-2 font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-full lg:mt-3 hover:bg-[#4c8eeb] focus:bg-[#90a1cd] "
-                    role="button"
-                  >
-                    Make Posters
-                    <ArrowBigRight />
-                  </Link>
+                  <div className="flex items-center justify-center">
+                    <Link
+                      href="/credits"
+                      className="inline-flex items-center justify-center  p-2 mt-2 font-small lg:font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-xl lg:mt-3 hover:bg-[#4c8eeb]  "
+                      role="button"
+                    >
+                      Make Posters
+                    </Link>
+                  </div>
                 </div>
 
-                <div className="w-full rounded-lg">
+                <div className="w-full rounded-lg flex items-center justify-center">
                   <CarouselPoster />
                 </div>
               </div>
@@ -121,21 +121,36 @@ const Home = async () => {
           <section className="bg-[#cfe4e2] bg-opacity-30 p-4 rounded-lg">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
               <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
-                <div className="w-full rounded-lg">
-                  <CarouselAiimages />{" "}
-                </div>
-                <div>
-                  <p className="mt-4 text-base text-black lg:mt-8 sm:text-2xl pb-10">
+                <div className="p-3 lg:hidden ">
+                  <p className="text-base text-black lg:mt-8 sm:text-2xl text-center ">
                     Cricon Ai Generated Images
                   </p>
-                  <Link
-                    href="/credits"
-                    className="inline-flex items-center px-6 py-4 mt-2 font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-full lg:mt-3 hover:bg-[#4c8eeb] focus:bg-[#90a1cd] "
-                    role="button"
-                  >
-                    Make AiImages
-                    <ArrowBigRight />
-                  </Link>
+                  <div className="flex items-center justify-center">
+                    <Link
+                      href="/credits"
+                      className="inline-flex items-center justify-center  p-2 mt-2 font-small lg:font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-xl lg:mt-3 hover:bg-[#4c8eeb]  "
+                      role="button"
+                    >
+                      Make AiImages
+                    </Link>
+                  </div>
+                </div>
+                <div className="w-full rounded-lg flex items-center justify-center">
+                  <CarouselAiimages />{" "}
+                </div>
+                <div className="p-3 hidden lg:block ">
+                  <p className="text-base text-black lg:mt-8 sm:text-2xl text-center ">
+                    Cricon Ai Generated Images
+                  </p>
+                  <div className="flex items-center justify-center">
+                    <Link
+                      href="/credits"
+                      className="inline-flex items-center justify-center  p-2 mt-2 font-small lg:font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-xl lg:mt-3 hover:bg-[#4c8eeb]  "
+                      role="button"
+                    >
+                      Make AiImages
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -143,22 +158,22 @@ const Home = async () => {
           <section className="bg-[#cfe4e2] bg-opacity-30 p-4 rounded-lg">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
               <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
-                <div>
-                  <p className="mt-4 text-base text-black lg:mt-8 sm:text-2xl pb-10">
+                <div className="p-3 ">
+                  <p className="text-base text-black lg:mt-8 sm:text-2xl text-center ">
                     Cricon Ai Generated Thumbnails
                   </p>
-
-                  <Link
-                    href="/credits"
-                    className="inline-flex items-center px-6 py-4 mt-2 font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-full lg:mt-3 hover:bg-[#4c8eeb] focus:bg-[#90a1cd] "
-                    role="button"
-                  >
-                    Make Thumbnail
-                    <ArrowBigRight />
-                  </Link>
+                  <div className="flex items-center justify-center">
+                    <Link
+                      href="/credits"
+                      className="inline-flex items-center justify-center  p-2 mt-2 font-small lg:font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-xl lg:mt-3 hover:bg-[#4c8eeb]  "
+                      role="button"
+                    >
+                      Make Thumbnail
+                    </Link>
+                  </div>
                 </div>
 
-                <div className="w-full rounded-lg">
+                <div className="w-full rounded-lg flex items-center justify-center">
                   <CarouselThumbnail />
                 </div>
               </div>

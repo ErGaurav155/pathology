@@ -63,27 +63,23 @@ export function CarouselAiimages() {
       <CarouselContent className="-mt-1 ">
         {thumbnail1.map((img, index) => (
           <CarouselItem key={index}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-video items-center justify-center p-6 ">
-                  <Image
-                    src={img}
-                    alt={`Image ${index}`}
-                    sizes="100vw"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                    }}
-                    priority
-                  />
-                </CardContent>
-              </Card>
-            </div>
+            <Card>
+              <CardContent className="flex p-1 w-[1000] h-[1000]  items-center justify-center ">
+                <Image
+                  src={img}
+                  className="overflow-hidden rounded-lg"
+                  alt={`Image ${index}`}
+                  width={1000}
+                  height={1000}
+                  priority
+                />
+              </CardContent>
+            </Card>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-0 md:-left-8 " />
-      <CarouselNext className="right-0 md:-right-8" />
+      <CarouselPrevious className="-left-8 " />
+      <CarouselNext className="-right-8" />
     </Carousel>
   );
 }
@@ -103,28 +99,23 @@ export function CarouselThumbnail() {
       <CarouselContent className="-mt-1 ">
         {thumbnail.map((img, index) => (
           <CarouselItem key={index}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-video items-center justify-center p-6">
-                  <Image
-                    src={img}
-                    alt={`Image ${index}`}
-                    sizes="100vw"
-                    // Make the image display full width
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                    }}
-                    priority
-                  />
-                </CardContent>
-              </Card>
-            </div>
+            <Card>
+              <CardContent className="flex p-1 w-[1000] h-[1000]  items-center justify-center ">
+                <Image
+                  src={img}
+                  className="overflow-hidden rounded-lg"
+                  alt={`Image ${index}`}
+                  width={1000}
+                  height={1000}
+                  priority
+                />
+              </CardContent>
+            </Card>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-0 md:-left-8 " />
-      <CarouselNext className="right-0 md:-right-8" />
+      <CarouselPrevious className="-left-8 " />
+      <CarouselNext className="-right-8" />
     </Carousel>
   );
 }
@@ -144,28 +135,23 @@ export function CarouselPoster() {
       <CarouselContent className="-mt-1 ">
         {Poster.map((img, index) => (
           <CarouselItem key={index}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-video items-center justify-center p-6">
-                  <Image
-                    src={img}
-                    alt={`Image ${index}`}
-                    sizes="100vw"
-                    // Make the image display full width
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                    }}
-                    priority
-                  />
-                </CardContent>
-              </Card>
-            </div>
+            <Card>
+              <CardContent className="flex p-1 w-[1000] h-[1000]  items-center justify-center ">
+                <Image
+                  src={img}
+                  className="overflow-hidden rounded-lg"
+                  alt={`Image ${index}`}
+                  width={1000}
+                  height={1000}
+                  priority
+                />
+              </CardContent>
+            </Card>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-0 md:-left-8 " />
-      <CarouselNext className="right-0 md:-right-8" />
+      <CarouselPrevious className="-left-8 " />
+      <CarouselNext className="-right-8" />
     </Carousel>
   );
 }
@@ -181,31 +167,26 @@ export function CarouselChannel() {
       ]}
       className="w-full  sm:max-w-sm md:max-w-lg "
     >
-      <CarouselContent className="-mt-1 rounded-lg">
+      <CarouselContent className=" rounded-lg">
         {channel.map((img, index) => (
           <CarouselItem key={index}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-video items-center justify-center p-6">
-                  <Image
-                    src={img}
-                    alt={`Image ${index}`}
-                    sizes="100vw"
-                    // Make the image display full width
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                    }}
-                    priority
-                  />
-                </CardContent>
-              </Card>
-            </div>
+            <Card>
+              <CardContent className="flex p-1 w-[1000] h-[1000]  items-center justify-center ">
+                <Image
+                  src={img}
+                  className="overflow-hidden rounded-lg"
+                  alt={`Image ${index}`}
+                  width={1000}
+                  height={1000}
+                  priority
+                />
+              </CardContent>
+            </Card>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-0 md:-left-8 " />
-      <CarouselNext className="right-0 md:-right-8" />
+      <CarouselPrevious className="-left-8 " />
+      <CarouselNext className="-right-8" />
     </Carousel>
   );
 }
