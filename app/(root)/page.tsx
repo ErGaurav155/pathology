@@ -13,6 +13,7 @@ import {
   CarouselThumbnail,
 } from "@/components/shared/carousel";
 import { Button } from "@/components/ui/button";
+import { CheckBadgeIcon } from "@heroicons/react/24/outline";
 
 import { ArrowBigRight, RocketIcon } from "lucide-react";
 import Image from "next/image";
@@ -89,6 +90,65 @@ const Home = async () => {
               </div>
 
               <CarouselChannel />
+            </div>
+          </div>
+        </section>
+        <section className="bg-[#7e7c77] bg-opacity-30 p-4 m-3 md:m-0 rounded-lg">
+          <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div className="grid items-center grid-cols-1 gap-8 md:gap-12 md:grid-cols-2">
+              <div>
+                <h1 className="mt-4 text-xl font-bold text-black lg:mt-8 sm:text-2xl md:text-3xl xl:text-5xl">
+                  Top 5 benefits By Criconai
+                </h1>
+                <p className="mt-4 text-base text-black lg:mt-8 sm:text-2xl ">
+                  If You serious for youtube growth Use Our Services for Atleast
+                  5-10 videos
+                </p>
+
+                <Link
+                  href="/credits"
+                  className="inline-flex items-center p-3 mt-2 font-normal md:font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-full lg:mt-3 hover:bg-[#4c8eeb]  "
+                  role="button"
+                >
+                  Try Now
+                </Link>
+              </div>
+
+              <div className="flex flex-col  gap-2 text-black">
+                <div className="flex items-center  gap-2">
+                  <span>
+                    <CheckBadgeIcon color="green" height={50} width={50} />
+                  </span>
+                  <h2>Improve Views and clicks using Our Thumbnails</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span>
+                    <CheckBadgeIcon color="green" height={50} width={50} />
+                  </span>
+                  <h2>Makes Script That Engage Audience</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span>
+                    <CheckBadgeIcon color="green" height={50} width={50} />
+                  </span>{" "}
+                  <h2>Generate Trending Tags And Keywords At Video Uploding</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span>
+                    <CheckBadgeIcon color="green" height={50} width={50} />
+                  </span>
+
+                  <h2>
+                    Find other channel to increase Engagement Of Relatable Niche
+                  </h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span>
+                    <CheckBadgeIcon color="green" height={50} width={50} />
+                  </span>
+                  <h2>Gained Views Using Other Services </h2>
+                </div>
+              </div>
             </div>
           </div>
         </section>

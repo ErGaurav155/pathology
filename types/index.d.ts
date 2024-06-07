@@ -39,6 +39,7 @@ declare type LongVidTypeKey =
   | "title"
   | "description"
   | "tags"
+  | "keyword"
   | "script"
   | "thumbnail"
   | "aiimages"

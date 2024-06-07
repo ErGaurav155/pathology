@@ -215,6 +215,20 @@ export function MobileNav() {
                         Tags
                       </ListItem>
                     </Link>
+                    <Link
+                      onClick={closeDrawer}
+                      href="/criconai/longvid/keyword"
+                    >
+                      <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        keyword
+                      </ListItem>
+                    </Link>
                     <Link onClick={closeDrawer} href="/criconai/longvid/script">
                       <ListItem className="focus:bg-sky-100 hover:bg-sky-100 active:bg-sky-100 font-medium text-sm">
                         <ListItemPrefix>

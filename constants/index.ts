@@ -262,6 +262,30 @@ export const longvidTypes = {
     model: "gpt-3.5-turbo",
     credits: 1,
   },
+  keyword: {
+    type: "keyword",
+    title: "keyword Generator",
+    topic: "Describe the topic for keyword generation",
+    subtopic: "Add more information ",
+    tone: "",
+    aiprompt: `**Generate trending keywords based on the provided input:**
+
+
+**Instructions:**
+
+1. Analyze the provided input to identify its key themes, topics, and relevant details.
+2. Research current trends related to the input topic to identify popular and high-traffic keywords.
+3. Generate a list of keywords that are currently trending and align with the input content.
+4. Ensure the keywords are relevant, specific, and have a high search volume.
+5. Provide at least ten trending keywords that cover various aspects or subtopics within the provided input.
+6. Aim for originality and creativity, generating keywords that can enhance discoverability and engagement.
+
+---
+
+Use the provided input to generate trending and relevant keywords that improve searchability and visibility. Adjust the instructions as needed to suit your specific keyword generation requirements.`,
+    model: "gpt-3.5-turbo",
+    credits: 1,
+  },
   script: {
     type: "script",
     title: "Script Generator",
