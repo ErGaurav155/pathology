@@ -23,6 +23,12 @@ const Checkout = ({
   const { toast } = useToast();
 
   const onCheckout = async () => {
+    toast({
+      title: "For International Users Use Paypal",
+      description: "Buy Credits > Wallet > Paypal",
+      duration: 3000,
+      className: "success-toast",
+    });
     const transaction = {
       plan,
       amount,
