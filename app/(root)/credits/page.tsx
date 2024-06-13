@@ -32,7 +32,8 @@ const Credits = async () => {
         </Link>
       </Button>
       <h1 className="text-center font-semibold text-black mt-2">
-        Note: For Outside India Use Paypal For Purchase
+        Note: For Outside India Use Paypal For Purchase(Buy Credits / Wallet /
+        Paypal)
       </h1>
       <div className="flex flex-col gap-20">
         <section>
