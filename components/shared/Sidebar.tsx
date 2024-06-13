@@ -10,8 +10,6 @@ import {
   List,
   ListItem,
   ListItemPrefix,
-  ListItemSuffix,
-  Chip,
   Accordion,
   AccordionHeader,
   AccordionBody,
@@ -25,10 +23,10 @@ import {
   CurrencyRupeeIcon,
   DevicePhoneMobileIcon,
   CurrencyDollarIcon,
+  QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { InstagramIcon, SquarePenIcon, YoutubeIcon } from "lucide-react";
-import { QuestionMarkCircleIcon } from "@heroicons/react/24/solid";
 
 export function Sidebar() {
   const [open, setOpen] = useState(0);

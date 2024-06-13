@@ -1,19 +1,7 @@
-import Roadmap from "@/components/JsmComp/Roadmap";
-import Services from "@/components/JsmComp/Services";
 import { Faq } from "@/components/shared/Faq";
 import { Footer } from "@/components/shared/Footer";
-import Header from "@/components/shared/Header";
-import Promo from "@/components/shared/Promotion";
-import Heading from "@/components/shared/Svgs/HEading";
-import { TabsDemo } from "@/components/shared/ToolsTab";
-import {
-  CarouselAiimages,
-  CarouselChannel,
-  CarouselPoster,
-  CarouselThumbnail,
-} from "@/components/shared/carousel";
+
 import { Button } from "@/components/ui/button";
-import { CheckBadgeIcon } from "@heroicons/react/24/outline";
 
 import { ArrowBigRight, RocketIcon } from "lucide-react";
 import Image from "next/image";

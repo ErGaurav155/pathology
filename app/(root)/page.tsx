@@ -2,9 +2,7 @@ import Roadmap from "@/components/JsmComp/Roadmap";
 import Services from "@/components/JsmComp/Services";
 import { Faq } from "@/components/shared/Faq";
 import { Footer } from "@/components/shared/Footer";
-import Header from "@/components/shared/Header";
 import Promo from "@/components/shared/Promotion";
-import Heading from "@/components/shared/Svgs/HEading";
 import { TabsDemo } from "@/components/shared/ToolsTab";
 import {
   CarouselAiimages,
