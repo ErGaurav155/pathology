@@ -24,6 +24,8 @@ import {
   DevicePhoneMobileIcon,
   TvIcon,
   CurrencyDollarIcon,
+  QuestionMarkCircleIcon,
+  HomeModernIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChevronRightIcon,
@@ -34,6 +36,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   InstagramIcon,
+  LucideHome,
   MenuSquareIcon,
   SquarePenIcon,
   YoutubeIcon,
@@ -72,7 +75,7 @@ export function MobileNav() {
       </IconButton>
       <Link
         href="/"
-        className="flex items-center gap-2 md:py-2 font-sans text-3xl font-extrabold text-[#7e3caa]"
+        className="flex items-center  md:py-5 font-sans text-3xl font-bold text-[#7e3caa]"
       >
         <Image
           src="/assets/images/logo.png"
@@ -85,7 +88,7 @@ export function MobileNav() {
         <UserButton afterSignOutUrl="/" />
       </SignedIn>
       <SignedOut>
-        <Button asChild className="ml-2 button bg-purple-gradient bg-cover">
+        <Button asChild className="ml-2 font-bold  bg-purple-gradient bg-cover">
           <Link href="/sign-in">Login</Link>
         </Button>
       </SignedOut>
@@ -123,11 +126,12 @@ export function MobileNav() {
               <Link onClick={closeDrawer} href="/">
                 <ListItem className="font-medium hover:bg-sky-100 focus:bg-sky-100 active:bg-sky-100 text-sm">
                   <ListItemPrefix>
-                    <YoutubeIcon className="h-5 w-5" />
+                    <LucideHome className="h-5 w-5" />
                   </ListItemPrefix>
                   Home
                 </ListItem>
               </Link>
+
               <Accordion
                 open={open === 1}
                 icon={
@@ -1220,6 +1224,14 @@ export function MobileNav() {
                   </List>
                 </AccordionBody>
               </Accordion>
+              <Link onClick={closeDrawer} href="/HowToUse">
+                <ListItem className="font-medium hover:bg-sky-100 focus:bg-sky-100 active:bg-sky-100 text-sm">
+                  <ListItemPrefix>
+                    <QuestionMarkCircleIcon className="h-5 w-5" />
+                  </ListItemPrefix>
+                  How To Use Criconai?
+                </ListItem>
+              </Link>
             </div>
             <SignedIn>
               <div>

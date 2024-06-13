@@ -28,6 +28,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { InstagramIcon, SquarePenIcon, YoutubeIcon } from "lucide-react";
+import { QuestionMarkCircleIcon } from "@heroicons/react/24/solid";
 
 export function Sidebar() {
   const [open, setOpen] = useState(0);
@@ -58,6 +59,7 @@ export function Sidebar() {
                 Home
               </ListItem>
             </Link>
+
             <Accordion
               open={open === 1}
               icon={
@@ -778,6 +780,14 @@ export function Sidebar() {
                 </List>
               </AccordionBody>
             </Accordion>
+            <Link href="/HowToUse">
+              <ListItem className="font-medium hover:bg-sky-100 focus:bg-sky-100 active:bg-sky-100 text-sm">
+                <ListItemPrefix>
+                  <QuestionMarkCircleIcon className="h-5 w-5" />
+                </ListItemPrefix>
+                How To Use Criconai?
+              </ListItem>
+            </Link>
           </div>
           <SignedIn>
             <div>
