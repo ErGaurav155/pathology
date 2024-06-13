@@ -11,6 +11,7 @@ import {
   CarouselChannel,
   CarouselPoster,
   CarouselThumbnail,
+  CarouselYoutuber,
 } from "@/components/shared/carousel";
 import { Button } from "@/components/ui/button";
 import { CheckBadgeIcon } from "@heroicons/react/24/outline";
@@ -82,7 +83,7 @@ const Home = async () => {
 
                 <Link
                   href="/credits"
-                  className="inline-flex items-center p-3 md:p-5 mt-2 font-normal md:font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-full lg:mt-3 hover:bg-[#4c8eeb]  "
+                  className="inline-flex items-center p-3  mt-2 font-normal md:font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-full lg:mt-3 hover:bg-[#4c8eeb]  "
                   role="button"
                 >
                   Grab Opportunity Now
@@ -152,7 +153,31 @@ const Home = async () => {
             </div>
           </div>
         </section>
-        <TabsDemo />
+        <section className="bg-[#7e7c77] bg-opacity-30 p-4 rounded-lg">
+          <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div className="grid items-center grid-cols-1 gap-8 md:gap-12 md:grid-cols-2">
+              <CarouselYoutuber />
+              <div>
+                <h1 className="mt-4 text-xl font-bold text-black lg:mt-8 sm:text-2xl md:text-3xl xl:text-5xl">
+                  Top Youtubers Using Ai Thumbails
+                </h1>
+                <p className="mt-4 text-base text-black lg:mt-8 sm:text-2xl ">
+                  Start Making Ai Thumbnails Now
+                </p>
+
+                <Link
+                  href="/criconai/longvid/thumbnail"
+                  className="inline-flex items-center p-3  mt-2 font-normal md:font-semibold text-white transition-all duration-200 bg-[#3a3ccf] rounded-full lg:mt-3 hover:bg-[#4c8eeb]  "
+                  role="button"
+                >
+                  Start Now
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+        <Services />
+
         <div className="flex flex-col-reverse gap-5">
           <section className="bg-[#cfe4e2] bg-opacity-30  rounded-lg">
             <div className=" mx-auto max-w-7xl ">
@@ -240,9 +265,8 @@ const Home = async () => {
             </div>
           </section>
         </div>
-
+        <TabsDemo />
         <Promo />
-        <Services />
         <Roadmap />
         <Faq />
         <Footer />

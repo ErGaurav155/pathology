@@ -40,6 +40,17 @@ import channel4 from "@/public/assets/channle/channel4.jpg";
 import channel5 from "@/public/assets/channle/channel5.jpg";
 import channel6 from "@/public/assets/channle/channel6.jpg";
 
+import Youtuber1 from "@/public/assets/youtuber/Youtuber.jpg";
+import Youtuber2 from "@/public/assets/youtuber/Youtuber2.jpg";
+import Youtuber3 from "@/public/assets/youtuber/Youtuber3.jpg";
+import Youtuber4 from "@/public/assets/youtuber/Youtuber4.jpg";
+import Youtuber5 from "@/public/assets/youtuber/Youtuber5.jpg";
+import Youtuber6 from "@/public/assets/youtuber/Youtuber6.jpg";
+import Youtuber7 from "@/public/assets/youtuber/Youtuber7.jpg";
+import Youtuber8 from "@/public/assets/youtuber/Youtuber8.jpg";
+import Youtuber9 from "@/public/assets/youtuber/Youtuber9.jpg";
+import Youtuber10 from "@/public/assets/youtuber/Youtuber10.jpg";
+
 import Image from "next/image";
 
 const thumbnail1 = [
@@ -169,6 +180,53 @@ export function CarouselChannel() {
     >
       <CarouselContent className=" rounded-lg">
         {channel.map((img, index) => (
+          <CarouselItem key={index}>
+            <Card>
+              <CardContent className="flex p-1 w-[1000] h-[1000]  items-center justify-center ">
+                <Image
+                  src={img}
+                  className="overflow-hidden rounded-lg"
+                  alt={`Image ${index}`}
+                  width={1000}
+                  height={1000}
+                  priority
+                />
+              </CardContent>
+            </Card>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious className="-left-8 " />
+      <CarouselNext className="-right-8" />
+    </Carousel>
+  );
+}
+
+const Youtuber = [
+  Youtuber2,
+  Youtuber3,
+  Youtuber4,
+  Youtuber5,
+  Youtuber6,
+  Youtuber1,
+  Youtuber7,
+  Youtuber8,
+  Youtuber9,
+  Youtuber10,
+];
+
+export function CarouselYoutuber() {
+  return (
+    <Carousel
+      plugins={[
+        Autoplay({
+          delay: 2000,
+        }),
+      ]}
+      className="w-full  sm:max-w-sm md:max-w-lg "
+    >
+      <CarouselContent className=" rounded-lg">
+        {Youtuber.map((img, index) => (
           <CarouselItem key={index}>
             <Card>
               <CardContent className="flex p-1 w-[1000] h-[1000]  items-center justify-center ">
