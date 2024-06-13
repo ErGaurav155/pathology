@@ -31,6 +31,9 @@ const Credits = async () => {
           <RocketIcon color="yellow" />
         </Link>
       </Button>
+      <h1 className="text-center font-semibold text-black mt-2">
+        Note: For Outside India Use Paypal For Purchase
+      </h1>
       <div className="flex flex-col gap-20">
         <section>
           <ul className="credits-list">
