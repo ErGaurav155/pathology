@@ -184,13 +184,21 @@ export const email = [
 
 export const voice = ["alloy", "echo", "fable", "onyx", "nova", "shimmer"];
 
-export const aspectRatio: string[] = ["1024x1024", "1792x1024", "1024x1792"];
+export const aspectRatio: string[] = [
+  "1024x1024",
+  "1792x1024",
+  "1024x1792",
+  "512×512",
+  "256×256",
+];
 
 export const noOfImage = ["1", "2", "3"];
 export const aspectRatioDisplayNames: Record<string, string> = {
   "1024x1024": "1:1 - 1024x1024",
   "1792x1024": "16:9 - 1792x1024",
   "1024x1792": "9:16 - 1024x1792",
+  "512×512": "1:1 - 512×512",
+  "256×256": "1:1 - 256×256",
 };
 
 export const longvidTypes = {
@@ -324,7 +332,7 @@ Use the provided input to generate trending and relevant keywords that improve s
      Adjust the instructions as needed to suit your specific thumbnail generation requirements.
     
     `,
-    model: "dall-e-3",
+    model: "dall-e-2",
     credits: 2,
   },
   aiimages: {
