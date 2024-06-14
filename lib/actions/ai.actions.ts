@@ -34,7 +34,6 @@ export const generateGptResponse = async ({
   genType,
 }: GenerateGptResponseParams) => {
   if (openai instanceof Error) {
-    console.log(Error);
     throw openai;
   }
 
@@ -115,7 +114,7 @@ export const generateGptResponse = async ({
 
       return JSON.parse(JSON.stringify(gptArgs));
     }
-  } else if (model === "dall-e-2") {
+  } else if (model === "dall-e-3") {
     if (!genType) {
       try {
         const completion = await openai.chat.completions.create({
@@ -160,7 +159,7 @@ export const generateGptResponse = async ({
                 model: model,
                 prompt: concepts[i],
                 size: inputlag as imageType,
-                // quality: "standard",
+                quality: "standard",
                 response_format: "url",
                 n: 1,
               });
