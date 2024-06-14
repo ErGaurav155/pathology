@@ -203,7 +203,7 @@ export default function LongVidAiForm({ type }: LongAiFormProps) {
           await updateCredits(userDbId, -credits);
           if (model === "gpt-3.5-turbo") {
             setResponse(res);
-          } else if (model === "dall-e-3") {
+          } else if (model === "dall-e-2") {
             setImageUrl(res);
             await saveImageUrls(userDbId, res);
           } else {
