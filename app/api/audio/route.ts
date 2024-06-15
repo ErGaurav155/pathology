@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     { role: "system", content: "You are a translator." },
     {
       role: "user",
-      content: `convert this text- ${body.text} into this ${outputlag} language but written in english`,
+      content: `convert text-" ${body.text} "into ${outputlag} language `,
     },
   ];
   const formData1 = {
