@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
   }
 
   const formData2 = {
-    model: "tts-1-hd",
+    model: "tts-1",
     voice: value1 as voiceType,
     input: messageContent,
   };
