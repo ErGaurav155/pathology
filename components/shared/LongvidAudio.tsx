@@ -135,10 +135,10 @@ export default function LongVidAudio({ type }: LongAiFormProps) {
         duration: 2000,
         className: "error-toast",
       });
+    } finally {
+      setTheFile(null);
+      setIsSubmitting(false);
     }
-
-    setTheFile(null);
-    setIsSubmitting(false);
   };
 
   const handleValueChange = (newValue: string) => {
