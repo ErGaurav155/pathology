@@ -60,7 +60,7 @@ const Home = async () => {
                   src="/assets/MyHero.png"
                   height={869}
                   width={1139}
-                  alt="carousel"
+                  alt="criconai"
                   priority
                 />
               </div>

@@ -10,6 +10,7 @@ import { Faq } from "@/components/shared/Faq";
 import { Footer } from "@/components/shared/Footer";
 import { IndianRupeeIcon, RocketIcon } from "lucide-react";
 import Link from "next/link";
+import { Span } from "next/dist/trace";
 
 const Credits = async () => {
   const { userId } = auth();
@@ -45,7 +46,7 @@ const Credits = async () => {
                     <div className="flex-1">
                       <Image
                         src={Bestseller}
-                        alt="check"
+                        alt="Criconai"
                         width={100}
                         height={200}
                         priority
@@ -62,8 +63,7 @@ const Credits = async () => {
                   </p>
                   <p className="text-[36px] font-normal sm:text-[44px] leading-[120%] sm:leading-[56px] text-dark-600">
                     <IndianRupeeIcon className="w-6  h-6  inline-block" />
-
-                    {plan.price}
+                    <span className="line-through">499</span> {plan.price}
                   </p>
                   <p className=" p-16-regular">
                     <span className=" font-semibold text-lg  text-green-600">
@@ -84,7 +84,7 @@ const Credits = async () => {
                         src={`/assets/icons/${
                           inclusion.isIncluded ? "check.svg" : "cross.svg"
                         }`}
-                        alt="check"
+                        alt="criconai"
                         width={24}
                         height={24}
                       />
