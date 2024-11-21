@@ -79,11 +79,7 @@
 }
 
 .root {
-  @apply flex min-h-screen w-full flex-col bg-gray-50 lg:flex-row;
-}
-
-.root-container {
-  @apply mt-16 flex-1  overflow-auto  md:static   lg:mt-0 lg:max-h-screen;
+  @apply flex min-h-screen px-5 md:px-10 w-full flex-col bg-gray-50;
 }
 
 /* ========================================== TAILWIND STYLES */
@@ -94,7 +90,7 @@
     @apply max-w-5xl mx-auto px-5 md:px-10 w-full text-dark-400;
   }
   .wrapper2 {
-    @apply max-w-7xl mx-auto pr-1 sm:pr-3 md:pr-5  w-full text-dark-400;
+    @apply max-w-7xl mx-auto px-5 md:px-10  w-full text-dark-400;
   }
   .gradient-text {
     @apply bg-purple-gradient bg-cover bg-clip-text text-transparent;
@@ -193,7 +189,7 @@
   }
 
   .select-field {
-    @apply w-full border-2 border-purple-200/20 shadow-sm shadow-purple-200/15 rounded-[16px] h-[50px] md:h-[54px] text-black text-sm p-16-semibold disabled:opacity-100 placeholder:text-dark-400/50 px-4 py-3 focus:ring-offset-0 focus-visible:ring-transparent focus:ring-transparent focus-visible:ring-0 focus-visible:outline-none !important;
+    @apply w-full border-2 border-purple-200/20 shadow-sm shadow-purple-200/15 rounded-[16px] h-[50px] md:h-[54px] text-black text-sm p-16-semibold disabled:opacity-100 placeholder:text-gray-400 px-4 py-3 focus:ring-offset-0 focus-visible:ring-transparent focus:ring-transparent focus-visible:ring-0 focus-visible:outline-none !important;
   }
 
   .select-trigger {
@@ -384,4 +380,22 @@
   font-size: 16px;
   font-weight: 600;
   color: #384262;
+}
+
+@keyframes colorChangeHorizontal {
+  0% {
+    color: blue;
+  }
+  25% {
+    color: green;
+  }
+  50% {
+    color: yellow;
+  }
+  75% {
+    color: orange;
+  }
+  100% {
+    color: red;
+  }
 }

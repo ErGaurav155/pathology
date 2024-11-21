@@ -1,8 +1,17 @@
-import * as z from "zod"
+import * as z from "zod";
 
-export const eventFormSchema = z.object({
-  title: z.string().min(3, 'Title must be at least 3 characters'),
-  description: z.string().min(3, 'Description must be at least 3 characters').max(400, 'Description must be less than 400 characters'),
-  tone: z.string().min(3, 'Title must be at least 3 characters'),
-  
-})
+export const formSchema = z.object({
+  name: z.string().min(2, { message: "name must be at least 2 letter." }),
+  test: z.string().min(1, { message: "Please select a department." }),
+  doctor: z.string().min(1, { message: "Please select a doctor." }),
+  address: z.string().optional(),
+  date: z.string().min(1, { message: "Please select a date." }),
+  time: z.string().min(1, { message: "Please select a time." }),
+  type: z.string().min(1, { message: "Full Name is required." }),
+  phone: z.string().min(1, { message: "Phone number is required." }),
+  message: z.string().optional(),
+});
+
+export const formSchema1 = z.object({
+  message: z.string().min(5, { message: "name must be at least 5 letter." }),
+});
