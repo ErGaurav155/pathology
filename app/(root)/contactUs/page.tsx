@@ -2,6 +2,7 @@
 import { BreadcrumbsDefault } from "@/components/shared/breadcrumbs";
 import ContactForm from "@/components/shared/Contactus";
 import { Footer } from "@/components/shared/Footer";
+import { InsufficientCreditsModal } from "@/components/shared/InsufficientCreditsModal";
 import { MotionDiv } from "@/components/shared/Motion";
 
 import React from "react";

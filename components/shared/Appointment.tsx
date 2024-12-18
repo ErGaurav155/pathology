@@ -28,11 +28,14 @@ import { formSchema } from "@/lib/validator";
 import { useState } from "react";
 import { createAppointment } from "@/lib/action/appointment.actions";
 import { toast } from "../ui/use-toast";
+import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 
 // Define the form validation schema with Zod
 
 const AppointmentSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [appointmentBooked, setAppointmentBooked] = useState<boolean>(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -68,12 +71,7 @@ const AppointmentSection = () => {
       const response = await createAppointment(Appointmentdata);
 
       if (response) {
-        toast({
-          title: "Appointment Booked Successfully",
-          description: `We will Message You `,
-          duration: 2000,
-          className: "success-toast",
-        });
+        setAppointmentBooked(true);
       } else {
         toast({
           title: "Appointment booking Failed",
@@ -93,6 +91,9 @@ const AppointmentSection = () => {
       setIsSubmitting(false);
     }
   };
+  if (appointmentBooked) {
+    return <InsufficientCreditsModal />;
+  }
 
   return (
     <section className="container shadow-lg my-5 rounded-md py-12 bg-gray-50  mx-auto">
