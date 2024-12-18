@@ -11,8 +11,8 @@ import { AppointmentParams } from "@/types/types";
 import { Footer } from "@/components/shared/Footer";
 import { useAuth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import { getUserById } from "@/lib/action/User.action";
-import { getAllAppointments } from "@/lib/action/Appointment.actions";
+import { getUserById } from "@/lib/action/user.action";
+import { getAllAppointments } from "@/lib/action/appointment.actions";
 
 const columnHelper = createColumnHelper<AppointmentParams>();
 

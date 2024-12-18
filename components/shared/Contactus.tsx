@@ -26,7 +26,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema } from "@/lib/validator";
 import { toast } from "../ui/use-toast";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
-import { createAppointment } from "@/lib/action/Appointment.actions";
+import { createAppointment } from "@/lib/action/appointment.actions";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);

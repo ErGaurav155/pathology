@@ -28,7 +28,7 @@ import { formSchema } from "@/lib/validator";
 import { useState } from "react";
 import { toast } from "../ui/use-toast";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
-import { createAppointment } from "@/lib/action/Appointment.actions";
+import { createAppointment } from "@/lib/action/appointment.actions";
 
 // Define the form validation schema with Zod
 
