@@ -3,7 +3,7 @@
 import { AppointmentParams } from "@/types/types";
 import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
-import Appointment from "@/lib/database/models/appointment.model";
+import Appointment from "@/lib/database/models/Appointment.model";
 
 export async function createAppointment(Appointmentdata: AppointmentParams) {
   try {
