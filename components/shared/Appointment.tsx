@@ -26,9 +26,9 @@ import Image from "next/image"; // If you're using Next.js for Image component
 import { Phone } from "lucide-react";
 import { formSchema } from "@/lib/validator";
 import { useState } from "react";
-import { createAppointment } from "@/lib/action/Appointment.actions";
 import { toast } from "../ui/use-toast";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
+import { createAppointment } from "@/lib/action/Appointment.actions";
 
 // Define the form validation schema with Zod
 
