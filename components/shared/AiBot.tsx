@@ -17,7 +17,7 @@ import {
   FormMessage,
   FormDescription,
 } from "@/components/ui/form";
-import { generateGptResponse } from "@/action/ai.action";
+import { generateGptResponse } from "@/lib/action/ai.action";
 import { string, z } from "zod";
 import { toast } from "../ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
