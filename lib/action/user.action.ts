@@ -2,7 +2,7 @@
 
 import { revalidatePath, revalidateTag } from "next/cache";
 
-import User from "@/lib/database/models/User.model.ts";
+import User from "@/lib/database/models/user.model";
 import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
 import { CreateUserParams, UpdateUserParams } from "@/types/types";
