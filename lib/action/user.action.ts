@@ -2,7 +2,7 @@
 
 import { revalidatePath, revalidateTag } from "next/cache";
 
-import User from "../database/models/user.model";
+import User from "@/lib/database/models/user.model";
 import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
 import { CreateUserParams, UpdateUserParams } from "@/types/types";
@@ -11,8 +11,8 @@ import { CreateUserParams, UpdateUserParams } from "@/types/types";
 export async function createUser(user: CreateUserParams) {
   try {
     await connectToDatabase();
-
     const newUser = await User.create(user);
+    console.log(newUser);
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {

@@ -24,7 +24,7 @@ import GoogleMapComponent from "@/components/shared/GoogleMapComp";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema } from "@/lib/validator";
-import { createAppointment } from "@/lib/action/appointment.actions";
+import { createAppointment } from "@/lib/action/Appointment.actions";
 import { toast } from "../ui/use-toast";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 

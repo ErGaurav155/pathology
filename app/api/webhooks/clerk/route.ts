@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { Webhook } from "svix";
 
-import { createUser, deleteUser, updateUser } from "@/lib/action/user.action";
+import { createUser, deleteUser, updateUser } from "@/lib/action/User.action";
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -53,7 +53,6 @@ export async function POST(req: Request) {
   }
 
   // Get the ID and type
-  const { id } = evt.data;
   const eventType = evt.type;
 
   // CREATE
@@ -69,7 +68,7 @@ export async function POST(req: Request) {
       lastName: last_name,
       photo: image_url,
     };
-
+    console.log(user);
     const newUser = await createUser(user);
 
     // Set public metadata

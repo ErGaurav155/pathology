@@ -7,12 +7,12 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { getAllAppointments } from "@/lib/action/appointment.actions";
+import { getAllAppointments } from "@/lib/action/Appointment.actions";
 import { AppointmentParams } from "@/types/types";
 import { Footer } from "@/components/shared/Footer";
 import { useAuth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import { getUserById } from "@/lib/action/user.action";
+import { getUserById } from "@/lib/action/User.action";
 
 const columnHelper = createColumnHelper<AppointmentParams>();
 
@@ -64,13 +64,13 @@ const columns = [
   }),
 ];
 
-const AppointmentTable = async () => {
-  const { userId } = useAuth();
+const AppointmentTable = () => {
+  // const { userId } = useAuth();
 
-  if (!userId) redirect("/sign-in");
+  // if (!userId) redirect("/sign-in");
 
-  const user = await getUserById(userId);
-  const userID = user._id;
+  // const user = await getUserById(userId);
+  // const userID = user._id;
 
   // if (userID !== ) {
   //    return (
