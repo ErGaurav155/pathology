@@ -3,9 +3,9 @@ import React from "react";
 
 const InfoComp = () => {
   return (
-    <div className="container my-5  mx-auto">
+    <div className="container mt-5  mx-auto">
       <div className="flex flex-wrap gap-6">
-        <div className="flex flex-1 gap-3 justify-center items-center bg-blue-700 text-white rounded-lg py-10 px-14 group transform transition hover:-translate-y-2 w-full">
+        <div className="flex flex-1 gap-3 justify-center items-center bg-blue-700 text-white rounded-lg       p-3 md:py-4 md:px-5  group transform transition hover:-translate-y-2 w-full">
           <div>
             <PhoneIcon className="size-6" />
           </div>
@@ -22,7 +22,7 @@ const InfoComp = () => {
           </div>
         </div>
 
-        <div className="flex flex-1 gap-3 justify-center items-center bg-blue-700 text-white rounded-lg py-10 px-14 group transform transition hover:-translate-y-2 w-full">
+        <div className="flex flex-1 gap-3 justify-center items-center bg-blue-700 text-white rounded-lg p-3 md:py-4 md:px-5  group transform transition hover:-translate-y-2 w-full">
           <div>
             <MapPin className="size-6" />
           </div>
@@ -35,7 +35,7 @@ const InfoComp = () => {
           </div>
         </div>
 
-        <div className="flex flex-1 gap-3 justify-center items-center bg-blue-700 text-white rounded-lg py-10 px-14 group transform transition hover:-translate-y-2 w-full">
+        <div className="flex flex-1 gap-3 justify-center items-center bg-blue-700 text-white rounded-lg p-3 md:py-4 md:px-5   transform transition hover:-translate-y-2 w-full">
           <div>
             <Clock className="size-6" />
           </div>

@@ -6,7 +6,7 @@ import Image from "next/image";
 import Logo from "/public/assets/img/file.png";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import StickyWhatsAppButton from "./WhatsApp";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 export function NavBar() {
   const [openNav, setOpenNav] = useState(false);
@@ -67,9 +67,9 @@ export function NavBar() {
       <li>
         <a
           href="/contactUs"
-          className="flex hover:text-indigo-500 active:text-indigo-500 font-thin  text-md md:font-light md:text-lg"
+          className="flex  hover:text-indigo-500 active:text-indigo-500 font-thin  text-md md:font-light md:text-lg"
         >
-          Contact Us
+          ContactUs
         </a>
       </li>
     </ul>
@@ -84,7 +84,7 @@ export function NavBar() {
       <div className="flex items-center w-full justify-between text-blue-gray-900">
         <Link
           href="/"
-          className=" w-6/12 sm:w-3/12  cursor-pointer py-1.5 font-bold text-xl"
+          className=" w-6/12 sm:w-2/12  cursor-pointer py-1.5 font-bold text-xl"
         >
           <Image
             alt="image"
@@ -104,10 +104,38 @@ export function NavBar() {
           onClick={() => router.push("/Appointment")}
           className="text-white 
              hidden sm:inline-block
-               w-3/12  "
+               w-2/12 py-2 px-1 border border-sky-900"
         >
-          <span>Book Appointment</span>
+          Appointment
         </Button>
+
+        <SignedIn>
+          <Button
+            size="md"
+            color="white"
+            variant="gradient"
+            onClick={() => router.push("/admin")}
+            className="text-black 
+             hidden sm:inline-block border border-black
+               w-1/12  py-2 px-1 overflow-hidden"
+          >
+            Dashboard
+          </Button>
+          <UserButton afterSignOutUrl="/" />
+        </SignedIn>
+        <SignedOut>
+          <Button
+            size="md"
+            color="white"
+            variant="gradient"
+            onClick={() => router.push("/sign-up")}
+            className="text-black 
+             hidden sm:inline-block border border-black
+               w-1/12  py-2 px-1 "
+          >
+            Admin
+          </Button>
+        </SignedOut>
 
         <IconButton
           variant="text"
@@ -128,11 +156,36 @@ export function NavBar() {
           variant="gradient"
           color="indigo"
           size="sm"
-          className=""
+          className="border border-sky-900"
           onClick={() => router.push("/Appointment")}
         >
-          <span>Book Appointment</span>
+          <span> Appointment</span>
         </Button>
+
+        <SignedIn>
+          <Button
+            fullWidth
+            size="sm"
+            color="white"
+            variant="gradient"
+            onClick={() => router.push("/admin")}
+            className="mt-2 border border-black text-black "
+          >
+            Dashboard
+          </Button>
+        </SignedIn>
+        <SignedOut>
+          <Button
+            fullWidth
+            size="sm"
+            color="white"
+            variant="gradient"
+            onClick={() => router.push("/sign-up")}
+            className="mt-2 border border-black text-black "
+          >
+            Admin
+          </Button>
+        </SignedOut>
       </Collapse>
     </Navbar>
   );

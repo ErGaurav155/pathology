@@ -25,10 +25,14 @@ import { Button } from "@/components/ui/button"; // Adjust the path as necessary
 import Image from "next/image"; // If you're using Next.js for Image component
 import { Phone } from "lucide-react";
 import { formSchema } from "@/lib/validator";
+import { useState } from "react";
+import { createAppointment } from "@/lib/action/appointment.actions";
+import { toast } from "../ui/use-toast";
 
 // Define the form validation schema with Zod
 
 const AppointmentSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,8 +49,49 @@ const AppointmentSection = () => {
   });
 
   // Submit handler
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values); // Handle form submission
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      setIsSubmitting(true);
+      console.log(values); // Handle form submission
+      const Appointmentdata = {
+        name: values.name,
+        phone: values.phone,
+        address: values.address,
+        date: values.date,
+        time: values.time,
+        doctor: values.doctor,
+        message: values.message,
+        test: values.test,
+        type: values.type,
+      };
+
+      const response = await createAppointment(Appointmentdata);
+
+      if (response) {
+        toast({
+          title: "Appointment Booked Successfully",
+          description: `We will Message You `,
+          duration: 2000,
+          className: "success-toast",
+        });
+      } else {
+        toast({
+          title: "Appointment booking Failed",
+          description: "Plz Try Again",
+          duration: 2000,
+          className: "error-toast",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Appointment booking Failed",
+        description: "Plz Try Again",
+        duration: 2000,
+        className: "error-toast",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -358,12 +403,21 @@ const AppointmentSection = () => {
 
                 {/* Submit Button */}
                 <div className="col-span-2">
-                  <Button
-                    type="submit"
-                    className="px-4 py-2 text-base md:text-xl hover:bg-indigo-600 bg-indigo-700 text-white w-full"
-                  >
-                    Send
-                  </Button>
+                  {isSubmitting ? (
+                    <Button
+                      type="submit"
+                      className="px-4 py-2 text-base md:text-xl hover:bg-indigo-600 bg-indigo-700 text-white w-full"
+                    >
+                      Submitting...
+                    </Button>
+                  ) : (
+                    <Button
+                      type="submit"
+                      className="px-4 py-2 text-base md:text-xl hover:bg-indigo-600 bg-indigo-700 text-white w-full"
+                    >
+                      Send
+                    </Button>
+                  )}
                 </div>
               </form>
             </Form>

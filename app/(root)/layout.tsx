@@ -18,6 +18,9 @@ export const metadata: Metadata = {
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="root no-scrollbar ">
+      <Banner />
+      <hr className="wrapper2" />
+      <NavBar />
       <MotionDiv
         variants={variants}
         initial="hidden"
@@ -30,15 +33,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         viewport={{ amount: 0 }}
         className=""
       >
-        <Banner />
-        <hr className="wrapper2" />
-        <NavBar />
-
         {children}
-        <AibotCollapse />
-
-        <Toaster />
       </MotionDiv>
+      <AibotCollapse />
+
+      <Toaster />
     </main>
   );
 };

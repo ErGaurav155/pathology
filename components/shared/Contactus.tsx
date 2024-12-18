@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
   Form,
   FormField,
@@ -22,8 +24,12 @@ import GoogleMapComponent from "@/components/shared/GoogleMapComp";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema } from "@/lib/validator";
+import { createAppointment } from "@/lib/action/appointment.actions";
+import { toast } from "../ui/use-toast";
 
 const ContactForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -40,8 +46,51 @@ const ContactForm = () => {
   });
 
   // Submit handler
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values); // Handle form submission
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      setIsSubmitting(true);
+      console.log(values); // Handle form submission
+      const Appointmentdata = {
+        name: values.name,
+        phone: values.phone,
+        address: values.address,
+        date: values.date,
+        time: values.time,
+        doctor: values.doctor,
+        message: values.message,
+        test: values.test,
+        type: values.type,
+      };
+
+      const response = await createAppointment(Appointmentdata);
+
+      if (response) {
+        toast({
+          title: "Appointment Booke Successfully",
+          description: `We will Message You `,
+          duration: 2000,
+          className: "success-toast",
+        });
+      } else {
+        toast({
+          title: "Appointment booking Failed",
+          description: `Note : Plz copy response in word or download images or audio if
+            you want,once page refresh you will never see them back `,
+          duration: 2000,
+          className: "error-toast",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Appointment booking Failed",
+        description: `Note : Plz copy response in word or download images or audio if
+          you want,once page refresh you will never see them back `,
+        duration: 2000,
+        className: "error-toast",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -338,12 +387,21 @@ const ContactForm = () => {
 
                 {/* Submit Button */}
                 <div className="col-span-2">
-                  <Button
-                    type="submit"
-                    className="px-4 py-2 text-base md:text-xl hover:bg-indigo-600 bg-indigo-700 text-white w-full"
-                  >
-                    Send
-                  </Button>
+                  {isSubmitting ? (
+                    <Button
+                      type="submit"
+                      className="px-4 py-2 text-base md:text-xl hover:bg-indigo-600 bg-indigo-700 text-white w-full"
+                    >
+                      Submitting...
+                    </Button>
+                  ) : (
+                    <Button
+                      type="submit"
+                      className="px-4 py-2 text-base md:text-xl hover:bg-indigo-600 bg-indigo-700 text-white w-full"
+                    >
+                      Send
+                    </Button>
+                  )}
                 </div>
               </form>
             </Form>

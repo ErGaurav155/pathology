@@ -19,7 +19,7 @@ const currentYear = new Date().getFullYear();
 
 export function Footer() {
   return (
-    <footer className=" w-full max-w-7xl m-auto    ">
+    <footer className=" w-full max-w-7xl    ">
       <InfoComp />
       <div className=" mt-10     rounded-t-lg flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-gray-900 text-center md:justify-between text-white p-4 md:p-10">
         <Image
