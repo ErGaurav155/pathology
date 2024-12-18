@@ -10,6 +10,9 @@ import {
 import { getAllAppointments } from "@/lib/action/appointment.actions";
 import { AppointmentParams } from "@/types/types";
 import { Footer } from "@/components/shared/Footer";
+import { useAuth } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
+import { getUserById } from "@/lib/action/user.action";
 
 const columnHelper = createColumnHelper<AppointmentParams>();
 
@@ -61,10 +64,30 @@ const columns = [
   }),
 ];
 
-const AppointmentTable = () => {
+const AppointmentTable = async () => {
+  const { userId } = useAuth();
+
+  if (!userId) redirect("/sign-in");
+
+  const user = await getUserById(userId);
+  const userID = user._id;
+
+  // if (userID !== ) {
+  //    return (
+  //     <div className="w-full  min-h-[100vh] flex flex-col justify-center items-center">
+  //          You Are Not Admin
+  //    </div>
+  //   );
+  // }
+
   const [appointments, setAppointments] = useState<AppointmentParams[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  // const user = useAuth();
+  // if (user.userId === ) {
 
+  // } else {
+
+  // }
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
