@@ -11,7 +11,7 @@ import { AppointmentParams } from "@/types/types";
 import { Footer } from "@/components/shared/Footer";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@clerk/nextjs";
-import { getAllAppointments } from "@/lib/action/appointment.actions";
+import { getAllAppointments, getOwner } from "@/lib/action/appointment.actions";
 
 const columnHelper = createColumnHelper<AppointmentParams>();
 
@@ -66,8 +66,7 @@ const AppointmentTable = () => {
         router.push("/sign-in");
         return;
       }
-
-      const ownerId = process.env.OWNER_USER_ID; // Store the Clerk owner ID in a public env variable
+      const ownerId = await getOwner();
       if (userId !== ownerId) {
         router.push("/");
         return;
@@ -75,10 +74,7 @@ const AppointmentTable = () => {
 
       try {
         const response = await getAllAppointments();
-        if (!response) {
-          router.push("/");
-          return;
-        }
+
         setData(response.data);
       } catch (error) {
         console.error("Error fetching appointments:", error);
