@@ -67,7 +67,7 @@ const AppointmentTable = () => {
         return;
       }
 
-      const ownerId = process.env.NEXT_PUBLIC_OWNER_USER_ID; // Store the Clerk owner ID in a public env variable
+      const ownerId = process.env.OWNER_USER_ID; // Store the Clerk owner ID in a public env variable
       if (userId !== ownerId) {
         router.push("/");
         return;
