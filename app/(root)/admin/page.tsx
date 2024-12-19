@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   createColumnHelper,
   flexRender,
@@ -11,6 +9,8 @@ import { AppointmentParams } from "@/types/types";
 import { Footer } from "@/components/shared/Footer";
 
 import { getAllAppointments } from "@/lib/action/appointment.actions";
+import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs";
 
 const columnHelper = createColumnHelper<AppointmentParams>();
 
@@ -62,62 +62,21 @@ const columns = [
   }),
 ];
 
-const AppointmentTable = () => {
-  // const { userId } = useAuth();
-
-  // if (!userId) redirect("/sign-in");
-
-  // const user = await getUserById(userId);
-  // const userID = user._id;
-
-  // if (userID !== ) {
-  //    return (
-  //     <div className="w-full  min-h-[100vh] flex flex-col justify-center items-center">
-  //          You Are Not Admin
-  //    </div>
-  //   );
-  // }
-
-  const [appointments, setAppointments] = useState<AppointmentParams[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  // const user = useAuth();
-  // if (user.userId === ) {
-
-  // } else {
-
-  // }
-  useEffect(() => {
-    const fetchAppointments = async () => {
-      try {
-        const response = await getAllAppointments(); // Fetch data
-        if (response.data) {
-          setAppointments(response.data); // Set fetched data
-        } else {
-          console.error("Failed to fetch appointments");
-        }
-      } catch (error) {
-        console.error("Error fetching appointments:", error);
-      } finally {
-        setLoading(false); // Ensure loading state is cleared
-      }
-    };
-
-    fetchAppointments();
-  }, []);
+const AppointmentTable = async () => {
+  const { userId } = await auth();
+  if (!userId) redirect("/sign-in");
+  const ownerId = process.env.OWNER_USER_ID; // Store the Clerk owner ID in .env
+  if (userId !== ownerId) {
+    redirect("/");
+  }
+  const response = await getAllAppointments(); // Fetch data
+  if (!response.data) redirect("/");
 
   const table = useReactTable({
-    data: appointments,
+    data: response.data,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
-
-  if (loading) {
-    return (
-      <div className="w-full  min-h-[100vh] flex flex-col justify-center items-center">
-        Loading...
-      </div>
-    ); // Show loading state
-  }
 
   return (
     <div className="w-full  min-h-[100vh] flex flex-col justify-between items-center">
