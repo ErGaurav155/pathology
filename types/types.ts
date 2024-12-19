@@ -10,18 +10,18 @@ export interface AppointmentParams {
   message?: string;
 }
 
-export declare type CreateUserParams = {
+export interface CreateUserParams {
   clerkId: string;
   email: string;
   username: string | null;
   firstName: string;
   lastName: string;
   photo: string;
-};
+}
 
-export declare type UpdateUserParams = {
+export interface UpdateUserParams {
   firstName: string;
   lastName: string;
   username: string | null;
   photo: string;
-};
+}
