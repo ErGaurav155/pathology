@@ -6,12 +6,16 @@ import Image from "next/image";
 import Logo from "/public/assets/img/file.png";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, useAuth, UserButton } from "@clerk/nextjs";
+import { getOwner } from "@/lib/action/appointment.actions";
 
 export function NavBar() {
   const [openNav, setOpenNav] = useState(false);
+  const [isOwn, setIsOwn] = useState(false);
+
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
+  const { userId } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +40,17 @@ export function NavBar() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  useEffect(() => {
+    const isOwner = async () => {
+      const ownerId = await getOwner();
+      if (userId !== ownerId) {
+        setIsOwn(false);
+      } else {
+        setIsOwn(true);
+      }
+    };
+    isOwner();
+  }, [router, userId]);
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-1 sm:mb-2 sm:mt-2 lg:mb-0  lg:mt-0 sm:flex-row items-center justify-evenly sm:gap-1 md:gap-2 lg:gap-6  text-black w-full ">
@@ -110,17 +125,19 @@ export function NavBar() {
         </Button>
 
         <SignedIn>
-          <Button
-            size="md"
-            color="white"
-            variant="gradient"
-            onClick={() => router.push("/admin")}
-            className="text-black 
+          {isOwn && (
+            <Button
+              size="md"
+              color="white"
+              variant="gradient"
+              onClick={() => router.push("/admin")}
+              className="text-black 
              hidden sm:inline-block border border-black
                w-1/12  py-2 px-1 overflow-hidden"
-          >
-            Dashboard
-          </Button>
+            >
+              Dashboard
+            </Button>
+          )}
           <UserButton afterSignOutUrl="/" />
         </SignedIn>
         <SignedOut>
