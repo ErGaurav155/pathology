@@ -75,11 +75,11 @@ const AppointmentTable = () => {
 
       try {
         const response = await getAllAppointments();
-        if (response.data) {
-          setData(response.data);
-        } else {
+        if (!response) {
           router.push("/");
+          return;
         }
+        setData(response.data);
       } catch (error) {
         console.error("Error fetching appointments:", error);
         router.push("/");
