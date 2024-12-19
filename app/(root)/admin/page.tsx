@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import {
   createColumnHelper,
   flexRender,
@@ -7,81 +9,100 @@ import {
 } from "@tanstack/react-table";
 import { AppointmentParams } from "@/types/types";
 import { Footer } from "@/components/shared/Footer";
-
+import { useRouter } from "next/navigation";
+import { useAuth } from "@clerk/nextjs";
 import { getAllAppointments } from "@/lib/action/appointment.actions";
-import { redirect } from "next/navigation";
-import { auth } from "@clerk/nextjs";
 
 const columnHelper = createColumnHelper<AppointmentParams>();
 
 const columns = [
   columnHelper.accessor("name", {
-    header: () => "Name",
+    header: "Name",
     cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
   }),
   columnHelper.accessor("phone", {
-    header: () => "Phone",
+    header: "Phone",
     cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
   }),
   columnHelper.accessor("address", {
-    header: () => "Address",
+    header: "Address",
     cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
   }),
   columnHelper.accessor("date", {
-    header: () => "Date",
+    header: "Date",
     cell: (info) => new Date(info.getValue()).toLocaleDateString(),
-    footer: (info) => info.column.id,
   }),
   columnHelper.accessor("time", {
-    header: () => "Time",
+    header: "Time",
     cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
   }),
   columnHelper.accessor("doctor", {
-    header: () => "Doctor",
+    header: "Doctor",
     cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
   }),
   columnHelper.accessor("test", {
-    header: () => "Test",
+    header: "Test",
     cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
   }),
   columnHelper.accessor("type", {
-    header: () => "Type",
+    header: "Type",
     cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
   }),
   columnHelper.accessor("message", {
-    header: () => "Message",
+    header: "Message",
     cell: (info) => info.getValue() || "N/A",
-    footer: (info) => info.column.id,
   }),
 ];
 
-const AppointmentTable = async () => {
-  const { userId } = await auth();
-  if (!userId) redirect("/sign-in");
-  const ownerId = process.env.OWNER_USER_ID; // Store the Clerk owner ID in .env
-  if (userId !== ownerId) {
-    redirect("/");
-  }
-  const response = await getAllAppointments(); // Fetch data
-  if (!response.data) redirect("/");
+const AppointmentTable = () => {
+  const { userId } = useAuth();
+  const router = useRouter();
+
+  const [data, setData] = useState<AppointmentParams[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!userId) {
+        router.push("/sign-in");
+        return;
+      }
+
+      const ownerId = process.env.NEXT_PUBLIC_OWNER_USER_ID; // Store the Clerk owner ID in a public env variable
+      if (userId !== ownerId) {
+        router.push("/");
+        return;
+      }
+
+      try {
+        const response = await getAllAppointments();
+        if (response.data) {
+          setData(response.data);
+        } else {
+          router.push("/");
+        }
+      } catch (error) {
+        console.error("Error fetching appointments:", error);
+        router.push("/");
+      }
+    };
+
+    fetchData();
+  }, [userId, router]);
 
   const table = useReactTable({
-    data: response.data,
+    data,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
 
+  if (data.length === 0) {
+    return <div>No appointments found</div>;
+  }
+
   return (
-    <div className="w-full  min-h-[100vh] flex flex-col justify-between items-center">
-      <div className="max-w-7xl w-full p-2 data-table  mt-4  md:mt-11 no-scrollbar">
-        <table className="shad-table  w-full  ">
+    <div className="w-full min-h-[100vh] flex flex-col justify-between items-center">
+      <div className="max-w-7xl w-full p-2 data-table mt-4 md:mt-11 no-scrollbar">
+        <table className="shad-table w-full">
           <thead className="bg-gray-300 text-center">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr
@@ -120,5 +141,3 @@ const AppointmentTable = async () => {
 };
 
 export default AppointmentTable;
-
-// Mock getAllAppointments function
