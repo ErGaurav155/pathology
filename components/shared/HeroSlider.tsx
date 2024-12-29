@@ -2,7 +2,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
-import Schedule from "./Schedule";
 
 // Sample slides data
 const slides = [
@@ -18,8 +17,7 @@ const slides = [
   {
     imageUrl: "assets/img/slider.jpg",
     title: "Your Most Trusted Health Partner!",
-    subtitle:
-      "Trusted By Leading Doctors & Hospitals.Get Accurate & Reliable Reports With Trend Analysis",
+    subtitle: "Get Accurate & Reliable Reports With Trend Analysis",
     buttons: [
       { text: "Get Appointment", href: "/Appointment", primary: true },
       { text: "About Us", href: "/Doctors", primary: false },

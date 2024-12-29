@@ -96,7 +96,7 @@ const AppointmentSection = () => {
   }
 
   return (
-    <section className="container shadow-lg my-5 rounded-md py-12 bg-gray-50  mx-auto">
+    <section className="container p-1  sm:p-3 md:p-8 shadow-lg my-5 rounded-md py-12 bg-gray-50  mx-auto">
       <div className="flex  flex-wrap items-center">
         {/* Left Column */}
         <div className="w-full  sm:hidden lg:block lg:w-1/2">
