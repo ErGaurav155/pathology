@@ -12,9 +12,8 @@ const IBMPlex = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "CriconAi",
-  description:
-    "AI-powered text,images and audio generators for content creators",
+  title: "Shriniwas Pathology",
+  description: "We Provide Medical Services That You Can Trust",
 };
 
 export default function RootLayout({

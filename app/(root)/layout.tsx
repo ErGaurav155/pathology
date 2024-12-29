@@ -12,8 +12,8 @@ const variants = {
   visible: { opacity: 1 },
 };
 export const metadata: Metadata = {
-  title: "AI Tools For Content Creators",
-  description: "AI-powered content creation technology for content creators",
+  title: "Shriniwas Pathology Lab",
+  description: "We Provide Medical Services That You Can Trust",
 };
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (

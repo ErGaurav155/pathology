@@ -71,8 +71,7 @@ const ContactForm = () => {
       } else {
         toast({
           title: "Appointment booking Failed",
-          description: `Note : Plz copy response in word or download images or audio if
-            you want,once page refresh you will never see them back `,
+          description: `Plz Try Again `,
           duration: 2000,
           className: "error-toast",
         });
@@ -80,8 +79,7 @@ const ContactForm = () => {
     } catch (error) {
       toast({
         title: "Appointment booking Failed",
-        description: `Note : Plz copy response in word or download images or audio if
-          you want,once page refresh you will never see them back `,
+        description: `Plz Try Again `,
         duration: 2000,
         className: "error-toast",
       });

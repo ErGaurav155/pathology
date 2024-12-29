@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://criconai.com/sitemap.xml",
+    sitemap: "https://pathology-pink.vercel.app/sitemap.xml",
   };
 }
