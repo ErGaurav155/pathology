@@ -3,14 +3,13 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 
 import User from "@/lib/database/models/user.model";
-import { clearCachedConnection, connectToDatabase } from "../database/mongoose";
+import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
 import { CreateUserParams, UpdateUserParams } from "@/types/types";
 
 // CREATE
 export async function createUser(user: CreateUserParams) {
   try {
-    await clearCachedConnection();
     await connectToDatabase();
     const newUser = await User.create(user);
     console.log(newUser);
