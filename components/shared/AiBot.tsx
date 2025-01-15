@@ -57,7 +57,6 @@ export default function AibotCollapse() {
 
         <div id="chatbot-widget-container"></div>
 
-        {/* Load the widget loader script */}
         <Script
           strategy="afterInteractive"
           src="https://ainspire-tech.vercel.app/widget-loader.js?userId=678382af7dcf8cebae580bec&agentId=ai-agent-e-commerce"
