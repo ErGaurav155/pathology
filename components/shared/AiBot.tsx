@@ -31,7 +31,6 @@ export default function AibotCollapse() {
           open ? "border" : "border-none"
         } sm:w-96 h-[90vh] max-h-[90vh] bg-gray-50 flex flex-col gap-4 rounded-xl shadow-xl shadow-gray-700 z-20 `}
       >
-        {/* Header */}
         <div className="flex p-4 items-center justify-between gap-2 w-full border-b">
           <div className="pl-3 w-full flex items-center text-nowrap justify-start gap-4">
             <div className="border w-14 h-14 p-3 rounded-full bg-gray-200">
